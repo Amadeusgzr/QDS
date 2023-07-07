@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estiloIndex.css">
+    <link rel="icon" href="img/logoRojo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Geologica&display=swap" rel="stylesheet">
+    <title>QDS</title>
+</head>
+<body>
+
+    <header>
+        <div id="div-logo">
+            <a href="index.html"><img src="img/logoBlanco.png" alt="Logo"></a>
+        </div>
+        <nav>
+            <a href="">Inicio</a>
+            <a href="">Envíos</a>
+            <a href="">Ayuda</a>
+            <a href="">Nuestro Servicio</a>
+        </nav>
+        <a href="html/aplicacion-almacenero.html">
+            <input id="boton-login" type="button" value="Iniciar Sesión" class="boton-header">
+        </a>
+    </header>
+
+    <h1>quick distribution service</h1>
+
+    <form action="" id="form-rastreo">
+        <legend>Rastrear envío</legend>
+        <p>Ingresa el código del envío para poder rastrearlo</p>
+        <div id="div-datos-rastreo">
+            <input id="codigo-rastreo" type="text" placeholder="xxxx-xxxx-xxxx" maxlength="14" autocomplete="off" required size="13">
+            <input id="submit-rastreo" type="submit" value="Rastrear">
+        </div>
+    </form>
+
+    <footer>
+        <div id="div-footer1">
+            <h2>Contacto</h2>
+            <ul>
+                <li>+598 91 234 567</li>
+                <li>2525 2525</li>
+                <li>qds@gmail.com</li>
+            </ul>
+        </div>
+        <div id="div-footer2">
+            <h2>Envíanos un mensaje</h2>
+            <form action="" id="form-mensaje">
+                <div id="div-inputs">
+                    <input type="text" name="" id="" placeholder="Nombre">
+                    <input type="email" name="" id="" placeholder="Correo electrónico">
+                </div>
+                <div id="div-textarea">
+                    <textarea name="" id="" cols="30" rows="4" placeholder="Detalles (opcional)"></textarea>
+                </div>
+                <div id="div-submit-mensaje">
+                    <input type="submit" value="Enviar">
+                </div>
+            </form>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
