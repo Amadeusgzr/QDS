@@ -1,0 +1,1193 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Geologica';
+}
+
+:root{
+    --color-principal: #BE1C2D;
+    --color-secundario: #80101B;
+    --sombra-blanca: 0px 0px 5px #fff;
+}
+
+body::-webkit-scrollbar{
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: var(--color-secundario);
+}
+
+body{
+    background-image: url(../img/fondo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/************************************************
+*                                               *
+*                   HEADER                      *
+*                                               *
+*************************************************/
+
+header{
+    width: 100%;
+    height: 100px;
+    min-height: 100px;
+    background: linear-gradient(to right, #430808, var(--color-principal));
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#div-logo{
+    margin-left: 20px;
+}
+
+#div-logo img{
+    height: 90px;
+    object-fit: cover;
+}
+
+nav{
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a{
+    color: #fff;
+    font-size: 1.5em;
+    text-decoration: none;
+    text-shadow: var(--sombra-blanca);
+    transition-duration: .1s;
+    padding: 30px 0;
+}
+
+nav a:hover{
+    transform: translateY(-2px);
+}
+
+#div-cuenta{
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+#div-cuenta img{
+    height: 50px;
+    filter: drop-shadow(var(--sombra-blanca));
+}
+
+#p-nombre{
+    color: #fff;
+    margin-left: 20px;
+    text-shadow: var(--sombra-blanca);
+    font-size: 1.2em;
+}
+
+#boton-login{
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 1em;
+    padding: .5em 1em;
+    color: #fff;
+    border: none;
+    outline: none;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    filter: drop-shadow(var(--sombra-blanca));
+}
+
+#menu-cuenta{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1em;
+    top: 150%;
+    right: 0;
+    width: 150%;
+    height: 150px;
+    background-color: #aaa;
+}
+
+#header-ingresado{
+    justify-content: center;
+}
+
+#contenido-header{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/************************************************
+*                                               *
+*                   FOOTER                      *
+*                                               *
+*************************************************/
+
+footer{
+    width: 100%;
+    min-height: 350px;
+    background-color: #000;
+    margin-top: 200px;
+    display: flex;
+    padding: 30px;
+}
+
+#div-footer1{
+    flex-grow: 1;
+    height: 100%;
+    padding: 30px;
+}
+
+footer h2{
+    color: #fff;
+    text-shadow: var(--sombra-blanca);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: calc(1em + 1vw);
+}
+
+ul{
+    margin: 20px 0 40px 80px;
+    color: #fff;
+    font-size: calc(.7em + .7vw);
+    width: calc(5em + 5vw);
+}
+
+li{
+    line-height: 2;
+}
+
+#div-footer2{
+    flex-grow: 2;
+    height: 100%;
+    padding: 30px;
+}
+
+#form-mensaje{
+    width: 80%;
+    margin: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#div-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#div-inputs input{
+    width: 200px;
+    font-size: 1.2em;
+    padding: .5rem;
+    background-color: transparent;
+    border: none;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+}
+
+#form-mensaje input::placeholder{
+    color: #ddd;
+}
+
+#div-textarea{
+    display: flex;
+    align-items: center;
+}
+
+#txt-mensaje-footer{
+    font-size: 1.2em;
+    padding: .5rem;
+    background-color: transparent;
+    border: none;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    resize: none;
+}
+
+#txt-mensaje-footer::placeholder{
+    color: #ddd;
+}
+
+#div-submit-mensaje{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#div-submit-mensaje input{
+    font-size: 1.2em;
+    padding: .5rem;
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+
+/************************************************
+*                                               *
+*                   INDEX                       *
+*                                               *
+*************************************************/
+
+#h1-index{
+    color: var(--color-principal);
+    text-shadow: 0 0 5px #000;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: calc(1em + 2vw);
+    margin-top: 150px;
+    letter-spacing: 10px;
+    font-weight: bolder;
+}
+
+#form-rastreo{
+    width: calc(1em + 30vw);
+    width: 500px;
+    min-height: 250px;
+    background-color: #86858536;
+    border: 1px solid #4040404d;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px;
+    margin: 50px auto;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+legend{
+    font-size: 1.6em;
+    text-shadow: 0 0 5px #555;
+}
+
+#p-rastreo{
+    font-size: 1.2em;
+    margin: 10px 0;
+    text-shadow: 0 0 5px #555;
+}
+
+#codigo-rastreo{
+    font-size: 1.2em;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    filter: drop-shadow(2px 2px 5px #333);
+}
+
+#submit-rastreo{
+    border-radius: 10px;
+    font-size: 1.2em;
+    padding: 10px;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    transition-duration: .1s;
+    filter: drop-shadow(2px 2px 5px #333);
+}
+
+#submit-rastreo:hover{
+    cursor: pointer;
+    background-color: var(--color-principal);
+    color: #fff;
+}
+
+/************************************************
+*                                               *
+*                   LOGIN                       *
+*                                               *
+*************************************************/
+
+#form-login{
+    min-width: 300px;
+    max-width: 400px;
+    min-height: 550px;
+    background-color: #86858536;
+    border: 1px solid #4040404d;
+    backdrop-filter: blur(5px);
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 0 5px;
+    flex-wrap: wrap;
+}
+
+#h1-login{
+    padding: 20px 0;
+}
+
+.div-datos-login{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+#submit-login{
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    padding: 10px;
+    border: none;
+    outline: none;
+    transition-duration: .1s;
+    filter: drop-shadow(2px 2px 5px #333);
+}
+
+#submit-login:hover{
+    cursor: pointer;
+    background-color: var(--color-principal);
+    color: #fff;
+}
+
+hr{
+    margin: 25px 0;
+}
+
+#a-contraseña{
+    text-align: center;
+    color: var(--color-principal);
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+/************************************************
+*                                               *
+*               SOBRE NOSOTROS                  *
+*                                               *
+*************************************************/
+
+#art-sobre-nosotros{
+    max-width: 900px;
+    margin: 2% auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sect-sobre-nosotros{
+    width: 100%;
+    height: 50%;
+    background-color: #ccccccb1;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px;
+    padding: 30px;
+    border: 1px solid #4040404d;
+    border-radius: 20px;
+}
+
+.sect-sobre-nosotros h2{
+    font-size: calc(1em + 1vw);
+}
+
+.sect-sobre-nosotros p{
+    padding-left: 20px;
+}
+
+/************************************************
+*                                               *
+*            APLICACION ALMACENERO              *
+*                                               *
+*************************************************/
+
+#div-op-cuenta{
+    width: 220px;
+    background-color: #aaa;
+    position: absolute;
+    right: 0;
+    display: flex;
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: solid 1px #000;
+    border-left: solid 1px #000;
+    transform: translateY(-500px);
+    visibility: visible;
+    z-index: -10;
+    animation-fill-mode: forwards;
+}
+
+@keyframes desplegar-menu {
+    0%{
+        visibility: visible;
+    }
+    100%{
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+
+#btn-cerrar-menu{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.3em;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    border-top: 1px solid #777;
+}
+
+#btn-cerrar-menu:hover{
+    background-color: var(--color-principal);
+}
+
+.a-op-cuenta{
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 15px;
+}
+
+.a-op-cuenta:hover{
+    background-color: #bbb;
+    cursor: pointer;
+}
+
+/*   OPCIONES   */
+
+#main-almacenero{
+    margin: 4em auto;
+    padding: 20px;
+    display: grid;
+    grid-gap: 20px;
+    justify-content: center;
+    grid-template-columns: repeat(2,minmax(380px, 500px));
+    flex-wrap: wrap;
+}
+
+.opcion-almacenero{
+    background-color: #86858536;
+    border: 1px solid #000;
+    backdrop-filter: blur(5px);
+    padding: 50px;
+    user-select: none;
+    transition-duration: .1s;
+    color: #000;
+    text-decoration: none;
+    box-shadow: 0 0 5px;
+    border-radius: 30px;
+}
+
+.opcion-almacenero:hover{
+    transform: scale(1.01);
+}
+
+.opcion-almacenero:visited{
+    color: #000;
+}
+
+.div-img-icono{
+    width: 70px;
+    height: 70px;
+    position: relative;
+    margin-top: 1em;
+    float: right;
+}
+
+.div-img-icono img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.div-img-icono2{
+    width: 220px;
+    height: 70px;
+    margin-top: 1em;
+    float: right;
+}
+
+.div-img-icono2 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#div-cuenta a{
+    color: #fff;
+    margin-left: 20px;
+    text-shadow: var(--sombra-blanca);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/*   INGRESAR PAQUETE   */
+
+#form-paquete{
+    width: 700px;
+    min-height: 550px;
+    background-color: #86858536;
+    border: 1px solid #4040404d;
+    backdrop-filter: blur(5px);
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 0 5px;
+    flex-wrap: wrap;
+}
+
+.div-datos-paq{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+legend{
+    font-size: 1.6em;
+    text-shadow: 0 0 5px #333;
+}
+
+#select-remitente-paq{
+    margin: 20px 0 0 0;
+    padding: 5px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0 0 5px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--color-principal);
+}
+
+#mail-destinatario-paq{
+    padding: 5px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0 0 5px;
+    outline: none;
+    border: 1px solid var(--color-principal);
+}
+
+.p-paquete{
+    margin: 20px 0 10px 0;
+    font-size: 1.2em;
+    text-shadow: 0 0 5px #555;
+}
+
+.destino-paq{
+    padding: 5px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0 0 5px;
+    outline: none;
+    margin: 10px 0;
+    border: 1px solid var(--color-principal);
+}
+
+#p-fragil{
+    margin: 50px 0 20px 0;
+}
+
+input[type="radio"]{
+    transform: scale(1.2);
+}
+
+label{
+    font-size: 1.2em;
+}
+
+label[for="radio-paq-no"]{
+    margin-left: 10px;
+}
+
+#select-fragil-paq{
+    margin-left: 5px;
+    padding: 2px;
+    font-size: 1em;
+    border: none;
+    box-shadow: 0 0 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+#detalles-paq{
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: 1px solid var(--color-principal);
+    padding: 5px;
+    font-size: 1em;
+    box-shadow: 0 0 5px;
+}
+
+#select-categoria-paq{
+    margin-top: 10px;
+    padding: 2px;
+    font-size: 1em;
+    border: none;
+    box-shadow: 0 0 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.submit-paquete{
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    padding: 10px;
+    border: none;
+    outline: none;
+    transition-duration: .1s;
+    filter: drop-shadow(2px 2px 5px #333);
+}
+
+.submit-paquete:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+/*   INGRESAR LOTE   */
+
+#div-tabla-lote{
+    width: 95%;
+    height: 620px;
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 1% 0;
+    border-radius: 20px;
+    background-color: #86858536;
+    border: 1px solid #4040404d;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 5px;
+}
+
+#h1-lote{
+    text-align: center;
+    margin: 20px 0;
+}
+
+.contenedor-tabla{
+    max-height: 430px;
+    overflow-y: scroll;
+}
+
+#tabla-lote{
+    width: 95%;
+    border: 2px solid #000;
+    background-color: #ddd;
+    user-select: none;
+    margin: auto;
+}
+
+#tabla-lote th{
+    font-size: 1.2em;
+    text-transform: uppercase;
+    padding: 2px 10px;
+    background-color: #bbb;
+    position: sticky;
+    top: 0;
+}
+
+#tabla-lote td{
+    font-size: 1.2em;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+#tabla-lote tr:hover{
+    background-color: #ccc;
+}
+
+#mov-lote{
+    width: 220px;
+    height: 50px;
+    float: right;
+    margin: 15px 2.5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#mov-lote button{
+    border-radius: 10px;
+    font-size: 1.2em;
+    padding: 10px;
+    border: none;
+    outline: none;
+    transition-duration: .1s;
+    filter: drop-shadow(2px 2px 5px #333);
+    transition-duration: .1s;
+}
+
+#mov-lote button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.boton-volver{
+    background-color: var(--color-principal);
+    color: #fff;
+}
+
+.boton-siguiente{
+    background-color: #e5c619;
+    color: #000;
+}
+
+/*   INGRESAR LOTE 2   */
+
+#form-lote{
+    width: 700px;
+    min-height: 550px;
+    background-color: #86858536;
+    border: 1px solid #4040404d;
+    backdrop-filter: blur(5px);
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 0 5px;
+    flex-wrap: wrap;
+}
+
+.div-datos-lote{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.div-datos-lote a{
+    margin-top: 30px;
+}
+
+legend{
+    font-size: 1.6em;
+    text-shadow: 0 0 5px #333;
+}
+
+#select-almacen-lote{
+    margin: 20px 0 0 0;
+    padding: 5px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0 0 5px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--color-principal);
+}
+
+#select-camion-lote{
+    margin: 20px 0 0 0;
+    padding: 5px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0 0 5px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--color-principal);
+}
+
+.p-lote{
+    margin: 20px 0 10px 0;
+    font-size: 1.2em;
+    text-shadow: 0 0 5px #555;
+}
+
+.tiempo-lote{
+    padding: 5px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0 0 5px;
+    outline: none;
+    margin: 10px 0;
+    border: 1px solid var(--color-principal);
+}
+
+#p-fragil-lote{
+    margin: 20px 0;
+}
+
+label[for="radio-lote-no"]{
+    margin-left: 10px;
+}
+
+#select-fragil-lote{
+    margin-left: 5px;
+    padding: 2px;
+    font-size: 1em;
+    border: none;
+    box-shadow: 0 0 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+#detalles-lote{
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: 1px solid var(--color-principal);
+    padding: 5px;
+    font-size: 1em;
+    box-shadow: 0 0 5px;
+}
+
+#select-categoria-lote{
+    margin-top: 10px;
+    padding: 2px;
+    font-size: 1em;
+    border: none;
+    box-shadow: 0 0 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.submit-lote{
+    width: 100%;
+    border-radius: 10px;
+    font-size: 1.2em;
+    padding: 10px;
+    border: none;
+    outline: none;
+    transition-duration: .1s;
+    filter: drop-shadow(2px 2px 5px #333);
+    float: right;
+}
+
+.submit-lote:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+/*   INGRESAR LOTE 3   */
+
+#h2-lote{
+    margin: 1% 2.5% 0 2.5%;
+}
+
+#p-resumen-lote{
+    line-height: 1.5;
+}
+
+#cabecera-lote{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+#cabecera-lote div{
+    width: 45%;
+    height: 100%;
+}
+
+.contenedor-tabla-3{
+    max-height: 300px;
+    overflow-y: scroll;
+    padding: 20px 0;
+}
+
+#div-tabla-lote-3{
+    width: 95%;
+    height: 650px;
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 1% 0;
+    border-radius: 20px;
+    background-color: #86858536;
+    border: 1px solid #4040404d;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 5px;
+}
+
+/************************************************
+*                                               *
+*            APLICACION CAMIONERO               *
+*                                               *
+*************************************************/
+
+#tabla-camionero{
+    width: 95%;
+    border: 2px solid #000;
+    background-color: #ddd;
+    margin: 100px auto;
+    user-select: none;
+}
+
+#tabla-camionero th{
+    font-size: 1.2em;
+    text-transform: uppercase;
+    padding: 2px 10px;
+    background-color: #bbb;
+}
+
+#tabla-camionero td{
+    font-size: 1.2em;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+#tabla-camionero tr:hover{
+    background-color: #ccc;
+}
+
+/************************************************
+*                                               *
+*            APLICACION SEGUIMIENTO             *
+*                                               *
+*************************************************/
+
+#h1-seguimiento{
+    text-align: center;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #ccc;
+    outline: 2px solid #aaa;
+}
+
+#tabla-seguimiento{
+    width: 95%;
+    border: 2px solid #000;
+    background-color: #ddd;
+    margin: 100px auto;
+    user-select: none;
+}
+
+#tabla-seguimiento th{
+    font-size: 1.2em;
+    text-transform: uppercase;
+    padding: 2px 10px;
+    background-color: #bbb;
+}
+
+#tabla-seguimiento td{
+    font-size: 1.2em;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+#tabla-seguimiento tr:hover{
+    background-color: #ccc;
+}
+
+/************************************************
+*                                               *
+*            MEDIA QUERIES                      *
+*                                               *
+*************************************************/
+
+@media screen and (max-width: 1366px){
+    
+    #div-footer1{
+        flex-grow: 1;
+    }
+
+}
+
+@media screen and (max-width: 1060px){
+    
+    nav{
+        width: 600px;
+    }
+
+}
+
+@media screen and (max-width: 900px){
+    
+    #header-no-ingresado{
+        flex-wrap: wrap;
+        height: 400px;
+    }
+
+    nav{
+        width: 100%;
+        height: 150px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+    }
+
+    nav a{
+        padding: 0;
+    }
+
+    #div-logo{
+        margin: 0;
+    }
+
+    #boton-login{
+        margin: 0;
+    }
+
+    footer{
+        flex-wrap: wrap;
+    }
+
+    #form-mensaje{
+        margin-left: 0;
+    }
+
+    #div-footer2, #div-footer1{
+        padding: 0;
+    }
+
+    #detalles-paq, #div-inputs{
+        width: 100%;
+    }
+
+    #form-paquete{
+        width: 300px;
+        height: 1150px;
+        justify-content: stretch;
+    }
+
+    .div-datos-paq{
+        width: 100%;
+        height: 50%;
+    }
+
+    #p-fragil{
+        margin: 30px 0 20px 0;
+    }
+
+    #select-fragil-paq{
+        margin-top: 20px;
+        margin-left: 0;
+    }
+
+    #submit-paquete{
+        margin-top: 30px;
+    }
+
+    #form-lote{
+        width: 300px;
+        height: 1150px;
+        justify-content: space-around;
+    }
+
+    .div-datos-lote{
+        width: 100%;
+        height: 50%;
+    }
+
+    #form-lote:nth-child(2){
+        height: 45%;
+    }
+
+    #select-fragil-lote{
+        margin-top: 20px;
+        margin-left: 0;
+    }
+
+    #submit-lote{
+        margin-top: 30px;
+    }
+
+    #tabla-camionero th{
+        font-size: calc(1vw + .5em);
+    }
+
+    #tabla-camionero td{
+        font-size: calc(1vw + .5em);
+    }
+
+    #tabla-seguimiento th{
+        font-size: calc(1vw + .5em);
+    }
+
+    #tabla-seguimiento td{
+        font-size: calc(1vw + .5em);
+    }
+
+    #h1-lote{
+        font-size: calc(1vw + 1em);
+    }
+
+    #tabla-lote th{
+        font-size: calc(1vw + .5em);
+    }
+
+    #tabla-lote td{
+        font-size: calc(1vw + .5em);
+    }
+
+    #h2-lote{
+        font-size: calc(1vw + 1em);
+    }
+
+    #p-resumen-lote{
+        font-size: calc(1vw + .5em);
+    }
+
+    #div-tabla-lote-3{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    #main-almacenero{
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+
+}
+
+@media screen and (max-width: 620px){
+    
+    #form-rastreo{
+        width: 95%;
+    }
+
+    #div-datos-rastreo{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #codigo-rastreo, #submit-rastreo{
+        width: 200px;
+    }
+
+    #submit-rastreo{
+        margin: 20px 0 0;
+    }
+
+    ul{
+        width: 80%;
+    }
+
+    #form-login{
+        width: 95%;
+    }
+
+    #div-inputs input{
+        width: 90%;
+    }
+
+    #div-textarea{
+        width: 90%;
+    }
+
+    #div-footer-2{
+        padding: 0;
+        width: 50%;
+    }
+
+    #form-mensaje{
+        width: 250px;
+    }
+
+}
