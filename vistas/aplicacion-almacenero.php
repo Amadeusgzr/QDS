@@ -19,7 +19,7 @@ require 'plantillas/menu-cuenta.php';
             <p>Crea un lote desde cero</p>
             <div class="div-img-icono"><img src="img/iconos/lote.png" alt=""></div>
         </a>
-        <a href="" class="opcion-almacenero" id="op3">
+        <a href="asignar-paquetes-lote.php" class="opcion-almacenero" id="op3">
             <h2>Asignar Paquetes a Lote</h2>
             <p>Asigne paquetes a los diferentes lotes</p>
             <div class="div-img-icono2"><img src="img/iconos/paquete-lote.png" alt=""></div>
