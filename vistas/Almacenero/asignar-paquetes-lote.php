@@ -1,7 +1,7 @@
 <?php
-
-require 'plantillas/headerIngresado.php';
-require 'plantillas/menu-cuenta.php';
+echo "<link rel='stylesheet' href='../css/estilos.css'>";
+require '../plantillas/headerIngresado.php';
+require '../plantillas/menu-cuenta.php';
 
 ?>
 

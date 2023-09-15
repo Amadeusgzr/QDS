@@ -1,5 +1,5 @@
 <?php
-
+echo "<link rel='stylesheet' href='vistas/css/estilos.css'>";
 require 'vistas/plantillas/headerIndex.php';
 
 ?>

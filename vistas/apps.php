@@ -1,8 +1,8 @@
-<a href="aplicacion-almacenero.php">Almacenero</a><br>
+<a href="Almacenero/aplicacion-almacenero.php">Almacenero</a><br>
 <br>
-<a href="aplicacion-camionero.php">Camionero</a><br>
+<a href="Camionero/aplicacion-camionero.php">Camionero</a><br>
 <br>
-<a href="aplicacion-administrador.php">Administrador</a><br>
+<a href="Backoffice/aplicacion-administrador.php">Administrador</a><br>
 
 <style>
     a{

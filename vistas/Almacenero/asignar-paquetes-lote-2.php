@@ -1,8 +1,7 @@
 <?php
-
-require 'plantillas/headerIngresado.php';
-require 'plantillas/menu-cuenta.php';
-
+echo "<link rel='stylesheet' href='../css/estilos.css'>";
+require '../plantillas/headerIngresado.php';
+require '../plantillas/menu-cuenta.php';
 ?>
 
     <div id="div-tabla-lote">
@@ -90,7 +89,7 @@ require 'plantillas/menu-cuenta.php';
         </div>
     </div>
 
-    <script src="js/asignar-paquetes-lote-2.js"></script>
+    <script src="../js/asignar-paquetes-lote-2.js"></script>
 
 </body>
 </html>
