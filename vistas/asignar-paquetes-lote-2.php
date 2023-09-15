@@ -10,12 +10,12 @@ require 'plantillas/menu-cuenta.php';
         <div class="contenedor-tabla">
             <table id="tabla-lote">
                 <tr class="fila-ingreso-lote">
-                    <th>ID del lote</th>
+                    <th>ID del paquete</th>
                     <th>Destino</th>
                     <th>Empresa remitente</th>
                     <th>Riesgo</th>
                 </tr>
-                <tr class="fila-ingreso-lote fila-opcion">
+                <tr class="fila-ingreso-lote fila-opcion" id="fila-1">
                     <td>1001</td>
                     <td>Gral. Rivera 1798</td>
                     <td>CRECOM</td>
@@ -78,12 +78,15 @@ require 'plantillas/menu-cuenta.php';
             </table>
         </div>
         <div id="mov-lote">
-            <a href="asignar-paquetes-lote.php">
-                <button class="boton-volver estilo-boton">Volver</button>
-            </a>
-            <a href="">
-                <button class="boton-siguiente estilo-boton">Siguiente</button>
-            </a>
+            <button class="btn-limpiar estilo-boton btns-as-lote">Borrar</button>
+            <div id="btns-mov-lote">
+                <a href="asignar-paquetes-lote.php">
+                    <button class="boton-volver estilo-boton btns-as-lote">Volver</button>
+                </a>
+                <!--a-->
+                    <button class="boton-siguiente estilo-boton btns-as-lote" id="submit-as-lote-2">Siguiente</button>
+                <!--a-->
+            </div>
         </div>
     </div>
 

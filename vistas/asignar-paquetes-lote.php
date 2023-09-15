@@ -7,6 +7,7 @@ require 'plantillas/menu-cuenta.php';
 
     <div id="div-elegir-lote">
         <h1 id="h1-lote">Asignar paquetes a lote</h1>
+        <p class="adv">El lote al cual se le quiera asignar los paquetes ya debe estar creado</p>
         <select name="" id="select-lote">
             <option value="" selected disabled>Seleccionar lote</option>
             <option value="">Lote 1</option>

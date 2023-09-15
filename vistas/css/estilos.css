@@ -9,6 +9,7 @@
     --color-principal: #BE1C2D;
     --color-secundario: #80101B;
     --verde-seleccion: #59b559;
+    --verde-semi-seleccion: #7bce7b;
     --sombra-blanca: 0px 0px 5px #fff;
 }
 
@@ -36,12 +37,11 @@ body{
 
 header{
     width: 100%;
-    height: 100px;
-    min-height: 100px;
     background: linear-gradient(to right, #430808, var(--color-principal));
     display: flex;
     align-items: center;
     justify-content: space-around;
+    padding: 10px 30px;
 }
 
 #div-logo{
@@ -49,23 +49,23 @@ header{
 }
 
 #div-logo img{
-    height: 90px;
+    height: 60px;
     object-fit: cover;
 }
 
 nav{
-    width: 600px;
     display: flex;
-    justify-content: space-around;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 30px;
 }
 
 nav a{
     color: #fff;
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-decoration: none;
     text-shadow: var(--sombra-blanca);
     transition-duration: .1s;
-    padding: 30px 0;
 }
 
 nav a:hover{
@@ -525,7 +525,7 @@ hr{
 
 /*   OPCIONES   */
 
-#main-almacenero{
+.main-aplicacion{
     margin: 3em auto;
     padding: 20px;
     display: grid;
@@ -535,7 +535,7 @@ hr{
     flex-wrap: wrap;
 }
 
-.opcion-almacenero{
+.opcion-aplicacion{
     background-color: #86858536;
     border: 1px solid #000;
     backdrop-filter: blur(5px);
@@ -548,11 +548,11 @@ hr{
     border-radius: 30px;
 }
 
-.opcion-almacenero:hover{
+.opcion-aplicacion:hover{
     transform: scale(1.01);
 }
 
-.opcion-almacenero:visited{
+.opcion-aplicacion:visited{
     color: #000;
 }
 
@@ -775,9 +775,11 @@ label[for="radio-paq-no"]{
     margin: 20px 0;
 }
 
-.contenedor-tabla{
-    max-height: 430px;
-    overflow-y: scroll;
+.adv{
+    text-align: center;
+    padding: 0 30px;
+    color: var(--color-principal);
+    font-weight: bolder;
 }
 
 #tabla-lote{
@@ -786,6 +788,7 @@ label[for="radio-paq-no"]{
     background-color: #ddd;
     user-select: none;
     margin: auto;
+    overflow-y: scroll;
 }
 
 #tabla-lote th{
@@ -803,6 +806,10 @@ label[for="radio-paq-no"]{
     text-align: center;
 }
 
+.fila-semi-seleccionada {
+    background-color: var(--verde-semi-seleccion);
+}
+
 .fila-seleccionada {
     background-color: var(--verde-seleccion);
 }
@@ -811,14 +818,26 @@ label[for="radio-paq-no"]{
     background-color: #ccc;
 }
 
+.btn-limpiar{
+    padding: 5px 15px;
+}
+
 #mov-lote{
     width: 95%;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
     gap: 20px;
     padding: 10px 0;
     margin: 0 auto;
+}
+
+#btns-mov-lote{
+    flex-grow: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .estilo-boton{
@@ -1248,7 +1267,7 @@ label[for="radio-lote-no"]{
         justify-content: space-around;
     }
 
-    #main-almacenero{
+    .main-aplicacion{
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
@@ -1323,5 +1342,15 @@ label[for="radio-lote-no"]{
     #tabla-seguimiento td{
         font-size: calc(1vw + .2em);
     }
+
+    .btns-as-lote{
+        flex-grow: 1;
+    }
+
+    #mov-lote button{
+        font-size: calc(1vw + .7em);
+    }
+
+    
 
 }
