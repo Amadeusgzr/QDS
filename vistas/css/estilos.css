@@ -1321,6 +1321,16 @@ label[for="radio-lote-no"]{
     text-shadow: 0 0 5px #555;
 }
 
+.boton-de-opcion{
+    width: 95%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.boton-de-opcion button{
+    width: 100%;
+}
+
 /************************************************
 *                                               *
 *            MEDIA QUERIES                      *
