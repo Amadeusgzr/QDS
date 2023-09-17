@@ -1,6 +1,15 @@
 <?php
+session_start();
 echo "<link rel='stylesheet' href='vistas/css/estilos.css'>";
-require 'vistas/plantillas/headerIndex.php';
+// Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
+if (!isset($_SESSION['nom_usu'])) {
+    require 'vistas/plantillas/headerIndex.php';
+} else{
+    require 'vistas/plantillas/headerIngresado.php';
+    require 'vistas/plantillas/menu-cuenta.php';
+
+}
+
 
 ?>
 

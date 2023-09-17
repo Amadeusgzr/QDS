@@ -1,7 +1,16 @@
+<?php
+session_start();
+
+// Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
+if (!isset($_SESSION['nom_usu'])) {
+    header("Location: permisos.php"); // Redirige a la página de inicio de sesión
+    exit();
+}
+?>
 <div id="div-op-cuenta">
     <div class="a-op-cuenta" id="btnIdioma">Idioma</div>
     <a href="" class="a-op-cuenta">Cambiar contraseña</a>
-    <a href="../../index.php" class="a-op-cuenta">Cerrar sesión</a>
+    <a href="../../controladores/logout.php" class="a-op-cuenta">Cerrar sesión</a>
     <p id="btn-cerrar-menu">x</p>
 </div>
 

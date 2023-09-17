@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
+if (!isset($_SESSION['nom_usu'])) {
+    header("Location: permisos.php"); // Redirige a la página de inicio de sesión
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,7 +25,7 @@
             </div>
             <div id="div-cuenta">
                 <img id="img-cuenta" src="../img/iconos/icono-usuario-blanco.png" alt="">
-                <p id="p-nombre">Usuario</p>
+                <p id="p-nombre"><?=$_SESSION['nom_usu']?></p>
             </div>
         </div>
     </header>
