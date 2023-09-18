@@ -3,7 +3,7 @@ session_start();
 
 // Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
 if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
-    header("Location: permisos.php"); // Redirige a la página de inicio de sesión
+    header("Location: ../permisos.php"); // Redirige a la página de inicio de sesión
     exit();
 }
 if($_GET['cedula']){

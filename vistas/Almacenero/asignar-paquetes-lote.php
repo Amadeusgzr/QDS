@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+// Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
+if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
+    if ($_SESSION['tipo_usu'] !== 'almacenero') {
+        header("Location: ../permisos.php"); // Redirige a la página de inicio de sesión
+        exit();
+    }
+}
 echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
@@ -18,7 +27,7 @@ require '../plantillas/menu-cuenta.php';
             <a href="asignar-paquetes-lote-2.php">
                 <button class="boton-siguiente estilo-boton">Siguiente</button>
             </a>
-            <a href="aplicacion-almacenero.php">
+            <a href="index.php">
                 <button class="boton-volver estilo-boton">Volver</button>
             </a>
         </div>

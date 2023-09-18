@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+// Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
+if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
+    if ($_SESSION['tipo_usu'] !== 'almacenero') {
+        header("Location: ../permisos.php"); // Redirige a la página de inicio de sesión
+        exit();
+    }
+}
 echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
@@ -38,7 +47,7 @@ require '../plantillas/menu-cuenta.php';
                 <p class="p-paquete">Detalles</p>
                 <textarea name="detalles-paq" id="detalles-paq" cols="30" rows="8" maxlength="150" placeholder="Detalles adicionales (opcional)" form="form-paquete"></textarea>
                 <a href=""><input type="submit" class="submit-paquete boton-siguiente" value="Ingresar paquete"></a>
-                <a href="aplicacion-almacenero.php"><input type="button" class="submit-paquete boton-volver" value="Volver"></a>
+                <a href="index.php"><input type="button" class="submit-paquete boton-volver" value="Volver"></a>
             </div>
         </div>
 
