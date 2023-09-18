@@ -10,7 +10,7 @@ if (!isset($_SESSION['nom_usu'])) {
 <div id="div-op-cuenta">
     <div class="a-op-cuenta" id="btnIdioma">Idioma</div>
     <a href="" class="a-op-cuenta">Cambiar contraseña</a>
-    <a href="../../controladores/logout.php" class="a-op-cuenta">Cerrar sesión</a>
+    <a href="controladores/logout.php" class="a-op-cuenta">Cerrar sesión</a>
     <p id="btn-cerrar-menu">x</p>
 </div>
 
@@ -24,4 +24,5 @@ if (!isset($_SESSION['nom_usu'])) {
         <button id="submit-idioma">Aceptar</button>
     </div>
 </div>
-<script src="../js/headerIngresado.js"></script>
+
+<script src="vistas/js/headerIngresado.js"></script>

@@ -1,7 +1,9 @@
 <?php
-
+session_start();
 require 'plantillas/headerInvitado.php';
-
+if(isset($_SESSION['nom_usu'])){
+    header("Location: ../index.php");
+}
 ?>
 
 <form action="../controladores/authControlador.php" id="form-login" method="post">
