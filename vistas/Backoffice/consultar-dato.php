@@ -32,6 +32,6 @@ if ($_GET['cedula']) {
         <p><b>Mail: </b>$mail</p>
         <a href='op-camioneros.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    }
+    } 
 }
 ?>

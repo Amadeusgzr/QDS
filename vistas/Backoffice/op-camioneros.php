@@ -48,7 +48,7 @@ require '../plantillas/menu-cuenta.php';
     <div id="mov-lote">
         <button class="btn-limpiar estilo-boton btns-as-lote">Reiniciar</button>
         <div id="btns-mov-lote">
-            <a href="aplicacion-administrador.php">
+            <a href="index.php">
                 <button class="boton-volver estilo-boton btns-as-lote">Volver</button>
             </a>
             <!--a-->
