@@ -34,7 +34,7 @@ if (isset($_GET['cedula'])) {
         <p><b>Teléfono: </b>$telefono</p>
         <p><b>Mail: </b>$mail</p>
         <a href='eliminar.php?cedula=$cedula'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
-        <a href='op-camionero.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        <a href='op-camioneros.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     } 
 } else if(isset($_GET['id_almacen_cliente'])){

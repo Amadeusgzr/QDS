@@ -29,7 +29,7 @@ require '../plantillas/menu-cuenta.php';
         $direccion = $_GET["direccion"];
 
 
-        $instruccion1 = "update camionero set direccion='$direccion', telefono='$telefono' where id_almacen_cliente=$id_almacen_cliente";
+        $instruccion1 = "update almacen_cliente set direccion='$direccion', telefono='$telefono' where id_almacen_cliente=$id_almacen_cliente";
         $conexion->query($instruccion1);
     }
 

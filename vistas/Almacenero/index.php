@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 session_start();
 
@@ -14,8 +13,7 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 
 ?>
-
-    
+<!DOCTYPE html>    
 
     <main class="main-aplicacion">
         <a href="ingreso-paquete.php" class="opcion-aplicacion" id="op1">
