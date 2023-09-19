@@ -12,13 +12,14 @@ require '../plantillas/menu-cuenta.php';
 ?>
 <?php
     include("../../modelos/db.php");
-    if (isset($_GET['cedula'])) {
-    $cedula = $_GET['cedula'];
+    if (isset($_GET['id_camionero'])) {
+    $id_camionero = $_GET['id_camionero'];
 
-    $instruccion = "select * from camionero where cedula=$cedula";
+    $instruccion = "select * from camionero where id_camionero=$id_camionero";
     $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $cedula = $fila["cedula"];
         $nombre_completo = $fila["nombre_completo"];
         $telefono = $fila["telefono"];
         $mail = $fila["mail"];
@@ -26,6 +27,7 @@ require '../plantillas/menu-cuenta.php';
         echo "<div class='form-crud'>
         <legend>Consultar Camionero</legend>
         <p class='subtitulo-crud'>Datos del camionero</p>
+        <p><b>ID: </b>$id_camionero</p>
         <p><b>Cédula: </b>$cedula</p>
         <p><b>Nombre: </b>$nombre_completo</p>
         <p><b>Teléfono: </b>$telefono</p>

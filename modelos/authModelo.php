@@ -5,7 +5,7 @@ class authModelo
 
     public function __construct()
     {
-        $this->db = new mysqli('localhost', 'root', '', 'logistic');
+        $this->db = new mysqli('localhost', 'root', '', 'QDS');
         mysqli_set_charset($this->db, 'utf8');
     }
 

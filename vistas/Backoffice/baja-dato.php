@@ -13,14 +13,15 @@ require '../plantillas/menu-cuenta.php';
 <?php
     include("../../modelos/db.php");
 
-if (isset($_GET['cedula'])) {
-    $cedula = $_GET['cedula'];
+if (isset($_GET['id_camionero'])) {
+    $id_camionero = $_GET['id_camionero'];
 
 
-    $instruccion = "select * from camionero where cedula=$cedula";
+    $instruccion = "select * from camionero where id_camionero=$id_camionero";
+
     $filas = $conexion->query($instruccion);
-
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $cedula = $fila["cedula"];
         $nombre_completo = $fila["nombre_completo"];
         $telefono = $fila["telefono"];
         $mail = $fila["mail"];
@@ -29,11 +30,12 @@ if (isset($_GET['cedula'])) {
         <legend>Eliminar Camionero</legend>
         <p class='adv'>¿Seguro que quiere eliminar al siguiente camionero? Los cambios serán irreversibles</p>
         <p class='subtitulo-crud'>Datos del camionero</p>
+        <p><b>ID: </b>$id_camionero</p>
         <p><b>Cédula: </b>$cedula</p>
         <p><b>Nombre: </b>$nombre_completo</p>
         <p><b>Teléfono: </b>$telefono</p>
         <p><b>Mail: </b>$mail</p>
-        <a href='eliminar.php?cedula=$cedula'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='eliminar.php?id_camionero=$id_camionero'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-camioneros.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     } 

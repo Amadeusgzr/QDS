@@ -7,11 +7,11 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
     exit();
 }
 include("../../modelos/db.php");
-if(isset($_GET['cedula'])){
-        $cedula = $_GET['cedula'];
+if(isset($_GET['id_camionero'])){
+        $id_camionero = $_GET['id_camionero'];
 
 
-        $instruccion = "delete from camionero where cedula=$cedula";
+        $instruccion = "delete from camionero where id_camionero=$id_camionero";
         $conexion->query($instruccion);
         header("Location: op-camioneros.php");
     } else if (isset($_GET['id_almacen_cliente'])){

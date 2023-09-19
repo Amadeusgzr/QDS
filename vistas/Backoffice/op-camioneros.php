@@ -30,15 +30,15 @@ require '../plantillas/menu-cuenta.php';
             }
             foreach ($camioneros as $camionero) {
                 echo "<tr class='fila-ingreso-lote fila-opcion' id='fila-1'>";
-                $cedula = $camionero["cedula"];
+                $id_camionero = $camionero["id_camionero"];
                 $nombre_completo = $camionero["nombre_completo"];
                 $estado = $camionero["estado"];
                 echo "<td>$nombre_completo</td>"; 
                 echo "<td>$estado</td>";
                 echo "<td>
-                <a href='baja-dato.php?cedula=$cedula'><button>B</button></a>
-                <a href='modificar-camionero.php?cedula=$cedula'><button>M</button></a>
-                <a href='consultar-dato.php?cedula=$cedula'><button>C</button></a>
+                <a href='baja-dato.php?id_camionero=$id_camionero'><button>B</button></a>
+                <a href='modificar-camionero.php?id_camionero=$id_camionero'><button>M</button></a>
+                <a href='consultar-dato.php?id_camionero=$id_camionero'><button>C</button></a>
                 </td>";
                 echo "</tr>";
             }
