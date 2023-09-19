@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
 if (!isset($_SESSION['nom_usu'])) {
@@ -8,6 +7,7 @@ if (!isset($_SESSION['nom_usu'])) {
 }
 ?>
 <div id="div-op-cuenta">
+    <a href="vistas/Backoffice/index.php" class="a-op-cuenta">Acceder</a>
     <div class="a-op-cuenta" id="btnIdioma">Idioma</div>
     <a href="" class="a-op-cuenta">Cambiar contraseña</a>
     <a href="controladores/logout.php" class="a-op-cuenta">Cerrar sesión</a>

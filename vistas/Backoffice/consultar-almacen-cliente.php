@@ -9,19 +9,13 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
 echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
-
 ?>
 
-<h1 id="h1-camioneros">Gestión de Almacenes</h1>
-
-<div class="div-opciones-columna">
-    <a href="op-camioneros.php" class="opcion-aplicacion" id="op1">
-        <h2>Almacen Central</h2>
-    </a>
-    <a href="almacen-cliente.php" class="opcion-aplicacion" id="op1">
-        <h2>Almacen Cliente</h2>
-    </a>
-    <a href="op-camioneros.php" class="opcion-aplicacion" id="op1">
-        <h2>Plataforma</h2>
-    </a>
+<div class="form-crud">
+    <legend>Consultar Almacén (cliente)</legend>
+    <p class="subtitulo-crud">Datos del almacén</p>
+        <p><b>ID: </b>"147"</p>
+        <p><b>Teléfono: </b>"2525 2525"</p>
+        <p><b>Dirección: </b>"narnia"</p>
+    <a href="almacen-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>

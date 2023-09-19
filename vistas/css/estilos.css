@@ -1331,6 +1331,18 @@ label[for="radio-lote-no"]{
     width: 100%;
 }
 
+.div-opciones-columna{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 30px;
+}
+
+.div-opciones-columna a h2{
+    text-align: center;
+}
+
 /************************************************
 *                                               *
 *            MEDIA QUERIES                      *

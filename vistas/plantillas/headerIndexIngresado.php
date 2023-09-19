@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
 if (!isset($_SESSION['nom_usu'])) {
