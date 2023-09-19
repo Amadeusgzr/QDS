@@ -22,9 +22,6 @@ if (!isset($_SESSION['nom_usu'])) {
             <div id="div-logo">
                 <img src="../img/logoBlanco.png" alt="Logo">
             </div>
-            <nav>
-                <a href="../../index.php">Inicio</a>
-            </nav>
             <div id="div-cuenta">
                 <img id="img-cuenta" src="../img/iconos/icono-usuario-blanco.png" alt="">
                 <p id="p-nombre"><?=$_SESSION['nom_usu']?></p>

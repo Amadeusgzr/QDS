@@ -7,7 +7,17 @@ if (!isset($_SESSION['nom_usu'])) {
 }
 ?>
 <div id="div-op-cuenta">
-    <a href="vistas/Backoffice/index.php" class="a-op-cuenta">Acceder</a>
+    <?php
+
+    if ($_SESSION['tipo_usu'] == "admin"){
+        echo "<a href='vistas/Backoffice/index.php' class='a-op-cuenta'>Acceder</a>";
+    }else if($_SESSION['tipo_usu'] == "almacenero"){
+        echo "<a href='vistas/Almacenero/index.php' class='a-op-cuenta'>Acceder</a>";
+    }else if($_SESSION['tipo_usu'] == "camionero"){
+        echo "<a href='vistas/Camionero/index.php' class='a-op-cuenta'>Acceder</a>";
+    }
+
+    ?>
     <div class="a-op-cuenta" id="btnIdioma">Idioma</div>
     <a href="" class="a-op-cuenta">Cambiar contraseña</a>
     <a href="controladores/logout.php" class="a-op-cuenta">Cerrar sesión</a>

@@ -7,7 +7,7 @@ if (!isset($_SESSION['nom_usu'])) {
 }
 ?>
 <div id="div-op-cuenta">
-    <a href="../../controladores/logout.php" class="a-op-cuenta">Acceder</a>
+    <a href="../../index.php" class="a-op-cuenta">Inicio</a>
     <div class="a-op-cuenta" id="btnIdioma">Idioma</div>
     <a href="" class="a-op-cuenta">Cambiar contraseña</a>
     <a href="../../controladores/logout.php" class="a-op-cuenta">Cerrar sesión</a>

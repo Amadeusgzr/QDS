@@ -1,4 +1,4 @@
 <?php
-$conexion = new mysqli("127.0.0.1","admin-backoffice","qds000L","logistic");
+$conexion = new mysqli("127.0.0.1","root","","logistic");
 ?>
 

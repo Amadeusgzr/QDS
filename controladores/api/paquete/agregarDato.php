@@ -46,7 +46,7 @@ if (curl_errno($ch)){
 
 
 curl_close($ch);
-header('Location: ../../../vistas/Almacenero/ingreso-paquete.php?datos=' . urlencode($respuesta));
+header('Location: ../../../vistas/Almacenero/alta-paquete.php?datos=' . urlencode($respuesta));
 
 
 
