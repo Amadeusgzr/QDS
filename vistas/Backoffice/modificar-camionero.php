@@ -24,13 +24,12 @@ require '../plantillas/menu-cuenta.php';
         $telefono = $fila["telefono"];
     }
 
-    if ($_GET["telefono"]) {
+    if (isset($_GET["telefono"])) {
         $cedula = $_GET["cedula"];
         $nombre_completo = $_GET["nombre_completo"];
         $mail = $_GET["mail"];
         $telefono = $_GET["telefono"];
 
-        $conexion = new mysqli("127.0.0.1", "root", "", "logistic");
         $instruccion1 = "update camionero set nombre_completo='$nombre_completo', mail='$mail', telefono='$telefono' where cedula=$cedula";
         $conexion->query($instruccion1);
     }
@@ -45,10 +44,10 @@ require '../plantillas/menu-cuenta.php';
         <p><b>Teléfono: </b><?= $telefono?></p>
         <p><b>Mail: </b><?= $mail?></p>
         <p class="subtitulo-crud">Datos modificados</p>
-        <input type="text" placeholder="Cédula" class="txt-crud" name="cedula" value="<?= $cedula?>">
-        <input type="text" placeholder="Nombre Completo" class="txt-crud" name="nombre_completo" value="<?= $nombre_completo?>">
-        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono" value="<?= $telefono?>">
-        <input type="mail" placeholder="Mail" class="txt-crud" name="mail" value="<?= $mail?>">
+        <input type="text" placeholder="Cédula" class="txt-crud" name="cedula" value="<?= $cedula?>" required readonly>
+        <input type="text" placeholder="Nombre Completo" class="txt-crud" name="nombre_completo" value="<?= $nombre_completo?>" required>
+        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono" value="<?= $telefono?>" required>
+        <input type="mail" placeholder="Mail" class="txt-crud" name="mail" value="<?= $mail?>" required>
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-camioneros.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>

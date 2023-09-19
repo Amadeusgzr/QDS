@@ -1,8 +1,9 @@
 <?php
 session_start();
-require 'plantillas/headerInvitado.php';
 if(isset($_SESSION['nom_usu'])){
     header("Location: ../index.php");
+} else {
+    require 'plantillas/headerInvitado.php';
 }
 ?>
 

@@ -11,11 +11,12 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 <?php
-if ($_GET['cedula']) {
+    $conexion = new mysqli("127.0.0.1", "root", "", "logistic");
+
+if (isset($_GET['cedula'])) {
     $cedula = $_GET['cedula'];
 
 
-    $conexion = new mysqli("127.0.0.1", "root", "", "logistic");
     $instruccion = "select * from camionero where cedula=$cedula";
     $filas = $conexion->query($instruccion);
 
@@ -35,7 +36,32 @@ if ($_GET['cedula']) {
         <a href='eliminar.php?cedula=$cedula'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-camionero.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    }
+    } 
+} else if(isset($_GET['id_almacen_cliente'])){
+    $id_almacen_cliente = $_GET['id_almacen_cliente'];
+
+    
+    $instruccion = "select * from almacen_cliente where id_almacen_cliente=$id_almacen_cliente";
+    $filas = $conexion->query($instruccion); 
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_almacen_cliente = $fila["id_almacen_cliente"];
+        $telefono = $fila["telefono"];
+        $direccion = $fila["direccion"];
+        echo "<div class='form-crud'>
+        <legend>Eliminar Almacen Cliente</legend>
+        <p class='adv'>¿Seguro que quiere eliminar el siguiente almacén? Los cambios serán irreversibles</p>
+        <p class='subtitulo-crud'>Datos del almacén</p>
+        <p><b>ID: </b>$id_almacen_cliente</p>
+        <p><b>Teléfono: </b>$telefono</p>
+        <p><b>Dirección: </b>$direccion</p>
+        <a href='eliminar.php?id_almacen_cliente=$id_almacen_cliente'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='op-almacen-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    } 
+
+
+
 }
 
 

@@ -17,28 +17,27 @@ require '../plantillas/menu-cuenta.php';
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
-                <th>Teléfono</th>
-                <th>Dirección</th>
+                <th>Direccion</th>
+                <th>OP</th>
             </tr>
             <?php
             $conexion = new mysqli("127.0.0.1", "root", "", "logistic");
-            $instruccion = "select * from camionero";
-            $camioneros = [];
+            $instruccion = "select * from almacen_cliente";
+            $almacenes_cliente = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
-                array_push($camioneros, $row);
+                array_push($almacenes_cliente, $row);
             }
-            foreach ($camioneros as $camionero) {
+            foreach ($almacenes_cliente as $almacen_cliente) {
                 echo "<tr class='fila-ingreso-lote fila-opcion' id='fila-1'>";
-                $cedula = $camionero["cedula"];
-                $nombre_completo = $camionero["nombre_completo"];
-                $estado = $camionero["estado"];
-                echo "<td>$nombre_completo</td>"; 
-                echo "<td>$estado</td>";
+                $id_almacen_cliente = $almacen_cliente["id_almacen_cliente"];
+                $direccion = $almacen_cliente["direccion"];
+                echo "<td>$id_almacen_cliente</td>"; 
+                echo "<td>$direccion</td>";
                 echo "<td>
-                <a href='baja-dato.php?cedula=$cedula'><button>B</button></a>
-                <a href='modificar-camionero.php?cedula=$cedula'><button>M</button></a>
-                <a href='consultar-dato.php?cedula=$cedula'><button>C</button></a>
+                <a href='baja-dato.php?id_almacen_cliente=$id_almacen_cliente'><button>B</button></a>
+                <a href='modificar-almacen-cliente.php?id_almacen_cliente=$id_almacen_cliente'><button>M</button></a>
+                <a href='consultar-dato.php?id_almacen_cliente=$id_almacen_cliente'><button>C</button></a>
                 </td>";
                 echo "</tr>";
             }

@@ -12,28 +12,27 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <div class="form-crud">
-    <form action="alta-camionero.php" method="post">
+    <form action="alta-almacen-cliente.php" method="post">
         <legend>Agregar Almacén Cliente</legend>
-        <input type="text" placeholder="Teléfono" class="txt-crud" name="telefono">
-        <input type="tel" placeholder="Dirección" class="txt-crud" name="direccion">
+        <input type="text" placeholder="Teléfono" class="txt-crud" name="telefono" required>
+        <input type="tel" placeholder="Dirección" class="txt-crud" name="direccion" required>
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
     </form>
-    <a href="almacen-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
+    <a href="op-almacen-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>
 
 <?php
 
 
 if($_POST){
-    $cedula = $_POST["cedula"];
-    $nombre_completo = $_POST["nombre_completo"];
-    $mail = $_POST["mail"];
     $telefono = $_POST["telefono"];
+    $direccion = $_POST["direccion"];
+
 
 
 
     $conexion = new mysqli("127.0.0.1","root","","logistic");
-    $instruccion = "insert into camionero(cedula, nombre_completo, mail, telefono) value ('$cedula', '$nombre_completo', '$mail', '$telefono')";
+    $instruccion = "insert into almacen_cliente(direccion, telefono) value ('$direccion', '$telefono')";
     $conexion->query($instruccion);
 }
 
