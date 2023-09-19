@@ -6,7 +6,7 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
     header("Location: ../permisos.php"); // Redirige a la página de inicio de sesión
     exit();
 }
-$conexion = new mysqli("127.0.0.1","root","","logistic");
+include("../../modelos/db.php");
 if(isset($_GET['cedula'])){
         $cedula = $_GET['cedula'];
 

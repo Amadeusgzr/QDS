@@ -11,7 +11,7 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 <?php
-    $conexion = new mysqli("127.0.0.1", "root", "", "logistic");
+    include("../../modelos/db.php");
 
 if (isset($_GET['cedula'])) {
     $cedula = $_GET['cedula'];

@@ -21,8 +21,8 @@ require '../plantillas/menu-cuenta.php';
                 <th class="th-op">OP</th>
             </tr>
             <?php
-            $conexion = new mysqli("127.0.0.1", "root", "", "logistic");
-            $instruccion = "select * from camionero";
+    include("../../modelos/db.php");
+    $instruccion = "select * from camionero";
             $camioneros = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {

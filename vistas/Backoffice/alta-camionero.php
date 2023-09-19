@@ -34,7 +34,7 @@ if($_POST){
 
 
 
-    $conexion = new mysqli("127.0.0.1","root","","logistic");
+    include("../../modelos/db.php");
     $instruccion = "insert into camionero(cedula, nombre_completo, mail, telefono) value ('$cedula', '$nombre_completo', '$mail', '$telefono')";
     $conexion->query($instruccion);
 }

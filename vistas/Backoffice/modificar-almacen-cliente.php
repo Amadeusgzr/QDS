@@ -12,7 +12,7 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <?php
-    $conexion = new mysqli("127.0.0.1", "root", "", "logistic");
+    include("../../modelos/db.php");
     $id_almacen_cliente = $_GET['id_almacen_cliente'];
     $instruccion = "select * from almacen_cliente where id_almacen_cliente=$id_almacen_cliente";
     $filas = $conexion->query($instruccion);

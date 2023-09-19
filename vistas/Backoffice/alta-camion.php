@@ -30,7 +30,7 @@ if($_POST){
     $volumen_disponible = $_POST["volumen_disponible"];
     $peso_soportado = $_POST["peso_soportado"];
 
-    $conexion = new mysqli("127.0.0.1","root","","logistic");
+    include("../../modelos/db.php");
     $instruccion = "insert into camion(matricula, volumen_disponible, peso_soportado) value ('$matricula', '$volumen_disponible', '$peso_soportado')";
     $conexion->query($instruccion);
 }

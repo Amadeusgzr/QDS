@@ -30,8 +30,7 @@ if($_POST){
 
 
 
-
-    $conexion = new mysqli("127.0.0.1","root","","logistic");
+    include("../../modelos/db.php");
     $instruccion = "insert into almacen_cliente(direccion, telefono) value ('$direccion', '$telefono')";
     $conexion->query($instruccion);
 }
