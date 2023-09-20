@@ -7,12 +7,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
         $_GET = json_decode(file_get_contents('php://input', true));
 
-        if (isset($_GET->id_paquete)) {
-            $id_paquete = $_GET->id_paquete;
-            $respuesta = $paqueteModelo->obtenerPaquete($id_paquete);
-        } else {
-            $respuesta = $paqueteModelo->obtenerPaquetes();
-        }
+        $respuesta = $paqueteModelo->obtenerPaquetes();
+
         echo json_encode($respuesta);
         break;
     case 'POST':
@@ -28,7 +24,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
             if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
                 $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario, $_POST->direccion, $_POST->peso, $_POST->volumen, $_POST->fragil, $_POST->tipo, $_POST->detalles);
-            } else{
+            } else {
                 $respuesta = [
                     'error' => 'Error',
                     'respuesta' => 'Hay un atributo que no debe estar vacío'
@@ -39,27 +35,27 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
     case 'PUT':
         $_PUT = json_decode(file_get_contents('php://input', true));
-        if (!isset($_PUT->id) || is_null($_PUT->id) || empty(trim($_PUT->id))) {
-            $response = ['Error', 'El ID del paquete no debe estar vacío'];
-        } else if (!isset($_PUT->name) || is_null($_PUT->name) || empty(trim($_PUT->name))) {
-            $response = ['Error', 'El nombre del paquete no debe estar vacío'];
-        } else if (!isset($_PUT->description) || is_null($_PUT->description) || empty(trim($_PUT->description))) {
-            $response = ['Error', 'La descripción del paquete no debe estar vacía'];
-        } else if (strlen($_PUT->name) > 50) {
-            $response = ['Error', 'El nombre del paquete no puede ser mayor a 50 caracteres'];
-        } else if (strlen($_PUT->description) > 50) {
-            $response = ['Error', 'La descripción del paquete no puede ser mayor a 50 caracteres'];
-        } else if (!is_numeric($_PUT->id)) {
-            $response = ['Error', 'El ID del paquete debe ser numérico'];
+        $respuesta = atributoVacio($_PUT->id_paquete);
+        $respuesta1 = atributoVacio($_PUT->direccion);
+        $respuesta2 = atributoVacio($_PUT->peso);
+        $respuesta3 = atributoVacio($_PUT->volumen);
+        $respuesta4 = atributoVacio($_PUT->fragil);
+        $respuesta5 = atributoVacio($_PUT->estado);
+
+        if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error" && $respuesta5['error'] !== "Error") {
+            $respuesta = $paqueteModelo->modificarPaquete($_PUT->id_paquete, $_PUT->direccion, $_PUT->peso, $_PUT->volumen, $_PUT->fragil, $_PUT->estado);
         } else {
-            $response = $packageModel->updatePackage($_PUT->id, $_PUT->name, $_PUT->description);
+            $respuesta = [
+                'error' => 'Error',
+                'respuesta' => 'Hay un atributo que no debe estar vacío'
+            ];
         }
-        echo json_encode($response);
+        echo json_encode($respuesta);
         break;
     case 'DELETE':
         $_DELETE = json_decode(file_get_contents('php://input', true));
         $respuesta = atributoVacio($_DELETE->id_paquete);
-        if ($respuesta['error'] !== "Error"){
+        if ($respuesta['error'] !== "Error") {
             $respuesta = $paqueteModelo->eliminarPaquete($_DELETE->id_paquete);
         }
         echo json_encode($respuesta);

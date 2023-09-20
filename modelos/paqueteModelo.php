@@ -9,9 +9,10 @@ class paqueteModelo
         $this->db = new mysqli('localhost', 'root', '', 'QDS');
         mysqli_set_charset($this->db, 'utf8');
     }
-    public function obtenerPaquete($id_paquete){
+    public function obtenerPaquete($id_paquete)
+    {
         $paquete = [];
-        $instruccion = "SELECT * FROM paquete WHERE id_paquete='$id_paquete'" ;
+        $instruccion = "SELECT * FROM paquete WHERE id_paquete='$id_paquete'";
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($paquete, $row);
@@ -33,28 +34,30 @@ class paqueteModelo
 
     public function guardarPaquete($mail_destinatario, $direccion, $peso, $volumen, $fragil, $tipo, $detalles)
     {
-            $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles')";
-            mysqli_query($this->db, $instruccion);
-            $resultado = [
-                'error' => "Exito",
-                'respuesta' => "Paquete guardado"
-            ];
+        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles')";
+        mysqli_query($this->db, $instruccion);
+        $resultado = [
+            'error' => "Éxito",
+            'respuesta' => "Paquete guardado"
+        ];
         return $resultado;
     }
-    public function updatePackage($id, $name, $description)
+    public function modificarPaquete($id_paquete, $direccion, $peso, $volumen, $fragil, $estado)
     {
-        $exist = $this->obtenerPaquetes($id);
-        $result = ['Error', 'No existe el paquete con la ID ' . $id];
-        if (count($exist) > 0) {
-            $validate = $this->validatePackage($name, $description);
-            $result = ['Error', 'Ya existe un paquete con esas mismas características'];
-            if (count($validate) == 0) {
-                $query = "UPDATE packages SET name='$name', description='$description' WHERE id='$id'";
-                mysqli_query($this->db, $query);
-                $result = ['Success', 'Paquete actualizado'];
-            }
+        $validar = $this->obtenerPaquetes($id_paquete);
+        $resultado = [
+            'error' => "Error",
+            'respuesta' => "No existe el paquete con la ID " . $id_paquete
+        ];
+        if (count($validar) > 0) {
+            $instruccion = "UPDATE paquete SET direccion='$direccion', peso='$peso', volumen='$volumen', fragil='$fragil', estado='$estado' WHERE id_paquete='$id_paquete'";
+            mysqli_query($this->db, $instruccion);
+            $resultado = [
+                'error' => "Éxito",
+                'respuesta' => "Paquete modificado"
+            ];
         }
-        return $result;
+        return $resultado;
     }
 
     public function eliminarPaquete($id_paquete)
@@ -62,7 +65,8 @@ class paqueteModelo
         $validar = $this->obtenerPaquetes($id_paquete);
         $resultado = [
             'error' => "Error",
-            'respuesta' => "No existe el paquete con la ID " . $id_paquete];
+            'respuesta' => "No existe el paquete con la ID " . $id_paquete
+        ];
         if (count($validar) > 0) {
             $instruccion = "DELETE FROM paquete WHERE id_paquete='$id_paquete'";
             mysqli_query($this->db, $instruccion);

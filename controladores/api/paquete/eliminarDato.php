@@ -12,14 +12,14 @@ curl_setopt($ch,CURLOPT_CUSTOMREQUEST, 'DELETE');
 curl_setopt($ch,CURLOPT_POSTFIELDS, $datos);
 curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
 
-$response = curl_exec($ch);
+$respuesta = curl_exec($ch);
 
 if (curl_errno($ch)){
     echo curl_errno($ch);
 } else{
-    $decoded = json_decode($response, true);
+    $decode = json_decode($respuesta, true);
 }
 
 curl_close($ch);
-header('Location: ../../../vistas/Almacenero/op-paquetes.php?datos=' . urlencode($response));
+header('Location: ../../../vistas/Almacenero/op-paquetes.php?datos=' . urlencode($respuesta));
 ?>
