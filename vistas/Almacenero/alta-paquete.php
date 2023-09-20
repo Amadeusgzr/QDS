@@ -46,7 +46,7 @@ require '../plantillas/menu-cuenta.php';
             <textarea name="detalles" id="detalles-paq" cols="30" rows="8" maxlength="150"
                 placeholder="Detalles adicionales (opcional)" form="form-paquete"></textarea>
             <a href=""><input type="submit" class="submit-paquete boton-siguiente" value="Ingresar paquete"></a>
-            <a href="index.php"><input type="button" class="submit-paquete boton-volver" value="Volver"></a>
+            <a href="op-paquetes.php"><input type="button" class="submit-paquete boton-volver" value="Volver"></a>
         </div>
     </div>
     <?php
@@ -56,16 +56,7 @@ require '../plantillas/menu-cuenta.php';
         echo $datos['error'] . " ";
         echo $datos['respuesta'];
     }
-    //  require("../../controladores/api/paquete/obtenerDato.php");
-    // echo '<table>';
-    // echo '<tr><th>ID</th><th>Direccion</th><th>Detalles</th></tr>';
-    // foreach ($decode as $paquete) {
-    //   echo '<tr>';
-    // echo '<td>' . $paquete["id_paquete"] . '</td>';
-    // echo '<td>' . $paquete["direccion"] . '</td>';
-    // echo '<td>' . $paquete['detalles'] . '</td>';
-    // echo '</tr>';
-    // }
+
     ?>
 
 </form>

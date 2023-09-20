@@ -10,15 +10,26 @@ echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
-
+<?php
+$id_paquete = $_GET['id_paquete'];
+require("../../controladores/api/paquete/obtenerDatoPorId.php");
+foreach ($decode as $paquete) {
+    $id_paquete = $paquete["id_paquete"];
+    $direccion = $paquete['direccion'];
+    $peso = $paquete["peso"];
+    $volumen = $paquete["volumen"];
+    $fragil = $paquete["fragil"];
+}
+?>
 <div class="form-crud">
     <legend>Consultar Paquete</legend>
     <p class="subtitulo-crud">Datos del camión</p>
-        <p><b>ID: </b>"42643"</p>
-        <p><b>Remitente: </b>"CRECOM"</p>
-        <p><b>Dirección: </b>"casa"</p>
-        <p><b>Camión asignado: </b>"STP 1234"</p>
-        <p><b>Chofer: </b>"Carlos Pérez"</p>
-        <p><b>Estado: </b>"En camino"</p>
+        <p><b>ID: </b><?= $id_paquete?></p>
+        <p><b>Dirección: </b><?= $direccion?></p>
+        <p><b>Peso: </b><?= $peso?></p>
+        <p><b>Volumen: </b><?= $volumen?></p>
+        <p><b>Fragil: </b><?= $fragil?></p>
+
+
     <a href="op-paquetes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>

@@ -17,32 +17,26 @@ require '../plantillas/menu-cuenta.php';
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
-                <th>Remitente</th>
                 <th>Destino</th>
                 <th>Estado</th>
+                <th>OP</th>
             </tr>
             <?php
-    include("../../modelos/db.php");
-    $instruccion = "select * from almacen_cliente";
-            $almacenes_cliente = [];
-            $result = mysqli_query($conexion, $instruccion);
-            while ($row = mysqli_fetch_assoc($result)) {
-                array_push($almacenes_cliente, $row);
-            }
-            foreach ($almacenes_cliente as $almacen_cliente) {
-                echo "<tr class='fila-ingreso-lote fila-opcion' id='fila-1'>";
-                $id_almacen_cliente = $almacen_cliente["id_almacen_cliente"];
-                $direccion = $almacen_cliente["direccion"];
-                echo "<td>$id_almacen_cliente</td>"; 
-                echo "<td>$direccion</td>";
+                require("../../controladores/api/paquete/obtenerDato.php");
+                foreach ($decode as $paquete) {
+                $id_paquete = $paquete["id_paquete"];
+                echo '<tr>';
+                echo '<td>' . $paquete["id_paquete"] . '</td>';
+                echo '<td>' . $paquete["direccion"] . '</td>';
+                echo '<td>' . $paquete['estado'] . '</td>';
                 echo "<td>
-                <a href='baja-dato.php?id_almacen_cliente=$id_almacen_cliente'><button>B</button></a>
-                <a href='modificar-almacen-cliente.php?id_almacen_cliente=$id_almacen_cliente'><button>M</button></a>
-                <a href='consultar-dato.php?id_almacen_cliente=$id_almacen_cliente'><button>C</button></a>
+                <a href='baja-paquete.php?id_paquete=$id_paquete'><button>B</button></a>
+                <a href='modificar-paquete.php?id_paquete=$id_paquete'><button>M</button></a>
+                <a href='consultar-paquete.php?id_paquete=$id_paquete'><button>C</button></a>
                 </td>";
-                echo "</tr>";
-            }
-            ?>
+                echo '</tr>';
+                }
+                ?>
         </table>
     </div>
     <div id="mov-lote">

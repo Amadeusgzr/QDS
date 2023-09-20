@@ -9,7 +9,15 @@ class paqueteModelo
         $this->db = new mysqli('localhost', 'root', '', 'QDS');
         mysqli_set_charset($this->db, 'utf8');
     }
-
+    public function obtenerPaquete($id_paquete){
+        $paquete = [];
+        $instruccion = "SELECT * FROM paquete WHERE id_paquete='$id_paquete'" ;
+        $resultado = mysqli_query($this->db, $instruccion);
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            array_push($paquete, $row);
+        }
+        return $paquete;
+    }
     public function obtenerPaquetes($id_paquete = null)
     {
         $where = ($id_paquete == null) ? "" : " WHERE id_paquete='$id_paquete'";
@@ -49,22 +57,22 @@ class paqueteModelo
         return $result;
     }
 
-    public function deletePackage($id)
+    public function eliminarPaquete($id_paquete)
     {
-        $validate = $this->obtenerPaquetes($id);
-        $result = [
+        $validar = $this->obtenerPaquetes($id_paquete);
+        $resultado = [
             'error' => "Error",
-            'resultado' => "No existe el paquete con la ID " . $id];
-        if (count($validate) > 0) {
-            $query = "DELETE FROM packages WHERE id='$id'";
-            mysqli_query($this->db, $query);
-            $result = [
+            'respuesta' => "No existe el paquete con la ID " . $id_paquete];
+        if (count($validar) > 0) {
+            $instruccion = "DELETE FROM paquete WHERE id_paquete='$id_paquete'";
+            mysqli_query($this->db, $instruccion);
+            $resultado = [
                 'error' => "Success",
-                'resultado' => "Paquete eliminado"
+                'respuesta' => "Paquete eliminado"
             ];
         }
 
-        return $result;
+        return $resultado;
     }
 
     public function validatePackage($name, $description)

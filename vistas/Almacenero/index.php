@@ -16,7 +16,7 @@ require '../plantillas/menu-cuenta.php';
 <!DOCTYPE html>    
 
     <main class="main-aplicacion">
-        <a href="ingreso-paquete.php" class="opcion-aplicacion" id="op1">
+        <a href="op-paquetes.php" class="opcion-aplicacion" id="op1">
             <h2>Ingresar Paquete</h2>
             <p>Ingrese paquetes al almacén</p>
             <div class="div-img-icono"><img src="../img/iconos/paquete.png" alt=""></div>
