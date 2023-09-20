@@ -108,6 +108,32 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-plataforma.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     } 
+}else if(isset($_GET['id_camion'])){
+    $id_camion = $_GET['id_camion'];
+
+    
+    $instruccion = "select * from camion where id_camion=$id_camion";
+    $filas = $conexion->query($instruccion); 
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_camion = $fila["id_camion"];
+        $matricula = $fila["matricula"];
+        $peso_soportado = $fila["peso_soportado"];
+        $volumen_disponible = $fila["volumen_disponible"];
+        $estado = $fila["estado"];
+        echo "<div class='form-crud'>
+        <legend>Eliminar Camión</legend>
+        <p class='adv'>¿Seguro que quiere eliminar el siguiente camión? Los cambios serán irreversibles</p>
+        <p class='subtitulo-crud'>Datos del camión</p>
+        <p><b>ID: </b>$id_camion</p>
+        <p><b>Matrícula: </b>$matricula</p>
+        <p><b>Peso soportado: </b>$peso_soportado Kg</p>
+        <p><b>Volumen disponible: </b>$volumen_disponible Cm3</p>
+        <p><b>Estado: </b>$estado</p>
+        <a href='eliminar.php?id_camion=$id_camion'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='op-camiones.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    } 
 }
 
 ?>

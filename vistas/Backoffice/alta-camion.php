@@ -31,7 +31,7 @@ if($_POST){
     $peso_soportado = $_POST["peso_soportado"];
 
     include("../../modelos/db.php");
-    $instruccion = "insert into camion(matricula, volumen_disponible, peso_soportado) value ('$matricula', '$volumen_disponible', '$peso_soportado')";
+    $instruccion = "insert into camion(matricula, volumen_disponible, peso_soportado, estado) value ('$matricula', '$volumen_disponible', '$peso_soportado', 'Disponible')";
     $conexion->query($instruccion);
 }
 

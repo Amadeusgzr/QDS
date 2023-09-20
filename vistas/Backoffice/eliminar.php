@@ -35,6 +35,13 @@ if(isset($_GET['id_camionero'])){
         $instruccion = "delete from plataforma where id_plataforma=$id_plataforma";
         $conexion->query($instruccion);
         header("Location: op-plataforma.php");
+    }else if (isset($_GET['id_camion'])){
+        $id_camion = $_GET['id_camion'];
+
+
+        $instruccion = "delete from camion where id_camion=$id_camion";
+        $conexion->query($instruccion);
+        header("Location: op-camiones.php");
     }
     
 
