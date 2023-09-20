@@ -42,6 +42,13 @@ if(isset($_GET['id_camionero'])){
         $instruccion = "delete from camion where id_camion=$id_camion";
         $conexion->query($instruccion);
         header("Location: op-camiones.php");
+    }else if (isset($_GET['rut'])){
+        $rut = $_GET['rut'];
+
+
+        $instruccion = "delete from empresa_cliente where rut=$rut";
+        $conexion->query($instruccion);
+        header("Location: op-empresas.php");
     }
     
 

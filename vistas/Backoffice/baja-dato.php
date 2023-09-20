@@ -134,6 +134,28 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-camiones.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     } 
+}else if(isset($_GET['rut'])){
+    $rut = $_GET['rut'];
+
+    
+    $instruccion = "select * from empresa_cliente where rut=$rut";
+    $filas = $conexion->query($instruccion); 
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $rut = $fila["rut"];
+        $nombre_de_empresa = $fila["nombre_de_empresa"];
+        $mail = $fila["mail"];
+        echo "<div class='form-crud'>
+        <legend>Eliminar Empresa Cliente</legend>
+        <p class='adv'>¿Seguro que quiere eliminar la siguiente empresa? Los cambios serán irreversibles</p>
+        <p class='subtitulo-crud'>Datos de la empresa</p>
+        <p><b>RUT: </b>$rut</p>
+        <p><b>Nombre: </b>$nombre_de_empresa</p>
+        <p><b>Mail: </b>$mail</p>
+        <a href='eliminar.php?rut=$rut'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='op-empresas.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    } 
 }
 
 ?>

@@ -35,6 +35,11 @@ require '../plantillas/menu-cuenta.php';
             <p>Gestión de Almacenes</p>
             <div class="div-img-icono"><img src="../img/iconos/almacen.png" alt=""></div>
         </a>
+        <a href="op-empresas.php" class="opcion-aplicacion" id="op4">
+            <h2>Empresas Cliente</h2>
+            <p>Gestión de Empresas Clientes</p>
+            <div class="div-img-icono"><img src="../img/iconos/empresa.png" alt=""></div>
+        </a>
         <a href="op-rutas-tray.php" class="opcion-aplicacion" id="op5">
             <h2>Rutas y Trayectos</h2>
             <p>Gestión de Rutas y Trayectos</p>

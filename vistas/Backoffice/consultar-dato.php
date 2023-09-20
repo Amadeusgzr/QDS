@@ -131,6 +131,28 @@ require '../plantillas/menu-cuenta.php';
         </div>";
     } 
 
+}else if(isset($_GET['rut'])){
+    $rut = $_GET['rut'];
+
+    
+    $instruccion = "select * from empresa_cliente where rut=$rut";
+    $filas = $conexion->query($instruccion); 
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $rut = $fila["rut"];
+        $nombre_de_empresa = $fila["nombre_de_empresa"];
+        $mail = $fila["mail"];
+
+        echo "<div class='form-crud'>
+        <legend>Consultar Empresa Cliente</legend>
+        <p class='subtitulo-crud'>Datos de la empresa</p>
+        <p><b>RUT: </b>$rut</p>
+        <p><b>Nombre: </b>$nombre_de_empresa</p>
+        <p><b>Mail: </b>$mail</p>
+        <a href='op-empresas.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    } 
+
 }
 
 ?>
