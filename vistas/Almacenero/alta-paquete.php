@@ -24,9 +24,9 @@ require '../plantillas/menu-cuenta.php';
         <input type="text" name="direccion" id="calle-destino-paq" class="destino-paq" placeholder="Direccion"
             autocomplete="off" required>
         <p class="p-paquete">Características del paquete</p>
-        <input type="number" name="peso" id="peso-paq" class="destino-paq" placeholder="Peso (Kg)" autocomplete="off"
+        <input type="number" step="any" name="peso" id="peso-paq" class="destino-paq" placeholder="Peso (Kg)" autocomplete="off"
             required>
-        <input type="number" name="volumen" id="volumen-paq" class="destino-paq" placeholder="Volumen (cm∧3)"
+        <input type="number" step="any" name="volumen" id="volumen-paq" class="destino-paq" placeholder="Volumen (cm∧3)"
             autocomplete="off" required>
     </div>
 
@@ -34,9 +34,9 @@ require '../plantillas/menu-cuenta.php';
         <p id="p-fragil">Contenido frágil</p>
         <div id="div-radios">
             <label for="radio-paq-si">Sí</label>
-            <input type="radio" name="fragil" id="radio-paq-si" value="si">
+            <input type="radio" name="fragil" id="radio-paq-si" value="Si">
             <label for="radio-paq-no">No</label>
-            <input type="radio" name="fragil" id="radio-paq-no" value="no" checked>
+            <input type="radio" name="fragil" id="radio-paq-no" value="No" checked>
             <select name="tipo" id="select-fragil-paq" disabled>
                 <option value="" selected disabled>Contenido frágil</option>
                 <option value="Líquido">Líquido</option>

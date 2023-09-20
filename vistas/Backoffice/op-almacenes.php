@@ -15,13 +15,13 @@ require '../plantillas/menu-cuenta.php';
 <h1 id="h1-camioneros">Gestión de Almacenes</h1>
 
 <div class="div-opciones-columna">
-    <a href="op-camioneros.php" class="opcion-aplicacion" id="op1">
+    <a href="op-almacen-central.php" class="opcion-aplicacion" id="op1">
         <h2>Almacen Central</h2>
     </a>
     <a href="op-almacen-cliente.php" class="opcion-aplicacion" id="op1">
         <h2>Almacen Cliente</h2>
     </a>
-    <a href="op-camioneros.php" class="opcion-aplicacion" id="op1">
+    <a href="op-plataforma.php" class="opcion-aplicacion" id="op1">
         <h2>Plataforma</h2>
     </a>
 </div>

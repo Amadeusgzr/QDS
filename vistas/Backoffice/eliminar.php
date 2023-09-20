@@ -21,6 +21,21 @@ if(isset($_GET['id_camionero'])){
         $instruccion = "delete from almacen_cliente where id_almacen_cliente=$id_almacen_cliente";
         $conexion->query($instruccion);
         header("Location: op-almacen-cliente.php");
+    }else if (isset($_GET['id_almacen_central'])){
+        $id_almacen_central = $_GET['id_almacen_central'];
+
+
+        $instruccion = "delete from almacen_central where id_almacen_central=$id_almacen_central";
+        $conexion->query($instruccion);
+        header("Location: op-almacen-central.php");
+    }else if (isset($_GET['id_plataforma'])){
+        $id_plataforma = $_GET['id_plataforma'];
+
+
+        $instruccion = "delete from plataforma where id_plataforma=$id_plataforma";
+        $conexion->query($instruccion);
+        header("Location: op-plataforma.php");
     }
+    
 
 ?>

@@ -64,7 +64,50 @@ if (isset($_GET['id_camionero'])) {
 
 
 
-}
+}else if(isset($_GET['id_almacen_central'])){
+    $id_almacen_central = $_GET['id_almacen_central'];
 
+    
+    $instruccion = "select * from almacen_central where id_almacen_central=$id_almacen_central";
+    $filas = $conexion->query($instruccion); 
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_almacen_central = $fila["id_almacen_central"];
+        $telefono = $fila["telefono"];
+        $direccion = $fila["direccion"];
+        echo "<div class='form-crud'>
+        <legend>Eliminar Almacen Central</legend>
+        <p class='adv'>¿Seguro que quiere eliminar el siguiente almacén? Los cambios serán irreversibles</p>
+        <p class='subtitulo-crud'>Datos del almacén</p>
+        <p><b>ID: </b>$id_almacen_central</p>
+        <p><b>Teléfono: </b>$telefono</p>
+        <p><b>Dirección: </b>$direccion</p>
+        <a href='eliminar.php?id_almacen_central=$id_almacen_central'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='op-almacen-central.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    } 
+}else if(isset($_GET['id_plataforma'])){
+    $id_plataforma = $_GET['id_plataforma'];
+
+    
+    $instruccion = "select * from plataforma where id_plataforma=$id_plataforma";
+    $filas = $conexion->query($instruccion); 
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_plataforma = $fila["id_plataforma"];
+        $telefono = $fila["telefono"];
+        $direccion = $fila["direccion"];
+        echo "<div class='form-crud'>
+        <legend>Eliminar Plataforma</legend>
+        <p class='adv'>¿Seguro que quiere eliminar la siguiente plataforma? Los cambios serán irreversibles</p>
+        <p class='subtitulo-crud'>Datos de la plataforma</p>
+        <p><b>ID: </b>$id_plataforma</p>
+        <p><b>Teléfono: </b>$telefono</p>
+        <p><b>Dirección: </b>$direccion</p>
+        <a href='eliminar.php?id_plataforma=$id_plataforma'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='op-plataforma.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    } 
+}
 
 ?>

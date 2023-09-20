@@ -12,46 +12,42 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <div id="div-tabla-lote">
-    <h1 id="h1-lote">Paquetes</h1>
-    <?php
-    if (isset($_GET['datos'])) {
-        $jsonDatos = urldecode($_GET['datos']);
-        $datos = json_decode($jsonDatos, true);
-        echo $datos['error'] . " ";
-        echo $datos['respuesta'];
-    }
-    ?>
-
+    <h1 id="h1-lote">Plataforma</h1>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
-                <th>Destino</th>
-                <th>Estado</th>
+                <th>Direccion</th>
                 <th>OP</th>
             </tr>
             <?php
-                require("../../controladores/api/paquete/obtenerDato.php");
-                foreach ($decode as $paquete) {
-                $id_paquete = $paquete["id_paquete"];
-                echo '<tr>';
-                echo '<td>' . $paquete["id_paquete"] . '</td>';
-                echo '<td>' . $paquete["direccion"] . '</td>';
-                echo '<td>' . $paquete['estado'] . '</td>';
+    include("../../modelos/db.php");
+    $instruccion = "select * from plataforma";
+            $plataformas = [];
+            $result = mysqli_query($conexion, $instruccion);
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($plataformas, $row);
+            }
+            foreach ($plataformas as $plataforma) {
+                echo "<tr class='fila-ingreso-lote fila-opcion' id='fila-1'>";
+                $id_plataforma = $plataforma["id_plataforma"];
+                $direccion = $plataforma["direccion"];
+                echo "<td>$id_plataforma</td>"; 
+                echo "<td>$direccion</td>";
                 echo "<td>
-                <a href='baja-paquete.php?id_paquete=$id_paquete'><button>B</button></a>
-                <a href='modificar-paquete.php?id_paquete=$id_paquete'><button>M</button></a>
-                <a href='consultar-paquete.php?id_paquete=$id_paquete'><button>C</button></a>
+                <a href='baja-dato.php?id_plataforma=$id_plataforma'><button>B</button></a>
+                <a href='modificar-plataforma.php?id_plataforma=$id_plataforma'><button>M</button></a>
+                <a href='consultar-dato.php?id_plataforma=$id_plataforma'><button>C</button></a>
                 </td>";
-                echo '</tr>';
-                }
-                ?>
+                echo "</tr>";
+            }
+            ?>
         </table>
     </div>
     <div id="mov-lote">
         <button class="btn-limpiar estilo-boton btns-as-lote">Reiniciar</button>
         <div id="btns-mov-lote">
-            <a href="index.php">
+            <a href="op-almacenes.php">
                 <button class="boton-volver estilo-boton btns-as-lote">Volver</button>
             </a>
             <!--a-->
@@ -61,7 +57,7 @@ require '../plantillas/menu-cuenta.php';
     </div>
     <div id="mov-lote2">
         <div class="div-mov-lote">
-            <a href="alta-paquete.php"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
+            <a href="alta-plataforma.php"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
             <button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>
         </div>
     </div>

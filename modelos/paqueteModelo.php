@@ -67,7 +67,7 @@ class paqueteModelo
             $instruccion = "DELETE FROM paquete WHERE id_paquete='$id_paquete'";
             mysqli_query($this->db, $instruccion);
             $resultado = [
-                'error' => "Success",
+                'error' => "Éxito",
                 'respuesta' => "Paquete eliminado"
             ];
         }

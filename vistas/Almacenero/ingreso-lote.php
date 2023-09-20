@@ -14,7 +14,7 @@ require '../plantillas/menu-cuenta.php';
 
 ?>
 
-    <form action="ingreso-lote-2.php" id="form-lote-2" method="post">
+    <form action="ingreso-lote.php" id="form-lote-2" method="post">
 
         <div class="div-datos-lote">
             <legend>Crear Lote</legend>
@@ -31,9 +31,9 @@ require '../plantillas/menu-cuenta.php';
             <p class="p-lote">Contenido frágil</p>
             <div id="div-radios-lote">
                 <label for="radio-lote-si">Sí</label>
-                <input type="radio" name="contenido-fragil" id="radio-lote-si" value="si">
+                <input type="radio" name="contenido-fragil" id="radio-lote-si" value="Si">
                 <label for="radio-lote-no">No</label>
-                <input type="radio" name="contenido-fragil" id="radio-lote-no" value="no" checked>
+                <input type="radio" name="contenido-fragil" id="radio-lote-no" value="No" checked>
                 <select name="select-fragil-lote" id="select-fragil-lote" disabled>
                     <option value="" selected disabled>Contenido frágil</option>
                     <option value="Líquido">Líquido</option>
@@ -46,7 +46,7 @@ require '../plantillas/menu-cuenta.php';
                 <p class="p-lote">Detalles</p>
                 <textarea name="detalles-lote" id="detalles-lote" cols="30" rows="8" maxlength="150" placeholder="Detalles adicionales (opcional)" form="form-paquete"></textarea>
                 <a href="ingreso-lote-2.php"><input type="submit" class="submit-lote boton-siguiente" value="Siguiente"></a>
-                <a href="index.php"><input type="button" class="submit-lote boton-volver" class="boton-volver" value="Volver"></a>
+                <a href="op-lotes.php"><input type="button" class="submit-lote boton-volver" class="boton-volver" value="Volver"></a>
         </div>
 
     </form>

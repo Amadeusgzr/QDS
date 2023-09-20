@@ -21,5 +21,5 @@ if (curl_errno($ch)){
 }
 
 curl_close($ch);
-header('Location: ../../../vistas/Almacenero/baja-paquete.php?data=' . urlencode($response));
+header('Location: ../../../vistas/Almacenero/op-paquetes.php?datos=' . urlencode($response));
 ?>

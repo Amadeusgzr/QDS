@@ -1338,6 +1338,7 @@ label[for="radio-lote-no"]{
     max-width: 500px;
     gap: 30px;
     padding: 10px;
+    padding-bottom: 30px;
 }
 
 .div-opciones-columna a h2{

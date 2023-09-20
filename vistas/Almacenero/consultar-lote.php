@@ -23,15 +23,15 @@ foreach ($decode as $paquete) {
 }
 ?>
 <div class="form-crud">
-    <legend>Consultar Paquete</legend>
-    <p class="subtitulo-crud">Datos del paquete</p>
-        <p><b>ID: </b><?= $id_paquete?></p>
-        <p><b>Dirección: </b><?= $direccion?></p>
-        <p><b>Peso: </b><?= $peso?> Kg</p>
-        <p><b>Volumen: </b><?= $volumen?> Cm3</p>
-        <p><b>Fragil: </b><?= $fragil?></p>
-        <p><b>Estado: </b><?= $estado?></p>
+    <legend>Consultar Lote</legend>
+    <p class="subtitulo-crud">Datos del lote</p>
+        <p><b>ID: </b><?= " "?></p>
+        <p><b>Dirección: </b><?= " "?></p>
+        <p><b>Peso: </b><?= " "?> Kg</p>
+        <p><b>Volumen: </b><?= " "?> Cm3</p>
+        <p><b>Fragil: </b><?= " "?></p>
+        <p><b>Estado: </b><?= " "?></p>
 
 
-    <a href="op-paquetes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
+    <a href="op-lotes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>

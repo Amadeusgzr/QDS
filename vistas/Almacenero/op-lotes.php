@@ -12,21 +12,12 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <div id="div-tabla-lote">
-    <h1 id="h1-lote">Paquetes</h1>
-    <?php
-    if (isset($_GET['datos'])) {
-        $jsonDatos = urldecode($_GET['datos']);
-        $datos = json_decode($jsonDatos, true);
-        echo $datos['error'] . " ";
-        echo $datos['respuesta'];
-    }
-    ?>
-
+    <h1 id="h1-lote">Lotes</h1>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
-                <th>Destino</th>
+                <th>Almacén Destino</th>
                 <th>Estado</th>
                 <th>OP</th>
             </tr>
@@ -61,7 +52,7 @@ require '../plantillas/menu-cuenta.php';
     </div>
     <div id="mov-lote2">
         <div class="div-mov-lote">
-            <a href="alta-paquete.php"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
+            <a href="ingreso-lote.php"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
             <button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>
         </div>
     </div>
