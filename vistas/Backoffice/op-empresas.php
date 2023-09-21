@@ -18,7 +18,6 @@ require '../plantillas/menu-cuenta.php';
             <tr class="fila-ingreso-lote">
                 <th>RUT</th>
                 <th>Nombre</th>
-                <th>Mail</th>
                 <th>OP</th>
             </tr>
             <?php
@@ -33,10 +32,8 @@ require '../plantillas/menu-cuenta.php';
                 echo "<tr class='fila-ingreso-lote fila-opcion' id='fila-1'>";
                 $rut = $empresa_cliente["rut"];
                 $nombre_de_empresa = $empresa_cliente["nombre_de_empresa"];
-                $mail = $empresa_cliente["mail"];
                 echo "<td>$rut</td>"; 
                 echo "<td>$nombre_de_empresa</td>";
-                echo "<td>$mail</td>";
                 echo "<td>
                 <a href='baja-dato.php?rut=$rut'><button>B</button></a>
                 <a href='modificar-empresa-cliente.php?rut=$rut'><button>M</button></a>

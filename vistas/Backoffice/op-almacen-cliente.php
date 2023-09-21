@@ -44,22 +44,15 @@ require '../plantillas/menu-cuenta.php';
             ?>
         </table>
     </div>
-    <div id="mov-lote">
-        <button class="btn-limpiar estilo-boton btns-as-lote">Reiniciar</button>
-        <div id="btns-mov-lote">
-            <a href="index.php">
-                <button class="boton-volver estilo-boton btns-as-lote">Volver</button>
+    <div class="div-btn-doble">
+        <button class="estilo-boton btns-as-lote">Reiniciar</button>
+            <a href="op-almacenes.php">
+                <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
             </a>
-            <!--a-->
-            <button class="boton-siguiente estilo-boton btns-as-lote" id="submit-as-lote-2">Siguiente</button>
-            <!--a-->
-        </div>
     </div>
-    <div id="mov-lote2">
-        <div class="div-mov-lote">
-            <a href="alta-almacen-cliente.php"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
-            <button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>
-        </div>
+    <div class="div-btn-doble">
+        <a href="alta-almacen-cliente.php" id="a-agregar"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
+        <!--<button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>-->
     </div>
 </div>
 

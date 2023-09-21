@@ -16,7 +16,13 @@ switch ($_SERVER['REQUEST_METHOD']) {
         if (isset($_POST->id_paquete)) {
             $respuesta = $paqueteModelo->obtenerPaquete($_POST->id_paquete);
         } else {
-            $respuesta = atributoVacio($_POST->mail_destinatario);
+            if (!filter_var($_POST->mail_destinatario, FILTER_VALIDATE_EMAIL)) {
+                $respuesta = [
+                    'error' => 'Error',
+                    'respuesta' => 'La dirección de correo electrónico no es válida'
+                ];            
+            } else{
+                $respuesta = atributoVacio($_POST->mail_destinatario);
             $respuesta1 = atributoVacio($_POST->direccion);
             $respuesta2 = atributoVacio($_POST->peso);
             $respuesta3 = atributoVacio($_POST->volumen);
@@ -30,6 +36,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
                     'respuesta' => 'Hay un atributo que no debe estar vacío'
                 ];
             }
+            }
+            
         }
         echo json_encode($respuesta);
         break;

@@ -15,6 +15,7 @@ require '../plantillas/menu-cuenta.php';
 <h1 id="h1-camioneros">Gestión de Almacenes</h1>
 
 <div class="div-opciones-columna">
+    <a href="index.php"><button class="boton-volver estilo-boton">Volver</button></a>
     <a href="op-almacen-central.php" class="opcion-aplicacion" id="op1">
         <h2>Almacen Central</h2>
     </a>

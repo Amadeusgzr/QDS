@@ -19,7 +19,6 @@ require '../plantillas/menu-cuenta.php';
     if (isset($_GET['datos'])) {
         $jsonDatos = urldecode($_GET['datos']);
         $datos = json_decode($jsonDatos, true);
-        echo $datos['error'] . " ";
         echo $datos['respuesta'];
     }
     ?>
@@ -50,22 +49,15 @@ require '../plantillas/menu-cuenta.php';
                 ?>
         </table>
     </div>
-    <div id="mov-lote">
-        <button class="btn-limpiar estilo-boton btns-as-lote">Reiniciar</button>
-        <div id="btns-mov-lote">
+    <div class="div-btn-doble">
+        <button class="estilo-boton btns-as-lote">Reiniciar</button>
             <a href="index.php">
-                <button class="boton-volver estilo-boton btns-as-lote">Volver</button>
+                <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
             </a>
-            <!--a-->
-            <button class="boton-siguiente estilo-boton btns-as-lote" id="submit-as-lote-2">Siguiente</button>
-            <!--a-->
-        </div>
     </div>
-    <div id="mov-lote2">
-        <div class="div-mov-lote">
-            <a href="alta-paquete.php"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
-            <button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>
-        </div>
+    <div class="div-btn-doble">
+        <a href="alta-paquete.php" id="a-agregar"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
+        <!--<button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>-->
     </div>
 </div>
 <script src="../js/ocultar-get.js"></script>

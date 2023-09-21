@@ -153,6 +153,26 @@ require '../plantillas/menu-cuenta.php';
         </div>";
     } 
 
+}else if(isset($_GET['id_ruta'])){
+    $id_ruta = $_GET['id_ruta'];
+
+    
+    $instruccion = "select * from ruta where id_ruta=$id_ruta";
+    $filas = $conexion->query($instruccion); 
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_ruta = $fila["id_ruta"];
+        $nom_ruta = $fila["nom_ruta"];
+
+        echo "<div class='form-crud'>
+        <legend>Consultar Ruta</legend>
+        <p class='subtitulo-crud'>Datos de la ruta</p>
+        <p><b>ID: </b>$id_ruta</p>
+        <p><b>Nombre/Numero: </b>$nom_ruta</p>
+        <a href='op-ruta.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    } 
+
 }
 
 ?>

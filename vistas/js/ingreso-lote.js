@@ -1,6 +1,6 @@
-let radioNo = document.getElementById("radio-paq-no");
-let radioSi = document.getElementById("radio-paq-si");
-let selectFragil = document.getElementById("select-fragil-paq");
+let radioNo = document.getElementById("radio-lote-no");
+let radioSi = document.getElementById("radio-lote-si");
+let selectFragil = document.getElementById("select-fragil-lote");
 
 radioNo.addEventListener("click",()=>{
     selectFragil.disabled = true;

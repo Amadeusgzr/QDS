@@ -38,7 +38,7 @@ require '../plantillas/menu-cuenta.php';
             <label for="radio-paq-no">No</label>
             <input type="radio" name="fragil" id="radio-paq-no" value="No" checked>
             <select name="tipo" id="select-fragil-paq" disabled>
-                <option value="" selected disabled>Contenido frágil</option>
+                <option value="default" selected disabled>Contenido frágil</option>
                 <option value="Líquido">Líquido</option>
                 <option value="Vidrio">Vidrio</option>
             </select>
@@ -49,18 +49,38 @@ require '../plantillas/menu-cuenta.php';
             <a href="op-paquetes.php"><input type="button" class="submit-paquete boton-volver" value="Volver"></a>
         </div>
     </div>
- 
+</form>
+
+<div class="div-error">
     <?php
-    if (isset($_GET['datos'])) {
-        $jsonDatos = urldecode($_GET['datos']);
-        $datos = json_decode($jsonDatos, true);
-        echo $datos['error'] . " ";
-        echo $datos['respuesta'];
-    }
+        if (isset($_GET['datos'])) {
+            $jsonDatos = urldecode($_GET['datos']);
+            $datos = json_decode($jsonDatos, true);
+            echo $datos['respuesta'];
+        }
 
     ?>
 
-</form>
+    <script>
+        const divError = document.querySelector(".div-error");
+        let url = window.location.href;
+        console.log(url);
+        if(url.includes("Error") || url.includes("Éxito")){
+            divError.style.visibility = "visible";
+            divError.style.animationName = "grande";
+            divError.style.animationDuration = "1s";
+            setTimeout(()=>{
+                divError.style.animationName = "chico";
+                divError.style.animationDuration = "1s";
+                setTimeout(()=>{
+                    divError.style.visibility = "hidden";
+                }, 1000);
+            }, 3000);
+        }
+    </script>
+
+</div>
+
 <script src="../js/ocultar-get.js"></script>
 <script src="../js/ingreso-paquete.js"></script>
 

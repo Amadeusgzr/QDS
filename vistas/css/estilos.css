@@ -416,7 +416,10 @@ hr{
 *************************************************/
 
 #div-op-cuenta{
-    background-color: #aaa;
+    background-color: #00000036;
+    border: 1px solid #4040404d;
+    backdrop-filter: blur(20px);
+    border-bottom-left-radius: 20px;
     position: absolute;
     right: 0;
     display: flex;
@@ -449,6 +452,7 @@ hr{
     margin: 0;
     cursor: pointer;
     border-top: 1px solid #777;
+    border-bottom-left-radius: 20px;
 }
 
 #btn-cerrar-menu:hover{
@@ -764,6 +768,7 @@ label[for="radio-paq-no"]{
 
 #div-tabla-lote{
     width: 95%;
+    max-width: 1500px;
     background-color: #fff;
     margin: 50px auto;
     padding: 1% 0;
@@ -822,10 +827,6 @@ label[for="radio-paq-no"]{
     background-color: #ccc;
 }
 
-.btn-limpiar{
-    padding: 5px 15px;
-}
-
 #mov-lote{
     width: 95%;
     display: flex;
@@ -846,19 +847,11 @@ label[for="radio-paq-no"]{
 }
 
 #op-alta{
-    background-color: #7cf37c;
+    background-color: #56ca56;
 }
 
 #op-baja{
-    background-color: #fe7c7c;
-}
-
-#op-mod{
-    background-color: #e16bfb;
-}
-
-#op-cons{
-    background-color: #67c2e3;
+    background-color: #4fa2e6;
 }
 
 .div-mov-lote{
@@ -934,6 +927,16 @@ legend{
 
 #select-almacen-lote{
     margin: 20px 0 0 0;
+    padding: 5px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0 0 5px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--color-principal);
+}
+
+#select-plataforma{
     padding: 5px;
     font-size: 1.2em;
     border: none;
@@ -1341,9 +1344,90 @@ label[for="radio-lote-no"]{
     padding-bottom: 30px;
 }
 
+.div-opciones-columna a, .div-opciones-columna button{
+    width: 100%;
+}
+
 .div-opciones-columna a h2{
     text-align: center;
 }
+
+.div-btn-doble{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    margin: 1em auto;
+    gap: 20px;
+}
+
+.div-btn-doble button{
+    width: 50%;
+}
+
+.div-btn-doble button:hover{
+    transform: scale(1.01);
+}
+
+.div-btn-doble a{
+    width: 50%;
+}
+
+.div-btn-doble a button{
+    width: 100%;
+}
+
+#a-agregar{
+    width: 100%;
+}
+
+#a-agregar button{
+    width: 100%;
+}
+
+.div-error{
+    width: 100%;
+    max-height: 100px;
+    padding: 30px;
+    max-width: 500px;
+    background-color: rgba(97, 97, 97, 0.363);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    position: fixed;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    box-shadow: 0 0 10px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+@keyframes grande {
+
+    0%{
+        transform: scale(0);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes chico {
+
+    0%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(0);
+    }
+}
+
 
 /************************************************
 *                                               *

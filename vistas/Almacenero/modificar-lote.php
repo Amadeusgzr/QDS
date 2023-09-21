@@ -51,7 +51,6 @@ foreach ($decode as $lote) {
 if (isset($_GET['datos'])) {
         $jsonDatos = urldecode($_GET['datos']);
         $datos = json_decode($jsonDatos, true);
-        echo $datos['error'] . " ";
         echo $datos['respuesta'];
     }
 ?>

@@ -156,6 +156,48 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-empresas.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     } 
+}else if(isset($_GET['id_trayecto'])){
+    $id_trayecto = $_GET['id_trayecto'];
+
+    
+    $instruccion = "SELECT trayecto.id_trayecto, plataforma.direccion, plataforma.departamento FROM trayecto INNER JOIN plataforma ON trayecto.id_plataforma=plataforma.id_plataforma WHERE id_trayecto=$id_trayecto";
+    $filas = $conexion->query($instruccion); 
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_trayecto = $fila["id_trayecto"];
+        $direccion = $fila['direccion'];
+        $departamento = $fila['departamento'];
+        echo "<div class='form-crud'>
+        <legend>Eliminar Trayecto</legend>
+        <p class='adv'>¿Seguro que quiere eliminar el siguiente trayecto? Los cambios serán irreversibles</p>
+        <p class='subtitulo-crud'>Datos del trayecto</p>
+        <p><b>ID: </b>$id_trayecto</p>
+        <p><b>Dirección final: </b>$direccion</p>
+        <p><b>Departamento final: </b>$departamento</p>
+        <a href='eliminar.php?id_trayecto=$id_trayecto'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='op-trayecto.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    } 
+}else if(isset($_GET['id_ruta'])){
+    $id_ruta = $_GET['id_ruta'];
+
+    
+    $instruccion = "select * from ruta where id_ruta=$id_ruta";
+    $filas = $conexion->query($instruccion); 
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_ruta = $fila["id_ruta"];
+        $nom_ruta = $fila['nom_ruta'];
+        echo "<div class='form-crud'>
+        <legend>Eliminar Ruta</legend>
+        <p class='adv'>¿Seguro que quiere eliminar la siguiente ruta? Los cambios serán irreversibles</p>
+        <p class='subtitulo-crud'>Datos de la ruta</p>
+        <p><b>ID: </b>$id_ruta</p>
+        <p><b>Nombre/Numero: </b>$nom_ruta</p>
+        <a href='eliminar.php?id_ruta=$id_ruta'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='op-ruta.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    } 
 }
 
 ?>

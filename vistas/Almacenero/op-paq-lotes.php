@@ -15,6 +15,7 @@ require '../plantillas/menu-cuenta.php';
 <h1 id="h1-camioneros">Paquetes y Lotes</h1>
 
 <div class="div-opciones-columna">
+    <a href="index.php"><button class="boton-volver estilo-boton">Volver</button></a>
     <a href="../Almacenero/op-paquetes.php" class="opcion-aplicacion" id="op1">
         <h2>Paquetes</h2>
     </a>
