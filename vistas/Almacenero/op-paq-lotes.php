@@ -18,7 +18,7 @@ require '../plantillas/menu-cuenta.php';
     <a href="../Almacenero/op-paquetes.php" class="opcion-aplicacion" id="op1">
         <h2>Paquetes</h2>
     </a>
-    <a href="op-almacen-cliente.php" class="opcion-aplicacion" id="op1">
+    <a href="op-lotes.php" class="opcion-aplicacion" id="op1">
         <h2>Lotes</h2>
     </a>
 </div>

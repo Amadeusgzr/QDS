@@ -8,32 +8,46 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
         exit();
     }
 }
+if (!isset($_GET['id_lote']) || is_null($_GET['id_lote']) || empty(trim($_GET['id_lote']))){
+    header("Location: ../error.php");
+}
 echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 <?php
-$id_paquete = $_GET['id_paquete'];
-require("../../controladores/api/paquete/obtenerDatoPorId.php");
-foreach ($decode as $paquete) {
-    $id_paquete = $paquete["id_paquete"];
-    $direccion = $paquete["direccion"];
-    $peso = $paquete["peso"];
-    $volumen = $paquete["volumen"];
-    $fragil = $paquete["fragil"];
-    $estado = $paquete["estado"];
+$id_lote = $_GET['id_lote'];
+require("../../controladores/api/lote/obtenerDatoPorId.php");
+foreach ($decode as $lote) {
+    $id_lote = $lote["id_lote"];
+    $cant_paquetes = $lote["cant_paquetes"];
+    $peso = $lote["peso"];
+    $volumen = $lote["volumen"];
+    $fragil = $lote["fragil"];
+    $tipo = $lote["tipo"];
+    $detalles = $lote["detalles"];
 }
 ?>
 <div class="form-crud">
     <legend>Consultar Lote</legend>
     <p class="subtitulo-crud">Datos del lote</p>
-        <p><b>ID: </b><?= " "?></p>
-        <p><b>Dirección: </b><?= " "?></p>
-        <p><b>Peso: </b><?= " "?> Kg</p>
-        <p><b>Volumen: </b><?= " "?> Cm3</p>
-        <p><b>Fragil: </b><?= " "?></p>
-        <p><b>Estado: </b><?= " "?></p>
-
-
+        <p><b>ID: </b><?= $id_lote?></p>
+        <p><b>Cantidad de paquetes: </b><?= $cant_paquetes?></p>
+        <p><b>Peso: </b><?= $peso?> Kg</p>
+        <p><b>Volumen: </b><?= $volumen?> Cm3</p>
+        <p><b>Fragil: </b><?= $fragil?></p>
+        <?php
+            if($fragil == "Si"){
+                echo "<p><b>Tipo: </b>$tipo</p>";
+            }
+        ?>
+        <?php
+            if (!isset($detalles) || is_null($detalles) || empty(trim($detalles))) {
+            }else{
+                echo "<p><b>Detalles: </b>$detalles</p>";
+            }
+        ?>
     <a href="op-lotes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
+    <script src="../js/ocultar-get.js"></script>
+
 </div>

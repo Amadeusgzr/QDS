@@ -8,6 +8,9 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
         exit();
     }
 }
+if (!isset($_GET['id_paquete']) || is_null($_GET['id_paquete']) || empty(trim($_GET['id_paquete']))){
+    header("Location: ../error.php");
+}
 echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
@@ -54,5 +57,6 @@ if (isset($_GET['datos'])) {
         echo $datos['respuesta'];
     }
 ?>
+<script src="../js/ocultar-get.js"></script>
 </div>
 

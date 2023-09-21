@@ -25,7 +25,7 @@ require '../plantillas/menu-cuenta.php';
             <p>Gestión de Camiones</p>
             <div class="div-img-icono"><img src="../img/iconos/camion.png" alt=""></div>
         </a>
-        <a href="op-paq-lotes.php" class="opcion-aplicacion" id="op3">
+        <a href="../Almacenero/op-paq-lotes.php" class="opcion-aplicacion" id="op3">
             <h2>Paquetes y Lotes</h2>
             <p>Gestión de Paquetes y Lotes</p>
             <div class="div-img-icono"><img src="../img/iconos/paquete.png" alt=""></div>

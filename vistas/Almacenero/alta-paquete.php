@@ -49,6 +49,7 @@ require '../plantillas/menu-cuenta.php';
             <a href="op-paquetes.php"><input type="button" class="submit-paquete boton-volver" value="Volver"></a>
         </div>
     </div>
+ 
     <?php
     if (isset($_GET['datos'])) {
         $jsonDatos = urldecode($_GET['datos']);
@@ -60,17 +61,9 @@ require '../plantillas/menu-cuenta.php';
     ?>
 
 </form>
-
+<script src="../js/ocultar-get.js"></script>
 <script src="../js/ingreso-paquete.js"></script>
 
 </body>
 
 </html>
-
-<!--
-<?php
-
-
-
-?>
--->

@@ -8,9 +8,13 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
         exit();
     }
 }
+if (!isset($_GET['id_paquete']) || is_null($_GET['id_paquete']) || empty(trim($_GET['id_paquete']))){
+        header("Location: ../error.php");
+}
 echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
+
 ?>
 <?php
 $id_paquete = $_GET['id_paquete'];
@@ -51,6 +55,6 @@ foreach ($decode as $paquete) {
         ?>
         <a href="../../controladores/api/paquete/eliminarDato.php?id_paquete=<?= $id_paquete?>"><input type="submit" value="Eliminar" class="estilo-boton boton-siguiente"></a>
     <a href="op-paquetes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
-    <?php
-?>
+    <script src="../js/ocultar-get.js"></script>
+
 </div>

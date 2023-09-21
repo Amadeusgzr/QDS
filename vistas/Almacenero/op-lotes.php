@@ -15,26 +15,34 @@ require '../plantillas/menu-cuenta.php';
 
 <div id="div-tabla-lote">
     <h1 id="h1-lote">Lotes</h1>
+    <?php
+    if (isset($_GET['datos'])) {
+        $jsonDatos = urldecode($_GET['datos']);
+        $datos = json_decode($jsonDatos, true);
+        echo $datos['error'] . " ";
+        echo $datos['respuesta'];
+    }
+    ?>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
-                <th>Almacén Destino</th>
-                <th>Estado</th>
+                <th>Cantidad de paquetes</th>
+                <th>Peso</th>
                 <th>OP</th>
             </tr>
             <?php
-                require("../../controladores/api/paquete/obtenerDato.php");
-                foreach ($decode as $paquete) {
-                $id_paquete = $paquete["id_paquete"];
+                require("../../controladores/api/lote/obtenerDato.php");
+                foreach ($decode as $lote) {
+                $id_lote = $lote["id_lote"];
                 echo '<tr>';
-                echo '<td>' . $paquete["id_paquete"] . '</td>';
-                echo '<td>' . $paquete["direccion"] . '</td>';
-                echo '<td>' . $paquete['estado'] . '</td>';
+                echo '<td>' . $lote["id_lote"] . '</td>';
+                echo '<td>' . $lote["cant_paquetes"] . '</td>';
+                echo '<td>' . $lote['peso'] . '</td>';
                 echo "<td>
-                <a href='baja-paquete.php?id_paquete=$id_paquete'><button>B</button></a>
-                <a href='modificar-paquete.php?id_paquete=$id_paquete'><button>M</button></a>
-                <a href='consultar-paquete.php?id_paquete=$id_paquete'><button>C</button></a>
+                <a href='baja-lote.php?id_lote=$id_lote'><button>B</button></a>
+                <a href='modificar-lote.php?id_lote=$id_lote'><button>M</button></a>
+                <a href='consultar-lote.php?id_lote=$id_lote'><button>C</button></a>
                 </td>";
                 echo '</tr>';
                 }
@@ -54,7 +62,7 @@ require '../plantillas/menu-cuenta.php';
     </div>
     <div id="mov-lote2">
         <div class="div-mov-lote">
-            <a href="ingreso-lote.php"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
+            <a href="alta-lote.php"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
             <button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>
         </div>
     </div>

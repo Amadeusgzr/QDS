@@ -50,29 +50,8 @@ require '../plantillas/menu-cuenta.php';
         </div>
 
     </form>
-
+    <script src="../js/ocultar-get.js"></script>
     <script src="../js/ingreso-lote-2.js"></script>
 
 </body>
 </html>
-
-<!-- <?php
-
-if($_POST){
-    $remitente = $_POST["select-remitente-paq"];
-    $nombre_destinatario = $_POST["nombre-destinatario-paq"];
-    $correo_destinatario = $_POST["mail-destinatario-paq"];
-    $calle_destino = $_POST["calle-destino-paq"];
-    $num_puerta_destino = $_POST["puerta-destino-paq"];
-    $peso = $_POST["peso-paq"];
-    $volumen = $_POST["volumen-paq"];
-    $fragil = $_POST["contenido-fragil"];
-    $contenido_fragil = $_POST["select-fragil-paq"];
-    $detalles = $_POST["detalles-paq"];
-
-    $conexion = new mysqli("127.0.0.1","root","","bdprueba");
-    $instruccion = "insert into paquete(remitente, nom_destinatario, correo_destinatario, calle_destino, num_puerta_destino, peso, volumen, fragil, contenido_fragil, detalles) value ('$remitente', '$nombre_destinatario', '$correo_destinatario', '$calle_destino', '$num_puerta_destino', $peso, $volumen, $fragil, '$contenido_fragil', '$detalles')";
-    $conexion->query($instruccion);
-}
-
-?> -->

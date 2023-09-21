@@ -8,13 +8,16 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
         exit();
     }
 }
+if (!isset($_GET['id_lote']) || is_null($_GET['id_lote']) || empty(trim($_GET['id_lote']))){
+    header("Location: ../error.php");
+}
 echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 <?php
 $id_lote = $_GET['id_lote'];
-require("../../controladores/api/paquete/obtenerDatoPorId.php");
+require("../../controladores/api/lote/obtenerDatoPorId.php");
 foreach ($decode as $lote) {
     $id_lote = $lote["id_lote"];
     $peso = $lote["peso"];
@@ -27,14 +30,7 @@ foreach ($decode as $lote) {
         <p><b>ID: </b><?= $id_lote?></p>
         <p><b>Peso: </b><?= $peso?> kg</p>
         <p><b>Volumen: </b><?= $volumen?></p>
-        <a href="../../controladores/api/paquete/eliminarDato.php?id_paquete=<?= $id_lote?>"><input type="submit" value="Eliminar" class="estilo-boton boton-siguiente"></a>
+        <a href="../../controladores/api/lote/eliminarDato.php?id_lote=<?= $id_lote?>"><input type="submit" value="Eliminar" class="estilo-boton boton-siguiente"></a>
     <a href="op-lotes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
-    <?php
-                if (isset($_GET['data'])) {
-                    $jsonData = urldecode($_GET['data']);
-                    $data = json_decode($jsonData, true);
-                    echo $data['error'] . " ";
-                    echo $data['respuesta'];
-                }
-?>
+    <script src="../js/ocultar-get.js"></script>
 </div>
