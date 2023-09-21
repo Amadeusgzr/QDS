@@ -444,6 +444,16 @@ hr{
     }
 }
 
+@keyframes plegar-menu {
+    0%{
+        visibility: visible;
+    }
+    100%{
+        transform: translateY(-500px);
+        visibility: visible;
+    }
+}
+
 #btn-cerrar-menu{
     text-align: center;
     font-weight: bolder;

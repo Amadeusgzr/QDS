@@ -65,7 +65,7 @@ require '../plantillas/menu-cuenta.php';
         const divError = document.querySelector(".div-error");
         let url = window.location.href;
         console.log(url);
-        if(url.includes("Error") || url.includes("Éxito")){
+        if(url.includes("Error")){
             divError.style.visibility = "visible";
             divError.style.animationName = "grande";
             divError.style.animationDuration = "1s";
@@ -74,7 +74,7 @@ require '../plantillas/menu-cuenta.php';
                 divError.style.animationDuration = "1s";
                 setTimeout(()=>{
                     divError.style.visibility = "hidden";
-                }, 1000);
+                }, 900);
             }, 3000);
         }
     </script>

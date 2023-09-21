@@ -12,7 +12,7 @@ divCuenta.addEventListener("click",()=>{
     opsCuenta.style.animationDuration = ".3s";
     setTimeout(()=>{
         opsCuenta.style.zIndex = "10";
-    }, 300);
+    },300);
 });
 
 btnCerrar.addEventListener("click",()=>{
