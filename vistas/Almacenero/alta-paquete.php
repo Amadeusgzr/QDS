@@ -58,29 +58,10 @@ require '../plantillas/menu-cuenta.php';
             $datos = json_decode($jsonDatos, true);
             echo $datos['respuesta'];
         }
-
     ?>
-
-    <script>
-        const divError = document.querySelector(".div-error");
-        let url = window.location.href;
-        console.log(url);
-        if(url.includes("Error")){
-            divError.style.visibility = "visible";
-            divError.style.animationName = "grande";
-            divError.style.animationDuration = "1s";
-            setTimeout(()=>{
-                divError.style.animationName = "chico";
-                divError.style.animationDuration = "1s";
-                setTimeout(()=>{
-                    divError.style.visibility = "hidden";
-                }, 900);
-            }, 3000);
-        }
-    </script>
-
 </div>
 
+<script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ocultar-get.js"></script>
 <script src="../js/ingreso-paquete.js"></script>
 

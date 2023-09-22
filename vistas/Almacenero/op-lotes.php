@@ -15,14 +15,15 @@ require '../plantillas/menu-cuenta.php';
 
 <div id="div-tabla-lote">
     <h1 id="h1-lote">Lotes</h1>
+    <div class="div-error">
     <?php
-    if (isset($_GET['datos'])) {
-        $jsonDatos = urldecode($_GET['datos']);
-        $datos = json_decode($jsonDatos, true);
-        echo $datos['error'] . " ";
-        echo $datos['respuesta'];
-    }
+        if (isset($_GET['datos'])) {
+            $jsonDatos = urldecode($_GET['datos']);
+            $datos = json_decode($jsonDatos, true);
+            echo $datos['respuesta'];
+        }
     ?>
+</div>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
@@ -60,7 +61,7 @@ require '../plantillas/menu-cuenta.php';
         <!--<button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>-->
     </div>
 </div>
-
+<script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/asignar-paquetes-lote-2.js"></script>
 
 </body>

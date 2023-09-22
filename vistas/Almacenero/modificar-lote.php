@@ -47,13 +47,16 @@ foreach ($decode as $lote) {
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-lotes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
+    <div class="div-error">
     <?php
-if (isset($_GET['datos'])) {
-        $jsonDatos = urldecode($_GET['datos']);
-        $datos = json_decode($jsonDatos, true);
-        echo $datos['respuesta'];
-    }
-?>
+        if (isset($_GET['datos'])) {
+            $jsonDatos = urldecode($_GET['datos']);
+            $datos = json_decode($jsonDatos, true);
+            echo $datos['respuesta'];
+        }
+    ?>
+</div>
+<script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ocultar-get.js"></script>
 
 </div>
