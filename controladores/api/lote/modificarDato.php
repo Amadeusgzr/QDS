@@ -19,7 +19,7 @@ $array = [
 
 $datos = json_encode($array);
 
-curl_setopt($ch,CURLOPT_URL,'localhost/Diseno-Web/controladores/loteControlador.php');
+curl_setopt($ch,CURLOPT_URL,'localhost/QDS/controladores/loteControlador.php');
 curl_setopt($ch,CURLOPT_CUSTOMREQUEST, 'PUT');
 curl_setopt($ch,CURLOPT_POSTFIELDS, $datos);
 curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);

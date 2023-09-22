@@ -1,4 +1,4 @@
-ErrorDocument 404 /Diseno-web/vistas/error
+ErrorDocument 404 /QDS/vistas/error
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]

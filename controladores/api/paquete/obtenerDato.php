@@ -1,7 +1,7 @@
 <?php
 $ch = curl_init();
 
-curl_setopt($ch,CURLOPT_URL,'localhost/Diseno-Web/controladores/paqueteControlador.php');
+curl_setopt($ch,CURLOPT_URL,'localhost/QDS/controladores/paqueteControlador.php');
 curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
 
 $respuesta = curl_exec($ch);
