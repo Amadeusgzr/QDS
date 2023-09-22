@@ -16,7 +16,7 @@ try {
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = 'datavisionuy@gmail.com'; // Reemplaza con tu correo Gmail
-    $mail->Password   = 'DVeul000'; // Reemplaza con tu contraseña de Gmail
+    $mail->Password   = ''; // Reemplaza con tu contraseña de Gmail
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Cambia a 'ssl' si prefieres SSL
     $mail->Port       = 465; // Cambia a 465 si prefieres SSL
 

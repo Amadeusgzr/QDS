@@ -38,7 +38,11 @@ require '../plantillas/menu-cuenta.php';
                 $id_lote = $lote["id_lote"];
                 echo '<tr>';
                 echo '<td>' . $lote["id_lote"] . '</td>';
-                echo '<td>' . $lote["cant_paquetes"] . '</td>';
+                if (!isset($lote["cant_paquetes"]) || is_null($lote["cant_paquetes"]) || empty(trim($lote["cant_paquetes"]))){
+                    echo '<td>Paquetes no asignados</td>';
+                } else {
+                    echo '<td>' . $lote["cant_paquetes"] . '</td>';
+                }
                 echo '<td>' . $lote['peso'] . '</td>';
                 echo "<td>
                 <a href='baja-lote.php?id_lote=$id_lote'><button>B</button></a>
