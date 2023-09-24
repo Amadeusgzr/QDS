@@ -45,7 +45,7 @@ require '../plantillas/menu-cuenta.php';
             <p>Gestión de Rutas y Trayectos</p>
             <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
         </a>
-        <a href="" class="opcion-aplicacion" id="op6">
+        <a href="op-rutas-trayectos" class="opcion-aplicacion" id="op6">
             <h2>Asignar Rutas a Trayectos</h2>
             <p>Asignación de Rutas a Trayectos</p>
             <div class="div-img-icono"><img src="../img/iconos/ruta-trayecto.png" alt=""></div>

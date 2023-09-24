@@ -25,20 +25,9 @@ require '../plantillas/menu-cuenta.php';
         $telefono = $fila["telefono"];
     }
 
-    if (isset($_GET["telefono"])) {
-        $id_camionero = $_GET["id_camionero"];
-        $cedula = $_GET["cedula"];
-        $nombre_completo = $_GET["nombre_completo"];
-        $mail = $_GET["mail"];
-        $telefono = $_GET["telefono"];
-
-        $instruccion1 = "update camionero set cedula='$cedula', nombre_completo='$nombre_completo', mail='$mail', telefono='$telefono' where id_camionero=$id_camionero";
-        $conexion->query($instruccion1);
-    }
-
     ?>
 <div class="form-crud">
-    <form action="modificar-camionero.php" method="get">
+    <form action="modificar.php" method="post">
         <legend>Modificar Camionero</legend>
         <p class="subtitulo-crud">Datos actuales</p>
         <p><b>ID: </b><?= $id_camionero?></p>

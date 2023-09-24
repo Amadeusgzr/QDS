@@ -46,7 +46,7 @@ require '../plantillas/menu-cuenta.php';
     </div>
     <div class="div-btn-doble">
         <button class="estilo-boton btns-as-lote">Reiniciar</button>
-            <a href="op-rutas-tray.php">
+            <a href="op-rutas-trayectos.php">
                 <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
             </a>
     </div>

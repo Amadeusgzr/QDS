@@ -25,20 +25,11 @@ require '../plantillas/menu-cuenta.php';
         $volumen = $fila["volumen_maximo"];
     }
 
-    if (isset($_GET["telefono"])) {
-        $id_plataforma = $_GET["id_plataforma"];
-        $telefono = $_GET["telefono"];
-        $direccion = $_GET["direccion"];
-
-
-        $instruccion1 = "update plataforma set direccion='$direccion', telefono='$telefono' where id_plataforma=$id_plataforma";
-        $conexion->query($instruccion1);
-    }
 
     ?>
 
 <div class="form-crud">
-    <form action="modificar-plataforma.php" method="get">
+    <form action="modificar.php" method="post">
         <legend>Modificar Plataforma</legend>
         <p class="subtitulo-crud">Datos actuales</p>
         <p><b>ID: </b><?= $id_plataforma?></p>

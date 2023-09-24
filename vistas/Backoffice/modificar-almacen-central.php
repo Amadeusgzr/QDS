@@ -22,21 +22,10 @@ require '../plantillas/menu-cuenta.php';
         $telefono = $fila["telefono"];
         $direccion = $fila["direccion"];
     }
-
-    if (isset($_GET["telefono"])) {
-        $id_almacen_central = $_GET["id_almacen_central"];
-        $telefono = $_GET["telefono"];
-        $direccion = $_GET["direccion"];
-
-
-        $instruccion1 = "update almacen_central set direccion='$direccion', telefono='$telefono' where id_almacen_central=$id_almacen_central";
-        $conexion->query($instruccion1);
-    }
-
     ?>
 
 <div class="form-crud">
-    <form action="modificar-almacen-central.php" method="get">
+    <form action="modificar.php" method="post">
         <legend>Modificar Almacén (central)</legend>
         <p class="subtitulo-crud">Datos actuales</p>
         <p><b>ID: </b><?= $id_almacen_central?></p>

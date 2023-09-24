@@ -22,17 +22,10 @@ require '../plantillas/menu-cuenta.php';
         $nom_ruta = $fila["nom_ruta"];
     }
 
-    if (isset($_GET["nom_ruta"])) {
-        $id_ruta = $_GET["id_ruta"];
-        $nom_ruta = $_GET["nom_ruta"];
-
-        $instruccion1 = "update ruta set id_ruta='$id_ruta', nom_ruta='$nom_ruta' where id_ruta=$id_ruta";
-        $conexion->query($instruccion1);
-    }
 
     ?>
 <div class="form-crud">
-    <form action="modificar-ruta.php" method="get">
+    <form action="modificar.php" method="post">
         <legend>Modificar Ruta</legend>
         <p class="subtitulo-crud">Datos actuales</p>
         <p><b>ID: </b><?= $id_ruta?></p>

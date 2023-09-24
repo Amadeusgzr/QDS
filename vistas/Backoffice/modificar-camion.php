@@ -25,20 +25,9 @@ require '../plantillas/menu-cuenta.php';
         $estado = $fila["estado"];
     }
 
-    if (isset($_GET["estado"])) {
-        $id_camion = $_GET["id_camion"];
-        $matricula = $_GET["matricula"];
-        $peso_soportado = $_GET["peso_soportado"];
-        $volumen_disponible = $_GET["volumen_disponible"];
-        $estado = $_GET["estado"];
-
-        $instruccion1 = "update camion set matricula='$matricula', peso_soportado='$peso_soportado', volumen_disponible='$volumen_disponible', estado='$estado' where id_camion=$id_camion";
-        $conexion->query($instruccion1);
-    }
-
     ?>
 <div class="form-crud">
-    <form action="modificar-camion.php" method="get">
+    <form action="modificar.php" method="post">
         <legend>Modificar Camión</legend>
         <p class="subtitulo-crud">Datos actuales</p>
         <p><b>ID: </b><?= $id_camion?></p>

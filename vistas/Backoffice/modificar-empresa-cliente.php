@@ -23,20 +23,10 @@ require '../plantillas/menu-cuenta.php';
         $mail = $fila["mail"];
     }
 
-    if (isset($_GET["mail"])) {
-        $rut = $_GET["rut"];
-        $nombre_de_empresa = $_GET["nombre_de_empresa"];
-        $mail = $_GET["mail"];
-
-
-        $instruccion1 = "update empresa_cliente set nombre_de_empresa='$nombre_de_empresa', mail='$mail' where rut=$rut";
-        $conexion->query($instruccion1);
-    }
-
     ?>
 
 <div class="form-crud">
-    <form action="modificar-empresa-cliente.php" method="get">
+    <form action="modificar.php" method="post">
         <legend>Modificar Empresa Cliente</legend>
         <p class="subtitulo-crud">Datos actuales</p>
         <p><b>RUT: </b><?= $rut?></p>
