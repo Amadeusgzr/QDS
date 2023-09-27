@@ -626,6 +626,24 @@ hr{
     flex-wrap: wrap;
 }
 
+.div-paq-nuevo{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.div-btns-paquete{
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    order: 100000000000000000;
+}
+
+#agregar{
+    width: 100%;
+    margin-top: 30px;
+}
+
 .div-datos-paq{
     width: 40%;
     display: flex;
