@@ -22,8 +22,8 @@ require '../plantillas/menu-cuenta.php';
                 <th>OP</th>
             </tr>
             <?php
-    include("../../modelos/db.php");
-    $instruccion = "SELECT trayecto.id_trayecto, plataforma.direccion, plataforma.departamento FROM trayecto INNER JOIN plataforma ON trayecto.id_plataforma=plataforma.id_plataforma;    ";
+            include("../../modelos/db.php");
+            $instruccion = "SELECT trayecto.id_trayecto, plataforma.direccion, plataforma.departamento FROM trayecto INNER JOIN plataforma ON trayecto.id_plataforma=plataforma.id_plataforma;    ";
             $plataformas = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -34,7 +34,7 @@ require '../plantillas/menu-cuenta.php';
                 $id_trayecto = $plataforma["id_trayecto"];
                 $direccion = $plataforma["direccion"];
                 $departamento = $plataforma['departamento'];
-                echo "<td>$id_trayecto</td>"; 
+                echo "<td>$id_trayecto</td>";
                 echo "<td>$direccion</td>";
                 echo "<td>$departamento</td>";
                 echo "<td>
@@ -49,12 +49,13 @@ require '../plantillas/menu-cuenta.php';
     </div>
     <div class="div-btn-doble">
         <button class="estilo-boton btns-as-lote">Reiniciar</button>
-            <a href="op-rutas-tray.php">
-                <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
-            </a>
+        <a href="op-rutas-tray.php">
+            <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
+        </a>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-trayecto.php" id="a-agregar"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
+        <a href="alta-trayecto.php" id="a-agregar"><button class="estilo-boton btns-as-lote"
+                id="op-alta">Agregar</button></a>
         <!--<button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>-->
     </div>
 </div>

@@ -23,7 +23,7 @@ require '../plantillas/menu-cuenta.php';
 <?php
 
 
-if($_POST){
+if ($_POST) {
     $nom_ruta = $_POST["nom_ruta"];
 
     include("../../modelos/db.php");

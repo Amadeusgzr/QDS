@@ -15,10 +15,10 @@ require '../plantillas/menu-cuenta.php';
     <form action="alta-trayecto.php" method="post">
         <legend>Agregar Trayecto</legend>
         <select name="id_plataforma" id="">
-            <option disabled selected >Dirección Plataforma</option>
+            <option disabled selected>Dirección Plataforma</option>
             <?php
-    include("../../modelos/db.php");
-    $instruccion = "select * from plataforma";
+            include("../../modelos/db.php");
+            $instruccion = "select * from plataforma";
             $plataformas = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -41,7 +41,7 @@ require '../plantillas/menu-cuenta.php';
 <?php
 
 
-if($_POST){
+if ($_POST) {
     $id_plataforma = $_POST['id_plataforma'];
 
     include("../../modelos/db.php");

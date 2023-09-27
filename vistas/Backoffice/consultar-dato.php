@@ -11,8 +11,8 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 <?php
-    include("../../modelos/db.php");
-    if (isset($_GET['id_camionero'])) {
+include("../../modelos/db.php");
+if (isset($_GET['id_camionero'])) {
     $id_camionero = $_GET['id_camionero'];
 
     $instruccion = "select * from camionero where id_camionero=$id_camionero";
@@ -34,13 +34,13 @@ require '../plantillas/menu-cuenta.php';
         <p><b>Mail: </b>$mail</p>
         <a href='op-camioneros.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
-} else if(isset($_GET['id_almacen_cliente'])){
+    }
+} else if (isset($_GET['id_almacen_cliente'])) {
     $id_almacen_cliente = $_GET['id_almacen_cliente'];
 
-    
+
     $instruccion = "select * from almacen_cliente where id_almacen_cliente=$id_almacen_cliente";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_almacen_cliente = $fila["id_almacen_cliente"];
@@ -55,14 +55,14 @@ require '../plantillas/menu-cuenta.php';
         <p><b>Dirección: </b>$direccion</p>
         <a href='op-almacen-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
+    }
 
-}else if(isset($_GET['id_almacen_central'])){
+} else if (isset($_GET['id_almacen_central'])) {
     $id_almacen_central = $_GET['id_almacen_central'];
 
-    
+
     $instruccion = "select * from almacen_central where id_almacen_central=$id_almacen_central";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_almacen_central = $fila["id_almacen_central"];
@@ -77,14 +77,14 @@ require '../plantillas/menu-cuenta.php';
         <p><b>Dirección: </b>$direccion</p>
         <a href='op-almacen-central.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
+    }
 
-}else if(isset($_GET['id_plataforma'])){
+} else if (isset($_GET['id_plataforma'])) {
     $id_plataforma = $_GET['id_plataforma'];
 
-    
+
     $instruccion = "select * from plataforma where id_plataforma=$id_plataforma";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_plataforma = $fila["id_plataforma"];
@@ -93,6 +93,18 @@ require '../plantillas/menu-cuenta.php';
         $departamento = $fila["departamento"];
         $volumen = $fila["volumen_maximo"];
 
+        $api_key = 'AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM';
+        $origen = 'FelipeSanguinetti2474';
+        $destino = str_replace(' ', '', $direccion) . ",Departamentode" . $departamento;
+        // Construir la URL para la solicitud a la API
+        $url = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$destino&key=$api_key&region=uy&language=es";
+
+        $response = file_get_contents($url);
+
+        $data = json_decode($response);
+
+        // Realizar la solicitud a la API
+        $response = file_get_contents($url);
         echo "<div class='form-crud'>
         <legend>Consultar Plataforma</legend>
         <p class='subtitulo-crud'>Datos de la plataforma</p>
@@ -101,16 +113,33 @@ require '../plantillas/menu-cuenta.php';
         <p><b>Dirección: </b>$direccion</p>
         <p><b>Departamento: </b>$departamento</p>
         <p><b>Volumen máx.: </b>$volumen</p>
-        <a href='op-plataforma.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
-        </div>";
-    } 
+        <p><b>Trayecto: </b></p>";
+        if ($data->status === "OK") {
+            // Recuperar las direcciones en texto
+            $pasos = $data->routes[0]->legs[0]->steps;
+            $direccionesTexto = [];
 
-}else if(isset($_GET['id_camion'])){
+            $data = json_decode($response);
+
+            foreach ($pasos as $paso) {
+                $direccionesTexto[] = $paso->html_instructions;
+            }
+
+            // Imprimir las direcciones en texto
+            foreach ($direccionesTexto as $direcciones) {
+                echo "<p>$direcciones</p>";
+            }
+        }
+        echo "<a href='op-plataforma.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
+
+} else if (isset($_GET['id_camion'])) {
     $id_camion = $_GET['id_camion'];
 
-    
+
     $instruccion = "select * from camion where id_camion=$id_camion";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_camion = $fila["id_camion"];
@@ -129,14 +158,14 @@ require '../plantillas/menu-cuenta.php';
         <p><b>Estado: </b>$estado</p>
         <a href='op-camiones.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
+    }
 
-}else if(isset($_GET['rut'])){
+} else if (isset($_GET['rut'])) {
     $rut = $_GET['rut'];
 
-    
+
     $instruccion = "select * from empresa_cliente where rut=$rut";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $rut = $fila["rut"];
@@ -151,14 +180,14 @@ require '../plantillas/menu-cuenta.php';
         <p><b>Mail: </b>$mail</p>
         <a href='op-empresas.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
+    }
 
-}else if(isset($_GET['id_ruta'])){
+} else if (isset($_GET['id_ruta'])) {
     $id_ruta = $_GET['id_ruta'];
 
-    
+
     $instruccion = "select * from ruta where id_ruta=$id_ruta";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_ruta = $fila["id_ruta"];
@@ -171,7 +200,7 @@ require '../plantillas/menu-cuenta.php';
         <p><b>Nombre/Numero: </b>$nom_ruta</p>
         <a href='op-ruta.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
+    }
 
 }
 

@@ -25,7 +25,7 @@ require '../plantillas/menu-cuenta.php';
 <?php
 
 
-if($_POST){
+if ($_POST) {
     $rut = $_POST["rut"];
     $nombre_de_empresa = $_POST["nombre_de_empresa"];
     $mail = $_POST["mail"];

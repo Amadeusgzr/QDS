@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['nom_usu'])){
+if (isset($_SESSION['nom_usu'])) {
     header("Location: ../index.php");
 } else {
     require 'plantillas/headerInvitado.php';
@@ -17,13 +17,13 @@ if(isset($_SESSION['nom_usu'])){
             autocomplete="off" require>
         <input type="submit" id="submit-login" value="Ingresar">
         <?php
-if (isset($_GET['data'])) {
-    $jsonData = urldecode($_GET['data']);
-    $data = json_decode($jsonData, true);
-    echo $data['error'] . " ";
-    echo $data['resultado'];
-}
-?>
+        if (isset($_GET['data'])) {
+            $jsonData = urldecode($_GET['data']);
+            $data = json_decode($jsonData, true);
+            echo $data['error'] . " ";
+            echo $data['resultado'];
+        }
+        ?>
         <hr>
         <a href="" id="a-contraseña">¿Olvidaste tu contraseña?</a>
     </div>

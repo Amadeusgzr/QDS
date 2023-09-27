@@ -16,14 +16,14 @@ require '../plantillas/menu-cuenta.php';
 <div id="div-tabla-lote">
     <h1 id="h1-lote">Lotes</h1>
     <div class="div-error">
-    <?php
+        <?php
         if (isset($_GET['datos'])) {
             $jsonDatos = urldecode($_GET['datos']);
             $datos = json_decode($jsonDatos, true);
             echo $datos['respuesta'];
         }
-    ?>
-</div>
+        ?>
+    </div>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
@@ -33,12 +33,12 @@ require '../plantillas/menu-cuenta.php';
                 <th>OP</th>
             </tr>
             <?php
-                require("../../controladores/api/lote/obtenerDato.php");
-                foreach ($decode as $lote) {
+            require("../../controladores/api/lote/obtenerDato.php");
+            foreach ($decode as $lote) {
                 $id_lote = $lote["id_lote"];
                 echo '<tr>';
                 echo '<td>' . $lote["id_lote"] . '</td>';
-                if (!isset($lote["cant_paquetes"]) || is_null($lote["cant_paquetes"]) || empty(trim($lote["cant_paquetes"]))){
+                if (!isset($lote["cant_paquetes"]) || is_null($lote["cant_paquetes"]) || empty(trim($lote["cant_paquetes"]))) {
                     echo '<td>Paquetes no asignados</td>';
                 } else {
                     echo '<td>' . $lote["cant_paquetes"] . '</td>';
@@ -50,18 +50,19 @@ require '../plantillas/menu-cuenta.php';
                 <a href='consultar-lote.php?id_lote=$id_lote'><button>C</button></a>
                 </td>";
                 echo '</tr>';
-                }
-                ?>
+            }
+            ?>
         </table>
     </div>
     <div class="div-btn-doble">
         <button class="estilo-boton btns-as-lote">Reiniciar</button>
-            <a href="index.php">
-                <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
-            </a>
+        <a href="index.php">
+            <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
+        </a>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-lote.php" id="a-agregar"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
+        <a href="alta-lote.php" id="a-agregar"><button class="estilo-boton btns-as-lote"
+                id="op-alta">Agregar</button></a>
         <!--<button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>-->
     </div>
 </div>

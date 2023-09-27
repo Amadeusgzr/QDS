@@ -1,27 +1,27 @@
 <?php
 $ch = curl_init();
 
-if($_POST){
+if ($_POST) {
     $almacen_destino = $_POST["select-almacen-lote"];
     $fecha_traslado = $_POST["fecha_traslado_lote"];
     $hora_traslado = $_POST["hora_traslado_lote"];
     $fragil = $_POST["fragil"];
     $tipo = $_POST["tipo"];
     $detalles = $_POST["detalles-lote"];
-    if (isset($_POST["tipo"])){
+    if (isset($_POST["tipo"])) {
         $tipo = $_POST["tipo"];
-   }else{
-       $tipo = null;
-   }
-   if (isset($_POST["detalles"])){
-       $detalles = $_POST["detalles"];
-   } else{
-       $detalles = null;
-   }
+    } else {
+        $tipo = null;
+    }
+    if (isset($_POST["detalles"])) {
+        $detalles = $_POST["detalles"];
+    } else {
+        $detalles = null;
+    }
 }
 
 $array = [
-    'almacen_destino' =>  "$almacen_destino",
+    'almacen_destino' => "$almacen_destino",
     'fecha_traslado' => "$fecha_traslado",
     'hora_traslado' => "$hora_traslado",
     'fragil' => "$fragil",
@@ -31,16 +31,16 @@ $array = [
 
 $datos = json_encode($array);
 
-curl_setopt($ch,CURLOPT_URL,'localhost/QDS/controladores/loteControlador.php');
-curl_setopt($ch,CURLOPT_POST, true);
-curl_setopt($ch,CURLOPT_POSTFIELDS, $datos);
-curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_URL, 'localhost/QDS/controladores/loteControlador.php');
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $respuesta = curl_exec($ch);
 
-if (curl_errno($ch)){
+if (curl_errno($ch)) {
     echo curl_errno($ch);
-} else{
+} else {
     $decode = json_decode($respuesta, true);
 }
 

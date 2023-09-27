@@ -8,6 +8,7 @@ if (!isset($_SESSION['nom_usu'])) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@ if (!isset($_SESSION['nom_usu'])) {
     <link href="https://fonts.googleapis.com/css2?family=Geologica&display=swap" rel="stylesheet">
     <title>QDS</title>
 </head>
+
 <body>
 
     <header id="header-ingresado">
@@ -24,7 +26,9 @@ if (!isset($_SESSION['nom_usu'])) {
             </div>
             <div id="div-cuenta">
                 <img id="img-cuenta" src="../img/iconos/icono-usuario-blanco.png" alt="">
-                <p id="p-nombre"><?=$_SESSION['nom_usu']?></p>
+                <p id="p-nombre">
+                    <?= $_SESSION['nom_usu'] ?>
+                </p>
             </div>
         </div>
     </header>

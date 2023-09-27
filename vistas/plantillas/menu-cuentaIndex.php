@@ -9,11 +9,11 @@ if (!isset($_SESSION['nom_usu'])) {
 <div id="div-op-cuenta">
     <?php
 
-    if ($_SESSION['tipo_usu'] == "admin"){
+    if ($_SESSION['tipo_usu'] == "admin") {
         echo "<a href='vistas/Backoffice/index.php' class='a-op-cuenta'>Acceder</a>";
-    }else if($_SESSION['tipo_usu'] == "almacenero"){
+    } else if ($_SESSION['tipo_usu'] == "almacenero") {
         echo "<a href='vistas/Almacenero/index.php' class='a-op-cuenta'>Acceder</a>";
-    }else if($_SESSION['tipo_usu'] == "camionero"){
+    } else if ($_SESSION['tipo_usu'] == "camionero") {
         echo "<a href='vistas/Camionero/index.php' class='a-op-cuenta'>Acceder</a>";
     }
 

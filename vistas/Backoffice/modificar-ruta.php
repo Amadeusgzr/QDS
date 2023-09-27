@@ -12,27 +12,32 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <?php
-    include("../../modelos/db.php");
-    $id_ruta = $_GET['id_ruta'];
-    $instruccion = "select * from ruta where id_ruta=$id_ruta";
-    $filas = $conexion->query($instruccion);
+include("../../modelos/db.php");
+$id_ruta = $_GET['id_ruta'];
+$instruccion = "select * from ruta where id_ruta=$id_ruta";
+$filas = $conexion->query($instruccion);
 
-    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
-        $id_ruta = $fila["id_ruta"];
-        $nom_ruta = $fila["nom_ruta"];
-    }
+foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+    $id_ruta = $fila["id_ruta"];
+    $nom_ruta = $fila["nom_ruta"];
+}
 
 
-    ?>
+?>
 <div class="form-crud">
     <form action="modificar.php" method="post">
         <legend>Modificar Ruta</legend>
         <p class="subtitulo-crud">Datos actuales</p>
-        <p><b>ID: </b><?= $id_ruta?></p>
-        <p><b>Nombre/Numero: </b><?= $nom_ruta?></p>
+        <p><b>ID: </b>
+            <?= $id_ruta ?>
+        </p>
+        <p><b>Nombre/Numero: </b>
+            <?= $nom_ruta ?>
+        </p>
         <p class="subtitulo-crud">Datos modificados</p>
-        <input type="text" placeholder="ID" class="txt-crud" name="id_ruta" value="<?= $id_ruta?>" required readonly>
-        <input type="text" placeholder="Nombre/Numero" class="txt-crud" name="nom_ruta" value="<?= $nom_ruta?>" required>
+        <input type="text" placeholder="ID" class="txt-crud" name="id_ruta" value="<?= $id_ruta ?>" required readonly>
+        <input type="text" placeholder="Nombre/Numero" class="txt-crud" name="nom_ruta" value="<?= $nom_ruta ?>"
+            required>
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-ruta.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>

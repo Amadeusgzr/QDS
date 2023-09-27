@@ -5,15 +5,17 @@
 <a href="Backoffice/aplicacion-administrador.php">Administrador</a><br>
 
 <style>
-    a{
+    a {
         font-size: 1.5em;
         text-decoration: none;
         color: purple;
     }
-    a:hover{
+
+    a:hover {
         text-decoration: underline;
     }
-    a:visited{
+
+    a:visited {
         color: purple;
     }
 </style>

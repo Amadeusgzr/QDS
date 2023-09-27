@@ -13,12 +13,12 @@ try {
 
     // Configurar el servidor SMTP
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'datavisionuy@gmail.com'; // Reemplaza con tu correo Gmail
-    $mail->Password   = ''; // Reemplaza con tu contraseña de Gmail
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'datavisionuy@gmail.com'; // Reemplaza con tu correo Gmail
+    $mail->Password = ''; // Reemplaza con tu contraseña de Gmail
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Cambia a 'ssl' si prefieres SSL
-    $mail->Port       = 465; // Cambia a 465 si prefieres SSL
+    $mail->Port = 465; // Cambia a 465 si prefieres SSL
 
     // Configurar remitente y destinatario
     $mail->setFrom('datavisionuy@gmail.com', 'Data Vision');
@@ -27,7 +27,7 @@ try {
     // Contenido del correo
     $mail->isHTML(true);
     $mail->Subject = 'Asunto del correo';
-    $mail->Body    = 'Este es el cuerpo del correo.';
+    $mail->Body = 'Este es el cuerpo del correo.';
 
     // Enviar el correo
     $mail->send();

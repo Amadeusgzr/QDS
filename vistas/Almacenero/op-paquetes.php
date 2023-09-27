@@ -16,14 +16,14 @@ require '../plantillas/menu-cuenta.php';
 <div id="div-tabla-lote">
     <h1 id="h1-lote">Paquetes</h1>
     <div class="div-error">
-    <?php
+        <?php
         if (isset($_GET['datos'])) {
             $jsonDatos = urldecode($_GET['datos']);
             $datos = json_decode($jsonDatos, true);
             echo $datos['respuesta'];
         }
-    ?>
-</div>
+        ?>
+    </div>
 
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
@@ -34,8 +34,8 @@ require '../plantillas/menu-cuenta.php';
                 <th>OP</th>
             </tr>
             <?php
-                require("../../controladores/api/paquete/obtenerDato.php");
-                foreach ($decode as $paquete) {
+            require("../../controladores/api/paquete/obtenerDato.php");
+            foreach ($decode as $paquete) {
                 $id_paquete = $paquete["id_paquete"];
                 echo '<tr>';
                 echo '<td>' . $paquete["id_paquete"] . '</td>';
@@ -47,18 +47,19 @@ require '../plantillas/menu-cuenta.php';
                 <a href='consultar-paquete.php?id_paquete=$id_paquete'><button>C</button></a>
                 </td>";
                 echo '</tr>';
-                }
-                ?>
+            }
+            ?>
         </table>
     </div>
     <div class="div-btn-doble">
         <button class="estilo-boton btns-as-lote">Reiniciar</button>
-            <a href="index.php">
-                <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
-            </a>
+        <a href="index.php">
+            <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
+        </a>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-paquete.php" id="a-agregar"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
+        <a href="alta-paquete.php" id="a-agregar"><button class="estilo-boton btns-as-lote"
+                id="op-alta">Agregar</button></a>
         <!--<button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>-->
     </div>
 </div>

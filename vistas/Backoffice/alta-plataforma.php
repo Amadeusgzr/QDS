@@ -26,7 +26,7 @@ require '../plantillas/menu-cuenta.php';
 <?php
 
 
-if($_POST){
+if ($_POST) {
     $telefono = $_POST["telefono"];
     $direccion = $_POST["direccion"];
     $departamento = $_POST["departamento"];

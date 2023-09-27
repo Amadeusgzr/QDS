@@ -10,29 +10,29 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $contrasenia = $_POST['contrasenia'];
         // Verifica las credenciales en el modelo
         $usuario = $authModelo->getUserByUsername($nom_usu);
-        if ($usuario !== null){
-            if ($contrasenia == $usuario['contrasenia']){
-            // Las credenciales son válidas, inicia una sesión
-            session_start();
-            // Almacena información del usuario en la sesión
-            $_SESSION['nom_usu'] = $usuario['nom_usu'];
-            $_SESSION['tipo_usu'] = $usuario['tipo_usu'];
-            header("Location: ../index.php");
-            // Devuelve una respuesta JSON con información adicional si es necesario
-            // Asegúrate de salir del script para que la redirección se ejecute correctamente
+        if ($usuario !== null) {
+            if ($contrasenia == $usuario['contrasenia']) {
+                // Las credenciales son válidas, inicia una sesión
+                session_start();
+                // Almacena información del usuario en la sesión
+                $_SESSION['nom_usu'] = $usuario['nom_usu'];
+                $_SESSION['tipo_usu'] = $usuario['tipo_usu'];
+                header("Location: ../index.php");
+                // Devuelve una respuesta JSON con información adicional si es necesario
+                // Asegúrate de salir del script para que la redirección se ejecute correctamente
+            } else {
+                // Las credenciales son inválidas, devuelve un mensaje de error
+                $response = [
+                    'error' => "Error",
+                    'resultado' => "Credenciales Inválidas"
+                ];
+                $response = json_encode($response);
+                header('Location: ../vistas/login.php?data=' . urlencode($response));
+                echo json_encode($response);
+            }
+
         } else {
             // Las credenciales son inválidas, devuelve un mensaje de error
-            $response = [
-                'error' => "Error",
-                'resultado' => "Credenciales Inválidas"
-            ];
-            $response = json_encode($response);
-            header('Location: ../vistas/login.php?data=' . urlencode($response));
-            echo json_encode($response);
-        }
-            
-        }else{
-                        // Las credenciales son inválidas, devuelve un mensaje de error
             $response = [
                 'error' => "Error",
                 'resultado' => "Credenciales Inválidas"

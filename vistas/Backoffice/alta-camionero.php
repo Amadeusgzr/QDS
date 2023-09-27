@@ -26,17 +26,17 @@ require '../plantillas/menu-cuenta.php';
 <?php
 
 
-if($_POST){
+if ($_POST) {
     $cedula = $_POST["cedula"];
     $nombre_completo = $_POST["nombre_completo"];
     $mail = $_POST["mail"];
     $telefono = $_POST["telefono"];
 
-
-
     include("../../modelos/db.php");
     $instruccion = "insert into camionero(cedula, nombre_completo, mail, telefono) value ('$cedula', '$nombre_completo', '$mail', '$telefono')";
     $conexion->query($instruccion);
+
+
 }
 
 ?>

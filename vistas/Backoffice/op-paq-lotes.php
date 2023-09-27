@@ -9,7 +9,7 @@ require '../plantillas/menu-cuenta.php';
 
 <main id="main-doble">
     <div class="opcion-doble">
-    <h2 class="h2-doble">Paquetes</h2>
+        <h2 class="h2-doble">Paquetes</h2>
         <a href="" class="opcion-aplicacion-2" id="op1">
             <h2>Alta</h2>
             <p>Ingresar un nuevo Paquete al sistema</p>
@@ -27,9 +27,9 @@ require '../plantillas/menu-cuenta.php';
             <p>Consultar los datos de uno o varios Paquetes</p>
         </a>
     </div>
-    
+
     <div class="opcion-doble">
-    <h2 class="h2-doble">Lotes</h2>
+        <h2 class="h2-doble">Lotes</h2>
         <a href="" class="opcion-aplicacion-2" id="op1">
             <h2>Alta</h2>
             <p>Ingresar un nuevo Lote al sistema</p>

@@ -12,29 +12,36 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <?php
-    include("../../modelos/db.php");
-    $id_almacen_central = $_GET['id_almacen_central'];
-    $instruccion = "select * from almacen_central where id_almacen_central=$id_almacen_central";
-    $filas = $conexion->query($instruccion);
+include("../../modelos/db.php");
+$id_almacen_central = $_GET['id_almacen_central'];
+$instruccion = "select * from almacen_central where id_almacen_central=$id_almacen_central";
+$filas = $conexion->query($instruccion);
 
-    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
-        $id_almacen_central = $fila["id_almacen_central"];
-        $telefono = $fila["telefono"];
-        $direccion = $fila["direccion"];
-    }
-    ?>
+foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+    $id_almacen_central = $fila["id_almacen_central"];
+    $telefono = $fila["telefono"];
+    $direccion = $fila["direccion"];
+}
+?>
 
 <div class="form-crud">
     <form action="modificar.php" method="post">
         <legend>Modificar Almacén (central)</legend>
         <p class="subtitulo-crud">Datos actuales</p>
-        <p><b>ID: </b><?= $id_almacen_central?></p>
-        <p><b>Teléfono: </b><?= $telefono?></p>
-        <p><b>Dirección: </b><?= $direccion?></p>
+        <p><b>ID: </b>
+            <?= $id_almacen_central ?>
+        </p>
+        <p><b>Teléfono: </b>
+            <?= $telefono ?>
+        </p>
+        <p><b>Dirección: </b>
+            <?= $direccion ?>
+        </p>
         <p class="subtitulo-crud">Datos modificados</p>
-        <input type="text" placeholder="ID" class="txt-crud" name="id_almacen_central" value="<?= $id_almacen_central?>" required readonly>
-        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono" value="<?= $telefono?>" required>
-        <input type="text" placeholder="Dirección" class="txt-crud" name="direccion" value="<?= $direccion?>" required>
+        <input type="text" placeholder="ID" class="txt-crud" name="id_almacen_central" value="<?= $id_almacen_central ?>"
+            required readonly>
+        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono" value="<?= $telefono ?>" required>
+        <input type="text" placeholder="Dirección" class="txt-crud" name="direccion" value="<?= $direccion ?>" required>
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-almacen-central.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>

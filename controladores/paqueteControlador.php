@@ -16,29 +16,34 @@ switch ($_SERVER['REQUEST_METHOD']) {
         if (isset($_POST->id_paquete)) {
             $respuesta = $paqueteModelo->obtenerPaquete($_POST->id_paquete);
         } else {
-            if (!filter_var($_POST->mail_destinatario, FILTER_VALIDATE_EMAIL)) {
-                $respuesta = [
-                    'error' => 'Error',
-                    'respuesta' => 'La dirección de correo electrónico no es válida'
-                ];            
-            } else{
-                $respuesta = atributoVacio($_POST->mail_destinatario);
-            $respuesta1 = atributoVacio($_POST->direccion);
-            $respuesta2 = atributoVacio($_POST->peso);
-            $respuesta3 = atributoVacio($_POST->volumen);
-            $respuesta4 = atributoVacio($_POST->fragil);
-
-            if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
-                $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario, $_POST->direccion, $_POST->peso, $_POST->volumen, $_POST->fragil, $_POST->tipo, $_POST->detalles);
-            } else {
-                $respuesta = [
-                    'error' => 'Error',
-                    'respuesta' => 'Hay un atributo que no debe estar vacío'
-                ];
+            $numArrays = count($_POST->mail_destinatario);
+            $mail_destinatario = $_POST->mail_destinatario;
+            for ($i = 0; $i < $numArrays; $i++) {
+                if (!filter_var($mail_destinatario[$i], FILTER_VALIDATE_EMAIL)) {
+                    $respuesta = [
+                        'error' => 'Error',
+                        'respuesta' => 'La dirección de correo electrónico no es válida'
+                    ];
+                    break;
+                } else {
+                    $respuesta = atributoVacio($_POST->mail_destinatario);
+                    $respuesta1 = atributoVacio($_POST->direccion);
+                    $respuesta2 = atributoVacio($_POST->peso);
+                    $respuesta3 = atributoVacio($_POST->volumen);
+                    $respuesta4 = atributoVacio($_POST->fragil);
+                    if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
+                        $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario[$i], $_POST->direccion[$i], $_POST->peso[$i], $_POST->volumen[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i]);
+                    } else {
+                        $respuesta = [
+                            'error' => 'Error',
+                            'respuesta' => 'Hay un atributo que no debe estar vacío'
+                        ];
+                        break;
+                    }
+                }
             }
-            }
-            
         }
+
         echo json_encode($respuesta);
         break;
     case 'PUT':
@@ -69,18 +74,24 @@ switch ($_SERVER['REQUEST_METHOD']) {
         echo json_encode($respuesta);
         break;
 }
-function atributoVacio($atributo)
+function atributoVacio($atributos)
 {
-    if (!isset($atributo) || is_null($atributo) || empty(trim($atributo))) {
-        $respuesta = [
-            'error' => 'Error',
-            'respuesta' => 'Hay un atributo que no debe estar vacío'
-        ];
-    } else {
-        $respuesta = [
-            'error' => 'Exito',
-            'respuesta' => 'Todos los atributos están correctos'
-        ];
+    $numArrays = count($atributos);
+    for ($i = 0; $i < $numArrays; $i++) {
+        foreach ($atributos as $atributo) {
+            if (!isset($atributo) || is_null($atributo) || empty(trim($atributo))) {
+                $respuesta = [
+                    'error' => 'Error',
+                    'respuesta' => 'Hay un atributo que no debe estar vacío'
+                ];
+                break;
+            } else {
+                $respuesta = [
+                    'error' => 'Exito',
+                    'respuesta' => 'Todos los atributos están correctos'
+                ];
+            }
+        }
     }
     return $respuesta;
 }

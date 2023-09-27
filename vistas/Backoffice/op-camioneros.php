@@ -21,8 +21,8 @@ require '../plantillas/menu-cuenta.php';
                 <th class="th-op">OP</th>
             </tr>
             <?php
-    include("../../modelos/db.php");
-    $instruccion = "select * from camionero";
+            include("../../modelos/db.php");
+            $instruccion = "select * from camionero";
             $camioneros = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -33,7 +33,7 @@ require '../plantillas/menu-cuenta.php';
                 $id_camionero = $camionero["id_camionero"];
                 $nombre_completo = $camionero["nombre_completo"];
                 $estado = $camionero["estado"];
-                echo "<td>$nombre_completo</td>"; 
+                echo "<td>$nombre_completo</td>";
                 echo "<td>$estado</td>";
                 echo "<td>
                 <a href='baja-dato.php?id_camionero=$id_camionero'><button>B</button></a>
@@ -47,12 +47,13 @@ require '../plantillas/menu-cuenta.php';
     </div>
     <div class="div-btn-doble">
         <button class="estilo-boton btns-as-lote">Reiniciar</button>
-            <a href="index.php">
-                <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
-            </a>
+        <a href="index.php">
+            <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
+        </a>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-camionero.php" id="a-agregar"><button class="estilo-boton btns-as-lote" id="op-alta">Agregar</button></a>
+        <a href="alta-camionero.php" id="a-agregar"><button class="estilo-boton btns-as-lote"
+                id="op-alta">Agregar</button></a>
         <!--<button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>-->
     </div>
 </div>

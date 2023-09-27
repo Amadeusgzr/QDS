@@ -1,7 +1,7 @@
 <?php
 $ch = curl_init();
 
-if($_POST){
+if ($_POST) {
     $id_paquete = $_POST["id_paquete"];
     $direccion = $_POST["direccion"];
     $peso = $_POST["peso"];
@@ -11,7 +11,7 @@ if($_POST){
 }
 
 $array = [
-    'id_paquete' =>  "$id_paquete",
+    'id_paquete' => "$id_paquete",
     'direccion' => "$direccion",
     'peso' => "$peso",
     'volumen' => "$volumen",
@@ -21,16 +21,16 @@ $array = [
 
 $datos = json_encode($array);
 
-curl_setopt($ch,CURLOPT_URL,'localhost/QDS/controladores/paqueteControlador.php');
-curl_setopt($ch,CURLOPT_CUSTOMREQUEST, 'PUT');
-curl_setopt($ch,CURLOPT_POSTFIELDS, $datos);
-curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_URL, 'localhost/QDS/controladores/paqueteControlador.php');
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $respuesta = curl_exec($ch);
 
-if (curl_errno($ch)){
+if (curl_errno($ch)) {
     echo curl_errno($ch);
-} else{
+} else {
     $decode = json_decode($respuesta, true);
 }
 

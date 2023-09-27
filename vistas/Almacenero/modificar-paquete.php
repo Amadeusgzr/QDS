@@ -8,7 +8,7 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
         exit();
     }
 }
-if (!isset($_GET['id_paquete']) || is_null($_GET['id_paquete']) || empty(trim($_GET['id_paquete']))){
+if (!isset($_GET['id_paquete']) || is_null($_GET['id_paquete']) || empty(trim($_GET['id_paquete']))) {
     header("Location: ../error.php");
 }
 echo "<link rel='stylesheet' href='../css/estilos.css'>";
@@ -27,38 +27,63 @@ foreach ($decode as $paquete) {
     $estado = $paquete["estado"];
 }
 ?>
+<script>
+    // Función para ocultar el parámetro "datos" en la URL
+    function ocultarDatosEnURL() {
+        if (window.history.replaceState) {
+            // Reemplaza la URL actual sin el parámetro "datos"
+            const urlSinDatos = window.location.href.replace(/\?datos=.*&/, '?').replace(/\&datos=.*$/, '');
+            window.history.replaceState(null, null, urlSinDatos);
+        }
+    }
+
+    // Llama a la función al cargar la página
+    window.onload = ocultarDatosEnURL;
+</script>
+
 
 
 <div class="form-crud">
     <form action="../../controladores/api/paquete/modificarDato.php" method="post">
         <legend>Modificar Paquete</legend>
         <p class="subtitulo-crud">Datos actuales</p>
-        <p><b>ID: </b><?= $id_paquete?></p>
-        <p><b>Dirección: </b><?=  $direccion?></p>
-        <p><b>Peso: </b><?= $peso?></p>
-        <p><b>Volumen: </b><?= $volumen?></p>
-        <p><b>Fragil: </b><?= $fragil?></p>
-        <p><b>Estado: </b><?=  $estado?></p>
+        <p><b>ID: </b>
+            <?= $id_paquete ?>
+        </p>
+        <p><b>Dirección: </b>
+            <?= $direccion ?>
+        </p>
+        <p><b>Peso: </b>
+            <?= $peso ?>
+        </p>
+        <p><b>Volumen: </b>
+            <?= $volumen ?>
+        </p>
+        <p><b>Fragil: </b>
+            <?= $fragil ?>
+        </p>
+        <p><b>Estado: </b>
+            <?= $estado ?>
+        </p>
         <p class="subtitulo-crud">Datos modificados</p>
-        <input type="text" placeholder="ID" class="txt-crud" name="id_paquete" value="<?= $id_paquete?>" required readonly>
-        <input type="tel" placeholder="Direccion" class="txt-crud" name="direccion" value="<?= $direccion?>" required>
-        <input type="number" placeholder="Peso" class="txt-crud" name="peso" value="<?= $peso?>" required>
-        <input type="number" placeholder="Volumen" class="txt-crud" name="volumen" value="<?= $volumen?>" required>
-        <input type="text" placeholder="Fragil" class="txt-crud" name="fragil" value="<?= $fragil?>" required>
-        <input type="text" placeholder="Estado" class="txt-crud" name="estado" value="<?= $estado?>" required>
+        <input type="text" placeholder="ID" class="txt-crud" name="id_paquete" value="<?= $id_paquete ?>" required
+            readonly>
+        <input type="tel" placeholder="Direccion" class="txt-crud" name="direccion" value="<?= $direccion ?>" required>
+        <input type="number" placeholder="Peso" class="txt-crud" name="peso" value="<?= $peso ?>" required>
+        <input type="number" placeholder="Volumen" class="txt-crud" name="volumen" value="<?= $volumen ?>" required>
+        <input type="text" placeholder="Fragil" class="txt-crud" name="fragil" value="<?= $fragil ?>" required>
+        <input type="text" placeholder="Estado" class="txt-crud" name="estado" value="<?= $estado ?>" required>
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-paquetes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
     <div class="div-error">
-    <?php
+        <?php
         if (isset($_GET['datos'])) {
             $jsonDatos = urldecode($_GET['datos']);
             $datos = json_decode($jsonDatos, true);
             echo $datos['respuesta'];
         }
-    ?>
+        ?>
+    </div>
+    <script src="../js/mostrar-respuesta.js"></script>
 </div>
-<script src="../js/mostrar-respuesta.js"></script>
-<script src="../js/ocultar-get.js"></script>
-</div>
-

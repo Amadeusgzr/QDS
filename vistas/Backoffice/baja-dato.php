@@ -11,7 +11,7 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 <?php
-    include("../../modelos/db.php");
+include("../../modelos/db.php");
 
 if (isset($_GET['id_camionero'])) {
     $id_camionero = $_GET['id_camionero'];
@@ -38,13 +38,13 @@ if (isset($_GET['id_camionero'])) {
         <a href='eliminar.php?id_camionero=$id_camionero'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-camioneros.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
-} else if(isset($_GET['id_almacen_cliente'])){
+    }
+} else if (isset($_GET['id_almacen_cliente'])) {
     $id_almacen_cliente = $_GET['id_almacen_cliente'];
 
-    
+
     $instruccion = "select * from almacen_cliente where id_almacen_cliente=$id_almacen_cliente";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_almacen_cliente = $fila["id_almacen_cliente"];
@@ -60,16 +60,16 @@ if (isset($_GET['id_camionero'])) {
         <a href='eliminar.php?id_almacen_cliente=$id_almacen_cliente'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-almacen-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
+    }
 
 
 
-}else if(isset($_GET['id_almacen_central'])){
+} else if (isset($_GET['id_almacen_central'])) {
     $id_almacen_central = $_GET['id_almacen_central'];
 
-    
+
     $instruccion = "select * from almacen_central where id_almacen_central=$id_almacen_central";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_almacen_central = $fila["id_almacen_central"];
@@ -85,13 +85,13 @@ if (isset($_GET['id_camionero'])) {
         <a href='eliminar.php?id_almacen_central=$id_almacen_central'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-almacen-central.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
-}else if(isset($_GET['id_plataforma'])){
+    }
+} else if (isset($_GET['id_plataforma'])) {
     $id_plataforma = $_GET['id_plataforma'];
 
-    
+
     $instruccion = "select * from plataforma where id_plataforma=$id_plataforma";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_plataforma = $fila["id_plataforma"];
@@ -107,13 +107,13 @@ if (isset($_GET['id_camionero'])) {
         <a href='eliminar.php?id_plataforma=$id_plataforma'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-plataforma.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
-}else if(isset($_GET['id_camion'])){
+    }
+} else if (isset($_GET['id_camion'])) {
     $id_camion = $_GET['id_camion'];
 
-    
+
     $instruccion = "select * from camion where id_camion=$id_camion";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_camion = $fila["id_camion"];
@@ -133,13 +133,13 @@ if (isset($_GET['id_camionero'])) {
         <a href='eliminar.php?id_camion=$id_camion'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-camiones.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
-}else if(isset($_GET['rut'])){
+    }
+} else if (isset($_GET['rut'])) {
     $rut = $_GET['rut'];
 
-    
+
     $instruccion = "select * from empresa_cliente where rut=$rut";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $rut = $fila["rut"];
@@ -155,13 +155,13 @@ if (isset($_GET['id_camionero'])) {
         <a href='eliminar.php?rut=$rut'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-empresas.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
-}else if(isset($_GET['id_trayecto'])){
+    }
+} else if (isset($_GET['id_trayecto'])) {
     $id_trayecto = $_GET['id_trayecto'];
 
-    
+
     $instruccion = "SELECT trayecto.id_trayecto, plataforma.direccion, plataforma.departamento FROM trayecto INNER JOIN plataforma ON trayecto.id_plataforma=plataforma.id_plataforma WHERE id_trayecto=$id_trayecto";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_trayecto = $fila["id_trayecto"];
@@ -177,13 +177,13 @@ if (isset($_GET['id_camionero'])) {
         <a href='eliminar.php?id_trayecto=$id_trayecto'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-trayecto.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
-}else if(isset($_GET['id_ruta'])){
+    }
+} else if (isset($_GET['id_ruta'])) {
     $id_ruta = $_GET['id_ruta'];
 
-    
+
     $instruccion = "select * from ruta where id_ruta=$id_ruta";
-    $filas = $conexion->query($instruccion); 
+    $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_ruta = $fila["id_ruta"];
@@ -197,7 +197,7 @@ if (isset($_GET['id_camionero'])) {
         <a href='eliminar.php?id_ruta=$id_ruta'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-ruta.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
+    }
 }
 
 ?>

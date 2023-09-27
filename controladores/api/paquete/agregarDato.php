@@ -1,46 +1,46 @@
 <?php
 $ch = curl_init();
 
-if($_POST){
+if ($_POST) {
     $mail_destinatario = $_POST["mail_destinatario"];
     $direccion = $_POST["direccion"];
     $peso = $_POST["peso"];
     $volumen = $_POST["volumen"];
     $fragil = $_POST["fragil"];
-    if (isset($_POST["tipo"])){
+    if (isset($_POST["tipo"])) {
         $tipo = $_POST["tipo"];
-   }else{
-       $tipo = null;
-   }
-   if (isset($_POST["detalles"])){
-       $detalles = $_POST["detalles"];
-   } else{
-       $detalles = null;
-   }
+    } else {
+        $tipo = null;
+    }
+    if (isset($_POST["detalles"])) {
+        $detalles = $_POST["detalles"];
+    } else {
+        $detalles = null;
+    }
 }
 
 $array = [
-    'mail_destinatario' =>  "$mail_destinatario",
-    'direccion' => "$direccion",
-    'peso' => "$peso",
-    'volumen' => "$volumen",
-    'fragil' => "$fragil",
-    'tipo' => "$tipo",
-    'detalles' => "$detalles"
+    'mail_destinatario' => $mail_destinatario,
+    'direccion' => $direccion,
+    'peso' => $peso,
+    'volumen' => $volumen,
+    'fragil' => $fragil,
+    'tipo' => $tipo,
+    'detalles' => $detalles
 ];
 
 $datos = json_encode($array);
 
-curl_setopt($ch,CURLOPT_URL,'localhost/QDS/controladores/paqueteControlador.php');
-curl_setopt($ch,CURLOPT_POST, true);
-curl_setopt($ch,CURLOPT_POSTFIELDS, $datos);
-curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_URL, 'localhost/Diseno-Web/controladores/paqueteControlador.php');
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $respuesta = curl_exec($ch);
 
-if (curl_errno($ch)){
+if (curl_errno($ch)) {
     echo curl_errno($ch);
-} else{
+} else {
     $decode = json_decode($respuesta, true);
 }
 

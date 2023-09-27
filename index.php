@@ -2,7 +2,7 @@
 session_start();
 echo "<link rel='stylesheet' href='vistas/css/estilos.css'>";
 // Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
-if (!isset($_SESSION['nom_usu']) ) {
+if (!isset($_SESSION['nom_usu'])) {
     require 'vistas/plantillas/headerIndex.php';
 } else {
     require 'vistas/plantillas/headerIndexIngresado.php';
@@ -12,18 +12,19 @@ if (!isset($_SESSION['nom_usu']) ) {
 
 ?>
 
-    <h1 id="h1-index">quick distribution service</h1>
+<h1 id="h1-index">quick distribution service</h1>
 
-    <form action="vistas/aplicacion-seguimiento.php" id="form-rastreo">
-        <legend>Rastrear envío</legend>
-        <p id="p-rastreo">Ingresa el código del envío para poder rastrearlo</p>
-        <div id="div-datos-rastreo">
-            <input id="codigo-rastreo" type="text" placeholder="xxxx-xxxx-xxxx" maxlength="14" autocomplete="off" required size="13">
-            <input id="submit-rastreo" type="submit" value="Rastrear">
-        </div>
-    </form>
+<form action="vistas/aplicacion-seguimiento.php" id="form-rastreo">
+    <legend>Rastrear envío</legend>
+    <p id="p-rastreo">Ingresa el código del envío para poder rastrearlo</p>
+    <div id="div-datos-rastreo">
+        <input id="codigo-rastreo" type="text" placeholder="xxxx-xxxx-xxxx" maxlength="14" autocomplete="off" required
+            size="13">
+        <input id="submit-rastreo" type="submit" value="Rastrear">
+    </div>
+</form>
 
-    
+
 
 <?php
 

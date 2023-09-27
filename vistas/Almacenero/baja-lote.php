@@ -8,7 +8,7 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
         exit();
     }
 }
-if (!isset($_GET['id_lote']) || is_null($_GET['id_lote']) || empty(trim($_GET['id_lote']))){
+if (!isset($_GET['id_lote']) || is_null($_GET['id_lote']) || empty(trim($_GET['id_lote']))) {
     header("Location: ../error.php");
 }
 echo "<link rel='stylesheet' href='../css/estilos.css'>";
@@ -25,12 +25,19 @@ foreach ($decode as $lote) {
 }
 ?>
 <div class="form-crud">
-        <legend>Eliminar Lote</legend>
-        <p class="adv">¿Seguro que quiere eliminar el siguiente lote? Los cambios serán irreversibles</p>
-        <p><b>ID: </b><?= $id_lote?></p>
-        <p><b>Peso: </b><?= $peso?> kg</p>
-        <p><b>Volumen: </b><?= $volumen?></p>
-        <a href="../../controladores/api/lote/eliminarDato.php?id_lote=<?= $id_lote?>"><input type="submit" value="Eliminar" class="estilo-boton boton-siguiente"></a>
+    <legend>Eliminar Lote</legend>
+    <p class="adv">¿Seguro que quiere eliminar el siguiente lote? Los cambios serán irreversibles</p>
+    <p><b>ID: </b>
+        <?= $id_lote ?>
+    </p>
+    <p><b>Peso: </b>
+        <?= $peso ?> kg
+    </p>
+    <p><b>Volumen: </b>
+        <?= $volumen ?>
+    </p>
+    <a href="../../controladores/api/lote/eliminarDato.php?id_lote=<?= $id_lote ?>"><input type="submit" value="Eliminar"
+            class="estilo-boton boton-siguiente"></a>
     <a href="op-lotes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
     <script src="../js/ocultar-get.js"></script>
 </div>

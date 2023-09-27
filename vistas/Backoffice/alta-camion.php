@@ -25,7 +25,7 @@ require '../plantillas/menu-cuenta.php';
 <?php
 
 
-if($_POST){
+if ($_POST) {
     $matricula = $_POST["matricula"];
     $volumen_disponible = $_POST["volumen_disponible"];
     $peso_soportado = $_POST["peso_soportado"];
