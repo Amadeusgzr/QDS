@@ -7,6 +7,7 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
     exit();
 }
 echo "<link rel='stylesheet' href='../css/estilos.css'>";
+require '../../controladores/funciones.php';
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
@@ -14,8 +15,8 @@ require '../plantillas/menu-cuenta.php';
 <div class="form-crud">
     <form action="alta-almacen-cliente.php" method="post">
         <legend>Agregar Almacén Cliente</legend>
-        <input type="text" placeholder="Teléfono" class="txt-crud" name="telefono" required>
-        <input type="tel" placeholder="Dirección" class="txt-crud" name="direccion" required>
+        <input type="text" placeholder="Teléfono" class="txt-crud" name="telefono[]" required>
+        <input type="tel" placeholder="Dirección" class="txt-crud" name="direccion[]" required>
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-almacen-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
@@ -28,11 +29,39 @@ if ($_POST) {
     $telefono = $_POST["telefono"];
     $direccion = $_POST["direccion"];
 
+    $numArrays = count($telefono);
+    for ($i = 0; $i < $numArrays; $i++) {
+        $respuesta = atributoVacio($telefono);
+        $respuesta1 = atributoVacio($direccion);
 
-
-    include("../../modelos/db.php");
-    $instruccion = "insert into almacen_cliente(direccion, telefono) value ('$direccion', '$telefono')";
-    $conexion->query($instruccion);
+        if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error") {
+            $respuesta = [
+                'error' => "Éxito",
+                'respuesta' => "Almacén guardado"
+            ];
+            include("../../modelos/db.php");
+            $instruccion = "insert into almacen_cliente(direccion, telefono) value ('$direccion[$i]', '$telefono[$i]')";
+            $conexion->query($instruccion);
+        } else {
+            $respuesta = [
+                'error' => "Error",
+                'respuesta' => "Hay atributos que no deben estar vacíos"
+            ];
+        }
+    }
+    $respuesta = json_encode($respuesta);
+    header('Location: alta-almacen-cliente.php?datos=' . urlencode($respuesta));
 }
-
 ?>
+<div class="div-error">
+    <?php
+    if (isset($_GET['datos'])) {
+        $jsonDatos = urldecode($_GET['datos']);
+        $datos = json_decode($jsonDatos, true);
+        echo $datos['respuesta'];
+    }
+    ?>
+</div>
+
+<script src="../js/ocultar-get-alta.js"></script>
+<script src="../js/mostrar-respuesta.js"></script>

@@ -92,7 +92,7 @@ require '../plantillas/menu-cuenta.php';
     </div>
 </div>
 </div>
-  `;
+`;
 
         /*packageDiv.innerHTML = html;*/
         document.getElementById('form-paquete').innerHTML = document.getElementById('form-paquete').innerHTML + html;
@@ -109,6 +109,7 @@ require '../plantillas/menu-cuenta.php';
     ?>
 </div>
 
+<script src="../js/ocultar-get-alta.js"></script>
 <script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ingreso-paquete.js"></script>
 

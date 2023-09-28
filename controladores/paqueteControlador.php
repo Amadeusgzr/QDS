@@ -22,7 +22,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 if (!filter_var($mail_destinatario[$i], FILTER_VALIDATE_EMAIL)) {
                     $respuesta = [
                         'error' => 'Error',
-                        'respuesta' => 'La dirección de correo electrónico no es válida'
+                        'respuesta' => "La dirección de correo electrónico no es válida $mail_destinatario[$i]"
                     ];
                     break;
                 } else {
