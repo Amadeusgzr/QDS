@@ -34,16 +34,15 @@ if ($_POST) {
     $numArrays = count($matricula);
     for ($i = 0; $i < $numArrays; $i++) {
         include("../../modelos/db.php");
-        $instruccion = "select * from camion where matricula='$matricula[$i]'";
-        $resultado = $conexion->query($instruccion);
-        $numFilas = $resultado->num_rows;
-        if ($numFilas > 0) {
+        $respuesta = existencia('camion', 'matricula', $matricula[$i]);
+        if ($respuesta['error'] == "Error") {
             $respuesta = [
                 'error' => "Error",
-                'respuesta' => "Ya existe la matrícula $matricula[$i]"
+                'respuesta' => "Ya existe la matricula $matricula[$i]"
             ];
             break;
         }
+
         $respuesta = atributoVacio($matricula);
         $respuesta1 = atributoVacio($peso_soportado);
         $respuesta2 = atributoVacio($volumen_disponible);

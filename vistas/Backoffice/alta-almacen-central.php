@@ -32,6 +32,16 @@ if ($_POST) {
 
     $numArrays = count($telefono);
     for ($i = 0; $i < $numArrays; $i++) {
+        include("../../modelos/db.php");
+        $respuesta = existencia('almacen_central', 'telefono', $telefono[$i]);
+        if ($respuesta['error'] == "Error") {
+            $respuesta = [
+                'error' => "Error",
+                'respuesta' => "Ya existe la telefono $telefono[$i]"
+            ];
+            break;
+        }
+
         $respuesta = atributoVacio($telefono);
         $respuesta1 = atributoVacio($direccion);
 
@@ -40,7 +50,6 @@ if ($_POST) {
                 'error' => "Éxito",
                 'respuesta' => "Almacén guardado"
             ];
-            include("../../modelos/db.php");
             $instruccion = "insert into almacen_central(direccion, telefono) value ('$direccion[$i]', '$telefono[$i]')";
             $conexion->query($instruccion);
         } else {

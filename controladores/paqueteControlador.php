@@ -26,11 +26,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
                     ];
                     break;
                 } else {
-                    $respuesta = atributoVacio($_POST->mail_destinatario);
-                    $respuesta1 = atributoVacio($_POST->direccion);
-                    $respuesta2 = atributoVacio($_POST->peso);
-                    $respuesta3 = atributoVacio($_POST->volumen);
-                    $respuesta4 = atributoVacio($_POST->fragil);
+                    $respuesta = atributosVacio($_POST->mail_destinatario);
+                    $respuesta1 = atributosVacio($_POST->direccion);
+                    $respuesta2 = atributosVacio($_POST->peso);
+                    $respuesta3 = atributosVacio($_POST->volumen);
+                    $respuesta4 = atributosVacio($_POST->fragil);
                     if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
                         $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario[$i], $_POST->direccion[$i], $_POST->peso[$i], $_POST->volumen[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i]);
                     } else {
@@ -74,7 +74,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         echo json_encode($respuesta);
         break;
 }
-function atributoVacio($atributos)
+function atributosVacio($atributos)
 {
     $numArrays = count($atributos);
     for ($i = 0; $i < $numArrays; $i++) {
@@ -95,5 +95,22 @@ function atributoVacio($atributos)
     }
     return $respuesta;
 }
+
+function atributoVacio($atributo)
+{
+    if (!isset($atributo) || is_null($atributo) || empty(trim($atributo))) {
+        $respuesta = [
+            'error' => 'Error',
+            'respuesta' => 'Hay un atributo que no debe estar vacío'
+        ];
+    } else {
+        $respuesta = [
+            'error' => 'Exito',
+            'respuesta' => 'Todos los atributos están correctos'
+        ];
+    }
+    return $respuesta;
+}
+
 
 ?>

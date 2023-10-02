@@ -7,6 +7,7 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
     exit();
 }
 echo "<link rel='stylesheet' href='../css/estilos.css'>";
+require '../../controladores/funciones.php';
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
@@ -14,29 +15,89 @@ require '../plantillas/menu-cuenta.php';
 <div class="form-crud">
     <form action="alta-camionero.php" method="post">
         <legend>Agregar Camionero</legend>
-        <input type="text" placeholder="Cédula" class="txt-crud" name="cedula" required>
-        <input type="text" placeholder="Nombre Completo" class="txt-crud" name="nombre_completo" required>
-        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono" required>
-        <input type="mail" placeholder="Mail" class="txt-crud" name="mail" required>
+        <input type="text" placeholder="Cédula" class="txt-crud" name="cedula[]" required>
+        <input type="text" placeholder="Nombre Completo" class="txt-crud" name="nombre_completo[]" required>
+        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono[]" required>
+        <input type="mail" placeholder="Mail" class="txt-crud" name="mail[]" required>
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-camioneros.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>
 
 <?php
-
-
 if ($_POST) {
     $cedula = $_POST["cedula"];
     $nombre_completo = $_POST["nombre_completo"];
-    $mail = $_POST["mail"];
     $telefono = $_POST["telefono"];
+    $mail = $_POST["mail"];
+    $numArrays = count($cedula);
 
-    include("../../modelos/db.php");
-    $instruccion = "insert into camionero(cedula, nombre_completo, mail, telefono) value ('$cedula', '$nombre_completo', '$mail', '$telefono')";
-    $conexion->query($instruccion);
+    for ($i = 0; $i < $numArrays; $i++) {
+        include("../../modelos/db.php");
+        $respuesta = existencia('camionero', 'cedula', $cedula[$i]);
+        if ($respuesta['error'] == "Error") {
+            $respuesta = [
+                'error' => "Error",
+                'respuesta' => "Ya existe la cedula $cedula[$i]"
+            ];
+            break;
+        }
+        $respuesta = existencia('camionero', 'telefono', $telefono[$i]);
+        if ($respuesta['error'] == "Error") {
+            $respuesta = [
+                'error' => "Error",
+                'respuesta' => "Ya existe el telefono $telefono[$i]"
+            ];
+            break;
+        }
+        $respuesta = existencia('camionero', 'mail', $mail[$i]);
+        if ($respuesta['error'] == "Error") {
+            $respuesta = [
+                'error' => "Error",
+                'respuesta' => "Ya existe el mail $mail[$i]"
+            ];
+            break;
+        }
+        if (!filter_var($mail[$i], FILTER_VALIDATE_EMAIL)) {
+            $respuesta = [
+                'error' => 'Error',
+                'respuesta' => "La dirección de correo electrónico no es válida $mail[$i]"
+            ];
+            break;
+        }
 
+        $respuesta = atributoVacio($cedula);
+        $respuesta1 = atributoVacio($nombre_completo);
+        $respuesta2 = atributoVacio($mail);
+        $respuesta3 = atributoVacio($telefono);
 
+        if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error") {
+            $respuesta = [
+                'error' => "Éxito",
+                'respuesta' => "Camionero guardado"
+            ];
+            $instruccion = "insert into camionero(cedula, nombre_completo, mail, telefono) value ('$cedula[$i]', '$nombre_completo[$i]', '$mail[$i]', '$telefono[$i]')";
+            $conexion->query($instruccion);
+        } else {
+            $respuesta = [
+                'error' => "Error",
+                'respuesta' => "Hay atributos que no deben estar vacíos"
+            ];
+        }
+    }
+    $respuesta = json_encode($respuesta);
+    header('Location: alta-camionero.php?datos=' . urlencode($respuesta));
 }
 
 ?>
+<div class="div-error">
+    <?php
+    if (isset($_GET['datos'])) {
+        $jsonDatos = urldecode($_GET['datos']);
+        $datos = json_decode($jsonDatos, true);
+        echo $datos['respuesta'];
+    }
+    ?>
+</div>
+
+<script src="../js/mostrar-respuesta.js"></script>

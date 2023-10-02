@@ -20,4 +20,24 @@ function atributoVacio($atributos)
     }
     return $respuesta;
 }
+
+function existencia($tabla, $columna, $atributo)
+{
+    include("../../modelos/db.php");
+    $instruccion = "select * from $tabla where $columna='$atributo'";
+    $resultado = $conexion->query($instruccion);
+    $numFilas = $resultado->num_rows;
+    if ($numFilas > 0) {
+        $respuesta = [
+            'error' => "Error",
+            'respuesta' => "Ya existe el atributo $atributo"
+        ];
+    } else {
+        $respuesta = [
+            'error' => "Exito",
+            'respuesta' => "No existe el atributo $atributo"
+        ];
+    }
+    return $respuesta;
+}
 ?>
