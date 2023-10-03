@@ -34,9 +34,9 @@ require '../plantillas/menu-cuenta.php';
         <p id="p-fragil">Contenido frágil</p>
         <div id="div-radios">
             <label for="radio-paq-si">Sí</label>
-            <input type="checkbox" name="fragil[]" id="radio-paq-si" value="Si">
+            <input type="checkbox" name="fragil[]" id="radio-paq-si" class="chk" value="Si">
             <label for="radio-paq-no">No</label>
-            <input type="checkbox" name="fragil[]" id="radio-paq-no" value="No" checked>
+            <input type="checkbox" name="fragil[]" id="radio-paq-no" class="chk" value="No" checked>
             <select name="tipo[]" id="select-fragil-paq" disabled>
                 <option value="default" selected disabled>Contenido frágil</option>
                 <option value="Líquido">Líquido</option>
@@ -53,14 +53,17 @@ require '../plantillas/menu-cuenta.php';
         <a href="op-paquetes.php"><input type="button" class="submit-paquete boton-volver" value="Volver"></a>
     </div>
 </form>
+
 <script>
+    let contador = 0;
+
     document.getElementById('agregar').addEventListener('click', function () {
-        const packageDiv = document.createElement('div');
-        /*packageDiv.classList.add('div-datos-paq');*/
+        contador++;
 
         const html = `
-<div class="div-paq-nuevo">
-<div class="div-datos-paq" id="hola">
+        <hr class="hr-paq">
+        <div class="div-paq-nuevo">
+<div class="div-datos-paq">
     <legend>Ingreso de Paquete</legend>
     <p class="p-paquete">Sobre el destino</p>
     <input type="email" name="mail_destinatario[]" id="mail-destinatario-paq" class="destino-paq"
@@ -78,9 +81,9 @@ require '../plantillas/menu-cuenta.php';
     <p id="p-fragil">Contenido frágil</p>
     <div id="div-radios">
         <label for="radio-paq-si">Sí</label>
-        <input type="checkbox" name="fragil[]" id="radio-paq-si" value="Si">
+        <input type="checkbox" name="fragil[]" id="radio-paq-si" class="chk" data-group="${contador}" value="Si">
         <label for="radio-paq-no">No</label>
-        <input type="checkbox" name="fragil[]" id="radio-paq-no" value="No" checked>
+        <input type="checkbox" name="fragil[]" id="radio-paq-no" class="chk" data-group="${contador}" value="No" checked>
         <select name="tipo[]" id="select-fragil-paq" disabled>
             <option value="default" selected disabled>Contenido frágil</option>
             <option value="Líquido">Líquido</option>
@@ -94,9 +97,33 @@ require '../plantillas/menu-cuenta.php';
 </div>
 `;
 
-        /*packageDiv.innerHTML = html;*/
-        document.getElementById('form-paquete').innerHTML = document.getElementById('form-paquete').innerHTML + html;
+        document.getElementById('form-paquete').insertAdjacentHTML('beforeend', html);
+
+        // Luego de agregar el nuevo formulario, actualizamos los listeners
+        updateCheckboxListeners();
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Al cargar la página, establecemos los listeners iniciales
+        updateCheckboxListeners();
+    });
+
+    function updateCheckboxListeners() {
+        const checkboxes = document.querySelectorAll('.chk');
+
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                const group = this.getAttribute('data-group');
+
+                // Desmarca todos los checkboxes en el mismo grupo
+                checkboxes.forEach(function (otherCheckbox) {
+                    if (otherCheckbox.getAttribute('data-group') === group && otherCheckbox !== checkbox) {
+                        otherCheckbox.checked = false;
+                    }
+                });
+            });
+        });
+    }
 </script>
 
 <div class="div-error">
