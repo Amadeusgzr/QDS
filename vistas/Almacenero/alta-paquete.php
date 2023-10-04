@@ -37,8 +37,8 @@ require '../plantillas/menu-cuenta.php';
             <input type="checkbox" name="fragil[]" id="radio-paq-si" class="chk" value="Si">
             <label for="radio-paq-no">No</label>
             <input type="checkbox" name="fragil[]" id="radio-paq-no" class="chk" value="No" checked>
-            <select name="tipo[]" id="select-fragil-paq" disabled>
-                <option value="default" selected disabled>Contenido frágil</option>
+            <select name="tipo[]" id="select-fragil-paq" class="select-fragil-paq" disabled>
+                <option selected value="" id="select-tipo">Contenido frágil</option>
                 <option value="Líquido">Líquido</option>
                 <option value="Vidrio">Vidrio</option>
             </select>
@@ -49,10 +49,19 @@ require '../plantillas/menu-cuenta.php';
     </div>
     <div class="div-btns-paquete">
         <button id="agregar" class="estilo-boton">Agregar otro paquete</button>
-        <a href=""><input type="submit" class="submit-paquete boton-siguiente" value="Ingresar paquete"></a>
+        <input type="submit" class="submit-paquete boton-siguiente" value="Ingresar paquete" id="btnIngreso">
         <a href="op-paquetes.php"><input type="button" class="submit-paquete boton-volver" value="Volver"></a>
     </div>
 </form>
+
+<script>
+    document.getElementById("form-paquete").addEventListener("submit", function () {
+        let selects = document.getElementsByClassName("select-fragil-paq");
+        for (let i = 0; i < selects.length; i++) {
+            selects[i].removeAttribute("disabled");
+        }
+    });
+</script>
 
 <script>
     let contador = 0;
@@ -84,11 +93,11 @@ require '../plantillas/menu-cuenta.php';
         <input type="checkbox" name="fragil[]" id="radio-paq-si" class="chk" data-group="${contador}" value="Si">
         <label for="radio-paq-no">No</label>
         <input type="checkbox" name="fragil[]" id="radio-paq-no" class="chk" data-group="${contador}" value="No" checked>
-        <select name="tipo[]" id="select-fragil-paq" disabled>
-            <option value="default" selected disabled>Contenido frágil</option>
-            <option value="Líquido">Líquido</option>
-            <option value="Vidrio">Vidrio</option>
-        </select>
+        <select name="tipo[]" id="select-fragil-paq" class="select-fragil-paq" disabled>
+                <option selected value="" id="select-tipo">Contenido frágil</option>
+                <option value="Líquido">Líquido</option>
+                <option value="Vidrio">Vidrio</option>
+            </select>
         <p class="p-paquete">Detalles</p>
         <textarea name="detalles[]" id="detalles-paq" cols="30" rows="8" maxlength="150"
             placeholder="Detalles adicionales (opcional)" form="form-paquete"></textarea>
