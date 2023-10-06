@@ -21,27 +21,48 @@ var btnLimpiar = document.querySelector(".btn-limpiar");
 
 /***************   OBTENER DATOS DE LA TABLA   ********************/
 
-var botonEnvio = document.getElementById('submit-as-lote-2');
+let botonEnvio = document.getElementById('submit-as-lote-2');
 botonEnvio.addEventListener('click', enviarDatos);
-
+let todo = [];
 function enviarDatos() {
     // Obtener los valores ingresados en los campos de entrada
     var tabla = document.getElementById("tabla-lote");
+        for(let i = 0; i < tabla.rows.length; i++){
 
-    for(let i = 0; i < tabla.rows.length; i++){
-
+        let contenido = [];
         var fila = tabla.rows[i];
+        
 
         // Verifica si la fila está seleccionada y obtiene sus datos
         if(fila.classList.contains("fila-seleccionada")){
             //console.log(fila);
-            let contenido = [];
+            
             for(let j = 0; j < fila.cells.length; j++){
                 let celda = fila.cells[j];
                 contenido[j] = celda.textContent;
             }
             console.log(contenido);
+            todo.push(contenido);
         }
+        
+
     }
+    var jsonString = JSON.stringify(todo);
+
+    // Crear un objeto FormData para enviar datos al servidor
+    var formData = new FormData();
+    formData.append('todo', jsonString);
+
+    // Realizar la solicitud AJAX usando XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'tu_archivo_php.php', true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            // Manejar la respuesta del servidor si es necesario
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.send(formData);
+    location.href = "op-paquetes.php";
 
   }

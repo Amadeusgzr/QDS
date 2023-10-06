@@ -26,7 +26,7 @@ require '../plantillas/menu-cuenta.php';
     </div>
 
     <div class="contenedor-tabla">
-        <table id="tabla-admin-camioneros">
+        <table id="tabla-lote">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
                 <th>Destino</th>
@@ -37,7 +37,7 @@ require '../plantillas/menu-cuenta.php';
             require("../../controladores/api/paquete/obtenerDato.php");
             foreach ($decode as $paquete) {
                 $id_paquete = $paquete["id_paquete"];
-                echo '<tr>';
+                echo '<tr class="fila-ingreso-lote fila-opcion">';
                 echo '<td>' . $paquete["id_paquete"] . '</td>';
                 echo '<td>' . $paquete["direccion"] . '</td>';
                 echo '<td>' . $paquete['estado'] . '</td>';
@@ -52,7 +52,7 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-doble">
-        <button class="estilo-boton btns-as-lote">Reiniciar</button>
+    <button class="btn-limpiar estilo-boton btns-as-lote">Borrar</button>
         <a href="index.php">
             <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
         </a>
@@ -60,13 +60,15 @@ require '../plantillas/menu-cuenta.php';
     <div class="div-btn-doble">
         <a href="alta-paquete.php" id="a-agregar"><button class="estilo-boton btns-as-lote"
                 id="op-alta">Agregar</button></a>
-        <!--<button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>-->
+                <button class="boton-siguiente estilo-boton btns-as-lote" id="submit-as-lote-2">Siguiente</button>
+
     </div>
 </div>
 
 <script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ocultar-get-alta.js"></script>
 <script src="../js/asignar-paquetes-lote-2.js"></script>
+
 
 </body>
 
