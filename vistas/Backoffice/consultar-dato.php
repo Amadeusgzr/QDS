@@ -67,14 +67,14 @@ if (isset($_GET['id_camionero'])) {
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_almacen_central = $fila["id_almacen_central"];
         $telefono = $fila["telefono"];
-        $direccion = $fila["direccion"];
+        $numero_almacen = $fila["numero_almacen"];
 
         echo "<div class='form-crud'>
         <legend>Consultar Almacen Central</legend>
         <p class='subtitulo-crud'>Datos del almacén</p>
         <p><b>ID: </b>$id_almacen_central</p>
         <p><b>Teléfono: </b>$telefono</p>
-        <p><b>Dirección: </b>$direccion</p>
+        <p><b>Número de almacén: </b>$numero_almacen</p>
         <a href='op-almacen-central.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }

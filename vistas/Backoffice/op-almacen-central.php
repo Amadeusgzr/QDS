@@ -17,7 +17,7 @@ require '../plantillas/menu-cuenta.php';
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
-                <th>Direccion</th>
+                <th>Número de almacén</th>
                 <th>OP</th>
             </tr>
             <?php
@@ -31,9 +31,9 @@ require '../plantillas/menu-cuenta.php';
             foreach ($almacenes_central as $almacen_central) {
                 echo "<tr class='fila-ingreso-lote fila-opcion' id='fila-1'>";
                 $id_almacen_central = $almacen_central["id_almacen_central"];
-                $direccion = $almacen_central["direccion"];
+                $numero_almacen = $almacen_central["numero_almacen"];
                 echo "<td>$id_almacen_central</td>";
-                echo "<td>$direccion</td>";
+                echo "<td>$numero_almacen</td>";
                 echo "<td>
                 <a href='baja-dato.php?id_almacen_central=$id_almacen_central'><button>B</button></a>
                 <a href='modificar-almacen-central.php?id_almacen_central=$id_almacen_central'><button>M</button></a>

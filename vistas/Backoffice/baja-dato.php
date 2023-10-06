@@ -74,14 +74,14 @@ if (isset($_GET['id_camionero'])) {
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_almacen_central = $fila["id_almacen_central"];
         $telefono = $fila["telefono"];
-        $direccion = $fila["direccion"];
+        $numero_almacen = $fila["numero_almacen"];
         echo "<div class='form-crud'>
         <legend>Eliminar Almacen Central</legend>
         <p class='adv'>¿Seguro que quiere eliminar el siguiente almacén? Los cambios serán irreversibles</p>
         <p class='subtitulo-crud'>Datos del almacén</p>
         <p><b>ID: </b>$id_almacen_central</p>
         <p><b>Teléfono: </b>$telefono</p>
-        <p><b>Dirección: </b>$direccion</p>
+        <p><b>Número de almacén: </b>$numero_almacen</p>
         <a href='eliminar.php?id_almacen_central=$id_almacen_central'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-almacen-central.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";

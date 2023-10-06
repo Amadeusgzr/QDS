@@ -10,16 +10,15 @@ include("../../modelos/db.php");
 if (isset($_POST["id_almacen_central"])) {
     $id_almacen_central = $_POST["id_almacen_central"];
     $telefono = $_POST["telefono"];
-    $direccion = $_POST["direccion"];
+    $numero_almacen = $_POST["numero_almacen"];
 
-    $instruccion = "update almacen_central set direccion='$direccion', telefono='$telefono' where id_almacen_central=$id_almacen_central";
+    $instruccion = "update almacen_central set numero_almacen='$numero_almacen', telefono='$telefono' where id_almacen_central=$id_almacen_central";
     $conexion->query($instruccion);
     header("Location: modificar-almacen-central.php?id_almacen_central=$id_almacen_central");
 } else if (isset($_POST["id_almacen_cliente"])) {
     $id_almacen_cliente = $_POST["id_almacen_cliente"];
     $telefono = $_POST["telefono"];
     $direccion = $_POST["direccion"];
-
 
     $instruccion = "update almacen_cliente set direccion='$direccion', telefono='$telefono' where id_almacen_cliente=$id_almacen_cliente";
     $conexion->query($instruccion);

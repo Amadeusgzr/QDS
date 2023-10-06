@@ -30,8 +30,8 @@ if ($_POST) {
     $nombre_completo = $_POST["nombre_completo"];
     $telefono = $_POST["telefono"];
     $mail = $_POST["mail"];
-    $numArrays = count($cedula);
 
+    $numArrays = count($cedula);
     for ($i = 0; $i < $numArrays; $i++) {
         include("../../modelos/db.php");
         $respuesta = existencia('camionero', 'cedula', $cedula[$i]);
@@ -100,4 +100,5 @@ if ($_POST) {
     ?>
 </div>
 
+<script src="../js/ocultar-get-alta.js"></script>
 <script src="../js/mostrar-respuesta.js"></script>

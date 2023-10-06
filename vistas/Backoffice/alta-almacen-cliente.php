@@ -36,7 +36,7 @@ if ($_POST) {
         if ($respuesta['error'] == "Error") {
             $respuesta = [
                 'error' => "Error",
-                'respuesta' => "Ya existe la telefono $telefono[$i]"
+                'respuesta' => "Ya existe el telefono $telefono[$i]"
             ];
             break;
         }

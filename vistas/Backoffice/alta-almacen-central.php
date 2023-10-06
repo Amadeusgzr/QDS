@@ -17,7 +17,7 @@ require '../plantillas/menu-cuenta.php';
     <form action="alta-almacen-central.php" method="post">
         <legend>Agregar Almacén Central</legend>
         <input type="text" placeholder="Teléfono" class="txt-crud" name="telefono[]" required>
-        <input type="tel" placeholder="Dirección" class="txt-crud" name="direccion[]" required>
+        <input type="tel" placeholder="Número de almacén" class="txt-crud" name="numero_almacen[]" required>
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-almacen-central.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
@@ -28,7 +28,7 @@ require '../plantillas/menu-cuenta.php';
 
 if ($_POST) {
     $telefono = $_POST["telefono"];
-    $direccion = $_POST["direccion"];
+    $numero_almacen = $_POST["numero_almacen"];
 
     $numArrays = count($telefono);
     for ($i = 0; $i < $numArrays; $i++) {
@@ -37,20 +37,20 @@ if ($_POST) {
         if ($respuesta['error'] == "Error") {
             $respuesta = [
                 'error' => "Error",
-                'respuesta' => "Ya existe la telefono $telefono[$i]"
+                'respuesta' => "Ya existe el telefono $telefono[$i]"
             ];
             break;
         }
 
         $respuesta = atributoVacio($telefono);
-        $respuesta1 = atributoVacio($direccion);
+        $respuesta1 = atributoVacio($numero_almacen);
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error") {
             $respuesta = [
                 'error' => "Éxito",
                 'respuesta' => "Almacén guardado"
             ];
-            $instruccion = "insert into almacen_central(direccion, telefono) value ('$direccion[$i]', '$telefono[$i]')";
+            $instruccion = "insert into almacen_central(numero_almacen, telefono) value ('$numero_almacen[$i]', '$telefono[$i]')";
             $conexion->query($instruccion);
         } else {
             $respuesta = [
