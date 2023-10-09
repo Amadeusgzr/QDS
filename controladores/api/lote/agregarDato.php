@@ -2,12 +2,10 @@
 $ch = curl_init();
 
 if ($_POST) {
-    $almacen_destino = $_POST["select-almacen-lote"];
-    $fecha_traslado = $_POST["fecha_traslado_lote"];
-    $hora_traslado = $_POST["hora_traslado_lote"];
+    $plataforma_destino = $_POST["plataforma_destino"];
+    $fecha_ideal_traslado = $_POST["fecha_ideal_traslado"];
+    $hora_ideal_traslado = $_POST["hora_ideal_traslado"];
     $fragil = $_POST["fragil"];
-    $tipo = $_POST["tipo"];
-    $detalles = $_POST["detalles-lote"];
     if (isset($_POST["tipo"])) {
         $tipo = $_POST["tipo"];
     } else {
@@ -21,12 +19,12 @@ if ($_POST) {
 }
 
 $array = [
-    'almacen_destino' => "$almacen_destino",
-    'fecha_traslado' => "$fecha_traslado",
-    'hora_traslado' => "$hora_traslado",
-    'fragil' => "$fragil",
-    'tipo' => "$tipo",
-    'detalles' => "$detalles",
+    'plataforma_destino' => $plataforma_destino,
+    'fecha_ideal_traslado' => $fecha_ideal_traslado,
+    'hora_ideal_traslado' => $hora_ideal_traslado,
+    'fragil' => $fragil,
+    'tipo' => $tipo,
+    'detalles' => $detalles,
 ];
 
 $datos = json_encode($array);
@@ -46,7 +44,7 @@ if (curl_errno($ch)) {
 
 
 curl_close($ch);
-header('Location: ../../../vistas/Almacenero/alta-lote.php?datos=' . urlencode($respuesta));
+header('Location: ../../../vistas/Almacenero/asignar-paquetes-lote-2.php?datos=' . urlencode($respuesta));
 
 
 

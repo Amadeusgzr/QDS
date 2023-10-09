@@ -55,14 +55,15 @@ function enviarDatos() {
 
     // Realizar la solicitud AJAX usando XMLHttpRequest
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'tu_archivo_php.php', true);
+    xhr.open('POST', '../../controladores/api/paquete/eliminarDato.php', true);
+    xhr.send(formData);
     xhr.onload = function () {
         if (xhr.status === 200) {
             // Manejar la respuesta del servidor si es necesario
-            console.log(xhr.responseText);
+            let respuesta = xhr.responseText;
+            location.href = "op-paquetes.php?datos=" + respuesta;
+
         }
     };
-    xhr.send(formData);
-    location.href = "op-paquetes.php";
 
   }

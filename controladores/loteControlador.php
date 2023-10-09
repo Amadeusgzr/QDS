@@ -14,19 +14,22 @@ switch ($_SERVER['REQUEST_METHOD']) {
         if (isset($_POST->id_lote)) {
             $respuesta = $loteModelo->obtenerLote($_POST->id_lote);
         } else {
-            $respuesta = atributoVacio($_POST->mail_destinatario);
-            $respuesta1 = atributoVacio($_POST->direccion);
-            $respuesta2 = atributoVacio($_POST->peso);
-            $respuesta3 = atributoVacio($_POST->volumen);
-            $respuesta4 = atributoVacio($_POST->fragil);
+            $numArrays = count($_POST->plataforma_destino);
 
-            if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
-                $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario, $_POST->direccion, $_POST->peso, $_POST->volumen, $_POST->fragil, $_POST->tipo, $_POST->detalles);
-            } else {
-                $respuesta = [
-                    'error' => 'Error',
-                    'respuesta' => 'Hay un atributo que no debe estar vacío'
-                ];
+            for ($i = 0; $i < $numArrays; $i++) {
+                $respuesta = atributosVacio($_POST->plataforma_destino);
+                $respuesta1 = atributosVacio($_POST->fecha_ideal_traslado);
+                $respuesta2 = atributosVacio($_POST->hora_ideal_traslado);
+                $respuesta3 = atributosVacio($_POST->fragil);
+
+                if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error") {
+                    $respuesta = $loteModelo->guardarLote($_POST->plataforma_destino[$i], $_POST->fecha_ideal_traslado[$i], $_POST->hora_ideal_traslado[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i]);
+                } else {
+                    $respuesta = [
+                        'error' => 'Error',
+                        'respuesta' => 'Hay un atributo que no debe estar vacío'
+                    ];
+                }
             }
         }
         echo json_encode($respuesta);
@@ -57,6 +60,27 @@ switch ($_SERVER['REQUEST_METHOD']) {
         }
         echo json_encode($respuesta);
         break;
+}
+function atributosVacio($atributos)
+{
+    $numArrays = count($atributos);
+    for ($i = 0; $i < $numArrays; $i++) {
+        foreach ($atributos as $atributo) {
+            if (!isset($atributo) || is_null($atributo) || empty(trim($atributo))) {
+                $respuesta = [
+                    'error' => 'Error',
+                    'respuesta' => 'Hay un atributo que no debe estar vacío'
+                ];
+                break;
+            } else {
+                $respuesta = [
+                    'error' => 'Exito',
+                    'respuesta' => 'Todos los atributos están correctos'
+                ];
+            }
+        }
+    }
+    return $respuesta;
 }
 function atributoVacio($atributo)
 {

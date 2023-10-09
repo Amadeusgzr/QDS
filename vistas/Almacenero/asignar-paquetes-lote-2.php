@@ -22,67 +22,25 @@ require '../plantillas/menu-cuenta.php';
                 <th>Destino</th>
                 <th>Empresa remitente</th>
                 <th>Riesgo</th>
-            </tr>
-            <tr class="fila-ingreso-lote fila-opcion" id="fila-1">
-                <td>1001</td>
-                <td>Gral. Rivera 1798</td>
-                <td>CRECOM</td>
-                <td>No</td>
-            </tr>
-            <tr class="fila-ingreso-lote fila-opcion">
-                <td>1002</td>
-                <td>Av. Italia 1492</td>
-                <td>CRECOM</td>
-                <td>Si</td>
-            </tr>
-            <tr class="fila-ingreso-lote fila-opcion">
-                <td>1003</td>
-                <td>18 de Julio esq. Río Negro 1295</td>
-                <td>CRECOM</td>
-                <td>No</td>
-            </tr>
-            <tr class="fila-ingreso-lote fila-opcion">
-                <td>1003</td>
-                <td>18 de Julio esq. Río Negro 1295</td>
-                <td>CRECOM</td>
-                <td>No</td>
-            </tr>
-            <tr class="fila-ingreso-lote fila-opcion">
-                <td>1003</td>
-                <td>18 de Julio esq. Río Negro 1295</td>
-                <td>CRECOM</td>
-                <td>No</td>
-            </tr>
-            <tr class="fila-ingreso-lote fila-opcion">
-                <td>1003</td>
-                <td>18 de Julio esq. Río Negro 1295</td>
-                <td>CRECOM</td>
-                <td>No</td>
-            </tr>
-            <tr class="fila-ingreso-lote fila-opcion">
-                <td>1003</td>
-                <td>18 de Julio esq. Río Negro 1295</td>
-                <td>CRECOM</td>
-                <td>No</td>
-            </tr>
-            <tr class="fila-ingreso-lote fila-opcion">
-                <td>1003</td>
-                <td>18 de Julio esq. Río Negro 1295</td>
-                <td>CRECOM</td>
-                <td>No</td>
-            </tr>
-            <tr class="fila-ingreso-lote fila-opcion">
-                <td>1003</td>
-                <td>18 de Julio esq. Río Negro 1295</td>
-                <td>CRECOM</td>
-                <td>No</td>
-            </tr>
-            <tr class="fila-ingreso-lote fila-opcion">
-                <td>1003</td>
-                <td>18 de Julio esq. Río Negro 1295</td>
-                <td>CRECOM</td>
-                <td>No</td>
-            </tr>
+                <?php
+                require("../../controladores/api/paquete/obtenerDato.php");
+                foreach ($decode as $paquete) {
+                    $id_paquete = $paquete["id_paquete"];
+                    if (isset($_GET['datos'])) {
+                        $jsonDatos = urldecode($_GET['datos']);
+                        $datos = json_decode($jsonDatos, true);
+                        $id_lote = $datos['id_lote'];
+                    }
+                    echo '<tr class="fila-ingreso-lote fila-opcion">';
+                    echo '<td>' . $paquete["id_paquete"] . '</td>';
+                    echo '<td>' . $paquete["direccion"] . '</td>';
+                    echo '<td>' . $paquete['estado'] . '</td>';
+                    echo "<td>
+                <a href='../../controladores/api/paquete_lote/agregarDato.php?id_paquete=$id_paquete&id_lote=$id_lote'><button>Agregar</button></a>
+                </td>";
+                    echo '</tr>';
+                }
+                ?>
         </table>
     </div>
     <div id="mov-lote">
@@ -98,7 +56,20 @@ require '../plantillas/menu-cuenta.php';
     </div>
 </div>
 
+<div class="div-error">
+    <?php
+    if (isset($_GET['datos'])) {
+        $jsonDatos = urldecode($_GET['datos']);
+        $datos = json_decode($jsonDatos, true);
+        echo $datos['respuesta'];
+    }
+    ?>
+</div>
+
+
 <script src="../js/asignar-paquetes-lote-2.js"></script>
+<script src="../js/mostrar-respuesta.js"></script>
+
 
 </body>
 

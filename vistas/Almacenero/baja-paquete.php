@@ -70,6 +70,5 @@ foreach ($decode as $paquete) {
     <a href="../../controladores/api/paquete/eliminarDato.php?id_paquete=<?= $id_paquete ?>"><input type="submit"
             value="Eliminar" class="estilo-boton boton-siguiente"></a>
     <a href="op-paquetes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
-    <script src="../js/ocultar-get.js"></script>
 
 </div>

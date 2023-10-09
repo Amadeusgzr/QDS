@@ -67,10 +67,17 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
     case 'DELETE':
         $_DELETE = json_decode(file_get_contents('php://input', true));
-        $respuesta = atributoVacio($_DELETE->id_paquete);
-        if ($respuesta['error'] !== "Error") {
-            $respuesta = $paqueteModelo->eliminarPaquete($_DELETE->id_paquete);
+        if (isset($_DELETE->id_paquete)) {
+            $respuesta = atributoVacio($_DELETE->id_paquete);
+            if ($respuesta['error'] !== "Error") {
+                $respuesta = $paqueteModelo->eliminarPaquete($_DELETE->id_paquete);
+            }
+        } else {
+            foreach ($_DELETE as $array) {
+                $respuesta = $paqueteModelo->eliminarPaquete($array[0]);
+            }
         }
+
         echo json_encode($respuesta);
         break;
 }

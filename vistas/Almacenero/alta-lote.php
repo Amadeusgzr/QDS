@@ -18,25 +18,31 @@ require '../plantillas/menu-cuenta.php';
 
     <div class="div-datos-lote">
         <legend>Crear Lote</legend>
-        <select name="almacen_destino" id="select-almacen-lote">
-            <option value="Almacen" selected disabled>Almacen destino</option>
-            <option value="Maldonado">Maldonado</option>
-            <option value="Canelones">Canelones</option>
-            <option value="Rocha">Rocha</option>
+        <select name="plataforma_destino[]" id="select-almacen-lote">
+            <?php
+            require("../../controladores/api/plataforma/obtenerDato.php");
+            foreach ($decode as $plataforma) {
+                $id_plataforma = $plataforma["id_plataforma"];
+                echo "<option value=" . $id_plataforma . ">" . $plataforma["direccion"] . ", " . $plataforma["departamento"] . "</option>";
+            }
+            ?>
         </select>
+        <?php
+
+        ?>
         <p class="p-lote">Fecha traslado</p>
-        <input type="date" name="fecha_traslado_lote" id="fecha-traslado-lote" class="tiempo-lote"
+        <input type="date" name="fecha_ideal_traslado[]" id="fecha-traslado-lote" class="tiempo-lote"
             placeholder="Nombre destinatario" autocomplete="off">
         <p class="p-lote">Hora traslado</p>
-        <input type="time" name="hora_traslado_lote" id="hora-traslado-lote" class="tiempo-lote"
+        <input type="time" name="hora_ideal_traslado[]" id="hora-traslado-lote" class="tiempo-lote"
             placeholder="Nombre destinatario" autocomplete="off">
         <p class="p-lote">Contenido frágil</p>
         <div id="div-radios-lote">
             <label for="radio-lote-si">Sí</label>
-            <input type="radio" name="fragil" id="radio-lote-si" value="Si">
+            <input type="radio" name="fragil[]" id="radio-lote-si" value="Si">
             <label for="radio-lote-no">No</label>
-            <input type="radio" name="fragil" id="radio-lote-no" value="No" checked>
-            <select name="tipo" id="select-fragil-lote" disabled>
+            <input type="radio" name="fragil[]" id="radio-lote-no" value="No" checked>
+            <select name="tipo[]" id="select-fragil-lote" disabled>
                 <option value="default" selected disabled>Contenido frágil</option>
                 <option value="Líquido">Líquido</option>
                 <option value="Vidrio">Vidrio</option>
@@ -46,7 +52,7 @@ require '../plantillas/menu-cuenta.php';
 
     <div class="div-datos-lote">
         <p class="p-lote">Detalles</p>
-        <textarea name="detalles-lote" id="detalles-lote" cols="30" rows="8" maxlength="150"
+        <textarea name="detalles[]" id="detalles-lote" cols="30" rows="8" maxlength="150"
             placeholder="Detalles adicionales (opcional)" form="form-paquete"></textarea>
         <a href=""><input type="submit" class="submit-lote boton-siguiente" value="Siguiente"></a>
         <a href="op-lotes.php"><input type="button" class="submit-lote boton-volver" class="boton-volver"
@@ -54,7 +60,18 @@ require '../plantillas/menu-cuenta.php';
     </div>
 
 </form>
-<script src="../js/ocultar-get.js"></script>
+
+<div class="div-error">
+    <?php
+    if (isset($_GET['datos'])) {
+        $jsonDatos = urldecode($_GET['datos']);
+        $datos = json_decode($jsonDatos, true);
+        echo $datos['respuesta'];
+    }
+    ?>
+</div>
+
+<script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ingreso-lote.js"></script>
 
 </body>

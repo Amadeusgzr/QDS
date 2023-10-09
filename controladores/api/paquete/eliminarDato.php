@@ -1,9 +1,18 @@
 <?php
 $ch = curl_init();
-$id_paquete = $_GET["id_paquete"];
-$array = [
-    'id_paquete' => "$id_paquete",
-];
+if (isset($_GET["id_paquete"])) {
+    $id_paquete = $_GET["id_paquete"];
+    $array = [
+        'id_paquete' => "$id_paquete",
+    ];
+
+}
+if (isset($_POST['todo'])) {
+    $jsonString = $_POST['todo'];
+    $array = json_decode($jsonString, true);
+}
+
+
 
 $datos = json_encode($array);
 
@@ -21,5 +30,10 @@ if (curl_errno($ch)) {
 }
 
 curl_close($ch);
-header('Location: ../../../vistas/Almacenero/op-paquetes.php?datos=' . urlencode($respuesta));
+if (isset($_GET["id_paquete"])) {
+    header('Location: ../../../vistas/Almacenero/op-paquetes.php?datos=' . urlencode($respuesta));
+} else {
+    $respuesta = urlencode($respuesta);
+    echo $respuesta;
+}
 ?>
