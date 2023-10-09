@@ -18,15 +18,6 @@ require '../plantillas/menu-cuenta.php';
 
     <div class="div-datos-lote">
         <legend>Crear Lote</legend>
-        <select name="plataforma_destino[]" id="select-almacen-lote">
-            <?php
-            require("../../controladores/api/plataforma/obtenerDato.php");
-            foreach ($decode as $plataforma) {
-                $id_plataforma = $plataforma["id_plataforma"];
-                echo "<option value=" . $id_plataforma . ">" . $plataforma["direccion"] . ", " . $plataforma["departamento"] . "</option>";
-            }
-            ?>
-        </select>
         <?php
 
         ?>
@@ -42,8 +33,8 @@ require '../plantillas/menu-cuenta.php';
             <input type="radio" name="fragil[]" id="radio-lote-si" value="Si">
             <label for="radio-lote-no">No</label>
             <input type="radio" name="fragil[]" id="radio-lote-no" value="No" checked>
-            <select name="tipo[]" id="select-fragil-lote" disabled>
-                <option value="default" selected disabled>Contenido frágil</option>
+            <select name="tipo[]" id="select-fragil-paq" class="select-fragil-paq">
+                <option selected value="" id="select-tipo">Contenido frágil</option>
                 <option value="Líquido">Líquido</option>
                 <option value="Vidrio">Vidrio</option>
             </select>
@@ -53,7 +44,7 @@ require '../plantillas/menu-cuenta.php';
     <div class="div-datos-lote">
         <p class="p-lote">Detalles</p>
         <textarea name="detalles[]" id="detalles-lote" cols="30" rows="8" maxlength="150"
-            placeholder="Detalles adicionales (opcional)" form="form-paquete"></textarea>
+            placeholder="Detalles adicionales (opcional)"></textarea>
         <a href=""><input type="submit" class="submit-lote boton-siguiente" value="Siguiente"></a>
         <a href="op-lotes.php"><input type="button" class="submit-lote boton-volver" class="boton-volver"
                 value="Volver"></a>

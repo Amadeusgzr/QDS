@@ -32,17 +32,13 @@ class loteModelo
     }
 
 
-    public function guardarLote($plataforma_destino, $fecha_ideal_traslado, $hora_ideal_traslado, $fragil, $tipo, $detalles)
+    public function guardarLote($fecha_ideal_traslado, $hora_ideal_traslado, $fragil, $tipo, $detalles)
     {
         $instruccion = "INSERT INTO lote (fecha_ideal_traslado,hora_ideal_traslado,fragil,tipo,detalles) VALUES ('$fecha_ideal_traslado','$hora_ideal_traslado','$fragil','$tipo','$detalles')";
         mysqli_query($this->db, $instruccion);
 
         $id_lote = mysqli_insert_id($this->db);
-        $instruccion = "INSERT INTO transporta (id_lote) VALUES ('$id_lote')";
-        mysqli_query($this->db, $instruccion);
 
-        $instruccion = "INSERT INTO lleva (id_lote, id_plataforma) VALUES ('$id_lote','$plataforma_destino')";
-        mysqli_query($this->db, $instruccion);
         $resultado = [
             'error' => "Éxito",
             'respuesta' => "Lote guardado",

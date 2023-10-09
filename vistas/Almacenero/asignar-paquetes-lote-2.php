@@ -31,6 +31,7 @@ require '../plantillas/menu-cuenta.php';
                         $datos = json_decode($jsonDatos, true);
                         $id_lote = $datos['id_lote'];
                     }
+                    if ($paquete['estado'] == "En almacén cliente"){
                     echo '<tr class="fila-ingreso-lote fila-opcion">';
                     echo '<td>' . $paquete["id_paquete"] . '</td>';
                     echo '<td>' . $paquete["direccion"] . '</td>';
@@ -39,6 +40,8 @@ require '../plantillas/menu-cuenta.php';
                 <a href='../../controladores/api/paquete_lote/agregarDato.php?id_paquete=$id_paquete&id_lote=$id_lote'><button>Agregar</button></a>
                 </td>";
                     echo '</tr>';
+                    }
+
                 }
                 ?>
         </table>
@@ -50,7 +53,7 @@ require '../plantillas/menu-cuenta.php';
                 <button class="boton-volver estilo-boton btns-as-lote">Volver</button>
             </a>
             <!--a-->
-            <button class="boton-siguiente estilo-boton btns-as-lote" id="submit-as-lote-2">Siguiente</button>
+            <a href="hola.php?id_lote=<?= $id_lote ?>"><button class="boton-siguiente estilo-boton btns-as-lote">Siguiente</button></a>
             <!--a-->
         </div>
     </div>

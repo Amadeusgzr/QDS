@@ -14,16 +14,15 @@ switch ($_SERVER['REQUEST_METHOD']) {
         if (isset($_POST->id_lote)) {
             $respuesta = $loteModelo->obtenerLote($_POST->id_lote);
         } else {
-            $numArrays = count($_POST->plataforma_destino);
+            $numArrays = count($_POST->fragil);
 
             for ($i = 0; $i < $numArrays; $i++) {
-                $respuesta = atributosVacio($_POST->plataforma_destino);
                 $respuesta1 = atributosVacio($_POST->fecha_ideal_traslado);
                 $respuesta2 = atributosVacio($_POST->hora_ideal_traslado);
                 $respuesta3 = atributosVacio($_POST->fragil);
 
-                if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error") {
-                    $respuesta = $loteModelo->guardarLote($_POST->plataforma_destino[$i], $_POST->fecha_ideal_traslado[$i], $_POST->hora_ideal_traslado[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i]);
+                if ($respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error") {
+                    $respuesta = $loteModelo->guardarLote($_POST->fecha_ideal_traslado[$i], $_POST->hora_ideal_traslado[$i], $_POST->fragil[$i], "Vidrio", "Pene");
                 } else {
                     $respuesta = [
                         'error' => 'Error',

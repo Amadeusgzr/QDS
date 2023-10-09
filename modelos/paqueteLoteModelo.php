@@ -14,6 +14,10 @@ class paqueteLoteModelo
     {
         $instruccion = "INSERT INTO forma (id_paquete,id_lote) VALUES ('$id_paquete','$id_lote')";
         mysqli_query($this->db, $instruccion);
+
+        $instruccion = "UPDATE paquete SET estado = 'En almacén cliente (Lote)' WHERE id_paquete = $id_paquete";
+        mysqli_query($this->db, $instruccion);
+
         $resultado = [
             'error' => "Éxito",
             'respuesta' => "Paquete " . $id_paquete . " asignado correctamente al lote " . $id_lote,

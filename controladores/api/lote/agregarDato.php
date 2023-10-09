@@ -2,7 +2,6 @@
 $ch = curl_init();
 
 if ($_POST) {
-    $plataforma_destino = $_POST["plataforma_destino"];
     $fecha_ideal_traslado = $_POST["fecha_ideal_traslado"];
     $hora_ideal_traslado = $_POST["hora_ideal_traslado"];
     $fragil = $_POST["fragil"];
@@ -19,7 +18,6 @@ if ($_POST) {
 }
 
 $array = [
-    'plataforma_destino' => $plataforma_destino,
     'fecha_ideal_traslado' => $fecha_ideal_traslado,
     'hora_ideal_traslado' => $hora_ideal_traslado,
     'fragil' => $fragil,
