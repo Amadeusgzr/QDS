@@ -20,14 +20,18 @@ if (isset($_SESSION['nom_usu'])) {
         if (isset($_GET['data'])) {
             $jsonData = urldecode($_GET['data']);
             $data = json_decode($jsonData, true);
-            echo $data['error'] . " ";
-            echo $data['resultado'];
+            $respuesta = $data['resultado'];
+            echo "<p class='p-respuesta'>$respuesta</p>";
         }
         ?>
         <hr>
         <a href="" id="a-contraseña">¿Olvidaste tu contraseña?</a>
     </div>
 </form>
+
+<script src="js/ocultar-get-alta.js">
+
+</script>
 
 </body>
 
