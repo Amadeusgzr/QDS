@@ -13,6 +13,7 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 
 ?>
+
 <!DOCTYPE html>
 
 <main class="main-aplicacion">

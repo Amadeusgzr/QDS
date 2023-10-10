@@ -32,15 +32,19 @@ class paqueteModelo
     }
 
 
-    public function guardarPaquete($mail_destinatario, $direccion, $peso, $volumen, $fragil, $tipo, $detalles)
+    public function guardarPaquete($mail_destinatario, $direccion, $peso, $volumen, $fragil, $tipo, $detalles, $codigo)
     {
-        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles')";
+
+
+        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles,codigo_seguimiento) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles','$codigo')";
         mysqli_query($this->db, $instruccion);
         $resultado = [
             'error' => "Éxito",
             'respuesta' => "Paquete guardado"
         ];
         return $resultado;
+
+
     }
     public function modificarPaquete($id_paquete, $direccion, $peso, $volumen, $fragil, $estado)
     {

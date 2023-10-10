@@ -26,13 +26,15 @@ switch ($_SERVER['REQUEST_METHOD']) {
                     ];
                     break;
                 } else {
+                    $codigoGenerado = generarCodigo(12);
+
                     $respuesta = atributosVacio($_POST->mail_destinatario);
                     $respuesta1 = atributosVacio($_POST->direccion);
                     $respuesta2 = atributosVacio($_POST->peso);
                     $respuesta3 = atributosVacio($_POST->volumen);
                     $respuesta4 = atributosVacio($_POST->fragil);
                     if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
-                        $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario[$i], $_POST->direccion[$i], $_POST->peso[$i], $_POST->volumen[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i]);
+                        $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario[$i], $_POST->direccion[$i], $_POST->peso[$i], $_POST->volumen[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i], $codigoGenerado);
                     } else {
                         $respuesta = [
                             'error' => 'Error',
@@ -119,5 +121,14 @@ function atributoVacio($atributo)
     return $respuesta;
 }
 
+function generarCodigo($longitud) {
+    $caracteres = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $codigo = '';
 
+    for ($i = 0; $i < $longitud; $i++) {
+        $codigo .= $caracteres[rand(0, strlen($caracteres) - 1)];
+    }
+
+    return $codigo;
+    }
 ?>
