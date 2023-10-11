@@ -194,12 +194,15 @@ footer{
     margin-top: 200px;
     display: flex;
     padding: 30px;
+    justify-content: space-around;
 }
 
 #div-footer1{
-    flex-grow: 1;
     height: 100%;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 footer h2{
@@ -211,10 +214,8 @@ footer h2{
 }
 
 ul{
-    margin: 20px 0 40px 80px;
     color: #fff;
-    font-size: calc(.7em + .7vw);
-    width: calc(5em + 5vw);
+    margin: 20px auto;
 }
 
 li{
@@ -222,9 +223,11 @@ li{
 }
 
 #div-footer2{
-    flex-grow: 2;
     height: 100%;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #form-mensaje{
@@ -239,10 +242,10 @@ li{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 
-#div-inputs input{
-    width: 200px;
+#div-inputs :nth-child(1), #div-inputs :nth-child(2), #div-inputs :nth-child(3){
     font-size: 1.2em;
     padding: .5rem;
     background-color: transparent;
@@ -250,15 +253,11 @@ li{
     border: 3px solid #fff;
     border-radius: 10px;
     color: #fff;
+    outline: none;
 }
 
 #form-mensaje input::placeholder{
     color: #ddd;
-}
-
-#div-textarea{
-    display: flex;
-    align-items: center;
 }
 
 #txt-mensaje-footer{
@@ -276,20 +275,14 @@ li{
     color: #ddd;
 }
 
-#div-submit-mensaje{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-#div-submit-mensaje input{
+#msg-submit{
     font-size: 1.2em;
     padding: .5rem;
     background-color: #fff;
     color: #000;
     border-radius: 10px;
     cursor: pointer;
-    
+    width: 100%;
 }
 
 /************************************************
@@ -1572,15 +1565,15 @@ label[for="radio-lote-no"]{
     }
 
     footer{
-        flex-wrap: wrap;
+        flex-direction: column;
     }
 
-    #form-mensaje{
-        margin-left: 0;
+    #div-footer2 input, #div-footer2 textarea{
+        width: 300px;
     }
-
-    #div-footer2, #div-footer1{
-        padding: 0;
+    
+    #div-inputs{
+        align-items: center;
     }
 
     #detalles-paq, #div-inputs{
@@ -1709,25 +1702,8 @@ label[for="radio-lote-no"]{
         margin: 20px 0 0;
     }
 
-    ul{
-        width: 80%;
-    }
-
     #form-login{
         width: 95%;
-    }
-
-    #div-inputs input{
-        width: 90%;
-    }
-
-    #div-textarea{
-        width: 90%;
-    }
-
-    #div-footer-2{
-        padding: 0;
-        width: 50%;
     }
 
     #form-mensaje{

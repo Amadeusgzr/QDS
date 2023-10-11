@@ -13,11 +13,7 @@
             <div id="div-inputs">
                 <input type="text" name="nombre" id="msg-nombre" placeholder="Nombre">
                 <input type="email" name="correo" id="msg-mail" placeholder="Correo electrónico">
-            </div>
-            <div id="div-textarea">
-                <textarea name="mensaje" id="txt-mensaje-footer" cols="30" rows="4" placeholder="Mensaje"></textarea>
-            </div>
-            <div id="div-submit-mensaje">
+                <textarea name="mensaje" id="txt-mensaje-footer" cols="30" rows="8" placeholder="Mensaje"></textarea>
                 <input type="submit" id="msg-submit" value="Enviar">
             </div>
         </form>
