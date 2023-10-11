@@ -15,7 +15,7 @@ if (!isset($_SESSION['nom_usu'])) {
 <h1 id="h1-index">quick distribution service</h1>
 
 <form action="vistas/aplicacion-seguimiento.php" id="form-rastreo" method="post">
-    <legend>Rastrear envío</legend>
+    <legend id="sub-rastreo">Rastrear envío</legend>
     <p id="p-rastreo">Ingresa el código del envío para poder rastrearlo</p>
     <div id="div-datos-rastreo">
         <input id="codigo-rastreo" type="text" placeholder="xxxx-xxxx-xxxx" maxlength="14" autocomplete="off" required

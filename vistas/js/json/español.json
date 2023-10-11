@@ -1,0 +1,16 @@
+{
+    "aop1" : "Acceder",
+    "aop3" : "Cambiar contraseña",
+    "aop4" : "Cerrar sesión",
+
+    "sub_rastreo" : "Rastrear envío",
+    "p_rastreo" : "Ingresa el código del envío para poder rastrearlo",
+    "submit_rastreo" : "Rastrear",
+
+    "h2_contacto" : "contacto",
+    "h2_msg" : "envíanos un mensaje",
+    "msg_nombre" : "Nombre",
+    "msg_mail" : "Correo electrónico",
+    "msg" : "Mensaje",
+    "msg_submit" : "Enviar"
+}

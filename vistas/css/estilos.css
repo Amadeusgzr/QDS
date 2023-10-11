@@ -40,6 +40,47 @@ table td, table th{
     text-shadow: 0 0 2px;
 }
 
+#btn-idioma{
+    display: none;
+}
+
+.lbl-idioma{
+    margin-left: 10px;
+    display: inline-block;
+    width: 5rem;
+    height: 35px;
+    background: linear-gradient(#444, #000);
+    box-shadow: inset 0 2px 2px #666, inset 0 -2px 2px #777;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+.lbl-idioma:after{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    content: '';
+    background-image: url("../img/iconos/español.png");
+    background-size: cover;
+    border-radius: 100%;
+    left: 5px;
+    transition-duration: .3s;
+}
+
+.lbl-idioma img{
+    z-index: 1000;
+}
+
+#btn-idioma:checked~ .lbl-idioma::after{
+    background-image: url("../img/iconos/ingles.png");
+    background-size: cover;
+    left: calc(5rem - 30px);
+}
+
 /************************************************
 *                                               *
 *                   HEADER                      *

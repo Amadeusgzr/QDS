@@ -10,29 +10,22 @@ if (!isset($_SESSION['nom_usu'])) {
     <?php
 
     if ($_SESSION['tipo_usu'] == "admin") {
-        echo "<a href='vistas/Backoffice/index.php' class='a-op-cuenta'>Acceder</a>";
+        echo "<a href='vistas/Backoffice/index.php' class='a-op-cuenta aop1'>Acceder</a>";
     } else if ($_SESSION['tipo_usu'] == "almacenero") {
-        echo "<a href='vistas/Almacenero/index.php' class='a-op-cuenta'>Acceder</a>";
+        echo "<a href='vistas/Almacenero/index.php' class='a-op-cuenta aop1'>Acceder</a>";
     } else if ($_SESSION['tipo_usu'] == "camionero") {
-        echo "<a href='vistas/Camionero/index.php' class='a-op-cuenta'>Acceder</a>";
+        echo "<a href='vistas/Camionero/index.php' class='a-op-cuenta aop1'>Acceder</a>";
     }
 
     ?>
-    <div class="a-op-cuenta" id="btnIdioma">Idioma</div>
-    <a href="" class="a-op-cuenta">Cambiar contraseña</a>
-    <a href="controladores/logout.php" class="a-op-cuenta">Cerrar sesión</a>
+    <div class="div-toggle-idioma">
+        <input type="checkbox" name="" id="btn-idioma">
+        <label for="btn-idioma" class="lbl-idioma"></label>
+    </div>
+    <a href="" class="a-op-cuenta aop3">Cambiar contraseña</a>
+    <a href="controladores/logout.php" class="a-op-cuenta aop4">Cerrar sesión</a>
     <p id="btn-cerrar-menu">x</p>
 </div>
 
-<div id="div-idiomas">
-    <div id="div-select-idioma">
-        <select name="" id="select-idioma">
-            <option value="" selected disabled>Idioma</option>
-            <option value="">Español</option>
-            <option value="">Inglés</option>
-        </select>
-        <button id="submit-idioma">Aceptar</button>
-    </div>
-</div>
-
+<script src="vistas/js/idioma.js"></script>
 <script src="vistas/js/headerIngresado.js"></script>
