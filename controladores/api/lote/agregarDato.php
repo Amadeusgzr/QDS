@@ -42,7 +42,14 @@ if (curl_errno($ch)) {
 
 
 curl_close($ch);
-header('Location: ../../../vistas/Almacenero/asignar-paquetes-lote-2.php?datos=' . urlencode($respuesta));
+if ($decode['error'] == 'Error') {
+    header('Location: ../../../vistas/Almacenero/alta-lote.php?datos=' . urlencode($respuesta));
+
+} else {
+    $id_lote = $decode['id_lote'];
+    header('Location: ../../../vistas/Almacenero/asignar-paquetes-lote-2.php?datos=' . urlencode($respuesta) . '&id_lote=' . $id_lote);
+
+}
 
 
 

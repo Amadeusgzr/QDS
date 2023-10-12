@@ -14,32 +14,32 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <div id="div-tabla-lote">
-    <h1 id="h1-lote">Asignar paquetes a lote</h1>
+    <h1 id="h1-lote">Paquetes sin asignar</h1>
     <div class="contenedor-tabla">
         <table id="tabla-lote">
             <tr class="fila-ingreso-lote">
                 <th>ID del paquete</th>
                 <th>Destino</th>
-                <th>Empresa remitente</th>
-                <th>Riesgo</th>
+                <th>Estado</th>
+                <th>Opciones</th>
                 <?php
                 require("../../controladores/api/paquete/obtenerDato.php");
                 foreach ($decode as $paquete) {
-                    $id_paquete = $paquete["id_paquete"];
-                    if (isset($_GET['datos'])) {
-                        $jsonDatos = urldecode($_GET['datos']);
-                        $datos = json_decode($jsonDatos, true);
-                        $id_lote = $datos['id_lote'];
+                    if (isset($_GET)) {
+                        $id_lote = $_GET['id_lote'];
                     }
-                    if ($paquete['estado'] == "En almacén cliente"){
-                    echo '<tr class="fila-ingreso-lote fila-opcion">';
-                    echo '<td>' . $paquete["id_paquete"] . '</td>';
-                    echo '<td>' . $paquete["direccion"] . '</td>';
-                    echo '<td>' . $paquete['estado'] . '</td>';
-                    echo "<td>
+
+
+                    $id_paquete = $paquete["id_paquete"];
+                    if ($paquete['estado'] == "En almacén cliente") {
+                        echo '<tr class="fila-ingreso-lote fila-opcion">';
+                        echo '<td>' . $paquete["id_paquete"] . '</td>';
+                        echo '<td>' . $paquete["direccion"] . '</td>';
+                        echo '<td>' . $paquete['estado'] . '</td>';
+                        echo "<td>
                 <a href='../../controladores/api/paquete_lote/agregarDato.php?id_paquete=$id_paquete&id_lote=$id_lote'><button>Agregar</button></a>
                 </td>";
-                    echo '</tr>';
+                        echo '</tr>';
                     }
 
                 }
@@ -53,10 +53,42 @@ require '../plantillas/menu-cuenta.php';
                 <button class="boton-volver estilo-boton btns-as-lote">Volver</button>
             </a>
             <!--a-->
-            <a href="hola.php?id_lote=<?= $id_lote ?>"><button class="boton-siguiente estilo-boton btns-as-lote">Siguiente</button></a>
+            <a href="hola.php?id_lote=<?= $id_lote ?>"><button
+                    class="boton-siguiente estilo-boton btns-as-lote">Siguiente</button></a>
             <!--a-->
         </div>
     </div>
+</div>
+
+<h1 id="h1-lote">Paquetes asignados al lote
+    <?= $id_lote ?>
+</h1>
+<div class="contenedor-tabla">
+    <table id="tabla-lote">
+        <tr class="fila-ingreso-lote">
+            <th>ID del paquete</th>
+            <th>Destino</th>
+            <th>Estado</th>
+            <th>Opciones</th>
+            <?php
+            require("../../controladores/api/paquete_lote/obtenerDatoPorId.php");
+            foreach ($decode as $paquete) {
+                if (isset($_GET)) {
+                    $id_lote = $_GET['id_lote'];
+                }
+
+                $id_paquete = $paquete["id_paquete"];
+                echo '<tr class="fila-ingreso-lote fila-opcion">';
+                echo '<td>' . $paquete["id_paquete"] . '</td>';
+                echo '<td>' . $paquete["direccion"] . '</td>';
+                echo '<td>' . $paquete["estado"] . '</td>';
+                echo "<td>
+                <a href='../../controladores/api/paquete_lote/eliminarDato.php?id_paquete=$id_paquete&id_lote=$id_lote'><button>Eliminar</button></a>
+                </td>";
+                echo '</tr>';
+            }
+            ?>
+    </table>
 </div>
 
 <div class="div-error">
@@ -72,6 +104,20 @@ require '../plantillas/menu-cuenta.php';
 
 <script src="../js/asignar-paquetes-lote-2.js"></script>
 <script src="../js/mostrar-respuesta.js"></script>
+<script>
+    // Función para ocultar el parámetro "datos" en la URL
+    function ocultarDatosEnURL() {
+        if (window.history.replaceState) {
+            // Reemplaza la URL actual sin el parámetro "datos"
+            const urlSinDatos = window.location.href.replace(/\?datos=.*&/, '?').replace(/\&datos=.*$/, '');
+            window.history.replaceState(null, null, urlSinDatos);
+        }
+    }
+
+    // Llama a la función al cargar la página
+    window.onload = ocultarDatosEnURL;
+</script>
+
 
 
 </body>

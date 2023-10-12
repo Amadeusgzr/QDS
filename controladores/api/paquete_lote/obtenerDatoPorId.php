@@ -1,15 +1,11 @@
 <?php
 $ch = curl_init();
 
-if ($_GET) {
-    $id_lote = $_GET["id_lote"];
-    $id_paquete = $_GET["id_paquete"];
-}
-
+$id_lote = $_GET['id_lote'];
 $array = [
-    'id_lote' => "$id_lote",
-    'id_paquete' => "$id_paquete"
+    'id_lote1' => "$id_lote",
 ];
+
 
 $datos = json_encode($array);
 
@@ -25,11 +21,5 @@ if (curl_errno($ch)) {
 } else {
     $decode = json_decode($respuesta, true);
 }
-
-
 curl_close($ch);
-header('Location: ../../../vistas/Almacenero/asignar-paquetes-lote-2.php?datos=' . urlencode($respuesta) . '&id_lote=' . $id_lote);
-
-
-
 ?>

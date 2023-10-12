@@ -40,9 +40,9 @@ class loteModelo
         $id_lote = mysqli_insert_id($this->db);
 
         $resultado = [
+            'id_lote' => "$id_lote",
             'error' => "Éxito",
             'respuesta' => "Lote guardado",
-            'id_lote' => "$id_lote"
         ];
         return $resultado;
     }
@@ -81,17 +81,6 @@ class loteModelo
         }
 
         return $resultado;
-    }
-
-    public function validatePackage($name, $description)
-    {
-        $packages = [];
-        $query = "SELECT * FROM packages WHERE name='$name' AND description='$description'";
-        $result = mysqli_query($this->db, $query);
-        while ($row = mysqli_fetch_assoc($result)) {
-            array_push($packages, $row);
-        }
-        return $packages;
     }
 
 

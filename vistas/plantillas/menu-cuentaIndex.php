@@ -10,11 +10,11 @@ if (!isset($_SESSION['nom_usu'])) {
     <?php
 
     if ($_SESSION['tipo_usu'] == "admin") {
-        echo "<a href='vistas/Backoffice/index.php' class='a-op-cuenta aop1'>Acceder</a>";
+        echo "<a href='vistas/Backoffice/index.php' class='a-op-cuenta aop1-index'>Acceder</a>";
     } else if ($_SESSION['tipo_usu'] == "almacenero") {
-        echo "<a href='vistas/Almacenero/index.php' class='a-op-cuenta aop1'>Acceder</a>";
+        echo "<a href='vistas/Almacenero/index.php' class='a-op-cuenta aop1-index'>Acceder</a>";
     } else if ($_SESSION['tipo_usu'] == "camionero") {
-        echo "<a href='vistas/Camionero/index.php' class='a-op-cuenta aop1'>Acceder</a>";
+        echo "<a href='vistas/Camionero/index.php' class='a-op-cuenta aop1-index'>Acceder</a>";
     }
 
     ?>
@@ -22,8 +22,8 @@ if (!isset($_SESSION['nom_usu'])) {
         <input type="checkbox" name="" id="btn-idioma">
         <label for="btn-idioma" class="lbl-idioma"></label>
     </div>
-    <a href="" class="a-op-cuenta aop3">Cambiar contraseña</a>
-    <a href="controladores/logout.php" class="a-op-cuenta aop4">Cerrar sesión</a>
+    <a href="" class="a-op-cuenta aop3-index">Cambiar contraseña</a>
+    <a href="controladores/logout.php" class="a-op-cuenta aop4-index">Cerrar sesión</a>
     <p id="btn-cerrar-menu">x</p>
 </div>
 

@@ -15,12 +15,12 @@ require '../plantillas/menu-cuenta.php';
 
 
 <main class="main-aplicacion">
-    <a href="op-camioneros.php" class="opcion-aplicacion" id="op2">
+    <a href="op-camioneros.php" class="opcion-aplicacion" id="op1">
         <h2>Camioneros</h2>
         <p>Gestión de Camioneros</p>
         <div class="div-img-icono"><img src="../img/iconos/icono-usuario.png" alt=""></div>
     </a>
-    <a href="op-camiones.php" class="opcion-aplicacion" id="op1">
+    <a href="op-camiones.php" class="opcion-aplicacion" id="op2">
         <h2>Camiones</h2>
         <p>Gestión de Camiones</p>
         <div class="div-img-icono"><img src="../img/iconos/camion.png" alt=""></div>
@@ -35,17 +35,17 @@ require '../plantillas/menu-cuenta.php';
         <p>Gestión de Almacenes</p>
         <div class="div-img-icono"><img src="../img/iconos/almacen.png" alt=""></div>
     </a>
-    <a href="op-empresas.php" class="opcion-aplicacion" id="op4">
+    <a href="op-empresas.php" class="opcion-aplicacion" id="op5">
         <h2>Empresas Cliente</h2>
         <p>Gestión de Empresas Clientes</p>
         <div class="div-img-icono"><img src="../img/iconos/empresa.png" alt=""></div>
     </a>
-    <a href="op-rutas-tray.php" class="opcion-aplicacion" id="op5">
+    <a href="op-rutas-tray.php" class="opcion-aplicacion" id="op6">
         <h2>Rutas y Trayectos</h2>
         <p>Gestión de Rutas y Trayectos</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
     </a>
-    <a href="op-rutas-trayectos" class="opcion-aplicacion" id="op6">
+    <a href="op-rutas-trayectos" class="opcion-aplicacion" id="op7">
         <h2>Asignar Rutas a Trayectos</h2>
         <p>Asignación de Rutas a Trayectos</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta-trayecto.png" alt=""></div>
