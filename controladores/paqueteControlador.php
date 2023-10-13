@@ -15,6 +15,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $_POST = json_decode(file_get_contents('php://input', true));
         if (isset($_POST->id_paquete)) {
             $respuesta = $paqueteModelo->obtenerPaquete($_POST->id_paquete);
+        } else if (isset($_POST->codigo)){
+            $respuesta = $paqueteModelo->obtenerPaquetePorCodigo($_POST->codigo);
         } else {
             $numArrays = count($_POST->mail_destinatario);
             $mail_destinatario = $_POST->mail_destinatario;

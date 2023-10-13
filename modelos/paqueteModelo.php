@@ -9,6 +9,16 @@ class paqueteModelo
         $this->db = new mysqli('localhost', 'root', '', 'QDS');
         mysqli_set_charset($this->db, 'utf8');
     }
+    public function obtenerPaquetePorCodigo($codigo)
+    {
+        $paquete = [];
+        $instruccion = "SELECT * FROM paquete WHERE codigo_seguimiento='$codigo'";
+        $resultado = mysqli_query($this->db, $instruccion);
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            array_push($paquete, $row);
+        }
+        return $paquete;
+    }
     public function obtenerPaquete($id_paquete)
     {
         $paquete = [];

@@ -31,7 +31,7 @@ require '../plantillas/menu-cuenta.php';
 
 
                     $id_paquete = $paquete["id_paquete"];
-                    if ($paquete['estado'] == "En almacén cliente") {
+                    if ($paquete['estado'] == "En almacén central") {
                         echo '<tr class="fila-ingreso-lote fila-opcion">';
                         echo '<td>' . $paquete["id_paquete"] . '</td>';
                         echo '<td>' . $paquete["direccion"] . '</td>';
@@ -90,6 +90,56 @@ require '../plantillas/menu-cuenta.php';
             ?>
     </table>
 </div>
+<?php
+            require("../../controladores/api/plataforma_camion_lote/obtenerDatoPorId.php");
+            foreach ($decode as $lote) {
+                $id_lote = $lote["id_lote"];
+                if(isset($lote['id_plataforma']) && isset($lote['id_camion'])){
+                    $id_plataforma = $lote["id_plataforma"];
+                    $id_camion = $lote["id_camion"];
+                } 
+            }    
+            if (isset($id_plataforma) && isset($id_camion)){ 
+            echo "<form action='../../controladores/api/plataforma_camion_lote/modificarDato.php' method='post'>";
+                } else{
+                    echo "<form action='../../controladores/api/plataforma_camion_lote/agregarDato.php' method='post'>";
+                }        
+            ?>
+<input type="text" value="<?= $_GET['id_lote']?>" name="id_lote">
+
+<select name="id_plataforma" id="">
+    <?php
+    require("../../controladores/api/plataforma/obtenerDato.php");
+foreach ($decode as $plataforma) {
+    if($plataforma['id_plataforma'] == $id_plataforma){
+        echo "<option value='" . $plataforma['id_plataforma'] . "' selected>" . $plataforma['direccion'] . " - " .  $plataforma['departamento'] . "</option>";
+    } else{
+        echo "<option value='" . $plataforma['id_plataforma'] . "'>" . $plataforma['direccion'] . " - " .  $plataforma['departamento'] . "</option>";
+
+    }
+
+}
+?>
+</select>
+
+<select name="id_camion" id="">
+    <?php
+    require("../../controladores/api/camion/obtenerDato.php");
+foreach ($decode as $camion) {
+    if($camion['id_camion'] == $id_camion){
+    echo "<option value='" . $camion['id_camion'] . "' selected>" . $camion['matricula'] . " - " .  $camion['estado'] . "</option>";
+    } else{
+        echo "<option value='" . $camion['id_camion'] . "'>" . $camion['matricula'] . " - " .  $camion['estado'] . "</option>";
+    }
+}
+?>
+</select>
+
+<input type="submit" value="Enviar">
+</form>
+
+
+
 
 <div class="div-error">
     <?php

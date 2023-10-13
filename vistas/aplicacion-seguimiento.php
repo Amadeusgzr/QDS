@@ -5,16 +5,10 @@ require 'plantillas/headerInvitado.php';
 ?>
 
 <?php
-if ($_POST){
-    $codigo_seguimiento = $_POST["codigo_seguimiento"];
-    include("../modelos/db.php");
-    $instruccion = "SELECT * FROM paquete WHERE codigo_seguimiento='$codigo_seguimiento'";
-    $paquetes = [];
-    $result = mysqli_query($conexion, $instruccion);
-    while ($row = mysqli_fetch_assoc($result)) {
-        array_push($paquetes, $row);
-    }
-    foreach ($paquetes as $paquete) {
+if ($_GET){
+    require("../controladores/api/paquete/obtenerDatoPorCodigo.php");
+
+    foreach ($decode as $paquete) {
     $id_paquete = $paquete["id_paquete"];
     $mail_destinatario = $paquete["mail_destinatario"];
     $direccion = $paquete["direccion"];
@@ -27,8 +21,7 @@ if ($_POST){
 }
 ?>
 <div class="form-crud">
-    <legend>Consultar Paquete</legend>
-    <p class="subtitulo-crud">Datos del paquete</p>
+    <legend>Datos del paquete</legend>
     <p><b>ID: </b>
         <?= $id_paquete ?>
     </p>
