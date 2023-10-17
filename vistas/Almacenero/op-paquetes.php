@@ -60,7 +60,7 @@ require '../plantillas/menu-cuenta.php';
     <div class="div-btn-doble">
         <a href="alta-paquete.php" id="a-agregar"><button class="estilo-boton btns-as-lote"
                 id="op-alta">Agregar</button></a>
-                <button class="boton-siguiente estilo-boton btns-as-lote" id="submit-as-lote-2">Siguiente</button>
+                <button class="boton-siguiente estilo-boton btns-as-lote" id="submit-as-lote-2">Eliminar</button>
 
     </div>
 </div>

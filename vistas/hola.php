@@ -42,6 +42,7 @@
 
         if ($response) {
             $data = json_decode($response, true);
+
     
             if ($data['status'] == 'OK') {
                 echo '<h2>Instrucciones de giro:</h2>';
@@ -68,7 +69,7 @@
                     }
                 }
 
-                echo '<p>Distancia total: ' . number_format($totalDistance / 1000, 2) . ' km</p>';
+                echo '<p>Distancia total: ' . number_format($totalDistance / 1000 , 2) . ' km</p>';
                 echo '<p>Duración total: ' . round($totalDuration / 60) . ' minutos</p>';
 
             } else {
@@ -81,6 +82,7 @@
 
 
  <div id="map" style="height: 400px; width: 100%;"></div>
+ 
  <script>
             const start = "<?php echo $start;?>";
             const end = "<?php echo $end;?>";

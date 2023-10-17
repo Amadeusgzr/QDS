@@ -1,7 +1,7 @@
 {
-    "aop1" : "Log in",
-    "aop3" : "Change password",
-    "aop4" : "Log out",
+    "aop1_index" : "Log in",
+    "aop3_index" : "Change password",
+    "aop4_index" : "Log out",
 
     "sub_rastreo" : "Track shipment",
     "p_rastreo" : "Enter the shipping code to track it",
@@ -12,5 +12,25 @@
     "msg_nombre" : "Name",
     "msg_mail" : "E-mail",
     "msg" : "Message",
-    "msg_submit" : "Send"
+    "msg_submit" : "Send",
+
+    "--------- BACKOFFICE ---------" : "",
+    "aop1_ingresado" : "Enter",
+    "aop3_ingresado" : "Change password",
+    "aop4_ingresado" : "Log out",
+
+    "op1_h2" : "Truckers",
+    "op1_p" : "Truckers managment",
+    "op2_h2" : "Trucks",
+    "op2_p" : "Trucks managment",
+    "op3_h2" : "Packages and Lots",
+    "op3_p" : "Packages and Lots managment",
+    "op4_h2" : "Warehouses",
+    "op4_p" : "Warehouses managment",
+    "op5_h2" : "Client Companies",
+    "op5_p" : "Client Companies Managment",
+    "op6_h2" : "Routes and Journeys",
+    "op6_p" : "Rutes and Journeys managment",
+    "op7_h2" : "Assign Routes to Journeys",
+    "op7_p" : "Assignment of Routes to Journeys"
 }

@@ -1,7 +1,7 @@
 {
-    "aop1" : "Acceder",
-    "aop3" : "Cambiar contraseña",
-    "aop4" : "Cerrar sesión",
+    "aop1_index" : "Acceder",
+    "aop3_index" : "Cambiar contraseña",
+    "aop4_index" : "Cerrar sesión",
 
     "sub_rastreo" : "Rastrear envío",
     "p_rastreo" : "Ingresa el código del envío para poder rastrearlo",
@@ -12,5 +12,26 @@
     "msg_nombre" : "Nombre",
     "msg_mail" : "Correo electrónico",
     "msg" : "Mensaje",
-    "msg_submit" : "Enviar"
+    "msg_submit" : "Enviar",
+
+    "--------- BACKOFFICE ---------" : "",
+
+    "aop1_ingresado" : "Acceder",
+    "aop3_ingresado" : "Cambiar contraseña",
+    "aop4_ingresado" : "Cerrar sesión",
+
+    "op1_h2" : "Camioneros",
+    "op1_p" : "Gestión de Camioneros",
+    "op2_h2" : "Camiones",
+    "op2_p" : "Gestión de Camiones",
+    "op3_h2" : "Paquetes y Lotes",
+    "op3_p" : "Gestión de Paquetes y Lotes",
+    "op4_h2" : "Almacenes",
+    "op4_p" : "Gestión de Almacenes",
+    "op5_h2" : "Empresas Cliente",
+    "op5_p" : "Gestión de Empresas Cliente",
+    "op6_h2" : "Rutas y Trayectos",
+    "op6_p" : "Gestión de Rutas y Trayectos",
+    "op7_h2" : "Asignar Rutas a Trayectos",
+    "op7_p" : "Asignación de Rutas a Trayectos"
 }

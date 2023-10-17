@@ -4,7 +4,7 @@ let idioma = "español";
 let idiomaSeleccionado = localStorage.getItem("idioma");
 chkIdioma.checked = idiomaSeleccionado === "ingles";
 
-console.log(location.pathname)
+console.log(location.pathname);
 
 if (idiomaSeleccionado) {
   cargarTextos(idiomaSeleccionado);
@@ -37,9 +37,9 @@ function cargarTextos(lang) {
 }
 
 function actualizarTextos(data) {
-  document.querySelector(".aop1").textContent = data.aop1;
-  document.querySelector(".aop3").textContent = data.aop3;
-  document.querySelector(".aop4").textContent = data.aop4;
+  document.querySelector(".aop1-index").textContent = data.aop1_index;
+  document.querySelector(".aop3-index").textContent = data.aop3_index;
+  document.querySelector(".aop4-index").textContent = data.aop4_index;
 
   document.querySelector("#sub-rastreo").textContent = data.sub_rastreo;
   document.querySelector("#p-rastreo").textContent = data.p_rastreo;
