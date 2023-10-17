@@ -1,6 +1,14 @@
 <?php
+session_start();
+echo "<link rel='stylesheet' href='css/estilos.css'>";
+// Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
+if (!isset($_SESSION['nom_usu'])) {
+    require 'plantillas/headerInvitado.php';
+} else {
+    require 'plantillas/headerSeguimiento.php';
+    require 'plantillas/menu-cuentaSeguimiento.php';
+}
 
-require 'plantillas/headerInvitado.php';
 
 ?>
 

@@ -1,4 +1,5 @@
 <?php
+session_start();
 $ch = curl_init();
 
 if ($_POST) {
@@ -7,7 +8,7 @@ if ($_POST) {
     $peso = $_POST["peso"];
     $volumen = $_POST["volumen"];
     $fragil = $_POST["fragil"];
-    $empresa = $_POST["empresa"];
+    $empresa = $_SESSION["nom_usu"];
     if (isset($_POST["tipo"])) {
         $tipo = $_POST["tipo"];
     } else {
@@ -28,9 +29,10 @@ $array = [
     'fragil' => $fragil,
     'tipo' => $tipo,
     'detalles' => $detalles,
-    'empresaArray' => $empresa,
-
+    'empresa' => "$empresa"
 ];
+
+print_r($array);
 
 $datos = json_encode($array);
 
@@ -47,12 +49,9 @@ if (curl_errno($ch)) {
     $decode = json_decode($respuesta, true);
 }
 
-echo $respuesta;
-
 
 curl_close($ch);
-header('Location: ../../../vistas/Almacenero/alta-paquete.php?datos=' . urlencode($respuesta));
-
+header('Location: ../../../vistas/Empresa/alta-paquete.php?datos=' . urlencode($respuesta));
 
 
 

@@ -1,9 +1,15 @@
 <?php
+session_start();
 $ch = curl_init();
 if (isset($_GET["id_paquete"])) {
     $id_paquete = $_GET["id_paquete"];
+    $empresa = $_SESSION["nom_usu"];
+    $tipo_usu = $_SESSION["tipo_usu"];
+
     $array = [
         'id_paquete' => "$id_paquete",
+        'empresa' => "$empresa",
+        'tipo_usu' => "$tipo_usu"
     ];
 
 }
@@ -30,10 +36,18 @@ if (curl_errno($ch)) {
 }
 
 curl_close($ch);
+
+if ($_SESSION["tipo_usu"] !== "empresa"){
 if (isset($_GET["id_paquete"])) {
     header('Location: ../../../vistas/Almacenero/op-paquetes.php?datos=' . urlencode($respuesta));
 } else {
     $respuesta = urlencode($respuesta);
     echo $respuesta;
+}
+} else {
+    if (isset($_GET["id_paquete"])) {
+        header('Location: ../../../vistas/Empresa/op-paquetes.php?datos=' . urlencode($respuesta));
+
+    }
 }
 ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 $ch = curl_init();
 
 if ($_POST) {
@@ -8,6 +9,8 @@ if ($_POST) {
     $volumen = $_POST["volumen"];
     $fragil = $_POST["fragil"];
     $estado = $_POST["estado"];
+    $empresa = $_SESSION["nom_usu"];
+    $tipo_usu = $_SESSION["tipo_usu"];
 }
 
 $array = [
@@ -16,7 +19,9 @@ $array = [
     'peso' => "$peso",
     'volumen' => "$volumen",
     'fragil' => "$fragil",
-    'estado' => "$estado"
+    'estado' => "$estado",
+    'empresa' => "$empresa",
+    'tipo_usu' => "$tipo_usu"
 ];
 
 $datos = json_encode($array);
@@ -37,6 +42,10 @@ if (curl_errno($ch)) {
 
 
 curl_close($ch);
-header('Location: ../../../vistas/Almacenero/modificar-paquete.php?datos=' . urlencode($respuesta) . '&id_paquete=' . $id_paquete);
+if ($_SESSION["tipo_usu"] !== "empresa"){
+    header('Location: ../../../vistas/Almacenero/modificar-paquete.php?datos=' . urlencode($respuesta) . '&id_paquete=' . $id_paquete);
+} else{
+    header('Location: ../../../vistas/Empresa/modificar-paquete.php?datos=' . urlencode($respuesta) . '&id_paquete=' . $id_paquete);
+}
 
 ?>

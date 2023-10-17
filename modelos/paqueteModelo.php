@@ -1,7 +1,9 @@
 <?php
+header("Location: ../vistas/permisos.php");
 
 class paqueteModelo
 {
+
     public $db;
 
     public function __construct()
@@ -23,12 +25,32 @@ class paqueteModelo
     {
         $paquete = [];
         $instruccion = "SELECT * FROM paquete WHERE id_paquete='$id_paquete'";
+        $resultado = mysqli_query($this->db, $instruccion);    
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            array_push($paquete, $row);
+        }
+        if(count($paquete) < 1){
+            $paquete = [
+                'error' => "Éxito",
+                'respuesta' => "Paquete guardado"
+            ];
+        }
+         return $paquete;
+        
+
+       
+    }
+    public function obtenerPaquetePorEmpresa($empresa)
+    {
+        $paquete = [];
+        $instruccion = "SELECT * FROM paquete WHERE empresa='$empresa'";
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($paquete, $row);
         }
         return $paquete;
     }
+
     public function obtenerPaquetes($id_paquete = null)
     {
         $where = ($id_paquete == null) ? "" : " WHERE id_paquete='$id_paquete'";
@@ -42,11 +64,11 @@ class paqueteModelo
     }
 
 
-    public function guardarPaquete($mail_destinatario, $direccion, $peso, $volumen, $fragil, $tipo, $detalles, $codigo)
+    public function guardarPaquete($mail_destinatario, $direccion, $peso, $volumen, $fragil, $tipo, $detalles, $codigo, $empresa)
     {
 
 
-        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles,codigo_seguimiento) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles','$codigo')";
+        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles,codigo_seguimiento,Empresa) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles','$codigo','$empresa')";
         mysqli_query($this->db, $instruccion);
         $resultado = [
             'error' => "Éxito",
@@ -56,7 +78,7 @@ class paqueteModelo
 
 
     }
-    public function modificarPaquete($id_paquete, $direccion, $peso, $volumen, $fragil, $estado)
+    public function modificarPaquete($id_paquete, $direccion, $peso, $volumen, $fragil, $estado, $empresa, $tipo_usu)
     {
         $validar = $this->obtenerPaquetes($id_paquete);
         $resultado = [
@@ -64,17 +86,39 @@ class paqueteModelo
             'respuesta' => "No existe el paquete con la ID " . $id_paquete
         ];
         if (count($validar) > 0) {
+            if ($tipo_usu !== "empresa"){
             $instruccion = "UPDATE paquete SET direccion='$direccion', peso='$peso', volumen='$volumen', fragil='$fragil', estado='$estado' WHERE id_paquete='$id_paquete'";
             mysqli_query($this->db, $instruccion);
             $resultado = [
                 'error' => "Éxito",
                 'respuesta' => "Paquete modificado"
             ];
+            } else {
+                $instruccion = "SELECT empresa FROM paquete WHERE id_paquete='$id_paquete'";
+                $resultado = mysqli_query($this->db, $instruccion);
+                $fila =  mysqli_fetch_assoc($resultado);
+                $empresa1 = $fila["empresa"];
+                if ($empresa == $empresa1){
+                    $instruccion = "UPDATE paquete SET direccion='$direccion', peso='$peso', volumen='$volumen', fragil='$fragil', estado='$estado' WHERE id_paquete='$id_paquete'";
+                    mysqli_query($this->db, $instruccion);
+                    $resultado = [
+                        'error' => "Éxito",
+                        'respuesta' => "Paquete modificado"
+                    ];
+                } else {
+                    $resultado = [
+                        'error' => "Error",
+                        'respuesta' => "Este paquete no es de tu pertenencia"
+                    ];
+                }
+ 
+            }
+
         }
         return $resultado;
     }
 
-    public function eliminarPaquete($id_paquete)
+    public function modificarEstadoPaquete($id_paquete)
     {
         $validar = $this->obtenerPaquetes($id_paquete);
         $resultado = [
@@ -82,12 +126,72 @@ class paqueteModelo
             'respuesta' => "No existe el paquete con la ID " . $id_paquete
         ];
         if (count($validar) > 0) {
-            $instruccion = "DELETE FROM paquete WHERE id_paquete='$id_paquete'";
-            mysqli_query($this->db, $instruccion);
-            $resultado = [
+            $instruccion = "SELECT estado FROM paquete WHERE id_paquete='$id_paquete'";
+            $resultado = mysqli_query($this->db, $instruccion);
+            $fila =  mysqli_fetch_assoc($resultado);
+            $estado = $fila["estado"];
+            if ($estado == "En almacén cliente" || $estado == "En camión (central)"){
+                if ($estado == "En almacén cliente"){
+                    $instruccion = "UPDATE paquete SET estado='En camión (central)' WHERE id_paquete = '$id_paquete'";
+                    mysqli_query($this->db, $instruccion);
+                    $resultado = [
+                        'error' => "Éxito",
+                        'respuesta' => "Paquete recogido"
+                    ];     
+                } else {
+                    $instruccion = "UPDATE paquete SET estado='En almacén cliente' WHERE id_paquete = '$id_paquete'";
+                    mysqli_query($this->db, $instruccion);
+                    $resultado = [
+                        'error' => "Éxito",
+                        'respuesta' => "Paquete desrecogido"
+                    ];          
+                }
+            } else {
+                $resultado = [
+                    'error' => "Error",
+                    'respuesta' => "No tienes permisos para hacer esto"
+                ]; 
+            }
+        }
+        return $resultado;
+
+    }
+    public function eliminarPaquete($id_paquete, $empresa, $tipo_usu)
+    {
+        $validar = $this->obtenerPaquetes($id_paquete);
+        $resultado = [
+            'error' => "Error",
+            'respuesta' => "No existe el paquete con la ID " . $id_paquete
+        ];
+        if (count($validar) > 0) {
+            if ($tipo_usu !== "empresa"){
+                $instruccion = "DELETE FROM paquete WHERE id_paquete='$id_paquete'";
+                mysqli_query($this->db, $instruccion);
+                $resultado = [
                 'error' => "Éxito",
                 'respuesta' => "Paquete eliminado"
             ];
+            } else {
+                $instruccion = "SELECT empresa FROM paquete WHERE id_paquete='$id_paquete'";
+                $resultado = mysqli_query($this->db, $instruccion);
+                $fila = mysqli_fetch_assoc($resultado);
+                $empresa1 = $fila["empresa"];
+                if ($empresa == $empresa1){
+                    $instruccion = "DELETE FROM paquete WHERE id_paquete='$id_paquete'";
+                    mysqli_query($this->db, $instruccion);
+                    $resultado = [
+                        'error' => "Éxito",
+                        'respuesta' => "Paquete eliminado"
+                    ];
+                } else {
+                    $resultado = [
+                        'error' => "Error",
+                        'respuesta' => "Este paquete no es de tu pertenencia"
+                    ];
+                }
+ 
+            }
+
         }
 
         return $resultado;

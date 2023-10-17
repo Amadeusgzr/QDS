@@ -10,13 +10,11 @@ if (!isset($_SESSION['nom_usu'])) {
     <?php
 
     if ($_SESSION['tipo_usu'] == "admin") {
-        echo "<a href='vistas/Backoffice/index.php' class='a-op-cuenta aop1-index'>Acceder</a>";
+        echo "<a href='Backoffice/index.php' class='a-op-cuenta aop1-index'>Acceder</a>";
     } else if ($_SESSION['tipo_usu'] == "almacenero") {
-        echo "<a href='vistas/Almacenero/index.php' class='a-op-cuenta aop1-index'>Acceder</a>";
+        echo "<a href='Almacenero/index.php' class='a-op-cuenta aop1-index'>Acceder</a>";
     } else if ($_SESSION['tipo_usu'] == "camionero") {
-        echo "<a href='vistas/Camionero/index.php' class='a-op-cuenta aop1-index'>Acceder</a>";
-    } else if ($_SESSION['tipo_usu'] == "empresa") {
-        echo "<a href='vistas/Empresa/op-paquetes.php' class='a-op-cuenta aop1-index'>Acceder</a>";
+        echo "<a href='Camionero/index.php' class='a-op-cuenta aop1-index'>Acceder</a>";
     }
 
     ?>
@@ -25,9 +23,9 @@ if (!isset($_SESSION['nom_usu'])) {
         <label for="btn-idioma" class="lbl-idioma"></label>
     </div>
     <a href="" class="a-op-cuenta aop3-index">Cambiar contraseña</a>
-    <a href="controladores/logout.php" class="a-op-cuenta aop4-index">Cerrar sesión</a>
+    <a href="../controladores/logout.php" class="a-op-cuenta aop4-index">Cerrar sesión</a>
     <p id="btn-cerrar-menu">x</p>
 </div>
 
-<script src="vistas/js/idioma.js"></script>
-<script src="vistas/js/headerIngresado.js"></script>
+<script src="js/idioma.js"></script>
+<script src="js/headerIngresado.js"></script>

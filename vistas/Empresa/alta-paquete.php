@@ -3,7 +3,7 @@ session_start();
 
 // Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
 if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
-    if ($_SESSION['tipo_usu'] !== 'almacenero') {
+    if ($_SESSION['tipo_usu'] !== 'empresa') {
         header("Location: ../permisos.php"); // Redirige a la página de inicio de sesión
         exit();
     }
@@ -14,7 +14,7 @@ require '../plantillas/menu-cuenta.php';
 
 ?>
 
-<form action="../../controladores/api/paquete/agregarDato.php" id="form-paquete" method="post">
+<form action="../../controladores/api/paqueteEmpresa/agregarDato.php" id="form-paquete" method="post">
 
     <div class="div-datos-paq" id="hola">
         <legend>Ingreso de Paquete</legend>
@@ -23,14 +23,11 @@ require '../plantillas/menu-cuenta.php';
             placeholder="Correo destinatario" autocomplete="off" required>
         <input type="text" name="direccion[]" id="calle-destino-paq" class="destino-paq" placeholder="Direccion"
             autocomplete="off" required>
-        <input type="text" name="empresa[]" id="calle-destino-paq" class="destino-paq" placeholder="Empresa"
-        autocomplete="off" required>
         <p class="p-paquete">Características del paquete</p>
         <input type="number" step="any" name="peso[]" id="peso-paq" class="destino-paq" placeholder="Peso (Kg)"
             autocomplete="off" required>
         <input type="number" step="any" name="volumen[]" id="volumen-paq" class="destino-paq"
             placeholder="Volumen (cm∧3)" autocomplete="off" required>
-            
     </div>
 
     <div class="div-datos-paq">
@@ -81,8 +78,6 @@ require '../plantillas/menu-cuenta.php';
     <input type="email" name="mail_destinatario[]" id="mail-destinatario-paq" class="destino-paq"
         placeholder="Correo destinatario" autocomplete="off" required>
     <input type="text" name="direccion[]" id="calle-destino-paq" class="destino-paq" placeholder="Direccion"
-        autocomplete="off" required>
-        <input type="text" name="empresa[]" id="calle-destino-paq" class="destino-paq" placeholder="Empresa"
         autocomplete="off" required>
     <p class="p-paquete">Características del paquete</p>
     <input type="number" step="any" name="peso[]" id="peso-paq" class="destino-paq" placeholder="Peso (Kg)"

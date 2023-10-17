@@ -3,7 +3,7 @@ session_start();
 
 // Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
 if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
-    if ($_SESSION['tipo_usu'] !== 'almacenero') {
+    if ($_SESSION['tipo_usu'] !== 'empresa') {
         header("Location: ../permisos.php"); // Redirige a la página de inicio de sesión
         exit();
     }
@@ -18,7 +18,11 @@ require '../plantillas/menu-cuenta.php';
 <?php
 $id_paquete = $_GET['id_paquete'];
 require("../../controladores/api/paquete/obtenerDatoPorId.php");
+if(isset($decode['error'])){
+    header("Location: ../error.php");
+}
 foreach ($decode as $paquete) {
+
     $id_paquete = $paquete["id_paquete"];
     $mail_destinatario = $paquete["mail_destinatario"];
     $direccion = $paquete["direccion"];
@@ -28,6 +32,10 @@ foreach ($decode as $paquete) {
     $tipo = $paquete["tipo"];
     $estado = $paquete["estado"];
     $detalles = $paquete["detalles"];
+    $empresa = $paquete["empresa"];
+    if ($empresa !== $_SESSION["nom_usu"]){
+        header("Location: ../permisos.php");
+    }
 }
 ?>
 <div class="form-crud">
