@@ -7,14 +7,15 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
     exit();
 }
 echo "<link rel='stylesheet' href='../css/estilos.css'>";
+require '../../controladores/funciones.php';
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 
 <div class="form-crud">
-    <form action="alta-trayecto.php" method="post">
+    <form action="alta-trayecto.php" method="post" id="form-alta-tray">
         <legend>Agregar Trayecto</legend>
-        <select name="id_plataforma" id="">
+        <select name="id_plataforma" class="estilo-select">
             <option disabled selected>Dirección Plataforma</option>
             <?php
             include("../../modelos/db.php");
@@ -33,20 +34,30 @@ require '../plantillas/menu-cuenta.php';
             }
             ?>
         </select>
-        <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
+        <input type="text" placeholder="Punto intermedio" class="txt-crud txt-intermedio" name="intermedio[]">
+        <a href="" id="btn-alta-tray"><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-trayecto.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>
+
+<script src="../js/alta-tray.js"></script>
 
 <?php
 
 
 if ($_POST) {
     $id_plataforma = $_POST['id_plataforma'];
+    $intermedios = $_POST['intermedio'];
+    $intermedios1 = [];
 
-    include("../../modelos/db.php");
-    $instruccion = "insert into trayecto(id_plataforma) value ('$id_plataforma')";
-    $conexion->query($instruccion);
+    print_r($intermedios);
+    foreach($intermedios as $intermedio){
+        if(!isset($intermedio) || is_null($intermedio) || empty(trim($intermedio))){
+        } else {
+            array_push($intermedios1, $intermedio);
+        }
+    }
+    print_r($intermedios1);
 }
 
 ?>

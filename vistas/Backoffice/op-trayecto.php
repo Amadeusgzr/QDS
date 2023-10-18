@@ -23,7 +23,7 @@ require '../plantillas/menu-cuenta.php';
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "SELECT trayecto.id_trayecto, plataforma.direccion, plataforma.departamento FROM trayecto INNER JOIN plataforma ON trayecto.id_plataforma=plataforma.id_plataforma;    ";
+            $instruccion = "SELECT * FROM trayecto INNER JOIN llega ON trayecto.id_trayecto=llega.id_trayecto INNER JOIN plataforma ON plataforma.id_plataforma=llega.id_plataforma;    ";
             $plataformas = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -32,8 +32,9 @@ require '../plantillas/menu-cuenta.php';
             foreach ($plataformas as $plataforma) {
                 echo "<tr class='fila-ingreso-lote fila-opcion' id='fila-1'>";
                 $id_trayecto = $plataforma["id_trayecto"];
+                $departamento = $plataforma["departamento"];
                 $direccion = $plataforma["direccion"];
-                $departamento = $plataforma['departamento'];
+
                 echo "<td>$id_trayecto</td>";
                 echo "<td>$direccion</td>";
                 echo "<td>$departamento</td>";

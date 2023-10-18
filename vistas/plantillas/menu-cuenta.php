@@ -17,5 +17,5 @@ if (!isset($_SESSION['nom_usu'])) {
     <p id="btn-cerrar-menu">x</p>
 </div>
 
-<script src="vistas/js/idioma2.js"></script>
+<script src="../js/idioma2.js"></script>
 <script src="../js/headerIngresado.js"></script>
