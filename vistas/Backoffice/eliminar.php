@@ -63,7 +63,14 @@ if (isset($_GET['id_camionero'])) {
     $instruccion = "delete from ruta where id_ruta=$id_ruta";
     $conexion->query($instruccion);
     header("Location: op-ruta.php");
-}
+
+} else if (isset($_GET['nom_usu'])) {
+    $nom_usu = $_GET['nom_usu'];
 
 
+    $instruccion = "delete from login where nom_usu='$nom_usu'";
+    $conexion->query($instruccion);
+    header("Location: op-usuarios.php");
+
+} 
 ?>

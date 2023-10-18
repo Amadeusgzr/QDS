@@ -75,6 +75,14 @@ if (isset($_POST["id_almacen_central"])) {
     $instruccion1 = "update ruta set id_ruta='$id_ruta', nom_ruta='$nom_ruta' where id_ruta=$id_ruta";
     $conexion->query($instruccion1);
     header("Location: modificar-ruta.php?id_ruta=$id_ruta");
+} else if (isset($_POST["nom_usu"])) {
+    $nom_usu = $_POST["nom_usu"];
+    $tipo_usu = $_POST["tipo_usu"];
+    $mail = $_POST["mail"];
+
+    $instruccion1 = "update login set nom_usu='$nom_usu', tipo_usu='$tipo_usu', mail='$mail' where nom_usu='$nom_usu'";
+    $conexion->query($instruccion1);
+    header("Location: modificar-usuario.php?nom_usu=$nom_usu");
 }
 
 

@@ -50,6 +50,11 @@ require '../plantillas/menu-cuenta.php';
         <p>Asignación de Rutas a Trayectos</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta-trayecto.png" alt=""></div>
     </a>
+    <a href="op-usuarios.php" class="opcion-aplicacion" id="op8">
+        <h2>Usuarios</h2>
+        <p>Gestión de Usuarios</p>
+        <div class="div-img-icono"><img src="../img/iconos/icono-usuario.png" alt=""></div>
+    </a>
 </main>
 
 </body>

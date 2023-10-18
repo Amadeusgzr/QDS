@@ -185,7 +185,6 @@ if (isset($_GET['id_camionero'])) {
 } else if (isset($_GET['id_ruta'])) {
     $id_ruta = $_GET['id_ruta'];
 
-
     $instruccion = "select * from ruta where id_ruta=$id_ruta";
     $filas = $conexion->query($instruccion);
 
@@ -199,6 +198,27 @@ if (isset($_GET['id_camionero'])) {
         <p><b>ID: </b>$id_ruta</p>
         <p><b>Nombre/Numero: </b>$nom_ruta</p>
         <a href='op-ruta.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
+
+} else if (isset($_GET['nom_usu'])) {
+    $nom_usu = $_GET['nom_usu'];
+
+    $instruccion = "select * from login where nom_usu='$nom_usu'";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $nom_usu = $fila["nom_usu"];
+        $tipo_usu = $fila["tipo_usu"];
+        $mail = $fila["mail"];
+
+        echo "<div class='form-crud'>
+        <legend>Consultar Usuario</legend>
+        <p class='subtitulo-crud'>Datos del usuario</p>
+        <p><b>Usuario: </b>$nom_usu</p>
+        <p><b>Tipo de Usuario: </b>$tipo_usu</p>
+        <p><b>Mail: </b>$mail</p>
+        <a href='op-usuarios.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
 

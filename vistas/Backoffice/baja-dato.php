@@ -198,6 +198,29 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-ruta.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
+} else if (isset($_GET['nom_usu'])) {
+    $nom_usu = $_GET['nom_usu'];
+
+
+    $instruccion = "select * from login where nom_usu='$nom_usu'";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $nom_usu = $fila["nom_usu"];
+        $tipo_usu = $fila["tipo_usu"];
+        $mail = $fila["mail"];
+
+        echo "<div class='form-crud'>
+        <legend>Eliminar Usuario</legend>
+        <p class='adv'>¿Seguro que quiere eliminar el siguiente usuario? Los cambios serán irreversibles</p>
+        <p class='subtitulo-crud'>Datos del usuario</p>
+        <p><b>Usuario: </b>$nom_usu</p>
+        <p><b>Tipo de Usuario: </b>$tipo_usu</p>
+        <p><b>Mail: </b>$mail</p>
+        <a href='eliminar.php?nom_usu=$nom_usu'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='op-usuarios.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
 }
 
 ?>
