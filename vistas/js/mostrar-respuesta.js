@@ -1,8 +1,8 @@
 
 const divError = document.querySelector(".div-error");
-let url = window.location.href;
+let link = window.location.href;
 console.log(url);
-if(url.includes("datos")){
+if(link.includes("datos")){
     divError.style.visibility = "visible";
     divError.style.animationName = "grande";
     divError.style.animationDuration = "1s";

@@ -14,7 +14,8 @@
     "msg" : "Message",
     "msg_submit" : "Send",
 
-    "--------- BACKOFFICE ---------" : "",
+    "--------- BACKOFFICE INDEX ---------" : "",
+
     "aop1_ingresado" : "Enter",
     "aop3_ingresado" : "Change password",
     "aop4_ingresado" : "Log out",
@@ -32,5 +33,43 @@
     "op6_h2" : "Routes and Journeys",
     "op6_p" : "Rutes and Journeys managment",
     "op7_h2" : "Assign Routes to Journeys",
-    "op7_p" : "Assignment of Routes to Journeys"
+    "op7_p" : "Assignment of Routes to Journeys",
+
+    "--------- BACKOFFICE CAMIONEROS ---------" : "",
+
+    "h1_tabla_camioneros" : "Truckers",
+    "th1" : "Name",
+    "th2" : "Status",
+
+    "btn_op1" : "D",
+    "btn_op2" : "M",
+    "btn_op3" : "C",
+
+    "btn_limpiar" : "Clear",
+    "btn_volver" : "Back",
+    "btn_agregar" : "Add",
+
+    "--------- BACKOFFICE AGREGAR CAMIONERO ---------" : "",
+
+    "legend" : "Add Trucker",
+    "cedula" : "ID",
+    "nombre" : "Full Name",
+    "telefono" : "Phone Number",
+
+    "--------- BACKOFFICE ELIMINAR CAMIONERO ---------" : "",
+
+    "legend_baja" : "Delete Trucker",
+    "adv_camionero" : "Are you sure you want to delete the following trucker? The changes will be irreversible",
+    "subtitulo_camionero" : "Trucker data",
+    "p_id" : "Key: ",
+    "p_cedula" : "ID: ",
+    "p_nombre" : "Name: ",
+    "p_telefono" : "Phone number: ",
+
+    "btn_eliminar" : "Delete",
+
+    "--------- BACKOFFICE MODIFICAR CAMIONERO ---------" : "",
+
+    "--------- BACKOFFICE CONSULTAR CAMIONERO ---------" : ""
+
 }

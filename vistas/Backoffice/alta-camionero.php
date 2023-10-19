@@ -14,12 +14,12 @@ require '../plantillas/menu-cuenta.php';
 
 <div class="form-crud">
     <form action="alta-camionero.php" method="post">
-        <legend>Agregar Camionero</legend>
-        <input type="text" placeholder="Cédula" class="txt-crud" name="cedula[]" required>
-        <input type="text" placeholder="Nombre Completo" class="txt-crud" name="nombre_completo[]" required>
-        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono[]" required>
+        <legend class="legend-form">Agregar Camionero</legend>
+        <input type="text" placeholder="Cédula" class="txt-crud txt-1" name="cedula[]" required>
+        <input type="text" placeholder="Nombre Completo" class="txt-crud txt-2" name="nombre_completo[]" required>
+        <input type="tel" placeholder="Teléfono" class="txt-crud txt-3" name="telefono[]" required>
         <input type="mail" placeholder="Mail" class="txt-crud" name="mail[]" required>
-        <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
+        <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente boton-agregar"></a>
     </form>
     <a href="op-camioneros.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>

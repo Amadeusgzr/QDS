@@ -795,7 +795,7 @@ label[for="radio-paq-no"]{
     box-shadow: 0 0 5px;
 }
 
-#h1-lote{
+.h1-tabla{
     text-align: center;
     margin: 20px 0;
 }
@@ -1173,16 +1173,6 @@ label[for="radio-lote-no"]{
 *************************************************/
 
 /***** CAMIONEROS *****/
-
-#h1-camioneros{
-    text-align: center;
-    margin: 2em auto;
-    padding: 30px;
-    background-color: #86858536;
-    border: 1px solid #4040404d;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 0 10px;
-}
 
 .opcion-aplicacion-2{
     background-color: #86858536;
@@ -1582,7 +1572,7 @@ label[for="radio-lote-no"]{
         font-size: calc(1vw + .5em);
     }
 
-    #h1-lote{
+    #h1-tabla{
         font-size: calc(1vw + 1em);
     }
 

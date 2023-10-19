@@ -12,12 +12,12 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <div id="div-tabla-lote">
-    <h1 id="h1-lote">Camioneros</h1>
+    <h1 class="h1-tabla">Camioneros</h1>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
-                <th>Nombre</th>
-                <th>Estado</th>
+                <th class="th1">Nombre</th>
+                <th class="th2">Estado</th>
                 <th class="th-op">OP</th>
             </tr>
             <?php
@@ -36,9 +36,9 @@ require '../plantillas/menu-cuenta.php';
                 echo "<td>$nombre_completo</td>";
                 echo "<td>$estado</td>";
                 echo "<td>
-                <a href='baja-dato.php?id_camionero=$id_camionero'><button>B</button></a>
-                <a href='modificar-camionero.php?id_camionero=$id_camionero'><button>M</button></a>
-                <a href='consultar-dato.php?id_camionero=$id_camionero'><button>C</button></a>
+                <a href='baja-dato.php?id_camionero=$id_camionero'><button class='btn-op btn-op1'>B</button></a>
+                <a href='modificar-camionero.php?id_camionero=$id_camionero'><button class='btn-op btn-op2'>M</button></a>
+                <a href='consultar-dato.php?id_camionero=$id_camionero'><button class='btn-op btn-op3'>C</button></a>
                 </td>";
                 echo "</tr>";
             }
@@ -46,19 +46,18 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-doble">
-        <button class="estilo-boton btns-as-lote">Reiniciar</button>
+        <button class="estilo-boton btns-as-lote btn-limpiar">Reiniciar</button>
         <a href="index.php">
             <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
         </a>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-camionero.php" id="a-agregar"><button class="estilo-boton btns-as-lote"
-                id="op-alta">Agregar</button></a>
+        <a href="alta-camionero.php" id="a-agregar"><button class="estilo-boton btns-as-lote boton-agregar" id="op-alta">Agregar</button></a>
         <!--<button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>-->
     </div>
 </div>
 
-<script src="../js/asignar-paquetes-lote-2.js"></script>
+<script src="../js/seleccionar-filas.js"></script>
 
 </body>
 

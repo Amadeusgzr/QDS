@@ -27,15 +27,15 @@ if (isset($_GET['id_camionero'])) {
         $mail = $fila["mail"];
 
         echo "<div class='form-crud'>
-        <legend>Eliminar Camionero</legend>
+        <legend class='legend-baja'>Eliminar Camionero</legend>
         <p class='adv'>¿Seguro que quiere eliminar al siguiente camionero? Los cambios serán irreversibles</p>
         <p class='subtitulo-crud'>Datos del camionero</p>
-        <p><b>ID: </b>$id_camionero</p>
-        <p><b>Cédula: </b>$cedula</p>
-        <p><b>Nombre: </b>$nombre_completo</p>
-        <p><b>Teléfono: </b>$telefono</p>
+        <p><b class='p-id'>ID: </b>$id_camionero</p>
+        <p><b class='p-cedula'>Cédula: </b>$cedula</p>
+        <p><b class='p-nombre'>Nombre: </b>$nombre_completo</p>
+        <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
         <p><b>Mail: </b>$mail</p>
-        <a href='eliminar.php?id_camionero=$id_camionero'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='eliminar.php?id_camionero=$id_camionero'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
         <a href='op-camioneros.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }

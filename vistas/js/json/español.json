@@ -14,7 +14,7 @@
     "msg" : "Mensaje",
     "msg_submit" : "Enviar",
 
-    "--------- BACKOFFICE ---------" : "",
+    "--------- BACKOFFICE INDEX ---------" : "",
 
     "aop1_ingresado" : "Acceder",
     "aop3_ingresado" : "Cambiar contraseña",
@@ -33,5 +33,43 @@
     "op6_h2" : "Rutas y Trayectos",
     "op6_p" : "Gestión de Rutas y Trayectos",
     "op7_h2" : "Asignar Rutas a Trayectos",
-    "op7_p" : "Asignación de Rutas a Trayectos"
+    "op7_p" : "Asignación de Rutas a Trayectos",
+
+    "--------- BACKOFFICE CAMIONEROS ---------" : "",
+
+    "h1_tabla" : "Camioneros",
+    "th1" : "Nombre",
+    "th2" : "Estado",
+
+    "btn_op1" : "B",
+    "btn_op2" : "M",
+    "btn_op3" : "C",
+
+    "btn_limpiar" : "Limpiar",
+    "btn_volver" : "Volver",
+    "btn_agregar" : "Agregar",
+
+    "--------- BACKOFFICE AGREGAR CAMIONERO ---------" : "",
+
+    "legend" : "Agregar Camionero",
+    "cedula" : "Cédula",
+    "nombre" : "Nombre Completo",
+    "telefono" : "Teléfono",
+
+    "--------- BACKOFFICE ELIMINAR CAMIONERO ---------" : "",
+
+    "legend_baja" : "Eliminar Camionero",
+    "adv_camionero" : "¿Seguro que quiere eliminar al siguiente camionero? Los cambios serán irreversibles",
+    "subtitulo_camionero" : "Datos del camionero",
+    "p_id" : "ID: ",
+    "p_cedula" : "Cédula: ",
+    "p_nombre" : "Nombre: ",
+    "p_telefono" : "Teléfono: ",
+
+    "btn_eliminar" : "Eliminar",
+
+    "--------- BACKOFFICE MODIFICAR CAMIONERO ---------" : "",
+
+    "--------- BACKOFFICE CONSULTAR CAMIONERO ---------" : ""
+
 }
