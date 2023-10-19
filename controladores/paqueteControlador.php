@@ -41,17 +41,26 @@ switch ($_SERVER['REQUEST_METHOD']) {
                     $respuesta2 = atributosVacio($_POST->peso);
                     $respuesta3 = atributosVacio($_POST->volumen);
                     $respuesta4 = atributosVacio($_POST->fragil);
+                    if(isset($_POST->id_almacen_cliente)){
+                        $respuesta6 = atributosVacio($_POST->id_almacen_cliente);
+                    } else{
+                        $respuesta6 = [
+                            'error' => 'Éxito',
+                            'respuesta' => "Vacío"
+                        ];
+                    }
+
                     if (!isset($_POST->empresaArray)){
                         $respuesta5 = atributoVacio($_POST->empresa);
                     } else {
                         $respuesta5 = atributosVacio($_POST->empresaArray);
                     }
                     
-                    if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error" && $respuesta5['error'] !== "Error") {
+                    if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error" && $respuesta5['error'] !== "Error" && $respuesta6['error'] !== "Error") {
                         if (!isset($_POST->empresaArray)){
-                        $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario[$i], $_POST->direccion[$i], $_POST->peso[$i], $_POST->volumen[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i], $codigoGenerado, $_POST->empresa);
+                        $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario[$i], $_POST->direccion[$i], $_POST->peso[$i], $_POST->volumen[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i], $codigoGenerado, $_POST->empresa, $_POST->id_almacen_cliente[$i]);
                         } else {
-                        $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario[$i], $_POST->direccion[$i], $_POST->peso[$i], $_POST->volumen[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i], $codigoGenerado, $_POST->empresaArray[$i]);
+                        $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario[$i], $_POST->direccion[$i], $_POST->peso[$i], $_POST->volumen[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i], $codigoGenerado, $_POST->empresaArray[$i], null);
                         }
                     } else {
                         $respuesta = [

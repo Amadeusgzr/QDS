@@ -19,6 +19,7 @@ if ($_POST) {
     } else {
         $detalles = null;
     }
+    $id_almacen_cliente = $_POST["id_almacen_cliente"];
 }
 
 $array = [
@@ -29,6 +30,7 @@ $array = [
     'fragil' => $fragil,
     'tipo' => $tipo,
     'detalles' => $detalles,
+    'id_almacen_cliente' => $id_almacen_cliente,
     'empresa' => "$empresa"
 ];
 
@@ -43,6 +45,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $respuesta = curl_exec($ch);
 
+echo $respuesta;
 if (curl_errno($ch)) {
     echo curl_errno($ch);
 } else {
@@ -51,7 +54,6 @@ if (curl_errno($ch)) {
 
 
 curl_close($ch);
-header('Location: ../../../vistas/Empresa/alta-paquete.php?datos=' . urlencode($respuesta));
 
 
 

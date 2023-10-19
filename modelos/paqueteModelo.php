@@ -64,11 +64,16 @@ class paqueteModelo
     }
 
 
-    public function guardarPaquete($mail_destinatario, $direccion, $peso, $volumen, $fragil, $tipo, $detalles, $codigo, $empresa)
+    public function guardarPaquete($mail_destinatario, $direccion, $peso, $volumen, $fragil, $tipo, $detalles, $codigo, $empresa, $id_almacen_cliente)
     {
 
 
-        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles,codigo_seguimiento,Empresa) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles','$codigo','$empresa')";
+        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles,codigo_seguimiento,empresa) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles','$codigo','$empresa')";
+        mysqli_query($this->db, $instruccion);
+
+        $id_paquete = mysqli_insert_id($this->db);
+
+        $instruccion = "INSERT INTO almacena (id_almacen_cliente,id_paquete) VALUES ('$id_almacen_cliente','$id_paquete')";
         mysqli_query($this->db, $instruccion);
         $resultado = [
             'error' => "Éxito",
