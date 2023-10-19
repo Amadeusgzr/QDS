@@ -17,27 +17,27 @@ require '../plantillas/menu-cuenta.php';
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
-                <th>Dirección final</th>
-                <th>Departamento final</th>
+                <th>Destino</th>
+                <th>Destinos Intermedios</th>
                 <th>OP</th>
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "SELECT * FROM trayecto INNER JOIN llega ON trayecto.id_trayecto=llega.id_trayecto INNER JOIN plataforma ON plataforma.id_plataforma=llega.id_plataforma;    ";
-            $plataformas = [];
+            $instruccion = "SELECT * FROM trayecto;    ";
+            $trayectos = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
-                array_push($plataformas, $row);
+                array_push($trayectos, $row);
             }
-            foreach ($plataformas as $plataforma) {
+            foreach ($trayectos as $trayecto) {
                 echo "<tr class='fila-ingreso-lote fila-opcion' id='fila-1'>";
-                $id_trayecto = $plataforma["id_trayecto"];
-                $departamento = $plataforma["departamento"];
-                $direccion = $plataforma["direccion"];
+                $id_trayecto = $trayecto["id_trayecto"];
+                $destino = $trayecto["destino"];
+                $destinos_intermedios = $trayecto["destinos_intermedios"];
 
                 echo "<td>$id_trayecto</td>";
-                echo "<td>$direccion</td>";
-                echo "<td>$departamento</td>";
+                echo "<td>$destino</td>";
+                echo "<td>$destinos_intermedios</td>";
                 echo "<td>
                 <a href='baja-dato.php?id_trayecto=$id_trayecto'><button>B</button></a>
                 <a href='modificar-almacen-cliente.php?id_trayecto=$id_trayecto'><button>M</button></a>

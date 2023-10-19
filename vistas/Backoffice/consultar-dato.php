@@ -220,8 +220,192 @@ if (isset($_GET['id_camionero'])) {
         <p><b>Mail: </b>$mail</p>
         <a href='op-usuarios.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
+    } 
+} else if (isset($_GET['id_trayecto'])) {
+    $id_trayecto = $_GET['id_trayecto'];
+
+    $instruccion = "select * from trayecto where id_trayecto=$id_trayecto";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_trayecto = $fila["id_trayecto"];
+        $origen = "Felipe Sanguinetti 2474";
+        $destino = $fila["destino"];
+        $destinos_intermedios = $fila["destinos_intermedios"];
+        $distancia_recorrida = $fila["distancia_recorrida"];
+        $duracion_total = $fila["duracion_total"];
+
+
+
+        echo "<div class='form-crud'>
+        <legend>Consultar Trayecto</legend>
+        <p class='subtitulo-crud'>Datos de la ruta</p>
+        <p><b>ID: </b>$id_trayecto</p>
+        <p><b>Destino: </b>$destino</p>
+        <p><b>Destino Intermedios: </b>$destinos_intermedios</p>
+        <p><b>Distancia Recorrida: </b>$distancia_recorrida Km</p>
+        <p><b>Duración Total: </b>$duracion_total minutos</p>
+        <p><b>Instrucciones: </b></p>";
+
+        $origen1 = str_replace(' ', '', $origen);
+        $destino1 = str_replace(' ', '', $destino);
+        $intermedios2 = str_replace(' ', '', $destinos_intermedios);
+        $intermediosArray = explode('|', $intermedios2);
+
+        $waypointsJson = json_encode($intermediosArray);
+
+        $api_key = 'AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM';
+
+        $url = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen1&destination=$destino1&waypoints=optimize:true|$intermedios2&key=$api_key&region=uy&language=es";
+
+
+        $response = file_get_contents($url);
+
+        if ($response) {
+            $datos = json_decode($response, true);
+    
+            if ($datos['status'] == 'OK') {
+                $distanciaTotal = 0;
+                $duracionTotal = 0;
+
+                foreach ($datos['routes'][0]['legs'] as $leg) {
+                    foreach ($leg['steps'] as $step) {
+
+                        echo '<p>' . $step['html_instructions'] . '</p>';
+                        echo '<p>Distancia hasta el próximo giro: ' . $step['distance']['text'] . '</p>';
+
+                        if (isset($step['traffic_speed_entry'])) {
+                            foreach ($step['traffic_speed_entry'] as $trafficData) {
+                                echo '<p>Segmento de tráfico: ' . $trafficData['segment'] . '</p>';
+                                echo '<p>Velocidad de tráfico: ' . $trafficData['speed'] . '</p>';
+                                echo '<hr>';
+                            }
+                        }
+                        echo '<hr>';
+
+                        $distanciaTotal += $step['distance']['value'];
+                        $duracionTotal += $step['duration']['value'];
+                    }
+                }
+                $distanciaTotal = number_format($distanciaTotal / 1000 , 2);
+                $duracionTotal = round($duracionTotal / 60);
+                
+            } else {
+                echo 'No se pudo obtener una respuesta de la API de Google Maps Directions.';
+            }
+        }
     }
+    ?>
+    <p><b>Mapa: </b></p>
+    <div id="map" style="height: 400px; width: 100%;"></div>
+ 
+ <script>
+            const start = "<?php echo $origen1;?>";
+            const end = "<?php echo $destino1;?>";
+            const waypointInputs = <?php echo $waypointsJson;?>;
 
+            console.log(start);
+            console.log(end);
+            console.log(waypointInputs);
+
+            waypoints = [];
+
+            waypointInputs.forEach(function(input) {
+                if (input) {
+                    waypoints.push({
+                        location: input,
+                        stopover: true
+                    });
+                }
+                });
+
+            console.log(waypoints);
+
+            function initMap() {
+            // Configura el mapa
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 0, lng: 0 },
+                zoom: 10
+            });
+
+            // Crea una instancia de la clase DirectionsService
+            var directionsService = new google.maps.DirectionsService();
+
+            // Crea una instancia de la clase DirectionsRenderer
+            var directionsRenderer = new google.maps.DirectionsRenderer({
+                map: map,
+                suppressMarkers: true
+            });
+
+            // Define la solicitud de ruta
+            var request = {
+                origin: start,
+                destination: end,
+                waypoints: waypoints,
+                travelMode: 'DRIVING',
+                optimizeWaypoints: true
+            };
+
+            var geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode({ 'address': start }, function (results, status) {
+    if (status === 'OK') {
+        var origenCoordenadas = results[0].geometry.location;
+
+        // Crea un marcador para el origen
+        var originMarker = new google.maps.Marker({
+            position: origenCoordenadas,
+            map: map,
+            title: 'Origen'
+        });
+    }
+});
+
+// Obtén las coordenadas del destino
+geocoder.geocode({ 'address': end }, function (results, status) {
+    if (status === 'OK') {
+        var destinoCoordenadas = results[0].geometry.location;
+
+        // Crea un marcador para el destino
+        var destinationMarker = new google.maps.Marker({
+            position: destinoCoordenadas,
+            map: map,
+            title: 'Destino'
+        });
+    }
+});
+
+waypointInputs.forEach(function (waypoint) {
+        geocoder.geocode({ 'address': waypoint }, function (results, status) {
+            if (status === 'OK') {
+                var waypointCoordenadas = results[0].geometry.location;
+
+                // Crea un marcador para el waypoint
+                var waypointMarker = new google.maps.Marker({
+                    position: waypointCoordenadas,
+                    map: map,
+                    title: 'Destino intermedio'
+                });
+
+            }
+        });
+    });  
+
+
+
+            // Obtiene la ruta y muestra el resultado en el mapa
+            directionsService.route(request, function(response, status) {
+                if (status == 'OK') {
+                    directionsRenderer.setDirections(response);
+                }
+            });
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM&callback=initMap&region=uy&language=es" async defer></script>
+    <a href='op-trayecto.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+    </div>
+    <?php
 }
-
-?>
+?>   
+        

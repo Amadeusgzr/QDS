@@ -90,6 +90,7 @@ if ($_POST) {
 }
 
 ?>
+
 <div class="div-error">
     <?php
     if (isset($_GET['datos'])) {

@@ -15,6 +15,9 @@
         <label for="waypoints">Ubicaciones intermedias:</label><br>
         <input type="text" id="waypoint1" name="waypoints[]" placeholder="Ubicación intermedia 1"><br>
         <input type="text" id="waypoint2" name="waypoints[]" placeholder="Ubicación intermedia 2"><br>
+        <input type="text" id="waypoint2" name="waypoints[]" placeholder="Ubicación intermedia 2"><br>
+        <input type="text" id="waypoint2" name="waypoints[]" placeholder="Ubicación intermedia 2"><br>
+
         <button type="submit">Calcular Ruta</button><br>
     </form>
 
@@ -84,7 +87,7 @@
  <div id="map" style="height: 400px; width: 100%;"></div>
  
  <script>
-            const start = "<?php echo $start;?>";
+            const start = "<?php echo $start;?> ";
             const end = "<?php echo $end;?>";
             const waypointInputs = <?php echo $waypointsJson;?>;
 

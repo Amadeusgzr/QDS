@@ -55,7 +55,7 @@ class paqueteModelo
     {
         $where = ($id_paquete == null) ? "" : " WHERE id_paquete='$id_paquete'";
         $paquetes = [];
-        $instruccion = "SELECT * FROM paquete" . $where;
+        $instruccion = "SELECT * FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino" . $where;
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($paquetes, $row);
@@ -94,11 +94,13 @@ class paqueteModelo
                 'respuesta' => "Paquete modificado"
             ];
             } else {
-                $instruccion = "SELECT empresa FROM paquete WHERE id_paquete='$id_paquete'";
+                $instruccion = "SELECT empresa, estado FROM paquete WHERE id_paquete='$id_paquete'";
                 $resultado = mysqli_query($this->db, $instruccion);
                 $fila =  mysqli_fetch_assoc($resultado);
                 $empresa1 = $fila["empresa"];
-                if ($empresa == $empresa1){
+                $estado = $fila["estado"];
+                if ($estado == "En almacén cliente"){
+                                    if ($empresa == $empresa1){
                     $instruccion = "UPDATE paquete SET direccion='$direccion', peso='$peso', volumen='$volumen', fragil='$fragil', estado='$estado' WHERE id_paquete='$id_paquete'";
                     mysqli_query($this->db, $instruccion);
                     $resultado = [
@@ -111,6 +113,13 @@ class paqueteModelo
                         'respuesta' => "Este paquete no es de tu pertenencia"
                     ];
                 }
+                } else{
+                    $resultado = [
+                        'error' => "Error",
+                        'respuesta' => "No tienes permiso para hacer esto"
+                    ];
+                }
+
  
             }
 
