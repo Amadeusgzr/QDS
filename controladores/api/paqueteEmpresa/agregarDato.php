@@ -34,7 +34,6 @@ $array = [
     'empresa' => "$empresa"
 ];
 
-print_r($array);
 
 $datos = json_encode($array);
 
@@ -54,6 +53,7 @@ if (curl_errno($ch)) {
 
 
 curl_close($ch);
+header('Location: ../../../vistas/Empresa/alta-paquete.php?datos=' . urlencode($respuesta));
 
 
 

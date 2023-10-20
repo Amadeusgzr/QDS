@@ -11,7 +11,7 @@ $api_key = 'AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM';
 require("../controladores/api/paquete/obtenerDato.php");
 foreach($decode as $paquete){
     echo $paquete["id_paquete"] . "<br>";
-    if ($paquete["id_paquete"] == 11){
+    if ($paquete["id_paquete"] == 3){
     $origen = $paquete["direccion"] . ", Departamento de ". $paquete["departamento_destino"];
     }
 }

@@ -11,6 +11,7 @@ if (isset($_GET["id_paquete"])) {
         'empresa' => "$empresa",
         'tipo_usu' => "$tipo_usu"
     ];
+    print_r($array);
 
 }
 if (isset($_POST['todo'])) {
@@ -46,7 +47,6 @@ if (isset($_GET["id_paquete"])) {
 }
 } else {
     if (isset($_GET["id_paquete"])) {
-        header('Location: ../../../vistas/Empresa/op-paquetes.php?datos=' . urlencode($respuesta));
 
     }
 }

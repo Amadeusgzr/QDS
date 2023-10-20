@@ -28,6 +28,16 @@ require '../plantillas/menu-cuenta.php';
             autocomplete="off" required>
         <input type="number" step="any" name="volumen[]" id="volumen-paq" class="destino-paq"
             placeholder="Volumen (cm∧3)" autocomplete="off" required>
+            <select name="id_almacen_cliente[]" id="select-fragil-paq" class="select-fragil-paq">
+            <?php
+                require("../../controladores/api/almacenClienteEmpresa/obtenerDatoPorEmpresa.php");
+                foreach ($decode as $almacen_cliente){
+                    $id_almacen_cliente = $almacen_cliente["id_almacen_cliente"];
+                    $direccion = $almacen_cliente["direccion"];
+                    echo "<option value='$id_almacen_cliente'> $direccion </option>";
+                }
+            ?>
+            </select>
     </div>
 
     <div class="div-datos-paq">

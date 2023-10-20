@@ -68,7 +68,7 @@ class paqueteModelo
     {
 
 
-        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles,codigo_seguimiento,empresa) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles','$codigo','$empresa')";
+        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles,codigo_seguimiento,id_destino,empresa) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles','$codigo','1','$empresa')";
         mysqli_query($this->db, $instruccion);
 
         $id_paquete = mysqli_insert_id($this->db);

@@ -13,7 +13,7 @@ class almacenClienteModelo
     public function obtenerAlmacenClientePorEmpresa($empresa)
     {
         $almacen_cliente = [];
-        $instruccion = "SELECT * FROM almacen_cliente INNER JOIN tiene ON almacen_cliente.id_almacen_cliente=tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.rut=empresa_cliente.rut WHERE nombre_de_empresa='$empresa'";
+        $instruccion = "SELECT * FROM almacen_cliente INNER JOIN tiene ON almacen_cliente.id_almacen_cliente=tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente=empresa_cliente.id_empresa_cliente WHERE nombre_de_empresa='$empresa'";
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($almacen_cliente, $row);
