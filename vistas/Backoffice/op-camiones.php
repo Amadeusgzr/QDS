@@ -17,8 +17,8 @@ require '../plantillas/menu-cuenta.php';
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
-                <th>Matrícula</th>
-                <th>Estado</th>
+                <th id="th1-camion">Matrícula</th>
+                <th id="th2-camion">Estado</th>
                 <th class="th-op">OP</th>
             </tr>
             <?php
@@ -38,9 +38,9 @@ require '../plantillas/menu-cuenta.php';
                 echo "<td>$matricula</td>";
                 echo "<td>$estado</td>";
                 echo "<td>
-                <a href='baja-dato.php?id_camion=$id_camion'><button>B</button></a>
-                <a href='modificar-camion.php?id_camion=$id_camion'><button>M</button></a>
-                <a href='consultar-dato.php?id_camion=$id_camion'><button>C</button></a>
+                <a href='baja-dato.php?id_camion=$id_camion'><button class='btn-op btn-op1'>B</button></a>
+                <a href='modificar-camion.php?id_camion=$id_camion'><button class='btn-op btn-op2'>M</button></a>
+                <a href='consultar-dato.php?id_camion=$id_camion'><button class='btn-op btn-op3'>C</button></a>
                 </td>";
                 echo "</tr>";
             }
@@ -48,19 +48,18 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-doble">
-        <button class="estilo-boton btns-as-lote">Reiniciar</button>
+        <button class="estilo-boton btns-as-lote btn-limpiar">Reiniciar</button>
         <a href="index.php">
-            <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
+            <button class="boton-volver estilo-boton btns-as-lote">Volver</button>
         </a>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-camion.php" id="a-agregar"><button class="estilo-boton btns-as-lote"
-                id="op-alta">Agregar</button></a>
+        <a href="alta-camion.php" id="a-agregar"><button class="estilo-boton btns-as-lote boton-agregar" id="op-alta">Agregar</button></a>
         <!--<button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>-->
     </div>
 </div>
 
-<script src="../js/asignar-paquetes-lote-2.js"></script>
+<script src="../js/seleccionar-filas.js"></script>
 
 </body>
 

@@ -38,8 +38,8 @@
     "--------- BACKOFFICE CAMIONEROS ---------" : "",
 
     "h1_tabla_camioneros" : "Truckers",
-    "th1" : "Name",
-    "th2" : "Status",
+    "th1_camioneros" : "Name",
+    "th2_camioneros" : "Status",
 
     "btn_op1" : "D",
     "btn_op2" : "M",
@@ -51,7 +51,7 @@
 
     "--------- BACKOFFICE AGREGAR CAMIONERO ---------" : "",
 
-    "legend" : "Add Trucker",
+    "legend_camionero" : "Add Trucker",
     "cedula" : "ID",
     "nombre" : "Full Name",
     "telefono" : "Phone Number",
@@ -70,6 +70,18 @@
 
     "--------- BACKOFFICE MODIFICAR CAMIONERO ---------" : "",
 
-    "--------- BACKOFFICE CONSULTAR CAMIONERO ---------" : ""
+    "legend_m_camionero" : "Modify Trucker",
+    "subtitulo_2_camionero" : "Modified data",
+    "boton_modificar" : "Modify",
+
+    "--------- BACKOFFICE CONSULTAR CAMIONERO ---------" : "",
+
+    "legend_c_camionero" : "Consult Trucker",
+
+    "--------- BACKOFFICE CAMIONES ---------" : "",
+
+    "h1_tabla_camiones" : "Trucks",
+    "th1_camiones" : "Plate",
+    "th2_camiones" : "Status"
 
 }

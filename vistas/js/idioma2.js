@@ -58,11 +58,12 @@ function actualizarTextos(data) {
     document.querySelector("#op7 h2").textContent = data.op7_h2;
     document.querySelector("#op7 p").textContent = data.op7_p;
 
-  }else if(url.includes("Backoffice") && url.includes("op-camioneros")){
+  }
+  else if(url.includes("Backoffice") && url.includes("op-camioneros")){
 
     document.querySelector(".h1-tabla").textContent = data.h1_tabla_camioneros;
-    document.querySelector(".th1").textContent = data.th1;
-    document.querySelector(".th2").textContent = data.th2;
+    document.querySelector(".th1").textContent = data.th1_camioneros;
+    document.querySelector(".th2").textContent = data.th2_camioneros;
     let btnsOp = Array.from(document.querySelectorAll(".btn-op"));
     btnsOp.forEach(btn =>{
       if(btn.classList.contains("btn-op1")){
@@ -77,16 +78,18 @@ function actualizarTextos(data) {
     document.querySelector(".boton-volver").textContent = data.btn_volver;
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
 
-  }else if(url.includes("Backoffice") && url.includes("alta-camionero")){
+  }
+  else if(url.includes("Backoffice") && url.includes("alta-camionero")){
 
-    document.querySelector(".legend-form").textContent = data.legend;
+    document.querySelector(".legend-form").textContent = data.legend_camionero;
     document.querySelector(".txt-1").placeholder = data.cedula;
     document.querySelector(".txt-2").placeholder = data.nombre;
     document.querySelector(".txt-3").placeholder = data.telefono;
     document.querySelector(".boton-agregar").value = data.btn_agregar;
     document.querySelector(".boton-volver").value = data.btn_volver;
 
-  }else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("camionero")){
+  }
+  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("camionero")){
 
     document.querySelector(".legend-baja").textContent = data.legend_baja;
     document.querySelector(".adv").textContent = data.adv_camionero;
@@ -97,6 +100,53 @@ function actualizarTextos(data) {
     document.querySelector(".p-telefono").textContent = data.p_telefono;
     document.querySelector(".boton-eliminar").value = data.btn_eliminar;
     document.querySelector(".boton-volver").value = data.btn_volver;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("modificar-camionero")){
+
+    document.querySelector(".legend-m-camionero").textContent = data.legend_m_camionero;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camionero;
+    document.querySelector(".subtitulo-crud-2").textContent = data.subtitulo_2_camionero;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-cedula").textContent = data.p_cedula;
+    document.querySelector(".p-nombre").textContent = data.p_nombre;
+    document.querySelector(".p-telefono").textContent = data.p_telefono;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.boton_modificar;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("camionero")){
+
+    document.querySelector(".legend-c-camionero").textContent = data.legend_c_camionero;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camionero;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-cedula").textContent = data.p_cedula;
+    document.querySelector(".p-nombre").textContent = data.p_nombre;
+    document.querySelector(".p-telefono").textContent = data.p_telefono;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.boton_modificar;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("op-camiones")){
+
+    document.querySelector(".h1-tabla").textContent = data.h1_tabla_camiones;
+    document.querySelector("#th1-camion").textContent = data.th1_camiones;
+    document.querySelector("#th2-camion").textContent = data.th2_camiones;
+    let btnsOp = Array.from(document.querySelectorAll(".btn-op"));
+    btnsOp.forEach(btn =>{
+      if(btn.classList.contains("btn-op1")){
+        btn.textContent = data.btn_op1;
+      } else if (btn.classList.contains("btn-op2")){
+        btn.textContent = data.btn_op2;
+      } else if (btn.classList.contains("btn-op3")){
+        btn.textContent = data.btn_op3;
+      }
+    })
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
 
   }
 }

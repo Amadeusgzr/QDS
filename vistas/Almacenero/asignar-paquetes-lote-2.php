@@ -14,7 +14,7 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <div id="div-tabla-lote">
-    <h1 id="h1-lote">Paquetes sin asignar</h1>
+    <h1 class="h1-tabla">Paquetes sin asignar</h1>
     <div class="contenedor-tabla">
         <table id="tabla-lote">
             <tr class="fila-ingreso-lote">

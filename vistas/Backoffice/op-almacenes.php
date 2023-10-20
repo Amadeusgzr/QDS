@@ -12,7 +12,7 @@ require '../plantillas/menu-cuenta.php';
 
 ?>
 
-<h1 id="h1-camioneros">Gestión de Almacenes</h1>
+<h1 class="h1-titulo">Gestión de Almacenes</h1>
 
 <div class="div-opciones-columna">
     <a href="index.php"><button class="boton-volver estilo-boton">Volver</button></a>

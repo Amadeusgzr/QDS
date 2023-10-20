@@ -12,7 +12,7 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <div id="div-tabla-lote">
-    <h1 id="h1-lote">Trayectos</h1>
+    <h1 class="h1-tabla">Trayectos</h1>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
@@ -50,7 +50,7 @@ require '../plantillas/menu-cuenta.php';
     </div>
     <div class="div-btn-doble">
         <button class="estilo-boton btns-as-lote">Reiniciar</button>
-        <a href="op-rutas-tray.php">
+        <a href="op-rutas-trayectos.php">
             <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
         </a>
     </div>

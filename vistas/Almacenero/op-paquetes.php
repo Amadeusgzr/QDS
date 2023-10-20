@@ -14,7 +14,7 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <div id="div-tabla-lote">
-    <h1 id="h1-lote">Paquetes</h1>
+    <h1 class="h1-tabla">Paquetes</h1>
     <div class="div-error">
         <?php
         if (isset($_GET['datos'])) {

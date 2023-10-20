@@ -15,9 +15,9 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <div id="div-elegir-lote">
-    <h1 id="h1-lote">Asignar paquetes a lote</h1>
+    <h1 class="h1-tabla">Asignar paquetes a lote</h1>
     <p class="adv">El lote al cual se le quiera asignar los paquetes ya debe estar creado</p>
-    <form action="asignar-paquetes-lote-2.php" method="gwt">
+    <form action="asignar-paquetes-lote-2.php" method="get" class="form-asignar">
         <select name="id_lote" id="select-lote">
             <?php
             require("../../controladores/api/lote/obtenerDato.php");

@@ -38,8 +38,8 @@
     "--------- BACKOFFICE CAMIONEROS ---------" : "",
 
     "h1_tabla_camioneros" : "Camioneros",
-    "th1" : "Nombre",
-    "th2" : "Estado",
+    "th1_camioneros" : "Nombre",
+    "th2_camioneros" : "Estado",
 
     "btn_op1" : "B",
     "btn_op2" : "M",
@@ -70,6 +70,18 @@
 
     "--------- BACKOFFICE MODIFICAR CAMIONERO ---------" : "",
 
-    "--------- BACKOFFICE CONSULTAR CAMIONERO ---------" : ""
+    "legend_m_camionero" : "Modificar Camionero",
+    "subtitulo_2_camionero" : "Datos modificados",
+    "boton_modificar" : "Modificar",
+
+    "--------- BACKOFFICE CONSULTAR CAMIONERO ---------" : "",
+
+    "legend_c_camionero" : "Consultar camionero",
+
+    "--------- BACKOFFICE CAMIONES ---------" : "",
+
+    "h1_tabla_camiones" : "Camiones",
+    "th1_camiones" : "Matrícula",
+    "th2_camiones" : "Estado"
 
 }

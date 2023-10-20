@@ -744,6 +744,14 @@ label[for="radio-paq-no"]{
 
 /*   SELECCION LOTE   */
 
+.form-asignar{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 #div-elegir-lote{
     width: 90%;
     max-width: 500px;
@@ -1094,7 +1102,7 @@ label[for="radio-lote-no"]{
 *                                               *
 *************************************************/
 
-#h1-camionero{
+.h1-titulo{
     text-align: center;
     margin: 2em 0;
     background-color: #86858536;
