@@ -20,7 +20,7 @@ require '../plantillas/menu-cuenta.php';
         <input type="tel" placeholder="Mail" class="txt-crud" name="mail[]" required>
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
     </form>
-    <a href="op-empresas.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
+    <a href="op-empresas-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>
 
 <?php
@@ -46,7 +46,7 @@ if ($_POST) {
         if ($respuesta['error'] == "Error") {
             $respuesta = [
                 'error' => "Error",
-                'respuesta' => "Ya existe la mail $mail[$i]"
+                'respuesta' => "Ya existe el mail $mail[$i]"
             ];
             break;
         }

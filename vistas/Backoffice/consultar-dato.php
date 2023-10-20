@@ -160,14 +160,15 @@ if (isset($_GET['id_camionero'])) {
         </div>";
     }
 
-} else if (isset($_GET['rut'])) {
-    $rut = $_GET['rut'];
+} else if (isset($_GET['id_empresa_cliente'])) {
+    $id_empresa_cliente = $_GET['id_empresa_cliente'];
 
 
-    $instruccion = "select * from empresa_cliente where rut=$rut";
+    $instruccion = "select * from empresa_cliente where id_empresa_cliente=$id_empresa_cliente";
     $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_empresa = $fila["id_empresa_cliente"];
         $rut = $fila["rut"];
         $nombre_de_empresa = $fila["nombre_de_empresa"];
         $mail = $fila["mail"];
@@ -175,29 +176,11 @@ if (isset($_GET['id_camionero'])) {
         echo "<div class='form-crud'>
         <legend>Consultar Empresa Cliente</legend>
         <p class='subtitulo-crud'>Datos de la empresa</p>
+        <p><b>ID: </b>$id_empresa</p>
         <p><b>RUT: </b>$rut</p>
         <p><b>Nombre: </b>$nombre_de_empresa</p>
         <p><b>Mail: </b>$mail</p>
-        <a href='op-empresas.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
-        </div>";
-    }
-
-} else if (isset($_GET['id_ruta'])) {
-    $id_ruta = $_GET['id_ruta'];
-
-    $instruccion = "select * from ruta where id_ruta=$id_ruta";
-    $filas = $conexion->query($instruccion);
-
-    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
-        $id_ruta = $fila["id_ruta"];
-        $nom_ruta = $fila["nom_ruta"];
-
-        echo "<div class='form-crud'>
-        <legend>Consultar Ruta</legend>
-        <p class='subtitulo-crud'>Datos de la ruta</p>
-        <p><b>ID: </b>$id_ruta</p>
-        <p><b>Nombre/Numero: </b>$nom_ruta</p>
-        <a href='op-ruta.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        <a href='op-empresas-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
 

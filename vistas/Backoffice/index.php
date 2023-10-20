@@ -55,6 +55,11 @@ require '../plantillas/menu-cuenta.php';
         <p>Gestión de Usuarios</p>
         <div class="div-img-icono"><img src="../img/iconos/icono-usuario.png" alt=""></div>
     </a>
+    <a href="op-empresas-cliente.php" class="opcion-aplicacion" id="op8">
+        <h2>Empresas-Cliente</h2>
+        <p>Gestión de Empresas-Cliente</p>
+        <div class="div-img-icono"><img src="../img/iconos/icono-usuario.png" alt=""></div>
+    </a>
 </main>
 
 </body>

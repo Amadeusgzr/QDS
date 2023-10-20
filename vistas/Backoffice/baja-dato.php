@@ -178,26 +178,7 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-trayecto.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
-} else if (isset($_GET['id_ruta'])) {
-    $id_ruta = $_GET['id_ruta'];
 
-
-    $instruccion = "select * from ruta where id_ruta=$id_ruta";
-    $filas = $conexion->query($instruccion);
-
-    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
-        $id_ruta = $fila["id_ruta"];
-        $nom_ruta = $fila['nom_ruta'];
-        echo "<div class='form-crud'>
-        <legend>Eliminar Ruta</legend>
-        <p class='adv'>¿Seguro que quiere eliminar la siguiente ruta? Los cambios serán irreversibles</p>
-        <p class='subtitulo-crud'>Datos de la ruta</p>
-        <p><b>ID: </b>$id_ruta</p>
-        <p><b>Nombre/Numero: </b>$nom_ruta</p>
-        <a href='eliminar.php?id_ruta=$id_ruta'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
-        <a href='op-ruta.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
-        </div>";
-    }
 } else if (isset($_GET['nom_usu'])) {
     $nom_usu = $_GET['nom_usu'];
 
@@ -219,6 +200,31 @@ if (isset($_GET['id_camionero'])) {
         <p><b>Mail: </b>$mail</p>
         <a href='eliminar.php?nom_usu=$nom_usu'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-usuarios.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
+} else if (isset($_GET['id_empresa_cliente'])) {
+    $id_empresa_cliente = $_GET['id_empresa_cliente'];
+
+
+    $instruccion = "select * from empresa_cliente where id_empresa_cliente='$id_empresa_cliente'";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_empresa = $fila["id_empresa_cliente"];
+        $rut = $fila["rut"];
+        $nombre_de_empresa = $fila["nombre_de_empresa"];
+        $mail = $fila["mail"];
+
+        echo "<div class='form-crud'>
+        <legend>Eliminar Usuario</legend>
+        <p class='adv'>¿Seguro que quiere eliminar la siguiente empresa? Los cambios serán irreversibles</p>
+        <p class='subtitulo-crud'>Datos de la empresa</p>
+        <p><b>ID: </b>$id_empresa</p>
+        <p><b>Nombre: </b>$nombre_de_empresa</p>
+        <p><b>RUT: </b>$rut</p>
+        <p><b>Mail: </b>$mail</p>
+        <a href='eliminar.php?id_empresa_cliente=$id_empresa'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='op-empresas-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
 }
