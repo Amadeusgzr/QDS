@@ -57,9 +57,9 @@ if ($_POST) {
             break;
         }
 
-        $respuesta = atributoVacio($nom_usu);
-        $respuesta1 = atributoVacio($tipo_usu);
-        $respuesta2 = atributoVacio($mail);
+        $respuesta = atributosVacio($nom_usu);
+        $respuesta1 = atributosVacio($tipo_usu);
+        $respuesta2 = atributosVacio($mail);
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
             $respuesta = [

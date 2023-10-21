@@ -43,9 +43,9 @@ if ($_POST) {
             break;
         }
 
-        $respuesta = atributoVacio($matricula);
-        $respuesta1 = atributoVacio($peso_soportado);
-        $respuesta2 = atributoVacio($volumen_disponible);
+        $respuesta = atributosVacio($matricula);
+        $respuesta1 = atributosVacio($peso_soportado);
+        $respuesta2 = atributosVacio($volumen_disponible);
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
             $respuesta = [

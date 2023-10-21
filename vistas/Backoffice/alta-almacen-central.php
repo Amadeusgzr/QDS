@@ -42,8 +42,8 @@ if ($_POST) {
             break;
         }
 
-        $respuesta = atributoVacio($telefono);
-        $respuesta1 = atributoVacio($numero_almacen);
+        $respuesta = atributosVacio($telefono);
+        $respuesta1 = atributosVacio($numero_almacen);
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error") {
             $respuesta = [

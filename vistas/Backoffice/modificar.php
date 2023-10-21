@@ -46,14 +46,15 @@ if (isset($_POST["id_almacen_central"])) {
     $conexion->query($instruccion1);
     header("Location: modificar-camionero.php?id_camionero=$id_camionero");
 
-} else if (isset($_POST["rut"])) {
+} else if (isset($_POST["id_empresa_cliente"])) {
+    $id_empresa = $_POST["id_empresa_cliente"];
     $rut = $_POST["rut"];
     $nombre_de_empresa = $_POST["nombre_de_empresa"];
     $mail = $_POST["mail"];
 
-    $instruccion1 = "update empresa_cliente set nombre_de_empresa='$nombre_de_empresa', mail='$mail' where rut=$rut";
+    $instruccion1 = "update empresa_cliente set rut='$rut', nombre_de_empresa='$nombre_de_empresa', mail='$mail' where id_empresa_cliente=$id_empresa";
     $conexion->query($instruccion1);
-    header("Location: modificar-empresa-cliente.php?rut=$rut");
+    header("Location: modificar-empresa-cliente.php?id_empresa_cliente=$id_empresa");
 
 } else if (isset($_POST["id_plataforma"])) {
     $id_plataforma = $_POST["id_plataforma"];
@@ -68,13 +69,6 @@ if (isset($_POST["id_almacen_central"])) {
     $conexion->query($instruccion1);
     header("Location: modificar-plataforma.php?id_plataforma=$id_plataforma");
 
-} else if (isset($_POST["id_ruta"])) {
-    $id_ruta = $_POST["id_ruta"];
-    $nom_ruta = $_POST["nom_ruta"];
-
-    $instruccion1 = "update ruta set id_ruta='$id_ruta', nom_ruta='$nom_ruta' where id_ruta=$id_ruta";
-    $conexion->query($instruccion1);
-    header("Location: modificar-ruta.php?id_ruta=$id_ruta");
 } else if (isset($_POST["nom_usu"])) {
     $nom_usu = $_POST["nom_usu"];
     $tipo_usu = $_POST["tipo_usu"];
@@ -83,7 +77,7 @@ if (isset($_POST["id_almacen_central"])) {
     $instruccion1 = "update login set nom_usu='$nom_usu', tipo_usu='$tipo_usu', mail='$mail' where nom_usu='$nom_usu'";
     $conexion->query($instruccion1);
     header("Location: modificar-usuario.php?nom_usu=$nom_usu");
-}
+} 
 
 
 

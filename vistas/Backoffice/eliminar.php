@@ -42,17 +42,9 @@ if (isset($_GET['id_camionero'])) {
     $instruccion = "delete from camion where id_camion=$id_camion";
     $conexion->query($instruccion);
     header("Location: op-camiones.php");
-} else if (isset($_GET['rut'])) {
-    $rut = $_GET['rut'];
 
-
-    $instruccion = "delete from empresa_cliente where rut=$rut";
-    $conexion->query($instruccion);
-    header("Location: op-empresas.php");
 } else if (isset($_GET['id_trayecto'])) {
     $id_trayecto = $_GET['id_trayecto'];
-
-
     $instruccion = "delete from trayecto where id_trayecto=$id_trayecto";
     $conexion->query($instruccion);
     header("Location: op-trayecto.php");
@@ -73,12 +65,33 @@ if (isset($_GET['id_camionero'])) {
     header("Location: op-usuarios.php");
 
 } else if (isset($_GET['id_empresa_cliente'])) {
+
     $id_empresa = $_GET['id_empresa_cliente'];
+    
+    $instruccion = "select * from tiene where id_empresa_cliente=$id_empresa";
+    $resultado = mysqli_query($conexion, $instruccion);
+    $fila =  mysqli_fetch_assoc($resultado);
+    print_r($fila);
+    if (isset($fila)){
+        $respuesta = [
+            'error' => "Error",
+            'respuesta' => "Esta empresa tiene almacenes registrados"
+        ];
+    } else {
+        $instruccion = "delete from empresa_cliente where id_empresa_cliente=$id_empresa";
+        $conexion->query($instruccion);
+        $respuesta = [
+            'error' => "Exito",
+            'respuesta' => "Empresa eliminada"
+        ];
+    }
+
+    $respuesta = json_encode($respuesta);
+    header("Location: op-empresas-cliente.php?datos=" . urlencode($respuesta));
 
 
-    $instruccion = "delete from empresa_cliente where id_empresa_cliente='$id_empresa'";
-    $conexion->query($instruccion);
-    header("Location: op-empresas-cliente.php");
+    
+    
 
 } 
 ?>

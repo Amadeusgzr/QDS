@@ -25,7 +25,7 @@ require '../plantillas/menu-cuenta.php';
         <p>Gestión de Camiones</p>
         <div class="div-img-icono"><img src="../img/iconos/camion.png" alt=""></div>
     </a>
-    <a href="../Almacenero/op-paq-lotes.php" class="opcion-aplicacion" id="op3">
+    <a href="../Almacenero/index.php" class="opcion-aplicacion" id="op3">
         <h2>Paquetes y Lotes</h2>
         <p>Gestión de Paquetes y Lotes</p>
         <div class="div-img-icono"><img src="../img/iconos/paquete.png" alt=""></div>
@@ -35,31 +35,22 @@ require '../plantillas/menu-cuenta.php';
         <p>Gestión de Almacenes</p>
         <div class="div-img-icono"><img src="../img/iconos/almacen.png" alt=""></div>
     </a>
-    <a href="op-empresas.php" class="opcion-aplicacion" id="op5">
+    <a href="op-empresas-cliente.php" class="opcion-aplicacion" id="op5">
         <h2>Empresas Cliente</h2>
         <p>Gestión de Empresas Clientes</p>
         <div class="div-img-icono"><img src="../img/iconos/empresa.png" alt=""></div>
     </a>
     <a href="op-rutas-tray.php" class="opcion-aplicacion" id="op6">
-        <h2>Rutas y Trayectos</h2>
-        <p>Gestión de Rutas y Trayectos</p>
+        <h2>Rutas</h2>
+        <p>Gestión de Rutas</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
-    </a>
-    <a href="op-rutas-trayectos" class="opcion-aplicacion" id="op7">
-        <h2>Asignar Rutas a Trayectos</h2>
-        <p>Asignación de Rutas a Trayectos</p>
-        <div class="div-img-icono"><img src="../img/iconos/ruta-trayecto.png" alt=""></div>
     </a>
     <a href="op-usuarios.php" class="opcion-aplicacion" id="op8">
         <h2>Usuarios</h2>
         <p>Gestión de Usuarios</p>
         <div class="div-img-icono"><img src="../img/iconos/icono-usuario.png" alt=""></div>
     </a>
-    <a href="op-empresas-cliente.php" class="opcion-aplicacion" id="op8">
-        <h2>Empresas-Cliente</h2>
-        <p>Gestión de Empresas-Cliente</p>
-        <div class="div-img-icono"><img src="../img/iconos/icono-usuario.png" alt=""></div>
-    </a>
+
 </main>
 
 </body>

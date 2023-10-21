@@ -1,5 +1,5 @@
 <?php
-function atributoVacio($atributos)
+function atributosVacio($atributos)
 {
     $numArrays = count($atributos);
     for ($i = 0; $i < $numArrays; $i++) {
@@ -40,4 +40,29 @@ function existencia($tabla, $columna, $atributo)
     }
     return $respuesta;
 }
+
+function verificarLongitud($atributos, $cantCaracteres){
+
+    foreach ($atributos as $atributo) {
+        $respuesta = [
+            'error' => "Exito",
+            'respuesta' => "Exito"
+        ];
+        if (strlen($atributo) > $cantCaracteres){
+            $respuesta = [
+                'error' => "Error",
+                'respuesta' => "El atributo tiene que ser menor a " . $cantCaracteres . " caracteres"
+            ];
+        } else {
+            $respuesta = [
+                'error' => "Exito",
+                'respuesta' => "Exito"
+            ];
+        }
+    }
+
+    return $respuesta;
+
+}
+
 ?>

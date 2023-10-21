@@ -37,7 +37,18 @@ require '../plantillas/menu-cuenta.php';
         <p>Asigne lotes a los diferentes camiones</p>
         <div class="div-img-icono2"><img src="../img/iconos/lote-camion.png" alt=""></div>
     </a>
+
+    <?php
+    if ($_SESSION['tipo_usu'] == 'admin') {
+        echo "<a href='../Backoffice/index.php'><button class='boton-volver estilo-boton'>Volver</button></a>";
+    }
+    ?>
+
 </main>
+
+
+
+
 
 </body>
 

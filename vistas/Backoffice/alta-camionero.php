@@ -66,10 +66,10 @@ if ($_POST) {
             break;
         }
 
-        $respuesta = atributoVacio($cedula);
-        $respuesta1 = atributoVacio($nombre_completo);
-        $respuesta2 = atributoVacio($mail);
-        $respuesta3 = atributoVacio($telefono);
+        $respuesta = atributosVacio($cedula);
+        $respuesta1 = atributosVacio($nombre_completo);
+        $respuesta2 = atributosVacio($mail);
+        $respuesta3 = atributosVacio($telefono);
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error") {
             $respuesta = [

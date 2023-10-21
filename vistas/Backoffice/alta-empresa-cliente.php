@@ -58,17 +58,26 @@ if ($_POST) {
             break;
         }
 
-        $respuesta = atributoVacio($rut);
-        $respuesta1 = atributoVacio($nombre_de_empresa);
-        $respuesta2 = atributoVacio($mail);
+        $respuesta = atributosVacio($rut);
+        $respuesta1 = atributosVacio($nombre_de_empresa);
+        $respuesta2 = atributosVacio($mail);
+        $respuesta3 = verificarLongitud($rut, 12);
+        $respuesta4 = verificarLongitud($nombre_de_empresa, 50);
+        $respuesta5 = verificarLongitud($mail, 45);
+        $respuestaCaracteres = [];
+        print_r($respuesta3);
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
+            
             $respuesta = [
-                'error' => "Éxito",
-                'respuesta' => "Empresa guardada"
+            'error' => "Éxito",
+            'respuesta' => "Empresa guardada"
             ];
             $instruccion = "insert into empresa_cliente(rut, nombre_de_empresa, mail) value ('$rut[$i]', '$nombre_de_empresa[$i]', '$mail[$i]')";
             $conexion->query($instruccion);
+        
+               
+            
         } else {
             $respuesta = [
                 'error' => "Error",

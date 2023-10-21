@@ -13,11 +13,12 @@ require '../plantillas/menu-cuenta.php';
 
 <?php
 include("../../modelos/db.php");
-$rut = $_GET['rut'];
-$instruccion = "select * from empresa_cliente where rut=$rut";
+$id_empresa = $_GET['id_empresa_cliente'];
+$instruccion = "select * from empresa_cliente where id_empresa_cliente=$id_empresa";
 $filas = $conexion->query($instruccion);
 
 foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+    $id_empresa = $fila['id_empresa_cliente'];
     $rut = $fila["rut"];
     $nombre_de_empresa = $fila["nombre_de_empresa"];
     $mail = $fila["mail"];
@@ -29,6 +30,9 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
     <form action="modificar.php" method="post">
         <legend>Modificar Empresa Cliente</legend>
         <p class="subtitulo-crud">Datos actuales</p>
+        <p><b>ID: </b>
+            <?= $id_empresa ?>
+        </p>
         <p><b>RUT: </b>
             <?= $rut ?>
         </p>
@@ -39,11 +43,12 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
             <?= $mail ?>
         </p>
         <p class="subtitulo-crud">Datos modificados</p>
-        <input type="text" placeholder="RUT" class="txt-crud" name="rut" value="<?= $rut ?>" required readonly>
+        <input type="text" placeholder="ID" class="txt-crud" name="id_empresa_cliente" value="<?= $id_empresa ?>" required readonly hidden>
+        <input type="text" placeholder="RUT" class="txt-crud" name="rut" value="<?= $rut ?>" required>
         <input type="tel" placeholder="Nombre" class="txt-crud" name="nombre_de_empresa"
             value="<?= $nombre_de_empresa ?>" required>
         <input type="mail" placeholder="Mail" class="txt-crud" name="mail" value="<?= $mail ?>" required>
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
-    <a href="op-empresas.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
+    <a href="op-empresas-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>

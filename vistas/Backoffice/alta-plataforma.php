@@ -45,10 +45,10 @@ if ($_POST) {
             break;
         }
 
-        $respuesta = atributoVacio($telefono);
-        $respuesta1 = atributoVacio($direccion);
-        $respuesta2 = atributoVacio($departamento);
-        $respuesta3 = atributoVacio($volumen_max);
+        $respuesta = atributosVacio($telefono);
+        $respuesta1 = atributosVacio($direccion);
+        $respuesta2 = atributosVacio($departamento);
+        $respuesta3 = atributosVacio($volumen_max);
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error") {
             $respuesta = [
