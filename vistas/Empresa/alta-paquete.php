@@ -38,6 +38,17 @@ require '../plantillas/menu-cuenta.php';
                 }
             ?>
             </select>
+            <select name="id_destino[]" id="select-fragil-paq" class="select-fragil-paq">
+            <?php
+            require("../../controladores/api/destino/obtenerDato.php");
+            foreach ($decode as $destino){
+                $id_destino = $destino["id_destino"];
+                $departamento = $destino["departamento_destino"];
+                echo "<option value='$id_destino'> $departamento </option>";
+            }
+            ?>
+            </select>
+
     </div>
 
     <div class="div-datos-paq">

@@ -20,6 +20,8 @@ if ($_POST) {
         $detalles = null;
     }
     $id_almacen_cliente = $_POST["id_almacen_cliente"];
+    $id_destino = $_POST["id_destino"];
+
 }
 
 $array = [
@@ -31,6 +33,7 @@ $array = [
     'tipo' => $tipo,
     'detalles' => $detalles,
     'id_almacen_cliente' => $id_almacen_cliente,
+    'id_destino' => $id_destino,
     'empresa' => "$empresa"
 ];
 

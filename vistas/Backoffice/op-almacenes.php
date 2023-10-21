@@ -17,12 +17,12 @@ require '../plantillas/menu-cuenta.php';
 <div class="div-opciones-columna">
     <a href="index.php"><button class="boton-volver estilo-boton">Volver</button></a>
     <a href="op-almacen-central.php" class="opcion-aplicacion" id="op1">
-        <h2>Almacen Central</h2>
+        <h2 class="h2-almacen-central">Almacen Central</h2>
     </a>
     <a href="op-almacen-cliente.php" class="opcion-aplicacion" id="op1">
-        <h2>Almacen Cliente</h2>
+        <h2 class="h2-almacen-cliente">Almacen Cliente</h2>
     </a>
     <a href="op-plataforma.php" class="opcion-aplicacion" id="op1">
-        <h2>Plataforma</h2>
+        <h2 class="h2-plataforma">Plataforma</h2>
     </a>
 </div>

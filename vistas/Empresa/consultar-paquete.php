@@ -22,7 +22,7 @@ if(isset($decode['error'])){
     header("Location: ../error.php");
 }
 foreach ($decode as $paquete) {
-
+        
     $id_paquete = $paquete["id_paquete"];
     $mail_destinatario = $paquete["mail_destinatario"];
     $direccion = $paquete["direccion"];
@@ -32,7 +32,7 @@ foreach ($decode as $paquete) {
     $tipo = $paquete["tipo"];
     $estado = $paquete["estado"];
     $detalles = $paquete["detalles"];
-    $empresa = $paquete["empresa"];
+    $empresa = $paquete["nombre_de_empresa"];
     if ($empresa !== $_SESSION["nom_usu"]){
         header("Location: ../permisos.php");
     }

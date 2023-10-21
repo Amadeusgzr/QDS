@@ -24,7 +24,7 @@ class paqueteModelo
     public function obtenerPaquete($id_paquete)
     {
         $paquete = [];
-        $instruccion = "SELECT * FROM paquete WHERE id_paquete='$id_paquete'";
+        $instruccion = "SELECT * FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN tiene ON almacena.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente WHERE paquete.id_paquete='$id_paquete'";
         $resultado = mysqli_query($this->db, $instruccion);    
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($paquete, $row);
@@ -43,7 +43,7 @@ class paqueteModelo
     public function obtenerPaquetePorEmpresa($empresa)
     {
         $paquete = [];
-        $instruccion = "SELECT * FROM paquete WHERE empresa='$empresa'";
+        $instruccion = "SELECT * FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN tiene ON almacena.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente WHERE nombre_de_empresa = '$empresa'";
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($paquete, $row);
@@ -64,11 +64,11 @@ class paqueteModelo
     }
 
 
-    public function guardarPaquete($mail_destinatario, $direccion, $peso, $volumen, $fragil, $tipo, $detalles, $codigo, $empresa, $id_almacen_cliente)
+    public function guardarPaquete($mail_destinatario, $direccion, $peso, $volumen, $fragil, $tipo, $detalles, $codigo, $id_almacen_cliente, $id_destino)
     {
 
 
-        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles,codigo_seguimiento,id_destino,empresa) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles','$codigo','1','$empresa')";
+        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles,codigo_seguimiento,id_destino) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles','$codigo','$id_destino')";
         mysqli_query($this->db, $instruccion);
 
         $id_paquete = mysqli_insert_id($this->db);
@@ -99,25 +99,25 @@ class paqueteModelo
                 'respuesta' => "Paquete modificado"
             ];
             } else {
-                $instruccion = "SELECT empresa, estado FROM paquete WHERE id_paquete='$id_paquete'";
+                $instruccion = "SELECT empresa_cliente.nombre_de_empresa, paquete.estado FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN tiene ON almacena.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente WHERE paquete.id_paquete='$id_paquete'";
                 $resultado = mysqli_query($this->db, $instruccion);
                 $fila =  mysqli_fetch_assoc($resultado);
-                $empresa1 = $fila["empresa"];
+                $empresa1 = $fila["nombre_de_empresa"];
                 $estado = $fila["estado"];
                 if ($estado == "En almacén cliente"){
-                                    if ($empresa == $empresa1){
+                    if ($empresa == $empresa1){
                     $instruccion = "UPDATE paquete SET direccion='$direccion', peso='$peso', volumen='$volumen', fragil='$fragil', estado='$estado' WHERE id_paquete='$id_paquete'";
                     mysqli_query($this->db, $instruccion);
                     $resultado = [
                         'error' => "Éxito",
                         'respuesta' => "Paquete modificado"
                     ];
-                } else {
+                    } else {
                     $resultado = [
                         'error' => "Error",
                         'respuesta' => "Este paquete no es de tu pertenencia"
                     ];
-                }
+                    }
                 } else{
                     $resultado = [
                         'error' => "Error",
@@ -186,40 +186,41 @@ class paqueteModelo
                 'respuesta' => "Paquete eliminado"
             ];
             } else {
-                $instruccion = "SELECT empresa FROM paquete WHERE id_paquete='$id_paquete'";
+                $instruccion = "SELECT empresa_cliente.nombre_de_empresa, paquete.estado FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN tiene ON almacena.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente WHERE paquete.id_paquete='$id_paquete'";
                 $resultado = mysqli_query($this->db, $instruccion);
                 $fila = mysqli_fetch_assoc($resultado);
-                $empresa1 = $fila["empresa"];
-                if ($empresa == $empresa1){
-                    $instruccion = "DELETE FROM paquete WHERE id_paquete='$id_paquete'";
-                    mysqli_query($this->db, $instruccion);
-                    $resultado = [
-                        'error' => "Éxito",
-                        'respuesta' => "Paquete eliminado"
-                    ];
-                } else {
+                $empresa1 = $fila["nombre_de_empresa"];
+                $estado = $fila["estado"];
+                if ($estado == "En almacén cliente"){
+                    if ($empresa == $empresa1){
+                        $instruccion = "DELETE FROM almacena WHERE id_paquete='$id_paquete'";
+                        mysqli_query($this->db, $instruccion);
+
+                        $instruccion = "DELETE FROM paquete WHERE id_paquete='$id_paquete'";
+                        mysqli_query($this->db, $instruccion);
+                        $resultado = [
+                            'error' => "Éxito",
+                            'respuesta' => "Paquete eliminado"
+                        ];
+                    } else {
+                        $resultado = [
+                            'error' => "Error",
+                            'respuesta' => "Este paquete no es de tu pertenencia"
+                        ];
+                    }
+                } else{
                     $resultado = [
                         'error' => "Error",
-                        'respuesta' => "Este paquete no es de tu pertenencia"
+                        'respuesta' => "No tienes permiso para hacer esto"
                     ];
-                }
+                }  
+                    
  
             }
 
         }
 
         return $resultado;
-    }
-
-    public function validatePackage($name, $description)
-    {
-        $packages = [];
-        $query = "SELECT * FROM packages WHERE name='$name' AND description='$description'";
-        $result = mysqli_query($this->db, $query);
-        while ($row = mysqli_fetch_assoc($result)) {
-            array_push($packages, $row);
-        }
-        return $packages;
     }
 
 

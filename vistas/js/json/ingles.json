@@ -58,7 +58,7 @@
 
     "--------- BACKOFFICE ELIMINAR CAMIONERO ---------" : "",
 
-    "legend_baja" : "Delete Trucker",
+    "legend_baja_camionero" : "Delete Trucker",
     "adv_camionero" : "Are you sure you want to delete the following trucker? The changes will be irreversible",
     "subtitulo_camionero" : "Trucker data",
     "p_id" : "Key: ",
@@ -71,7 +71,8 @@
     "--------- BACKOFFICE MODIFICAR CAMIONERO ---------" : "",
 
     "legend_m_camionero" : "Modify Trucker",
-    "subtitulo_2_camionero" : "Modified data",
+
+    "subtitulo_2" : "Modified data",
     "boton_modificar" : "Modify",
 
     "--------- BACKOFFICE CONSULTAR CAMIONERO ---------" : "",
@@ -82,6 +83,70 @@
 
     "h1_tabla_camiones" : "Trucks",
     "th1_camiones" : "Plate",
-    "th2_camiones" : "Status"
+    "th2_camiones" : "Status",
+
+    "--------- BACKOFFICE AGREGAR CAMION ---------" : "",
+
+    "legend_camion" : "Add Truck",
+    "matrîcula" : "Plate",
+    "peso_max" : "Max. Weight (Kg)",
+    "vol_max" : "Max. Volume (Mts3)",
+
+    "--------- BACKOFFICE ELIMINAR CAMION ---------" : "",
+
+    "legend_baja_camion" : "Delete Truck",
+    "adv_camion" : "Are you sure you want to delete the following truck? The changes will be irreversible",
+    "subtitulo_camion" : "Truck data",
+    "p_matricula" : "Plate: ",
+    "p_peso_sop" : "Supported weight: ",
+    "p_volumen_disp" : "Available volume: ",
+    "p_estado" : "Status: ",
+
+    "--------- BACKOFFICE MODIFICAR CAMION ---------" : "",
+
+    "legend_m_camion" : "Modify Truck",
+
+    "--------- BACKOFFICE CONSULTAR CAMION ---------" : "",
+
+    "legend_c_camion" : "Consult Truck",
+
+    "--------- BACKOFFICE ALMACENES ---------" : "",
+
+    "h1_titulo_almacenes" : "Warehouses Managment",
+    "h2_almacen_central" : "Central Warehouses",
+    "h2_almacen_cliente" : "Customer Warehouses",
+    "h2_plataforma" : "Platforms",
+
+    "--------- BACKOFFICE ALMACENES CENTRALES ---------" : "",
+
+    "th1_almacen_central" : "Warehouse Number",
+
+    "--------- BACKOFFICE AGREGAR ALMACENES CENTRALES ---------" : "",
+
+    "legend_almacen_central" : "Add Central Warehouse",
+    "numero_almacen" : "Warehouse number",
+
+    "--------- BACKOFFICE ELIMINAR ALMACEN CENTRAL ---------" : "",
+
+    "legend_baja_almacen_central" : "Delete Central Warehouse",
+    "adv_almacen" : "Are you sure you want to delete the following warehouse? The changes will be irreversible",
+    "subtitulo_almacen" : "Warehouse data",
+    "p_numero_almacen" : "Warehouse number: ",
+
+    "--------- BACKOFFICE MODIFICAR ALMACEN CENTRAL ---------" : "",
+
+    "legend_m_almacen_central" : "Delete Central Warehouse",
+
+    "--------- BACKOFFICE CONSULTAR ALMACEN CENTRAL ---------" : "",
+
+    "legend_c_almacen_central" : "Consult Central Warehouse"
+
+
+
+
+
+
+
+
 
 }

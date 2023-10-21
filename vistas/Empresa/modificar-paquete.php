@@ -28,7 +28,8 @@ foreach ($decode as $paquete) {
     $volumen = $paquete["volumen"];
     $fragil = $paquete["fragil"];
     $estado = $paquete["estado"];
-    $empresa = $paquete["empresa"];
+    $empresa = $paquete["nombre_de_empresa"];
+    
     if ($estado !== "En almacén cliente" || $empresa !== $_SESSION["nom_usu"]){
         header("Location: ../permisos.php");
     }
@@ -77,7 +78,7 @@ foreach ($decode as $paquete) {
         </p>
         <p class="subtitulo-crud">Datos modificados</p>
         <input type="text" placeholder="ID" class="txt-crud" name="id_paquete" value="<?= $id_paquete ?>" required
-            readonly>
+            readonly hidden>
         <input type="tel" placeholder="Direccion" class="txt-crud" name="direccion" value="<?= $direccion ?>" required>
         <input type="number" placeholder="Peso" class="txt-crud" name="peso" value="<?= $peso ?>" required>
         <input type="number" placeholder="Volumen" class="txt-crud" name="volumen" value="<?= $volumen ?>" required>

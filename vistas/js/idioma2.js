@@ -91,7 +91,7 @@ function actualizarTextos(data) {
   }
   else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("camionero")){
 
-    document.querySelector(".legend-baja").textContent = data.legend_baja;
+    document.querySelector(".legend-baja").textContent = data.legend_baja_camionero;
     document.querySelector(".adv").textContent = data.adv_camionero;
     document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camionero;
     document.querySelector(".p-id").textContent = data.p_id;
@@ -106,7 +106,7 @@ function actualizarTextos(data) {
 
     document.querySelector(".legend-m-camionero").textContent = data.legend_m_camionero;
     document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camionero;
-    document.querySelector(".subtitulo-crud-2").textContent = data.subtitulo_2_camionero;
+    document.querySelector(".subtitulo-crud-2").textContent = data.subtitulo_2;
     document.querySelector(".p-id").textContent = data.p_id;
     document.querySelector(".p-cedula").textContent = data.p_cedula;
     document.querySelector(".p-nombre").textContent = data.p_nombre;
@@ -126,7 +126,6 @@ function actualizarTextos(data) {
     document.querySelector(".p-telefono").textContent = data.p_telefono;
 
     document.querySelector(".boton-volver").value = data.btn_volver;
-    document.querySelector(".boton-siguiente").value = data.boton_modificar;
 
   }
   else if(url.includes("Backoffice") && url.includes("op-camiones")){
@@ -149,7 +148,128 @@ function actualizarTextos(data) {
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
 
   }
+  else if(url.includes("Backoffice") && url.includes("alta-camion")){
+
+    document.querySelector(".legend-form").textContent = data.legend_camion;
+    document.querySelector(".txt-1").placeholder = data.matrîcula;
+    document.querySelector(".txt-2").placeholder = data.peso_max;
+    document.querySelector(".txt-3").placeholder = data.vol_max;
+
+    document.querySelector(".boton-agregar").value = data.btn_agregar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("camion")){
+
+    document.querySelector(".legend-baja").textContent = data.legend_baja_camion;
+    document.querySelector(".adv").textContent = data.adv_camion;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camion;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-matricula").textContent = data.p_matricula;
+    document.querySelector(".p-peso-sop").textContent = data.p_peso_sop;
+    document.querySelector(".p-volumen-disp").textContent = data.p_volumen_disp;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+
+    document.querySelector(".boton-eliminar").value = data.btn_eliminar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("modificar-camion")){
+
+    document.querySelector(".legend-m-camion").textContent = data.legend_m_camion;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camion;
+    document.querySelector(".subtitulo-crud-2").textContent = data.subtitulo_2;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-matricula").textContent = data.p_matricula;
+    document.querySelector(".p-peso-sop").textContent = data.p_peso_sop;
+    document.querySelector(".p-volumen-disp").textContent = data.p_volumen_disp;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.boton_modificar;
+  }
+  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("camion")){
+
+    document.querySelector(".legend-c-camion").textContent = data.legend_c_camion;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camion;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-matricula").textContent = data.p_matricula;
+    document.querySelector(".p-peso-sop").textContent = data.p_peso_sop;
+    document.querySelector(".p-volumen-disp").textContent = data.p_volumen_disp;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("op-almacenes")){
+
+    document.querySelector(".h1-titulo").textContent = data.h1_titulo_almacenes;
+    document.querySelector(".h2-almacen-central").textContent = data.h2_almacen_central;
+    document.querySelector(".h2-almacen-cliente").textContent = data.h2_almacen_cliente;
+    document.querySelector(".h2-plataforma").textContent = data.h2_plataforma;
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("op-almacen-central")){
+
+    document.querySelector(".h1-tabla").textContent = data.h2_almacen_central;
+    document.querySelector("#th1-almacen-central").textContent = data.th1_almacen_central;
+    let btnsOp = Array.from(document.querySelectorAll(".btn-op"));
+    btnsOp.forEach(btn =>{
+      if(btn.classList.contains("btn-op1")){
+        btn.textContent = data.btn_op1;
+      } else if (btn.classList.contains("btn-op2")){
+        btn.textContent = data.btn_op2;
+      } else if (btn.classList.contains("btn-op3")){
+        btn.textContent = data.btn_op3;
+      }
+    })
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+  }
+  else if(url.includes("Backoffice") && url.includes("alta-almacen-central")){
+
+    document.querySelector(".legend-form").textContent = data.legend_almacen_central;
+    document.querySelector(".txt-1").placeholder = data.telefono;
+    document.querySelector(".txt-2").placeholder = data.numero_almacen;
+
+    document.querySelector(".boton-agregar").value = data.btn_agregar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("almacen_central")){
+
+    document.querySelector(".legend-baja").textContent = data.legend_baja_almacen_central;
+    document.querySelector(".adv").textContent = data.adv_almacen;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_almacen;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-telefono").textContent = data.p_telefono;
+    document.querySelector(".p-numero-almacen").textContent = data.p_numero_almacen;
+
+    document.querySelector(".boton-eliminar").value = data.btn_eliminar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("modificar-almacen-central")){
+
+    document.querySelector(".legend-m-almacen-central").textContent = data.legend_m_almacen_central;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_almacen;
+    document.querySelector(".subtitulo-crud-2").textContent = data.subtitulo_2;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-telefono").textContent = data.p_telefono;
+    document.querySelector(".p-numero-almacen").textContent = data.p_numero_almacen;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.boton_modificar;
+  }
+  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("almacen_central")){
+
+    document.querySelector(".legend-c-almacen-central").textContent = data.legend_c_almacen_central;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_almacen;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-telefono").textContent = data.p_telefono;
+    document.querySelector(".p-numero-almacen").textContent = data.p_numero_almacen;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
 }
+
 
 window.addEventListener("DOMContentLoaded", () => {
   if (!idiomaSeleccionado) {

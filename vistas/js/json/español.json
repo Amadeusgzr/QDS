@@ -71,7 +71,8 @@
     "--------- BACKOFFICE MODIFICAR CAMIONERO ---------" : "",
 
     "legend_m_camionero" : "Modificar Camionero",
-    "subtitulo_2_camionero" : "Datos modificados",
+
+    "subtitulo_2" : "Datos modificados",
     "boton_modificar" : "Modificar",
 
     "--------- BACKOFFICE CONSULTAR CAMIONERO ---------" : "",
@@ -82,6 +83,68 @@
 
     "h1_tabla_camiones" : "Camiones",
     "th1_camiones" : "Matrícula",
-    "th2_camiones" : "Estado"
+    "th2_camiones" : "Estado",
+
+    "--------- BACKOFFICE AGREGAR CAMION ---------" : "",
+
+    "legend_camion" : "Agregar Camión",
+    "matrîcula" : "Matrícula",
+    "peso_max" : "Peso max. (Kg)",
+    "vol_max" : "Volumen max. (Mts3)",
+
+    "--------- BACKOFFICE ELIMINAR CAMION ---------" : "",
+
+    "legend_baja_camion" : "Eliminar Camión",
+    "adv_camion" : "¿Seguro que quiere eliminar el siguiente camión? Los cambios serán irreversibles",
+    "subtitulo_camion" : "Datos del camión",
+    "p_matricula" : "Matrícula: ",
+    "p_peso_sop" : "Peso soportado: ",
+    "p_volumen_disp" : "Volumen disponible: ",
+    "p_estado" : "Estado: ",
+
+    "--------- BACKOFFICE MODIFICAR CAMION ---------" : "",
+
+    "legend_m_camion" : "Modificar Camión",
+
+    "--------- BACKOFFICE CONSULTAR CAMION ---------" : "",
+
+    "legend_c_camion" : "Consultar Camión",
+
+    "--------- BACKOFFICE ALMACENES ---------" : "",
+
+    "h1_titulo_almacenes" : "Gestión de Almacenes",
+    "h2_almacen_central" : "Almacenes Centrales",
+    "h2_almacen_cliente" : "Almacenes Cliente",
+    "h2_plataforma" : "Plataformas",
+
+    "--------- BACKOFFICE ALMACENES CENTRALES ---------" : "",
+
+    "th1_almacen_central" : "Número de almacén",
+
+    "--------- BACKOFFICE AGREGAR ALMACEN CENTRAL ---------" : "",
+
+    "legend_almacen_central" : "Agregar Almacén Central",
+    "numero_almacen" : "Número de almacén",
+
+    "--------- BACKOFFICE ELIMINAR ALMACEN CENTRAL ---------" : "",
+
+    "legend_baja_almacen_central" : "Eliminar Almacén Central",
+    "adv_almacen" : "¿Seguro que quiere eliminar el siguiente almacén? Los cambios serán irreversibles",
+    "subtitulo_almacen" : "Datos del almacén",
+    "p_numero_almacen" : "Número de almacén: ",
+
+    "--------- BACKOFFICE MODIFICAR ALMACEN CENTRAL ---------" : "",
+
+    "legend_m_almacen_central" : "Eliminar Almacén Central",
+
+    "--------- BACKOFFICE CONSULTAR ALMACEN CENTRAL ---------" : "",
+
+    "legend_c_almacen_central" : "Consultar Almacén Central"
+
+
+
+
+
+
 
 }

@@ -70,11 +70,11 @@ if (isset($_GET['id_camionero'])) {
         $numero_almacen = $fila["numero_almacen"];
 
         echo "<div class='form-crud'>
-        <legend>Consultar Almacen Central</legend>
+        <legend class='legend-c-almacen-central'>Consultar Almacen Central</legend>
         <p class='subtitulo-crud'>Datos del almacén</p>
-        <p><b>ID: </b>$id_almacen_central</p>
-        <p><b>Teléfono: </b>$telefono</p>
-        <p><b>Número de almacén: </b>$numero_almacen</p>
+        <p><b class='p-id'>ID: </b>$id_almacen_central</p>
+        <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
+        <p><b class='p-numero-almacen'>Número de almacén: </b>$numero_almacen</p>
         <a href='op-almacen-central.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
@@ -149,13 +149,13 @@ if (isset($_GET['id_camionero'])) {
         $estado = $fila["estado"];
 
         echo "<div class='form-crud'>
-        <legend>Consultar Camión</legend>
+        <legend class='legend-c-camion'>Consultar Camión</legend>
         <p class='subtitulo-crud'>Datos del camión</p>
-        <p><b>ID: </b>$id_camion</p>
-        <p><b>Matrícula: </b>$matricula</p>
-        <p><b>Peso soportado: </b>$peso_soportado Kg</p>
-        <p><b>Volumen disponible: </b>$volumen_disponible Cm3</p>
-        <p><b>Estado: </b>$estado</p>
+        <p><b class='p-id'>ID: </b>$id_camion</p>
+        <p><b class='p-matricula'>Matrícula: </b>$matricula</p>
+        <p><b class='p-peso-sop'>Peso soportado: </b>$peso_soportado Kg</p>
+        <p><b class='p-volumen-disp'>Volumen disponible: </b>$volumen_disponible Cm3</p>
+        <p><b class='p-estado'>Estado: </b>$estado</p>
         <a href='op-camiones.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }

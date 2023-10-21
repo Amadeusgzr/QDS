@@ -26,18 +26,18 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 
 <div class="form-crud">
     <form action="modificar.php" method="post">
-        <legend>Modificar Almacén (central)</legend>
+        <legend class="legend-m-almacen-central">Modificar Almacén (central)</legend>
         <p class="subtitulo-crud">Datos actuales</p>
-        <p><b>ID: </b>
+        <p><b class="p-id">ID: </b>
             <?= $id_almacen_central ?>
         </p>
-        <p><b>Teléfono: </b>
+        <p><b class="p-telefono">Teléfono: </b>
             <?= $telefono ?>
         </p>
-        <p><b>Número de almacén: </b>
+        <p><b class="p-numero-almacen">Número de almacén: </b>
             <?= $numero_almacen ?>
         </p>
-        <p class="subtitulo-crud">Datos modificados</p>
+        <p class="subtitulo-crud subtitulo-crud-2">Datos modificados</p>
         <input type="text" placeholder="ID" class="txt-crud" name="id_almacen_central"
             value="<?= $id_almacen_central ?>" required readonly>
         <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono" value="<?= $telefono ?>" required>

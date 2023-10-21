@@ -15,10 +15,10 @@ require '../plantillas/menu-cuenta.php';
 
 <div class="form-crud">
     <form action="alta-almacen-central.php" method="post">
-        <legend>Agregar Almacén Central</legend>
-        <input type="text" placeholder="Teléfono" class="txt-crud" name="telefono[]" required>
-        <input type="tel" placeholder="Número de almacén" class="txt-crud" name="numero_almacen[]" required>
-        <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
+        <legend class="legend-form">Agregar Almacén Central</legend>
+        <input type="text" placeholder="Teléfono" class="txt-crud txt-1"  name="telefono[]" required>
+        <input type="tel" placeholder="Número de almacén" class="txt-crud txt-2" name="numero_almacen[]" required>
+        <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente boton-agregar"></a>
     </form>
     <a href="op-almacen-central.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>

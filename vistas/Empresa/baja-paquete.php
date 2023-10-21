@@ -32,7 +32,7 @@ foreach ($decode as $paquete) {
     $tipo = $paquete["tipo"];
     $estado = $paquete["estado"];
     $detalles = $paquete["detalles"];
-    $empresa = $paquete["empresa"];
+    $empresa = $paquete["nombre_de_empresa"];
     if ($estado !== "En almacén cliente" || $empresa !== $_SESSION["nom_usu"]){
         header("Location: ../permisos.php");
     }

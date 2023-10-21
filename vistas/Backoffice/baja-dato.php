@@ -76,13 +76,13 @@ if (isset($_GET['id_camionero'])) {
         $telefono = $fila["telefono"];
         $numero_almacen = $fila["numero_almacen"];
         echo "<div class='form-crud'>
-        <legend>Eliminar Almacen Central</legend>
+        <legend class='legend-baja'>Eliminar Almacen Central</legend>
         <p class='adv'>¿Seguro que quiere eliminar el siguiente almacén? Los cambios serán irreversibles</p>
         <p class='subtitulo-crud'>Datos del almacén</p>
-        <p><b>ID: </b>$id_almacen_central</p>
-        <p><b>Teléfono: </b>$telefono</p>
-        <p><b>Número de almacén: </b>$numero_almacen</p>
-        <a href='eliminar.php?id_almacen_central=$id_almacen_central'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <p><b class='p-id'>ID: </b>$id_almacen_central</p>
+        <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
+        <p><b class='p-numero-almacen'>Número de almacén: </b>$numero_almacen</p>
+        <a href='eliminar.php?id_almacen_central=$id_almacen_central'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
         <a href='op-almacen-central.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
@@ -122,15 +122,15 @@ if (isset($_GET['id_camionero'])) {
         $volumen_disponible = $fila["volumen_disponible"];
         $estado = $fila["estado"];
         echo "<div class='form-crud'>
-        <legend>Eliminar Camión</legend>
+        <legend class='legend-baja'>Eliminar Camión</legend>
         <p class='adv'>¿Seguro que quiere eliminar el siguiente camión? Los cambios serán irreversibles</p>
         <p class='subtitulo-crud'>Datos del camión</p>
-        <p><b>ID: </b>$id_camion</p>
-        <p><b>Matrícula: </b>$matricula</p>
-        <p><b>Peso soportado: </b>$peso_soportado Kg</p>
-        <p><b>Volumen disponible: </b>$volumen_disponible Cm3</p>
-        <p><b>Estado: </b>$estado</p>
-        <a href='eliminar.php?id_camion=$id_camion'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <p><b class='p-id'>ID: </b>$id_camion</p>
+        <p><b class='p-matricula'>Matrícula: </b>$matricula</p>
+        <p><b class='p-peso-sop'>Peso soportado: </b>$peso_soportado Kg</p>
+        <p><b class='p-volumen-disp'>Volumen disponible: </b>$volumen_disponible Cm3</p>
+        <p><b class='p-estado'>Estado: </b>$estado</p>
+        <a href='eliminar.php?id_camion=$id_camion'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
         <a href='op-camiones.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }

@@ -28,24 +28,24 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 ?>
 <div class="form-crud">
     <form action="modificar.php" method="post">
-        <legend>Modificar Camión</legend>
+        <legend class="legend-m-camion">Modificar Camión</legend>
         <p class="subtitulo-crud">Datos actuales</p>
-        <p><b>ID: </b>
+        <p><b class="p-id">ID: </b>
             <?= $id_camion ?>
         </p>
-        <p><b>Matrícula: </b>
+        <p><b class="p-matricula">Matrícula: </b>
             <?= $matricula ?>
         </p>
-        <p><b>Peso soportado: </b>
+        <p><b class="p-peso-sop">Peso soportado: </b>
             <?= $peso_soportado ?> Kg
         </p>
-        <p><b>Volumen disponible: </b>
+        <p><b class="p-volumen-disp">Volumen disponible: </b>
             <?= $volumen_disponible ?> Cm3
         </p>
-        <p><b>Estado: </b>
+        <p><b class="p-estado">Estado: </b>
             <?= $estado ?>
         </p>
-        <p class="subtitulo-crud">Datos modificados</p>
+        <p class="subtitulo-crud subtitulo-crud-2">Datos modificados</p>
         <input type="text" placeholder="ID" class="txt-crud" name="id_camion" value="<?= $id_camion ?>" required
             readonly>
         <input type="text" placeholder="Matrícula" class="txt-crud" name="matricula" value="<?= $matricula ?>" required
