@@ -51,13 +51,13 @@ if (isset($_GET['id_camionero'])) {
         $telefono = $fila["telefono"];
         $direccion = $fila["direccion"];
         echo "<div class='form-crud'>
-        <legend>Eliminar Almacen Cliente</legend>
+        <legend class='legend-baja-almacen-cliente'>Eliminar Almacen Cliente</legend>
         <p class='adv'>¿Seguro que quiere eliminar el siguiente almacén? Los cambios serán irreversibles</p>
         <p class='subtitulo-crud'>Datos del almacén</p>
-        <p><b>ID: </b>$id_almacen_cliente</p>
-        <p><b>Teléfono: </b>$telefono</p>
-        <p><b>Dirección: </b>$direccion</p>
-        <a href='eliminar.php?id_almacen_cliente=$id_almacen_cliente'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <p><b class='p-id'>ID: </b>$id_almacen_cliente</p>
+        <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
+        <p><b class='p-direccion'>Dirección: </b>$direccion</p>
+        <a href='eliminar.php?id_almacen_cliente=$id_almacen_cliente'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
         <a href='op-almacen-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
@@ -98,13 +98,13 @@ if (isset($_GET['id_camionero'])) {
         $telefono = $fila["telefono"];
         $direccion = $fila["direccion"];
         echo "<div class='form-crud'>
-        <legend>Eliminar Plataforma</legend>
+        <legend class='legend-baja-plataforma'>Eliminar Plataforma</legend>
         <p class='adv'>¿Seguro que quiere eliminar la siguiente plataforma? Los cambios serán irreversibles</p>
         <p class='subtitulo-crud'>Datos de la plataforma</p>
-        <p><b>ID: </b>$id_plataforma</p>
-        <p><b>Teléfono: </b>$telefono</p>
-        <p><b>Dirección: </b>$direccion</p>
-        <a href='eliminar.php?id_plataforma=$id_plataforma'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <p><b class='p-id'>ID: </b>$id_plataforma</p>
+        <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
+        <p><b class='p-direccion'>Dirección: </b>$direccion</p>
+        <a href='eliminar.php?id_plataforma=$id_plataforma'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
         <a href='op-plataforma.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }

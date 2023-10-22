@@ -45,9 +45,9 @@ require '../plantillas/menu-cuenta.php';
                 }
                 echo '<td>' . $lote['peso'] . '</td>';
                 echo "<td>
-                <a href='baja-lote.php?id_lote=$id_lote'><button>B</button></a>
-                <a href='modificar-lote.php?id_lote=$id_lote'><button>M</button></a>
-                <a href='consultar-lote.php?id_lote=$id_lote'><button>C</button></a>
+                <a href='baja-lote.php?id_lote=$id_lote'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                <a href='modificar-lote.php?id_lote=$id_lote'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                <a href='consultar-lote.php?id_lote=$id_lote'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo '</tr>';
             }

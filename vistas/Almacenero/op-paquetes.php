@@ -42,9 +42,9 @@ require '../plantillas/menu-cuenta.php';
                 echo '<td>' . $paquete["direccion"] . '</td>';
                 echo '<td>' . $paquete['estado'] . '</td>';
                 echo "<td>
-                <a href='baja-paquete.php?id_paquete=$id_paquete'><button>B</button></a>
-                <a href='modificar-paquete.php?id_paquete=$id_paquete'><button>M</button></a>
-                <a href='consultar-paquete.php?id_paquete=$id_paquete'><button>C</button></a>
+                <a href='baja-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                <a href='modificar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                <a href='consultar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo '</tr>';
             }

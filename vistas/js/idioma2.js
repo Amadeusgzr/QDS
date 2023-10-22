@@ -41,8 +41,8 @@ function actualizarTextos(data) {
   document.querySelector(".aop3-ingresado").textContent = data.aop3_index;
   document.querySelector(".aop4-ingresado").textContent = data.aop4_index;
   if(url.includes("Backoffice") && url.includes("index")){
-    console.log("Hola");
     
+    document.querySelector(".aop1-ingresado").textContent = data.aop1_no_index;
     document.querySelector("#op1 h2").textContent = data.op1_h2;
     document.querySelector("#op1 p").textContent = data.op1_p;
     document.querySelector("#op2 h2").textContent = data.op2_h2;
@@ -64,16 +64,7 @@ function actualizarTextos(data) {
     document.querySelector(".h1-tabla").textContent = data.h1_tabla_camioneros;
     document.querySelector(".th1").textContent = data.th1_camioneros;
     document.querySelector(".th2").textContent = data.th2_camioneros;
-    let btnsOp = Array.from(document.querySelectorAll(".btn-op"));
-    btnsOp.forEach(btn =>{
-      if(btn.classList.contains("btn-op1")){
-        btn.textContent = data.btn_op1;
-      } else if (btn.classList.contains("btn-op2")){
-        btn.textContent = data.btn_op2;
-      } else if (btn.classList.contains("btn-op3")){
-        btn.textContent = data.btn_op3;
-      }
-    })
+
     document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
@@ -133,16 +124,7 @@ function actualizarTextos(data) {
     document.querySelector(".h1-tabla").textContent = data.h1_tabla_camiones;
     document.querySelector("#th1-camion").textContent = data.th1_camiones;
     document.querySelector("#th2-camion").textContent = data.th2_camiones;
-    let btnsOp = Array.from(document.querySelectorAll(".btn-op"));
-    btnsOp.forEach(btn =>{
-      if(btn.classList.contains("btn-op1")){
-        btn.textContent = data.btn_op1;
-      } else if (btn.classList.contains("btn-op2")){
-        btn.textContent = data.btn_op2;
-      } else if (btn.classList.contains("btn-op3")){
-        btn.textContent = data.btn_op3;
-      }
-    })
+
     document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
@@ -211,16 +193,7 @@ function actualizarTextos(data) {
 
     document.querySelector(".h1-tabla").textContent = data.h2_almacen_central;
     document.querySelector("#th1-almacen-central").textContent = data.th1_almacen_central;
-    let btnsOp = Array.from(document.querySelectorAll(".btn-op"));
-    btnsOp.forEach(btn =>{
-      if(btn.classList.contains("btn-op1")){
-        btn.textContent = data.btn_op1;
-      } else if (btn.classList.contains("btn-op2")){
-        btn.textContent = data.btn_op2;
-      } else if (btn.classList.contains("btn-op3")){
-        btn.textContent = data.btn_op3;
-      }
-    })
+
     document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
@@ -265,6 +238,97 @@ function actualizarTextos(data) {
     document.querySelector(".p-id").textContent = data.p_id;
     document.querySelector(".p-telefono").textContent = data.p_telefono;
     document.querySelector(".p-numero-almacen").textContent = data.p_numero_almacen;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("op-almacen-cliente")){
+
+    document.querySelector(".h1-tabla").textContent = data.h2_almacen_cliente;
+    document.querySelector("#th1-almacen-cliente").textContent = data.th1_almacen_cliente;
+
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+  }
+  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("almacen_cliente")){
+
+    document.querySelector(".legend-baja-almacen-cliente").textContent = data.legend_baja_almacen_cliente;
+    document.querySelector(".adv").textContent = data.adv_almacen;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_almacen;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-telefono").textContent = data.p_telefono;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+
+    document.querySelector(".boton-eliminar").value = data.btn_eliminar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("modificar-almacen-cliente")){
+
+    document.querySelector(".legend-m-almacen-cliente").textContent = data.legend_m_almacen_cliente;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_almacen;
+    document.querySelector(".subtitulo-crud-2").textContent = data.subtitulo_2;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-telefono").textContent = data.p_telefono;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.boton_modificar;
+  }
+  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("almacen_cliente")){
+
+    document.querySelector(".legend-c-almacen-cliente").textContent = data.legend_c_almacen_cliente;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_almacen;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-telefono").textContent = data.p_telefono;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("op-plataforma")){
+
+    document.querySelector(".h1-tabla").textContent = data.h2_plataforma;
+    document.querySelector("#th1-plataformas").textContent = data.th1_plataformas;
+
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+  }
+  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("plataforma")){
+
+    document.querySelector(".legend-baja-plataforma").textContent = data.legend_baja_plataforma;
+    document.querySelector(".adv").textContent = data.adv_plataforma;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_plataforma;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-telefono").textContent = data.p_telefono;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+
+    document.querySelector(".boton-eliminar").value = data.btn_eliminar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("modificar-plataforma")){
+
+    document.querySelector(".legend-m-plataforma").textContent = data.legend_m_almacen_cliente;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_plataforma;
+    document.querySelector(".subtitulo-crud-2").textContent = data.subtitulo_2;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-telefono").textContent = data.p_telefono;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+    document.querySelector(".p-departamento").textContent = data.p_departamento;
+    document.querySelector(".p-volumen-maximo").textContent = data.p_volumen_maximo;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.boton_modificar;
+  }
+  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("plataforma")){
+
+    document.querySelector(".legend-c-plataforma").textContent = data.legend_c_plataforma;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_plataforma;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-telefono").textContent = data.p_telefono;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+    document.querySelector(".p-departamento").textContent = data.p_departamento;
+    document.querySelector(".p-volumen-maximo").textContent = data.p_volumen_maximo;
+    document.querySelector(".p-trayecto").textContent = data.p_trayecto;
 
     document.querySelector(".boton-volver").value = data.btn_volver;
   }

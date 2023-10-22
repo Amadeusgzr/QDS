@@ -35,9 +35,9 @@ require '../plantillas/menu-cuenta.php';
                 echo "<td>$id_almacen_central</td>";
                 echo "<td>$numero_almacen</td>";
                 echo "<td>
-                <a href='baja-dato.php?id_almacen_central=$id_almacen_central'><button class='btn-op btn-op1'>B</button></a>
-                <a href='modificar-almacen-central.php?id_almacen_central=$id_almacen_central'><button class='btn-op btn-op2'>M</button></a>
-                <a href='consultar-dato.php?id_almacen_central=$id_almacen_central'><button class='btn-op btn-op3'>C</button></a>
+                <a href='baja-dato.php?id_almacen_central=$id_almacen_central'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                <a href='modificar-almacen-central.php?id_almacen_central=$id_almacen_central'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                <a href='consultar-dato.php?id_almacen_central=$id_almacen_central'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo "</tr>";
             }

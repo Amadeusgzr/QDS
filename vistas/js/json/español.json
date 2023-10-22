@@ -41,9 +41,7 @@
     "th1_camioneros" : "Nombre",
     "th2_camioneros" : "Estado",
 
-    "btn_op1" : "B",
-    "btn_op2" : "M",
-    "btn_op3" : "C",
+    
 
     "btn_limpiar" : "Limpiar",
     "btn_volver" : "Volver",
@@ -139,7 +137,45 @@
 
     "--------- BACKOFFICE CONSULTAR ALMACEN CENTRAL ---------" : "",
 
-    "legend_c_almacen_central" : "Consultar Almacén Central"
+    "legend_c_almacen_central" : "Consultar Almacén Central",
+
+    "--------- BACKOFFICE ALMACENES CLIENTES ---------" : "",
+
+    "th1_almacen_cliente" : "Dirección",
+
+    "--------- BACKOFFICE ELIMINAR ALMACEN CLIENTE ---------" : "",
+
+    "legend_baja_almacen_cliente" : "Eliminar Almacén Cliente",
+    "p_direccion" : "Dirección: ",
+
+    "--------- BACKOFFICE MODIFICAR ALMACEN CLIENTE ---------" : "",
+
+    "legend_m_almacen_cliente" : "Modificar Almacén Cliente",
+
+    "--------- BACKOFFICE CONSULTAR ALMACEN CLIENTE ---------" : "",
+
+    "legend_c_almacen_cliente" : "Consultar Almacén Cliente",
+
+    "--------- BACKOFFICE PLATAFORMAS ---------" : "",
+
+    "th1_plataformas" : "Dirección",
+
+    "--------- BACKOFFICE ELIMINAR PLATAFORMA ---------" : "",
+
+    "legend_baja_plataforma" : "Eliminar Plataforma",
+    "adv_plataforma" : "¿Seguro que quiere eliminar la siguiente plataforma? Los cambios serán irreversibles",
+    "subtitulo_plataforma" : "Datos de la Plataforma",
+
+    "--------- BACKOFFICE MODIFICAR PLATAFORMA ---------" : "",
+
+    "legend_m_plataforma" : "Modificar Plataforma",
+    "p_departamento" : "Departamento: ",
+    "p_volumen_maximo" : "Volumen Máximo: ",
+
+    "--------- BACKOFFICE CONSULTAR PLATAFORMA ---------" : "",
+
+    "legend_c_plataforma" : "Consultar Plataforma",
+    "p_trayecto" : "Trayecto: "
 
 
 

@@ -1,5 +1,6 @@
 {
     "aop1_index" : "Log in",
+    "aop1_no_index" : "Home",
     "aop3_index" : "Change password",
     "aop4_index" : "Log out",
 
@@ -41,9 +42,7 @@
     "th1_camioneros" : "Name",
     "th2_camioneros" : "Status",
 
-    "btn_op1" : "D",
-    "btn_op2" : "M",
-    "btn_op3" : "C",
+    
 
     "btn_limpiar" : "Clear",
     "btn_volver" : "Back",
@@ -139,14 +138,44 @@
 
     "--------- BACKOFFICE CONSULTAR ALMACEN CENTRAL ---------" : "",
 
-    "legend_c_almacen_central" : "Consult Central Warehouse"
+    "legend_c_almacen_central" : "Consult Central Warehouse",
 
+    "--------- BACKOFFICE ALMACENES CLIENTES ---------" : "",
 
+    "th1_almacen_cliente" : "Address",
 
+    "--------- BACKOFFICE ELIMINAR ALMACEN CLIENTE ---------" : "",
 
+    "legend_baja_almacen_cliente" : "Delete Customer Warehouse",
+    "p_direccion" : "Address: ",
 
+    "--------- BACKOFFICE MODIFICAR ALMACEN CLIENTE ---------" : "",
 
+    "legend_m_almacen_cliente" : "Modify Customer Warehouse",
 
+    "--------- BACKOFFICE CONSULTAR ALMACEN CLIENTE ---------" : "",
 
+    "legend_c_almacen_cliente" : "Consult Customer Warehouse",
+
+    "--------- BACKOFFICE PLATAFORMAS ---------" : "",
+
+    "th1_plataformas" : "Address",
+
+    "--------- BACKOFFICE ELIMINAR PLATAFORMA ---------" : "",
+
+    "legend_baja_plataforma" : "Delete Platform",
+    "adv_plataforma" : "Are you sure you want to delete the following platform? The changes will be irreversible",
+    "subtitulo_plataforma" : "Platform data",
+
+    "--------- BACKOFFICE MODIFICAR PLATAFORMA ---------" : "",
+
+    "legend_m_plataforma" : "Modify Platform",
+    "p_departamento" : "Department: ",
+    "p_volumen_maximo" : "Maximum Volume: ",
+
+    "--------- BACKOFFICE CONSULTAR PLATAFORMA ---------" : "",
+
+    "legend_c_plataforma" : "Consult Platform",
+    "p_trayecto" : "Journey: "
 
 }

@@ -388,6 +388,22 @@ legend{
     flex-direction: column;
 }
 
+#div-contraseña{
+    display: flex;
+    align-items: center;
+}
+
+#div-contraseña input{
+    width: 100%;
+}
+
+#icono-ojo{
+    position: absolute;
+    width: 25px;
+    right: 50px;
+    cursor: pointer;
+}
+
 #submit-login{
     width: 100%;
     margin-top: 30px;
@@ -807,6 +823,16 @@ label[for="radio-paq-no"]{
 .h1-tabla{
     text-align: center;
     margin: 20px 0;
+}
+
+.btn-op{
+    cursor: pointer;
+    background-color: transparent;
+    padding: 2px;
+}
+
+.btn-op:hover{
+    background-color: #aaa;
 }
 
 .adv{

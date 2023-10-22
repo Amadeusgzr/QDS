@@ -41,9 +41,9 @@ require '../plantillas/menu-cuenta.php';
                 echo "<td>$rut</td>";
                 echo "<td>$mail</td>";
                 echo "<td>
-                <a href='baja-dato.php?id_empresa_cliente=$id_empresa'><button class='btn-op btn-op1'>B</button></a>
-                <a href='modificar-empresa-cliente.php?id_empresa_cliente=$id_empresa'><button class='btn-op btn-op2'>M</button></a>
-                <a href='consultar-dato.php?id_empresa_cliente=$id_empresa'><button class='btn-op btn-op3'>C</button></a>
+                <a href='baja-dato.php?id_empresa_cliente=$id_empresa'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                <a href='modificar-empresa-cliente.php?id_empresa_cliente=$id_empresa'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                <a href='consultar-dato.php?id_empresa_cliente=$id_empresa'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo "</tr>";
             }

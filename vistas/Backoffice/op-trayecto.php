@@ -39,9 +39,9 @@ require '../plantillas/menu-cuenta.php';
                 echo "<td>$destino</td>";
                 echo "<td>$destinos_intermedios</td>";
                 echo "<td>
-                <a href='baja-dato.php?id_trayecto=$id_trayecto'><button>B</button></a>
-                <a href='modificar-almacen-cliente.php?id_trayecto=$id_trayecto'><button>M</button></a>
-                <a href='consultar-dato.php?id_trayecto=$id_trayecto'><button>C</button></a>
+                <a href='baja-dato.php?id_trayecto=$id_trayecto'><button><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                <a href='modificar-almacen-cliente.php?id_trayecto=$id_trayecto'><button><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                <a href='consultar-dato.php?id_trayecto=$id_trayecto'><button><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo "</tr>";
             }

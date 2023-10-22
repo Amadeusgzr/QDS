@@ -17,7 +17,7 @@ require '../plantillas/menu-cuenta.php';
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
-                <th>Direccion</th>
+                <th id="th1-plataformas">Direccion</th>
                 <th>OP</th>
             </tr>
             <?php
@@ -35,9 +35,9 @@ require '../plantillas/menu-cuenta.php';
                 echo "<td>$id_plataforma</td>";
                 echo "<td>$direccion</td>";
                 echo "<td>
-                <a href='baja-dato.php?id_plataforma=$id_plataforma'><button>B</button></a>
-                <a href='modificar-plataforma.php?id_plataforma=$id_plataforma'><button>M</button></a>
-                <a href='consultar-dato.php?id_plataforma=$id_plataforma'><button>C</button></a>
+                <a href='baja-dato.php?id_plataforma=$id_plataforma'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                <a href='modificar-plataforma.php?id_plataforma=$id_plataforma'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                <a href='consultar-dato.php?id_plataforma=$id_plataforma'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo "</tr>";
             }
@@ -45,14 +45,13 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-doble">
-        <button class="estilo-boton btns-as-lote">Reiniciar</button>
+        <button class="estilo-boton btns-as-lote btn-limpiar">Reiniciar</button>
         <a href="op-almacenes.php">
             <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
         </a>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-plataforma.php" id="a-agregar"><button class="estilo-boton btns-as-lote"
-                id="op-alta">Agregar</button></a>
+        <a href="alta-plataforma.php" id="a-agregar"><button class="estilo-boton btns-as-lote boton-agregar" id="op-alta">Agregar</button></a>
         <!--<button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>-->
     </div>
 </div>

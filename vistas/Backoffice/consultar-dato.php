@@ -48,11 +48,11 @@ if (isset($_GET['id_camionero'])) {
         $direccion = $fila["direccion"];
 
         echo "<div class='form-crud'>
-        <legend>Consultar Almacen Cliente</legend>
+        <legend class='legend-c-almacen-cliente'>Consultar Almacen Cliente</legend>
         <p class='subtitulo-crud'>Datos del almacén</p>
-        <p><b>ID: </b>$id_almacen_cliente</p>
-        <p><b>Teléfono: </b>$telefono</p>
-        <p><b>Dirección: </b>$direccion</p>
+        <p><b class='p-id'>ID: </b>$id_almacen_cliente</p>
+        <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
+        <p><b class='p-direccion'>Dirección: </b>$direccion</p>
         <a href='op-almacen-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
@@ -106,14 +106,14 @@ if (isset($_GET['id_camionero'])) {
         // Realizar la solicitud a la API
         $response = file_get_contents($url);
         echo "<div class='form-crud'>
-        <legend>Consultar Plataforma</legend>
+        <legend class='legend-c-plataforma'>Consultar Plataforma</legend>
         <p class='subtitulo-crud'>Datos de la plataforma</p>
-        <p><b>ID: </b>$id_plataforma</p>
-        <p><b>Teléfono: </b>$telefono</p>
-        <p><b>Dirección: </b>$direccion</p>
-        <p><b>Departamento: </b>$departamento</p>
-        <p><b>Volumen máx.: </b>$volumen</p>
-        <p><b>Trayecto: </b></p>";
+        <p><b class='p-id'>ID: </b>$id_plataforma</p>
+        <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
+        <p><b class='p-direccion'>Dirección: </b>$direccion</p>
+        <p><b class='p-departamento'>Departamento: </b>$departamento</p>
+        <p><b class='p-volumen-maximo'>Volumen máx.: </b>$volumen</p>
+        <p><b class='p-trayecto'>Trayecto: </b></p>";
         if ($data->status === "OK") {
             // Recuperar las direcciones en texto
             $pasos = $data->routes[0]->legs[0]->steps;

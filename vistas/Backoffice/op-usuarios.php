@@ -38,9 +38,9 @@ require '../plantillas/menu-cuenta.php';
                 echo "<td>$tipo_usu</td>";
                 echo "<td>$mail</td>";
                 echo "<td>
-                <a href='baja-dato.php?nom_usu=$nom_usu'><button>B</button></a>
-                <a href='modificar-usuario.php?nom_usu=$nom_usu'><button>M</button></a>
-                <a href='consultar-dato.php?nom_usu=$nom_usu'><button>C</button></a>
+                <a href='baja-dato.php?nom_usu=$nom_usu'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                <a href='modificar-usuario.php?nom_usu=$nom_usu'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                <a href='consultar-dato.php?nom_usu=$nom_usu'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo "</tr>";
             }
