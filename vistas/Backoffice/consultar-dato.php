@@ -174,11 +174,11 @@ if (isset($_GET['id_camionero'])) {
         $mail = $fila["mail"];
 
         echo "<div class='form-crud'>
-        <legend>Consultar Empresa Cliente</legend>
+        <legend class='legend-c-empresa-cliente'>Consultar Empresa Cliente</legend>
         <p class='subtitulo-crud'>Datos de la empresa</p>
-        <p><b>ID: </b>$id_empresa</p>
-        <p><b>RUT: </b>$rut</p>
-        <p><b>Nombre: </b>$nombre_de_empresa</p>
+        <p><b class='p-id'>ID: </b>$id_empresa</p>
+        <p><b class='p-cedula'>RUT: </b>$rut</p>
+        <p><b class='p-nombre'>Nombre: </b>$nombre_de_empresa</p>
         <p><b>Mail: </b>$mail</p>
         <a href='op-empresas-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";

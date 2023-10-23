@@ -1,5 +1,6 @@
 {
     "aop1_index" : "Acceder",
+    "aop1_no_index" : "Inicio",
     "aop3_index" : "Cambiar contraseña",
     "aop4_index" : "Cerrar sesión",
 
@@ -20,20 +21,20 @@
     "aop3_ingresado" : "Cambiar contraseña",
     "aop4_ingresado" : "Cerrar sesión",
 
-    "op1_h2" : "Camioneros",
-    "op1_p" : "Gestión de Camioneros",
-    "op2_h2" : "Camiones",
-    "op2_p" : "Gestión de Camiones",
-    "op3_h2" : "Paquetes y Lotes",
-    "op3_p" : "Gestión de Paquetes y Lotes",
-    "op4_h2" : "Almacenes",
-    "op4_p" : "Gestión de Almacenes",
-    "op5_h2" : "Empresas Cliente",
-    "op5_p" : "Gestión de Empresas Cliente",
-    "op6_h2" : "Rutas y Trayectos",
-    "op6_p" : "Gestión de Rutas y Trayectos",
-    "op7_h2" : "Asignar Rutas a Trayectos",
-    "op7_p" : "Asignación de Rutas a Trayectos",
+    "op1_h2" : "Usuarios",
+    "op1_p" : "Gestión de Usuarios",
+    "op2_h2" : "Camioneros",
+    "op2_p" : "Gestión de Camioneros",
+    "op3_h2" : "Camiones",
+    "op3_p" : "Gestión de Camiones",
+    "op4_h2" : "Paquetes y Lotes",
+    "op4_p" : "Gestión de Paquetes y Lotes",
+    "op5_h2" : "Almacenes",
+    "op5_p" : "Gestión de Almacenes",
+    "op6_h2" : "Empresas Cliente",
+    "op6_p" : "Gestión de Empresas Cliente",
+    "op7_h2" : "Rutas y Trayectos",
+    "op7_p" : "Gestión de Rutas y Trayectos",
 
     "--------- BACKOFFICE CAMIONEROS ---------" : "",
 
@@ -175,7 +176,29 @@
     "--------- BACKOFFICE CONSULTAR PLATAFORMA ---------" : "",
 
     "legend_c_plataforma" : "Consultar Plataforma",
-    "p_trayecto" : "Trayecto: "
+    "p_trayecto" : "Trayecto: ",
+
+    "--------- BACKOFFICE EMPRESA CLIENTE ---------" : "",
+
+    "h2_empresas_cliente" : "Empresas Cliente",
+    "th1_empresa_cliente" : "ID",
+    "th2_empresa_cliente" : "Nombre",
+    "th3_empresa_cliente" : "RUT",
+
+    "--------- BACKOFFICE ELIMINAR EMPRESA ---------" : "",
+
+    "legend_baja_empresa" : "Eliminar Empresa Cliente",
+    "adv_empresa" : "¿Seguro que quiere eliminar la siguiente empresa? Los cambios serán irreversibles",
+    "subtitulo_empresa" : "Datos de la empresa",
+    "p_rut" : "RUT: ",
+
+    "--------- BACKOFFICE MODIFICAR EMPRESA ---------" : "",
+
+    "legend_m_empresa_cliente" : "Modificar Empresa Cliente",
+
+    "--------- BACKOFFICE CONSULTAR EMPRESA ---------" : "",
+
+    "legend_c_empresa_cliente" : "Consultar Empresa Cliente"
 
 
 

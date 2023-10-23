@@ -216,14 +216,14 @@ if (isset($_GET['id_camionero'])) {
         $mail = $fila["mail"];
 
         echo "<div class='form-crud'>
-        <legend>Eliminar Usuario</legend>
+        <legend class='legend-baja-empresa'>Eliminar Empresa Cliente</legend>
         <p class='adv'>¿Seguro que quiere eliminar la siguiente empresa? Los cambios serán irreversibles</p>
         <p class='subtitulo-crud'>Datos de la empresa</p>
-        <p><b>ID: </b>$id_empresa</p>
-        <p><b>Nombre: </b>$nombre_de_empresa</p>
-        <p><b>RUT: </b>$rut</p>
+        <p><b class='p-id'>ID: </b>$id_empresa</p>
+        <p><b class='p-nombre'>Nombre: </b>$nombre_de_empresa</p>
+        <p><b class='p-cedula'>RUT: </b>$rut</p>
         <p><b>Mail: </b>$mail</p>
-        <a href='eliminar.php?id_empresa_cliente=$id_empresa'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='eliminar.php?id_empresa_cliente=$id_empresa'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
         <a href='op-empresas-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }

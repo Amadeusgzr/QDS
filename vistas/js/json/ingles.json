@@ -21,20 +21,20 @@
     "aop3_ingresado" : "Change password",
     "aop4_ingresado" : "Log out",
 
-    "op1_h2" : "Truckers",
-    "op1_p" : "Truckers managment",
-    "op2_h2" : "Trucks",
-    "op2_p" : "Trucks managment",
-    "op3_h2" : "Packages and Lots",
-    "op3_p" : "Packages and Lots managment",
-    "op4_h2" : "Warehouses",
-    "op4_p" : "Warehouses managment",
-    "op5_h2" : "Client Companies",
-    "op5_p" : "Client Companies Managment",
-    "op6_h2" : "Routes and Journeys",
-    "op6_p" : "Rutes and Journeys managment",
-    "op7_h2" : "Assign Routes to Journeys",
-    "op7_p" : "Assignment of Routes to Journeys",
+    "op1_h2" : "Users",
+    "op1_p" : "Users Managment",
+    "op2_h2" : "Truckers",
+    "op2_p" : "Truckers managment",
+    "op3_h2" : "Trucks",
+    "op3_p" : "Trucks managment",
+    "op4_h2" : "Packages and Lots",
+    "op4_p" : "Packages and Lots managment",
+    "op5_h2" : "Warehouses",
+    "op5_p" : "Warehouses managment",
+    "op6_h2" : "Client Companies",
+    "op6_p" : "Client Companies managment",
+    "op7_h2" : "Routes and Journeys",
+    "op7_p" : "Rutes and Journeys managment",
 
     "--------- BACKOFFICE CAMIONEROS ---------" : "",
 
@@ -176,6 +176,28 @@
     "--------- BACKOFFICE CONSULTAR PLATAFORMA ---------" : "",
 
     "legend_c_plataforma" : "Consult Platform",
-    "p_trayecto" : "Journey: "
+    "p_trayecto" : "Journey: ",
+
+    "--------- BACKOFFICE EMPRESA CLIENTE ---------" : "",
+
+    "h2_empresas_cliente" : "Client Companies",
+    "th1_empresa_cliente" : "Key",
+    "th2_empresa_cliente" : "Name",
+    "th3_empresa_cliente" : "ID",
+
+    "--------- BACKOFFICE ELIMINAR EMPRESA ---------" : "",
+
+    "legend_baja_empresa" : "Delete Company",
+    "adv_empresa" : "Are you sure you want to delete the following companie? The changes will be irreversible",
+    "subtitulo_empresa" : "Company data",
+    "p_rut" : "ID: ",
+
+    "--------- BACKOFFICE MODIFICAR EMPRESA ---------" : "",
+
+    "legend_m_empresa_cliente" : "Modify Client Company",
+
+    "--------- BACKOFFICE CONSULTAR EMPRESA ---------" : "",
+
+    "legend_c_empresa_cliente" : "Consult Client Company"
 
 }

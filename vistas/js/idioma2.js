@@ -40,9 +40,11 @@ function actualizarTextos(data) {
   document.querySelector(".aop1-ingresado").textContent = data.aop1_index;
   document.querySelector(".aop3-ingresado").textContent = data.aop3_index;
   document.querySelector(".aop4-ingresado").textContent = data.aop4_index;
+  if(url.includes("Backoffice") || url.includes("Almacenero") || url.includes("Camionero")){
+    document.querySelector(".aop1-ingresado").textContent = data.aop1_no_index;
+  }
   if(url.includes("Backoffice") && url.includes("index")){
     
-    document.querySelector(".aop1-ingresado").textContent = data.aop1_no_index;
     document.querySelector("#op1 h2").textContent = data.op1_h2;
     document.querySelector("#op1 p").textContent = data.op1_p;
     document.querySelector("#op2 h2").textContent = data.op2_h2;
@@ -329,6 +331,51 @@ function actualizarTextos(data) {
     document.querySelector(".p-departamento").textContent = data.p_departamento;
     document.querySelector(".p-volumen-maximo").textContent = data.p_volumen_maximo;
     document.querySelector(".p-trayecto").textContent = data.p_trayecto;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("op-empresas-cliente")){
+
+    document.querySelector(".h1-tabla").textContent = data.h2_empresas_cliente;
+    document.querySelector(".th1-empresa-cliente").textContent = data.th1_empresa_cliente;
+    document.querySelector(".th2-empresa-cliente").textContent = data.th2_empresa_cliente;
+    document.querySelector(".th3-empresa-cliente").textContent = data.th3_empresa_cliente;
+
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+  }
+  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("empresa_cliente")){
+
+    document.querySelector(".legend-baja-empresa").textContent = data.legend_baja_empresa;
+    document.querySelector(".adv").textContent = data.adv_empresa;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_empresa;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-nombre").textContent = data.p_nombre;
+    document.querySelector(".p-cedula").textContent = data.p_rut;
+
+    document.querySelector(".boton-eliminar").value = data.btn_eliminar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("modificar-empresa-cliente")){
+
+    document.querySelector(".legend-m-empresa-cliente").textContent = data.legend_m_empresa_cliente;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_empresa;
+    document.querySelector(".subtitulo-crud-2").textContent = data.subtitulo_2;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-nombre").textContent = data.p_nombre;
+    document.querySelector(".p-cedula").textContent = data.p_rut;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.boton_modificar;
+  }
+  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("empresa_cliente")){
+
+    document.querySelector(".legend-c-empresa-cliente").textContent = data.legend_c_empresa_cliente;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_empresa;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-nombre").textContent = data.p_nombre;
+    document.querySelector(".p-cedula").textContent = data.p_rut;
 
     document.querySelector(".boton-volver").value = data.btn_volver;
   }

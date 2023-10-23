@@ -16,10 +16,10 @@ require '../plantillas/menu-cuenta.php';
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
-                <th class="th1">ID</th>
-                <th class="th2">Nombre</th>
-                <th class="th3">RUT</th>
-                <th class="th4">Mail</th>
+                <th class="th1-empresa-cliente">ID</th>
+                <th class="th2-empresa-cliente">Nombre</th>
+                <th class="th3-empresa-cliente">RUT</th>
+                <th class="th4-empresa-cliente">Mail</th>
                 <th class="th-op">OP</th>
             </tr>
             <?php
