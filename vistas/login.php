@@ -11,7 +11,7 @@ if (isset($_SESSION['nom_usu'])) {
 
     <div class="div-datos-login">
         <h1 id="h1-login">Iniciar Sesión</h1>
-        <input type="text" name="nom_usu" id="txt-mail" class="destino-paq" placeholder="Nombre usuario" autocomplete="off" require>
+        <input type="text" name="nom_usu" id="txt-mail" class="destino-paq" placeholder="Nombre de usuario" autocomplete="off" require>
         <div id="div-contraseña">
             <input type="password" name="contrasenia" id="txt-contraseña" class="destino-paq" placeholder="Contraseña" autocomplete="off" require>
             <img src="img/iconos/ojo-cerrado.png" id="icono-ojo"></img>

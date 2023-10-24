@@ -807,12 +807,27 @@ label[for="radio-paq-no"]{
 
 /*   ASIGNAR PAQUETES   */
 
+.cabecera-tabla{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.cabecera-tabla button{
+    flex-grow: 1;
+}
+
 #div-tabla-lote{
     width: 95%;
     max-width: 1500px;
     background-color: #fff;
     margin: 50px auto;
     padding: 1% 0;
+    padding-bottom: 3%;
     border-radius: 20px;
     background-color: #86858536;
     border: 1px solid #4040404d;
@@ -822,7 +837,7 @@ label[for="radio-paq-no"]{
 
 .h1-tabla{
     text-align: center;
-    margin: 20px 0;
+    margin-bottom: 10px;
 }
 
 .btn-op{
@@ -849,6 +864,7 @@ label[for="radio-paq-no"]{
     user-select: none;
     margin: auto;
     overflow-y: scroll;
+    box-shadow: 0 0 5px #000;
 }
 
 #tabla-lote th{
@@ -857,7 +873,7 @@ label[for="radio-paq-no"]{
     padding: 2px 10px;
     background-color: #bbb;
     position: sticky;
-    top: 0;
+    top: 0px;
 }
 
 #tabla-lote td{
@@ -1110,10 +1126,17 @@ label[for="radio-lote-no"]{
     height: 100%;
 }
 
-.contenedor-tabla-3{
-    max-height: 300px;
+.contenedor-tabla{
+    max-height: 400px;
     overflow-y: scroll;
-    padding: 20px 0;
+}
+
+.contenedor-tabla::-webkit-scrollbar{
+    width: 7px;
+}
+
+.contenedor-tabla::-webkit-scrollbar-thumb{
+    background-color: #ddd;
 }
 
 #mov-lote-3{
@@ -1414,14 +1437,6 @@ label[for="radio-lote-no"]{
 }
 
 .div-btn-doble a button{
-    width: 100%;
-}
-
-#a-agregar{
-    width: 100%;
-}
-
-#a-agregar button{
     width: 100%;
 }
 

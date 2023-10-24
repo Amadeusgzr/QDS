@@ -13,7 +13,7 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 
-<div id="div-tabla-lote">
+<div id="div-tabla-lote">  
     <h1 class="h1-tabla">Paquetes</h1>
     <div class="div-error">
         <?php
@@ -52,14 +52,14 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-doble">
-    <button class="btn-limpiar estilo-boton btns-as-lote btn-limpiar">Borrar</button>
         <a href="index.php">
-            <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
+            <button class="boton-volver estilo-boton">Volver</button>
         </a>
+        <button class="btn-limpiar estilo-boton btn-limpiar">Limpiar</button>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-paquete.php" id="a-agregar"><button class="estilo-boton btns-as-lote boton-agregar" id="op-alta">Agregar</button></a>
-        <button class="boton-siguiente estilo-boton btns-as-lote boton-eliminar" id="submit-as-lote-2">Eliminar</button>
+        <a href="alta-paquete.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
+        <button class="boton-siguiente estilo-boton boton-eliminar" id="submit-as-lote-2">Eliminar</button>
     </div>
 </div>
 
