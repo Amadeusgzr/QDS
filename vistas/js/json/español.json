@@ -198,9 +198,44 @@
 
     "--------- BACKOFFICE CONSULTAR EMPRESA ---------" : "",
 
-    "legend_c_empresa_cliente" : "Consultar Empresa Cliente"
+    "legend_c_empresa_cliente" : "Consultar Empresa Cliente",
 
+    "--------- ALMACENERO INDEX ---------" : "",
 
+    "op1_almacenero_h2" : "Paquetes",
+    "op1_almacenero_p" : "Gestión de Paquetes",
+    "op2_almacenero_h2" : "Lotes",
+    "op2_almacenero_p" : "Gestión de Lotes",
+    "op3_almacenero_h2" : "Asignar Paquetes a Lotes",
+    "op3_almacenero_p" : "Asignación de Paquetes a Lotes",
+    "op4_almacenero_h2" : "Asignar Lotes a Camiones",
+    "op4_almacenero_p" : "Asignación de Lotes a Camiones",
+
+    "--------- ALMACENERO PAQUETES ---------" : "",
+
+    "h2_paquetes" : "Paquetes",
+    "th1_paquetes" : "Dirección",
+    "th2_paquetes" : "Estado",
+
+    "--------- ALMACENERO ELIMINAR PAQUETE ---------" : "",
+
+    "legend_baja_paquete" : "Eliminar Paquete",
+    "adv_paquete" : "¿Seguro que quiere eliminar el siguiente paquete? Los cambios serán irreversibles",
+    "subtitulo_paquete" : "Datos del paquete",
+    "p_mail_d" : "Mail del destinatario: ",
+    "p_peso" : "Peso: ",
+    "p_volumen" : "Volumen: ",
+    "p_fragil" : "Frágil: ",
+    "p_tipo" : "Tipo: ",
+    "p_detalles" : "Detalles: ",
+
+    "--------- ALMACENERO MODIFICAR PAQUETE ---------" : "",
+
+    "legend_m_paquete" : "Modificar Paquete",
+
+    "--------- ALMACENERO CONSULTAR PAQUETE ---------" : "",
+
+    "legend_c_paquete" : "Consultar Paquete"
 
 
 

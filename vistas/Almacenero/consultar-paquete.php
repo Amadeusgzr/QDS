@@ -31,38 +31,38 @@ foreach ($decode as $paquete) {
 }
 ?>
 <div class="form-crud">
-    <legend>Consultar Paquete</legend>
+    <legend class="legend-c-paquete">Consultar Paquete</legend>
     <p class="subtitulo-crud">Datos del paquete</p>
-    <p><b>ID: </b>
+    <p><b class="p-id">ID: </b>
         <?= $id_paquete ?>
     </p>
-    <p><b>Mail del destinatario: </b>
+    <p><b class="p-mail-d">Mail del destinatario: </b>
         <?= $mail_destinatario ?>
     </p>
-    <p><b>Dirección: </b>
+    <p><b class="p-direccion">Dirección: </b>
         <?= $direccion ?>
     </p>
-    <p><b>Peso: </b>
+    <p><b class="p-peso">Peso: </b>
         <?= $peso ?> Kg
     </p>
-    <p><b>Volumen: </b>
+    <p><b class="p-volumen">Volumen: </b>
         <?= $volumen ?> Cm3
     </p>
-    <p><b>Fragil: </b>
+    <p><b class="p-fragil">Fragil: </b>
         <?= $fragil ?>
     </p>
     <?php
     if ($fragil == "Si") {
-        echo "<p><b>Tipo: </b>$tipo</p>";
+        echo "<p><b class='p-tipo'>Tipo: </b>$tipo</p>";
     }
     ?>
-    <p><b>Estado: </b>
+    <p><b class="p-estado">Estado: </b>
         <?= $estado ?>
     </p>
     <?php
     if (!isset($detalles) || is_null($detalles) || empty(trim($detalles))) {
     } else {
-        echo "<p><b>Detalles: </b>$detalles</p>";
+        echo "<p><b class='p-detalles'>Detalles: </b>$detalles</p>";
     }
     ?>
 

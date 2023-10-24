@@ -29,8 +29,8 @@ require '../plantillas/menu-cuenta.php';
         <table id="tabla-lote">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
-                <th>Destino</th>
-                <th>Estado</th>
+                <th class='th1-paquetes'>Destino</th>
+                <th class='th2-paquetes'>Estado</th>
                 <th>OP</th>
             </tr>
             <?php
@@ -52,22 +52,20 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-doble">
-    <button class="btn-limpiar estilo-boton btns-as-lote">Borrar</button>
+    <button class="btn-limpiar estilo-boton btns-as-lote btn-limpiar">Borrar</button>
         <a href="index.php">
             <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
         </a>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-paquete.php" id="a-agregar"><button class="estilo-boton btns-as-lote"
-                id="op-alta">Agregar</button></a>
-                <button class="boton-siguiente estilo-boton btns-as-lote" id="submit-as-lote-2">Eliminar</button>
-
+        <a href="alta-paquete.php" id="a-agregar"><button class="estilo-boton btns-as-lote boton-agregar" id="op-alta">Agregar</button></a>
+        <button class="boton-siguiente estilo-boton btns-as-lote boton-eliminar" id="submit-as-lote-2">Eliminar</button>
     </div>
 </div>
 
 <script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ocultar-get-alta.js"></script>
-<script src="../js/asignar-paquetes-lote-2.js"></script>
+<script src="../js/seleccionar-filas.js"></script>
 
 
 </body>

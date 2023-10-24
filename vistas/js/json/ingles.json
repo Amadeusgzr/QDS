@@ -198,6 +198,43 @@
 
     "--------- BACKOFFICE CONSULTAR EMPRESA ---------" : "",
 
-    "legend_c_empresa_cliente" : "Consult Client Company"
+    "legend_c_empresa_cliente" : "Consult Client Company",
+
+    "--------- ALMACENERO INDEX ---------" : "",
+
+    "op1_almacenero_h2" : "Packages",
+    "op1_almacenero_p" : "Packages Managment",
+    "op2_almacenero_h2" : "Lots",
+    "op2_almacenero_p" : "Lots managment",
+    "op3_almacenero_h2" : "Assign Packages to Lots",
+    "op3_almacenero_p" : "Assignment of Packages to Lots",
+    "op4_almacenero_h2" : "Assign Lots to Trucks",
+    "op4_almacenero_p" : "Assignment of Lots to Trucks",
+
+    "--------- ALMACENERO PAQUETES ---------" : "",
+
+    "h2_paquetes" : "Packages",
+    "th1_paquetes" : "Address",
+    "th2_paquetes" : "Status",
+
+    "--------- ALMACENERO ELIMINAR PAQUETE ---------" : "",
+
+    "legend_baja_paquete" : "Delete Package",
+    "adv_paquete" : "Are you sure you want to delete the following package? The changes will be irreversible",
+    "subtitulo_paquete" : "Package data",
+    "p_mail_d" : "Client mail: ",
+    "p_peso" : "Weight: ",
+    "p_volumen" : "Volume: ",
+    "p_fragil" : "Fragile: ",
+    "p_tipo" : "Type: ",
+    "p_detalles" : "Details: ",
+
+    "--------- ALMACENERO MODIFICAR PAQUETE ---------" : "",
+
+    "legend_m_paquete" : "Modify Package",
+
+    "--------- ALMACENERO CONSULTAR PAQUETE ---------" : "",
+
+    "legend_c_paquete" : "Consult Package"
 
 }

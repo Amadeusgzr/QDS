@@ -67,7 +67,7 @@ require '../plantillas/menu-cuenta.php';
     </div>
 </div>
 <script src="../js/mostrar-respuesta.js"></script>
-<script src="../js/asignar-paquetes-lote-2.js"></script>
+<script src="../js/seleccionar-filas.js"></script>
 
 </body>
 

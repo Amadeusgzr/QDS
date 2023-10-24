@@ -379,6 +379,81 @@ function actualizarTextos(data) {
 
     document.querySelector(".boton-volver").value = data.btn_volver;
   }
+  if(url.includes("Almacenero") && url.includes("index")){
+    
+    document.querySelector("#op1 h2").textContent = data.op1_almacenero_h2;
+    document.querySelector("#op1 p").textContent = data.op1_almacenero_p;
+    document.querySelector("#op2 h2").textContent = data.op2_almacenero_h2;
+    document.querySelector("#op2 p").textContent = data.op2_almacenero_p;
+    document.querySelector("#op3 h2").textContent = data.op3_almacenero_h2;
+    document.querySelector("#op3 p").textContent = data.op3_almacenero_p;
+    document.querySelector("#op4 h2").textContent = data.op4_almacenero_h2;
+    document.querySelector("#op4 p").textContent = data.op4_almacenero_p;
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+  }
+  else if(url.includes("Almacenero") && url.includes("op-paquetes")){
+
+    document.querySelector(".h1-tabla").textContent = data.h2_paquetes;
+    document.querySelector(".th1-paquetes").textContent = data.th1_paquetes;
+    document.querySelector(".th2-paquetes").textContent = data.th2_paquetes;
+
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
+
+  }
+  else if(url.includes("Almacenero") && url.includes("baja-paquete")){
+
+    document.querySelector(".legend-baja-paquete").textContent = data.legend_baja_paquete;
+    document.querySelector(".adv").textContent = data.adv_paquete;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-mail-d").textContent = data.p_mail_d;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+    document.querySelector(".p-peso").textContent = data.p_peso;
+    document.querySelector(".p-volumen").textContent = data.p_volumen;
+    document.querySelector(".p-fragil").textContent = data.p_fragil;
+    document.querySelector(".p-tipo").textContent = data.p_tipo;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+    document.querySelector(".p-detalles").textContent = data.p_detalles;
+
+    document.querySelector(".boton-eliminar").value = data.btn_eliminar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Almacenero") && url.includes("modificar-paquete")){
+
+    document.querySelector(".legend-m-paquete").textContent = data.legend_m_paquete;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_paquete;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+    document.querySelector(".p-peso").textContent = data.p_peso;
+    document.querySelector(".p-volumen").textContent = data.p_volumen;
+    document.querySelector(".p-fragil").textContent = data.p_fragil;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+    document.querySelector(".subtitulo-crud-2").textContent = data.subtitulo_2;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.boton_modificar;
+  }
+  else if(url.includes("Almacenero") && url.includes("consultar-paquete")){
+
+    document.querySelector(".legend-c-paquete").textContent = data.legend_c_paquete;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_paquete;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-mail-d").textContent = data.p_mail_d;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+    document.querySelector(".p-peso").textContent = data.p_peso;
+    document.querySelector(".p-volumen").textContent = data.p_volumen;
+    document.querySelector(".p-fragil").textContent = data.p_fragil;
+    document.querySelector(".p-tipo").textContent = data.p_tipo;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+    document.querySelector(".p-detalles").textContent = data.p_detalles;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+
 }
 
 

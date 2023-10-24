@@ -45,27 +45,27 @@ foreach ($decode as $paquete) {
 
 <div class="form-crud">
     <form action="../../controladores/api/paquete/modificarDato.php" method="post">
-        <legend>Modificar Paquete</legend>
+        <legend class="legend-m-paquete">Modificar Paquete</legend>
         <p class="subtitulo-crud">Datos actuales</p>
-        <p><b>ID: </b>
+        <p><b class="p-id">ID: </b>
             <?= $id_paquete ?>
         </p>
-        <p><b>Dirección: </b>
+        <p><b class="p-direccion">Dirección: </b>
             <?= $direccion ?>
         </p>
-        <p><b>Peso: </b>
+        <p><b class="p-peso">Peso: </b>
             <?= $peso ?>
         </p>
-        <p><b>Volumen: </b>
+        <p><b class="p-volumen">Volumen: </b>
             <?= $volumen ?>
         </p>
-        <p><b>Fragil: </b>
+        <p><b class="p-fragil">Fragil: </b>
             <?= $fragil ?>
         </p>
-        <p><b>Estado: </b>
+        <p><b class="p-estado">Estado: </b>
             <?= $estado ?>
         </p>
-        <p class="subtitulo-crud">Datos modificados</p>
+        <p class="subtitulo-crud subtitulo-crud-2">Datos modificados</p>
         <input type="text" placeholder="ID" class="txt-crud" name="id_paquete" value="<?= $id_paquete ?>" required
             readonly>
         <input type="tel" placeholder="Direccion" class="txt-crud" name="direccion" value="<?= $direccion ?>" required>
