@@ -68,6 +68,20 @@ require '../plantillas/menu-cuenta.php';
     }
     ?>
 
+    <script>
+    // Agrega un evento de escucha para detectar cuando se presiona una tecla en el teclado
+    document.addEventListener("keydown", function(event) {
+        // Verifica si la tecla presionada es la "R" (puedes usar cualquier otra tecla)
+        if (event.key === "d" || event.key === "D") {
+            // Redirige a la URL específica
+            window.location.href = "../../controladores/api/paquete/eliminarDato.php?id_paquete=<?= $id_paquete ?>";
+        }
+        if (event.key === "b" || event.key === "B") {
+            window.location.href = "op-paquetes-cliente.php";
+        }
+    });
+    </script>
+
     <a href="../../controladores/api/paquete/eliminarDato.php?id_paquete=<?= $id_paquete ?>"><input type="submit" value="Eliminar" class="estilo-boton boton-siguiente"></a>
     <a href="op-paquetes-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 

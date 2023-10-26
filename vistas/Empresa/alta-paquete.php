@@ -176,6 +176,7 @@ require '../plantillas/menu-cuenta.php';
 <script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ingreso-paquete.js"></script>
 
+
 </body>
 
 </html>

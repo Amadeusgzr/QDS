@@ -51,5 +51,12 @@ require '../plantillas/menu-cuenta.php';
 
 
 </body>
+<script>
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "b" || event.key === "B") {
+            window.location.href = "index.php";
+        }
+    });
+</script>
 
 </html>

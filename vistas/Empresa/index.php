@@ -33,6 +33,20 @@ require '../plantillas/menu-cuenta.php';
     </a>
 </main>
 
+<script>
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "1") {
+            window.location.href = "op-paquetes-cliente.php";
+        }
+        if (event.key === "2") {
+            window.location.href = "op-paquetes-transcurso.php";
+        }
+        if (event.key === "3") {
+            window.location.href = "op-paquetes-entregados.php";
+        }
+    });
+</script>
+
 
 
 

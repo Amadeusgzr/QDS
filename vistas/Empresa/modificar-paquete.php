@@ -99,4 +99,12 @@ require '../plantillas/menu-cuenta.php';
         ?>
     </div>
     <script src="../js/mostrar-respuesta.js"></script>
+    <script>
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "b" || event.key === "B") {
+            window.location.href = "op-paquetes-cliente.php";
+        }
+    });
+</script>
+        
 </div>

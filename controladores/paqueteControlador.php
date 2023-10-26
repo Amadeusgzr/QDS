@@ -76,21 +76,35 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
                         $mail_destinatario = $_POST->mail_destinatario[$i];
                         $mail = new PHPMailer(true);
-    
+                        
                         $mail->isSMTP();
                         $mail->Host = 'smtp.gmail.com';
                         $mail->SMTPAuth = true;
                         $mail->Username = 'gastongolero@gmail.com';
-                        $mail->Password = '';
+                        $mail->Password = 'mwbwgubwocaxcltz';
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                         $mail->Port = 587;
                     
                         $mail->setFrom('gastongolero@gmail.com','Gaston Rodriguez');
                         $mail->addAddress($mail_destinatario);
-                    
+                        
+                        $mail->AddEmbeddedImage('../vistas/img/logo.jpg', 'emailimg', 'attachment', 'base64', 'image/jpg');
+                        
                         $mail->isHTML(true);
-                        $mail->Subject = 'Hola';
-                        $mail->Body = 'El codigo de tu paquete es: ' . $codigoGenerado;
+                        $mail->Subject = 'Quick Distribution Service';
+                        $mail->Body = '<!DOCTYPE html>
+                        <html>
+                        <head>
+                            <title>Remito de Quick Distribution Service</title>
+                        </head>
+                        <body>
+                            <img src="cid:emailimg" alt="Logo de Quick Distribution Service">
+                            <h1>Remito de su paquete</h1>
+                            <p>El código de tu paquete es: ' . $codigoGenerado . '</p>
+                            <!-- Aquí puedes agregar más detalles sobre el paquete -->
+                        </body>
+                        </html>
+                        ';
                     
                         $mail->send();
                     } else {

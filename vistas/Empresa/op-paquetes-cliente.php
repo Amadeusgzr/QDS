@@ -70,6 +70,19 @@ require '../plantillas/menu-cuenta.php';
 <script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ocultar-get-alta.js"></script>
 <script src="../js/asignar-paquetes-lote-2.js"></script>
+<script>
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "b" || event.key === "B") {
+            window.location.href = "index.php";
+        }
+        if (event.key === "a" || event.key === "A") {
+            window.location.href = "alta-paquete.php";
+        }
+
+
+    });
+</script>
+
 
 
 </body>
