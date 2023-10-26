@@ -106,7 +106,7 @@ class paqueteModelo
                 $estado = $fila["estado"];
                 if ($estado == "En almacén cliente"){
                     if ($empresa == $empresa1){
-                    $instruccion = "UPDATE paquete SET direccion='$direccion', peso='$peso', volumen='$volumen', fragil='$fragil', estado='$estado' WHERE id_paquete='$id_paquete'";
+                    $instruccion = "UPDATE paquete SET direccion='$direccion', peso='$peso', volumen='$volumen', fragil='$fragil' WHERE id_paquete='$id_paquete'";
                     mysqli_query($this->db, $instruccion);
                     $resultado = [
                         'error' => "Éxito",

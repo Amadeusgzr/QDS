@@ -51,7 +51,6 @@ echo $respuesta;
 
 
 curl_close($ch);
-header('Location: ../../../vistas/Almacenero/alta-paquete.php?datos=' . urlencode($respuesta));
 
 
 

@@ -2,6 +2,7 @@
 $ch = curl_init();
 
 $codigo = $_GET['codigo_seguimiento'];
+$codigo = str_replace("-", "", $codigo);
 $array = [
     'codigo' => "$codigo",
 ];

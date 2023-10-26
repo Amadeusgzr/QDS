@@ -16,7 +16,7 @@ if (!isset($_SESSION['nom_usu'])) {
     } else if ($_SESSION['tipo_usu'] == "camionero") {
         echo "<a href='vistas/Camionero/index.php' class='a-op-cuenta aop1-index'>Acceder</a>";
     } else if ($_SESSION['tipo_usu'] == "empresa") {
-        echo "<a href='vistas/Empresa/op-paquetes.php' class='a-op-cuenta aop1-index'>Acceder</a>";
+        echo "<a href='vistas/Empresa/index.php' class='a-op-cuenta aop1-index'>Acceder</a>";
     }
 
     ?>

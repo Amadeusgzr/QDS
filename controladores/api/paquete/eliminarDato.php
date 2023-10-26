@@ -47,7 +47,7 @@ if (isset($_GET["id_paquete"])) {
 }
 } else {
     if (isset($_GET["id_paquete"])) {
-    header('Location: ../../../vistas/Empresa/op-paquetes.php?datos=' . urlencode($respuesta));
+    header('Location: ../../../vistas/Empresa/op-paquetes-cliente.php?datos=' . urlencode($respuesta));
     }
 }
 ?>

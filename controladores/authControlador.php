@@ -17,9 +17,15 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 // Almacena información del usuario en la sesión
                 $_SESSION['nom_usu'] = $usuario['nom_usu'];
                 $_SESSION['tipo_usu'] = $usuario['tipo_usu'];
-                header("Location: ../index.php");
-                // Devuelve una respuesta JSON con información adicional si es necesario
-                // Asegúrate de salir del script para que la redirección se ejecute correctamente
+
+                if($_SESSION['tipo_usu'] == 'empresa'){
+                    header("Location: ../vistas/Empresa/index.php");
+                    exit();
+                } else{
+                    header("Location: ../index.php");
+                    exit();
+                }
+
             } else {
                 // Las credenciales son inválidas, devuelve un mensaje de error
                 $response = [

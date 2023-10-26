@@ -5,6 +5,14 @@ header("Location: ../vistas/permisos.php");
 
 
 $paqueteModelo = new paqueteModelo();
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
+require '../PHPMailer/src/Exception.php';
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
 
@@ -34,6 +42,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
                     ];
                     break;
                 } else {
+
+
                     $codigoGenerado = generarCodigo(12);
 
                     $respuesta = atributosVacio($_POST->mail_destinatario);
@@ -63,6 +73,26 @@ switch ($_SERVER['REQUEST_METHOD']) {
                         } else {
                         $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario[$i], $_POST->direccion[$i], $_POST->peso[$i], $_POST->volumen[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i], $codigoGenerado, null, $_POST->id_destino[$i]);
                         }
+
+                        $mail_destinatario = $_POST->mail_destinatario[$i];
+                        $mail = new PHPMailer(true);
+    
+                        $mail->isSMTP();
+                        $mail->Host = 'smtp.gmail.com';
+                        $mail->SMTPAuth = true;
+                        $mail->Username = 'gastongolero@gmail.com';
+                        $mail->Password = '';
+                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                        $mail->Port = 587;
+                    
+                        $mail->setFrom('gastongolero@gmail.com','Gaston Rodriguez');
+                        $mail->addAddress($mail_destinatario);
+                    
+                        $mail->isHTML(true);
+                        $mail->Subject = 'Hola';
+                        $mail->Body = 'El codigo de tu paquete es: ' . $codigoGenerado;
+                    
+                        $mail->send();
                     } else {
                         $respuesta = [
                             'error' => 'Error',
@@ -98,6 +128,15 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $respuesta5 = atributoVacio($_PUT->estado);
         $respuesta6 = atributoVacio($_PUT->empresa);
         $respuesta7 = atributoVacio($_PUT->tipo_usu);
+
+        if ($_PUT->tipo_usu !== "empresa"){
+            $respuesta5 = atributoVacio($_PUT->estado);
+        } else{
+            $respuesta5 = [
+                'error' => 'Exito',
+                'respuesta' => 'El atributo está vacío'
+            ];
+        }
 
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error" && $respuesta5['error'] !== "Error" && $respuesta6['error'] !== "Error" && $respuesta7['error'] !== "Error") {

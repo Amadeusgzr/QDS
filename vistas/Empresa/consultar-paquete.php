@@ -1,28 +1,21 @@
 <?php
 session_start();
 
-// Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
-if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
-    if ($_SESSION['tipo_usu'] !== 'empresa') {
-        header("Location: ../permisos.php"); // Redirige a la página de inicio de sesión
-        exit();
-    }
+if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'empresa') {
+    header("Location: ../permisos.php");
+    exit();
 }
+
 if (!isset($_GET['id_paquete']) || is_null($_GET['id_paquete']) || empty(trim($_GET['id_paquete']))) {
     header("Location: ../error.php");
 }
-echo "<link rel='stylesheet' href='../css/estilos.css'>";
-require '../plantillas/headerIngresado.php';
-require '../plantillas/menu-cuenta.php';
-?>
-<?php
-$id_paquete = $_GET['id_paquete'];
+
 require("../../controladores/api/paquete/obtenerDatoPorId.php");
 if(isset($decode['error'])){
     header("Location: ../error.php");
 }
+
 foreach ($decode as $paquete) {
-        
     $id_paquete = $paquete["id_paquete"];
     $mail_destinatario = $paquete["mail_destinatario"];
     $direccion = $paquete["direccion"];
@@ -37,7 +30,13 @@ foreach ($decode as $paquete) {
         header("Location: ../permisos.php");
     }
 }
+
+echo "<link rel='stylesheet' href='../css/estilos.css'>";
+require '../plantillas/headerIngresado.php';
+require '../plantillas/menu-cuenta.php';
+
 ?>
+
 <div class="form-crud">
     <legend>Consultar Paquete</legend>
     <p class="subtitulo-crud">Datos del paquete</p>
@@ -74,7 +73,13 @@ foreach ($decode as $paquete) {
     }
     ?>
 
-
-    <a href="op-paquetes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
-
+<?php
+if ($estado == "En almacén cliente"){
+    echo "<a href='op-paquetes-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>";
+} else if ($estado == "Entregado"){
+    echo "<a href='op-paquetes-entregados.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>";
+} else {
+    echo "<a href='op-paquetes-transcurso.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>";
+}
+?>
 </div>

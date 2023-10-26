@@ -1,41 +1,39 @@
 <?php
 session_start();
 
-// Verifica si el usuario ha iniciado sesión y tiene permisos para acceder a esta página
-if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
-    if ($_SESSION['tipo_usu'] !== 'empresa') {
-        header("Location: ../permisos.php"); // Redirige a la página de inicio de sesión
-        exit();
-    }
+if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'empresa') {
+    header("Location: ../permisos.php");
+    exit();
 }
+
 if (!isset($_GET['id_paquete']) || is_null($_GET['id_paquete']) || empty(trim($_GET['id_paquete']))) {
     header("Location: ../error.php");
 }
-echo "<link rel='stylesheet' href='../css/estilos.css'>";
-require '../plantillas/headerIngresado.php';
-require '../plantillas/menu-cuenta.php';
-?>
-<?php
-$id_paquete = $_GET['id_paquete'];
+
 require("../../controladores/api/paquete/obtenerDatoPorId.php");
 if(isset($decode['error'])){
     header("Location: ../error.php");
 }
+
 foreach ($decode as $paquete) {
     $id_paquete = $paquete["id_paquete"];
+    $mail_destinatario = $paquete["mail_destinatario"];
     $direccion = $paquete["direccion"];
     $peso = $paquete["peso"];
     $volumen = $paquete["volumen"];
     $fragil = $paquete["fragil"];
+    $tipo = $paquete["tipo"];
     $estado = $paquete["estado"];
+    $detalles = $paquete["detalles"];
     $empresa = $paquete["nombre_de_empresa"];
-    
     if ($estado !== "En almacén cliente" || $empresa !== $_SESSION["nom_usu"]){
         header("Location: ../permisos.php");
     }
 }
 
-
+echo "<link rel='stylesheet' href='../css/estilos.css'>";
+require '../plantillas/headerIngresado.php';
+require '../plantillas/menu-cuenta.php';
 
 ?>
 <script>
@@ -73,6 +71,11 @@ foreach ($decode as $paquete) {
         <p><b>Fragil: </b>
             <?= $fragil ?>
         </p>
+        <?php
+        if ($fragil == "Si") {
+        echo "<p><b>Tipo: </b>$tipo</p>";
+        }
+        ?>
         <p><b>Estado: </b>
             <?= $estado ?>
         </p>
@@ -83,10 +86,9 @@ foreach ($decode as $paquete) {
         <input type="number" placeholder="Peso" class="txt-crud" name="peso" value="<?= $peso ?>" required>
         <input type="number" placeholder="Volumen" class="txt-crud" name="volumen" value="<?= $volumen ?>" required>
         <input type="text" placeholder="Fragil" class="txt-crud" name="fragil" value="<?= $fragil ?>" required>
-        <input type="text" placeholder="Estado" class="txt-crud" name="estado" value="<?= $estado ?>" required>
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
-    <a href="op-paquetes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
+    <a href="op-paquetes-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
     <div class="div-error">
         <?php
         if (isset($_GET['datos'])) {
