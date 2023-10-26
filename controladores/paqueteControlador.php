@@ -80,12 +80,12 @@ switch ($_SERVER['REQUEST_METHOD']) {
                         $mail->isSMTP();
                         $mail->Host = 'smtp.gmail.com';
                         $mail->SMTPAuth = true;
-                        $mail->Username = 'gastongolero@gmail.com';
-                        $mail->Password = 'mwbwgubwocaxcltz';
+                        $mail->Username = 'qdservice.uy@gmail.com';
+                        $mail->Password = 'ykyelomckfbpugdb';
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                         $mail->Port = 587;
                     
-                        $mail->setFrom('gastongolero@gmail.com','Gaston Rodriguez');
+                        $mail->setFrom('qdservice.uy@gmail.com','Quick Distribution Service');
                         $mail->addAddress($mail_destinatario);
                         
                         $mail->AddEmbeddedImage('../vistas/img/logo.jpg', 'emailimg', 'attachment', 'base64', 'image/jpg');

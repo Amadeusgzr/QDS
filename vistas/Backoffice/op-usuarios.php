@@ -10,8 +10,12 @@ echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
-
-<div id="div-tabla-lote">
+<div class="div-btn-uno">
+    <a href="index.php">
+        <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
+    </a>
+</div>
+<div id="div-tabla">
     <h1 class="h1-tabla">Usuarios</h1>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
@@ -47,16 +51,12 @@ require '../plantillas/menu-cuenta.php';
             ?>
         </table>
     </div>
-    <div class="div-btn-doble">
-        <button class="estilo-boton btns-as-lote">Reiniciar</button>
-        <a href="index.php">
-            <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
-        </a>
+    <div class="div-btn-uno">
+        <button class="estilo-boton boton-largo">Reiniciar</button>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-usuario.php" id="a-agregar"><button class="estilo-boton btns-as-lote"
-                id="op-alta">Agregar</button></a>
-        <!--<button class="estilo-boton btns-as-lote" id="op-baja">Eliminar</button>-->
+        <a href="alta-usuario.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
+        <button class="boton-siguiente estilo-boton boton-eliminar" id="submit-as-lote-2">Eliminar</button>
     </div>
 </div>
 

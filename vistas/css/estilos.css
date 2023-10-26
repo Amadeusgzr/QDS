@@ -821,11 +821,11 @@ label[for="radio-paq-no"]{
     flex-grow: 1;
 }
 
-#div-tabla-lote{
+#div-tabla{
     width: 95%;
     max-width: 1500px;
     background-color: #fff;
-    margin: 50px auto;
+    margin: 30px auto;
     padding: 1% 0;
     padding-bottom: 3%;
     border-radius: 20px;
@@ -913,12 +913,14 @@ label[for="radio-paq-no"]{
     flex-wrap: wrap;
 }
 
-#op-alta{
-    background-color: #56ca56;
+.div-btn-uno{
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 30px;
 }
 
-#op-baja{
-    background-color: #4fa2e6;
+.boton-agregar{
+    background-color: #56ca56;
 }
 
 .div-mov-lote{
@@ -953,6 +955,11 @@ label[for="radio-paq-no"]{
 .boton-volver{
     background-color: var(--color-principal);
     color: #fff;
+}
+
+.boton-largo{
+    width: 100%;
+    margin: 0 auto;
 }
 
 .boton-siguiente{
@@ -1127,7 +1134,7 @@ label[for="radio-lote-no"]{
 }
 
 .contenedor-tabla{
-    max-height: 400px;
+    max-height: 350px;
     overflow-y: scroll;
 }
 
@@ -1460,6 +1467,7 @@ label[for="radio-lote-no"]{
     justify-content: center;
     align-items: center;
     visibility: hidden;
+    z-index: 1000;
 }
 
 @keyframes grande {

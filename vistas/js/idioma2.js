@@ -70,6 +70,7 @@ function actualizarTextos(data) {
     document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
 
   }
   else if(url.includes("Backoffice") && url.includes("alta-camionero")){

@@ -30,9 +30,6 @@ if ($_GET){
 ?>
 <div class="form-crud">
     <legend>Datos del paquete</legend>
-    <p><b>ID: </b>
-        <?= $id_paquete ?>
-    </p>
     <p><b>Mail del destinatario: </b>
         <?= $mail_destinatario ?>
     </p>

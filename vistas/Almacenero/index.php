@@ -15,7 +15,11 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <!DOCTYPE html>
-
+<?php
+    if ($_SESSION['tipo_usu'] == 'admin') {
+        echo "<div class='div-btn-uno'><a href='../Backoffice/index.php'><button class='boton-volver estilo-boton'>Volver</button></a></div>";
+    }
+    ?>
 <main class="main-aplicacion">
     <a href="op-paquetes.php" class="opcion-aplicacion" id="op1">
         <h2>Paquetes</h2>
@@ -37,12 +41,6 @@ require '../plantillas/menu-cuenta.php';
         <p>Asigne lotes a los diferentes camiones</p>
         <div class="div-img-icono2"><img src="../img/iconos/lote-camion.png" alt=""></div>
     </a>
-
-    <?php
-    if ($_SESSION['tipo_usu'] == 'admin') {
-        echo "<a href='../Backoffice/index.php'><button class='boton-volver estilo-boton'>Volver</button></a>";
-    }
-    ?>
 
 </main>
 

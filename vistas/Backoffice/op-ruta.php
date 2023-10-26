@@ -11,7 +11,7 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 
-<div id="div-tabla-lote">
+<div id="div-tabla">
     <h1 class="h1-tabla">Rutas</h1>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">

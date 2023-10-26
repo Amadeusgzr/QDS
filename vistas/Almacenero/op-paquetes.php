@@ -12,8 +12,12 @@ echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
-
-<div id="div-tabla-lote">  
+<div class="div-btn-uno">
+    <a href="index.php">
+        <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
+    </a>
+</div>
+<div id="div-tabla">  
     <h1 class="h1-tabla">Paquetes</h1>
     <div class="div-error">
         <?php
@@ -51,11 +55,8 @@ require '../plantillas/menu-cuenta.php';
             ?>
         </table>
     </div>
-    <div class="div-btn-doble">
-        <a href="index.php">
-            <button class="boton-volver estilo-boton">Volver</button>
-        </a>
-        <button class="btn-limpiar estilo-boton btn-limpiar">Limpiar</button>
+    <div class="div-btn-uno">
+        <button class="estilo-boton boton-largo">Reiniciar</button>
     </div>
     <div class="div-btn-doble">
         <a href="alta-paquete.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
