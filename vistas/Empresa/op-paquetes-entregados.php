@@ -11,14 +11,14 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 
-<div id="div-tabla-lote">
-    <h1 id="h1-tabla">Paquetes</h1>
+<div id="div-tabla">
+    <h1 class="h1-tabla">Paquetes entregados</h1>
     <div class="contenedor-tabla">
         <table id="tabla-lote">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
                 <th>Destino</th>
-                <th>Estado</th>
+                <th>Fecha y Hora</th>
                 <th>OP</th>
 
             </tr>
@@ -30,10 +30,10 @@ require '../plantillas/menu-cuenta.php';
                 echo '<tr class="fila-ingreso-lote fila-opcion">';
                 echo '<td>' . $paquete["id_paquete"] . '</td>';
                 echo '<td>' . $paquete["direccion"] . '</td>';
-                echo '<td>' . $paquete['estado'] . '</td>';
+                echo '<td>' . $paquete["fecha_recibido"] . " | " . $paquete["hora_recibido"] . '</td>';
 
                 echo "<td>
-                <a href='consultar-paquete.php?id_paquete=$id_paquete'><button>C</button></a>
+                <a href='consultar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo '</tr>';
                 } 

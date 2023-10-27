@@ -26,7 +26,7 @@ require '../plantillas/menu-cuenta.php';
         <p>Consulta de paquetes</p>
         <div class="div-img-icono"><img src="../img/iconos/lote.png" alt=""></div>
     </a>
-    <a href="op-paquetes-entregados.php" class="opcion-aplicacion" id="op3">
+    <a href="op-paquetes-entregados.php" class="opcion-aplicacion op-larga" id="op3">
         <h2>Paquetes entregados</h2>
         <p>Consulta de paquetes entregados</p>
         <div class="div-img-icono2"><img src="../img/iconos/paquete-lote.png" alt=""></div>

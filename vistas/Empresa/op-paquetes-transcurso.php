@@ -11,8 +11,8 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 
-<div id="div-tabla-lote">
-    <h1 id="h1-tabla">Paquetes</h1>
+<div id="div-tabla">
+    <h1 class="h1-tabla">Paquetes en transcurso</h1>
 
     <div class="contenedor-tabla">
         <table id="tabla-lote">
@@ -34,7 +34,7 @@ require '../plantillas/menu-cuenta.php';
                 echo '<td>' . $paquete['estado'] . '</td>';
 
                 echo "<td>
-                <a href='consultar-paquete.php?id_paquete=$id_paquete'><button>C</button></a>
+                <a href='consultar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo '</tr>';
                 } 

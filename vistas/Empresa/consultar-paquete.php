@@ -58,6 +58,12 @@ require '../plantillas/menu-cuenta.php';
     <p><b>Fragil: </b>
         <?= $fragil ?>
     </p>
+    <p><b>Matrícula de la camioneta: </b>
+        <?= "hola" ?>
+    </p>
+    <p><b>Fecha y Hora ideal del traslado: </b>
+        <?= "hola" ?>
+    </p>
     <?php
     if ($fragil == "Si") {
         echo "<p><b>Tipo: </b>$tipo</p>";
