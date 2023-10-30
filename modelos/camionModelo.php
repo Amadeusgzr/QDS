@@ -14,7 +14,7 @@ class camionModelo
     {
         $where = ($id_camion == null) ? "" : " WHERE id_camion='$id_camion'";
         $camiones = [];
-        $instruccion = "SELECT * FROM camion" . $where;
+        $instruccion = "SELECT * FROM camion INNER JOIN vehiculo ON camion.id_camion = vehiculo.id_vehiculo" . $where;
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($camiones, $row);

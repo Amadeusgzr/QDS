@@ -13,14 +13,14 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <div class="form-crud">
-    <form action="alta-camion.php" method="post">
+    <form action="alta-camioneta.php" method="post">
         <legend class="legend-form">Agregar Camión</legend>
         <input type="text" placeholder="Matrícula" class="txt-crud txt-1" name="matricula[]">
         <input type="text" placeholder="Peso max. (Kg)" class="txt-crud txt-2" name="peso_soportado[]">
         <input type="text" placeholder="Volumen max. (Mts3)" class="txt-crud txt-3" name="volumen_disponible[]">
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente boton-agregar"></a>
     </form>
-    <a href="op-camiones.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
+    <a href="op-camionetas.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>
 
 <?php
@@ -50,12 +50,12 @@ if ($_POST) {
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
             $respuesta = [
                 'error' => "Éxito",
-                'respuesta' => "Camión guardado"
+                'respuesta' => "Camioneta guardada"
             ];
             $instruccion = "insert into vehiculo(matricula, volumen_disponible, peso_soportado, estado) value ('$matricula[$i]', '$volumen_disponible[$i]', '$peso_soportado[$i]', 'Disponible')";
             $conexion->query($instruccion);
-            $id_camion = mysqli_insert_id($conexion);
-            $instruccion = "insert into camion(id_camion) value ('$id_camion')";
+            $id_camioneta = mysqli_insert_id($conexion);
+            $instruccion = "insert into camioneta(id_camioneta) value ('$id_camioneta')";
             $conexion->query($instruccion);
         } else {
             $respuesta = [
@@ -65,7 +65,7 @@ if ($_POST) {
         }
     }
     $respuesta = json_encode($respuesta);
-    header('Location: alta-camion.php?datos=' . urlencode($respuesta));
+    header('Location: alta-camioneta.php?datos=' . urlencode($respuesta));
 }
 ?>
 <div class="div-error">

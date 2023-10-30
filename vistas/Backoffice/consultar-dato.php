@@ -159,7 +159,32 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-camiones.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
-
+}
+    else if (isset($_GET['id_camioneta'])) {
+        $id_camioneta = $_GET['id_camioneta'];
+    
+    
+        $instruccion = "select * from camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta where id_camioneta=$id_camioneta";
+        $filas = $conexion->query($instruccion);
+    
+        foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+            $id_camioneta = $fila["id_camioneta"];
+            $matricula = $fila["matricula"];
+            $peso_soportado = $fila["peso_soportado"];
+            $volumen_disponible = $fila["volumen_disponible"];
+            $estado = $fila["estado"];
+    
+            echo "<div class='form-crud'>
+            <legend class='legend-c-camion'>Consultar Camión</legend>
+            <p class='subtitulo-crud'>Datos del camión</p>
+            <p><b class='p-id'>ID: </b>$id_camioneta</p>
+            <p><b class='p-matricula'>Matrícula: </b>$matricula</p>
+            <p><b class='p-peso-sop'>Peso soportado: </b>$peso_soportado Kg</p>
+            <p><b class='p-volumen-disp'>Volumen disponible: </b>$volumen_disponible Cm3</p>
+            <p><b class='p-estado'>Estado: </b>$estado</p>
+            <a href='op-camionetas.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+            </div>";
+        }
 } else if (isset($_GET['id_empresa_cliente'])) {
     $id_empresa_cliente = $_GET['id_empresa_cliente'];
 

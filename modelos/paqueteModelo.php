@@ -23,18 +23,29 @@ class paqueteModelo
     }
     public function obtenerPaquete($id_paquete)
     {
-        $paquete = [];
-        $instruccion = "SELECT * FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN tiene ON almacena.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente WHERE paquete.id_paquete='$id_paquete'";
+        $paquete1 = [];
+        $instruccion = "SELECT * FROM paquete INNER JOIN almacena ON almacena.id_paquete = paquete.id_paquete INNER JOIN recoge ON recoge.id_almacen_cliente = almacena.id_almacen_cliente WHERE paquete.id_paquete='$id_paquete'";
         $resultado = mysqli_query($this->db, $instruccion);    
         while ($row = mysqli_fetch_assoc($resultado)) {
-            array_push($paquete, $row);
+            array_push($paquete1, $row);
         }
-        if(count($paquete) < 1){
-            $paquete = [
-                'error' => "Éxito",
-                'respuesta' => "Paquete guardado"
-            ];
+
+        if (count($paquete1) > 0){
+            $paquete = [];
+            $instruccion = "SELECT *, paquete.estado AS paquete_estado FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN tiene ON almacena.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente INNER JOIN recoge ON almacena.id_almacen_cliente = recoge.id_almacen_cliente INNER JOIN camioneta ON recoge.id_camioneta = camioneta.id_camioneta INNER JOIN vehiculo ON camioneta.id_camioneta = vehiculo.id_vehiculo WHERE paquete.id_paquete='$id_paquete'";
+            $resultado = mysqli_query($this->db, $instruccion);    
+            while ($row = mysqli_fetch_assoc($resultado)) {
+                array_push($paquete, $row);
+            }
+        } else {
+            $paquete = [];
+            $instruccion = "SELECT *, paquete.estado AS paquete_estado FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN tiene ON almacena.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente WHERE paquete.id_paquete='$id_paquete'";
+            $resultado = mysqli_query($this->db, $instruccion);    
+            while ($row = mysqli_fetch_assoc($resultado)) {
+                array_push($paquete, $row);
+            }
         }
+
          return $paquete;
         
 
@@ -43,7 +54,7 @@ class paqueteModelo
     public function obtenerPaquetePorEmpresa($empresa)
     {
         $paquete = [];
-        $instruccion = "SELECT * FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN tiene ON almacena.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente WHERE nombre_de_empresa = '$empresa'";
+        $instruccion = "SELECT *, almacen_cliente.direccion AS almacen_cliente_direccion, paquete.direccion AS paquete_direccion FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN almacen_cliente ON almacen_cliente.id_almacen_cliente = almacena.id_almacen_cliente INNER JOIN tiene ON almacena.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente WHERE nombre_de_empresa = '$empresa'";
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($paquete, $row);

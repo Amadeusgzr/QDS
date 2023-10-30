@@ -16,7 +16,7 @@ require '../plantillas/menu-cuenta.php';
     </a>
 </div>
 <div id="div-tabla">
-    <h1 class="h1-tabla">Camiones</h1>
+    <h1 class="h1-tabla">Camionetas</h1>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
@@ -27,7 +27,7 @@ require '../plantillas/menu-cuenta.php';
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion";
+            $instruccion = "select * from camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta";
             $camiones = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -35,16 +35,16 @@ require '../plantillas/menu-cuenta.php';
             }
             foreach ($camiones as $camion) {
                 echo "<tr class='fila-ingreso-lote fila-opcion' id='fila-1'>";
-                $id_camion = $camion["id_camion"];
+                $id_camioneta = $camion["id_camioneta"];
                 $matricula = $camion["matricula"];
                 $estado = $camion["estado"];
-                echo "<td>$id_camion</td>";
+                echo "<td>$id_camioneta</td>";
                 echo "<td>$matricula</td>";
                 echo "<td>$estado</td>";
                 echo "<td>
-                <a href='baja-dato.php?id_camion=$id_camion'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
-                <a href='modificar-camion.php?id_camion=$id_camion'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
-                <a href='consultar-dato.php?id_camion=$id_camion'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
+                <a href='baja-dato.php?id_camioneta=$id_camioneta'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                <a href='modificar-camioneta.php?id_camioneta=$id_camioneta'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                <a href='consultar-dato.php?id_camioneta=$id_camioneta'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo "</tr>";
             }
@@ -55,7 +55,7 @@ require '../plantillas/menu-cuenta.php';
         <button class="estilo-boton boton-largo btn-limpiar">Limpiar</button>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-camion.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
+        <a href="alta-camioneta.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
         <button class="boton-siguiente estilo-boton boton-eliminar" id="submit-as-lote-2">Eliminar</button>
     </div>
 </div>

@@ -26,8 +26,8 @@ require '../plantillas/menu-cuenta.php';
         <div class="div-img-icono"><img src="../img/iconos/icono-usuario.png" alt=""></div>
     </a>
     <a href="op-vehiculos.php" class="opcion-aplicacion" id="op3">
-        <h2>Vehiculos</h2>
-        <p>Gestión de Vehiculos</p>
+        <h2>Vehículos</h2>
+        <p>Gestión de Vehículos</p>
         <div class="div-img-icono"><img src="../img/iconos/camion.png" alt=""></div>
     </a>
     <a href="../Almacenero/index.php" class="opcion-aplicacion" id="op4">

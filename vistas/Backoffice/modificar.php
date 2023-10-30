@@ -35,6 +35,17 @@ if (isset($_POST["id_almacen_central"])) {
     $conexion->query($instruccion1);
     header("Location: modificar-camion.php?id_camion=$id_camion");
 
+} else if (isset($_POST["id_camioneta"])) {
+    $id_camioneta = $_POST["id_camioneta"];
+    $matricula = $_POST["matricula"];
+    $peso_soportado = $_POST["peso_soportado"];
+    $volumen_disponible = $_POST["volumen_disponible"];
+    $estado = $_POST["estado"];
+
+    $instruccion1 = "update vehiculo set matricula='$matricula', peso_soportado='$peso_soportado', volumen_disponible='$volumen_disponible', estado='$estado' where id_vehiculo=$id_camioneta";
+    $conexion->query($instruccion1);
+    header("Location: modificar-camioneta.php?id_camioneta=$id_camioneta");
+
 } else if (isset($_POST["id_camionero"])) {
     $id_camionero = $_POST["id_camionero"];
     $cedula = $_POST["cedula"];

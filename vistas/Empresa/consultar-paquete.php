@@ -23,7 +23,7 @@ foreach ($decode as $paquete) {
     $volumen = $paquete["volumen"];
     $fragil = $paquete["fragil"];
     $tipo = $paquete["tipo"];
-    $estado = $paquete["estado"];
+    $estado = $paquete["paquete_estado"];
     $detalles = $paquete["detalles"];
     $empresa = $paquete["nombre_de_empresa"];
     if ($empresa !== $_SESSION["nom_usu"]){
@@ -58,12 +58,27 @@ require '../plantillas/menu-cuenta.php';
     <p><b>Fragil: </b>
         <?= $fragil ?>
     </p>
-    <p><b>Matrícula de la camioneta: </b>
-        <?= "hola" ?>
-    </p>
-    <p><b>Fecha y Hora ideal del traslado: </b>
-        <?= "hola" ?>
-    </p>
+    <?php
+    if (!isset($detalles) || is_null($detalles) || empty(trim($detalles))) {
+    } else {
+        echo "<p><b>Detalles: </b>$detalles</p>";
+    }
+    ?>
+    <?php
+    if(isset($paquete["matricula"])){
+        $matricula = $paquete["matricula"];
+        echo "    <p><b>Matrícula de la camioneta: </b>$matricula</p>";
+    }
+    ?>
+
+    <?php
+    if(isset($paquete["fecha_recogida_ideal"]) && isset($paquete["hora_recogida_ideal"])){
+        $fecha_recogida_ideal = $paquete["fecha_recogida_ideal"];
+        $hora_recogida_ideal = $paquete["hora_recogida_ideal"];
+
+        echo "<p><b>Fecha y Hora ideal de recogida: </b> $fecha_recogida_ideal - $hora_recogida_ideal </p>";
+    }
+    ?>
     <?php
     if ($fragil == "Si") {
         echo "<p><b>Tipo: </b>$tipo</p>";

@@ -22,7 +22,7 @@ if (!isset($_SESSION['nom_usu'])) {
     <header id="header-ingresado">
         <div id="contenido-header">
             <div id="div-logo">
-                <img src="../img/logoBlanco.png" alt="Logo">
+            <a href="../../index.php"><img src="../img/logoBlanco.png" alt="Logo"></a>
             </div>
             <div id="div-cuenta">
                 <img id="img-cuenta" src="../img/iconos/icono-usuario-blanco.png" alt="">

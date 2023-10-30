@@ -840,6 +840,11 @@ label[for="radio-paq-no"]{
     margin-bottom: 10px;
 }
 
+.h1-tabla2{
+    text-align: center;
+    margin: 20px 0px;
+}
+
 .btn-op{
     cursor: pointer;
     background-color: transparent;

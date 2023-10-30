@@ -32,7 +32,7 @@ require '../plantillas/menu-cuenta.php';
         <table id="tabla-lote">
             <tr class="fila-ingreso-lote">
                 <th>ID</th>
-                <th>Ubicación actual</th>
+                <th>Almacén</th>
                 <th>Destino</th>
                 <th>OP</th>
             </tr>
@@ -43,8 +43,8 @@ require '../plantillas/menu-cuenta.php';
                 $id_paquete = $paquete["id_paquete"];
                 echo '<tr class="fila-ingreso-lote fila-opcion">';
                 echo '<td>' . $paquete["id_paquete"] . '</td>';
-                echo '<td>' . "no se" . '</td>';
-                echo '<td>' . $paquete["direccion"] . ', ' . $paquete["departamento_destino"] . '</td>';
+                echo '<td>' . $paquete["almacen_cliente_direccion"] . '</td>';
+                echo '<td>' . $paquete["paquete_direccion"] . ', ' . $paquete["departamento_destino"] . '</td>';
                 
                 echo "<td>
                 <a href='baja-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>

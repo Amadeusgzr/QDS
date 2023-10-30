@@ -36,7 +36,7 @@ require '../plantillas/menu-cuenta.php';
         <p>Asigne paquetes a los diferentes lotes</p>
         <div class="div-img-icono2"><img src="../img/iconos/paquete-lote.png" alt=""></div>
     </a>
-    <a href="" class="opcion-aplicacion" id="op4">
+    <a href="asignar-lotes-camion.php" class="opcion-aplicacion" id="op4">
         <h2>Asignar Lotes a Camión</h2>
         <p>Asigne lotes a los diferentes camiones</p>
         <div class="div-img-icono2"><img src="../img/iconos/lote-camion.png" alt=""></div>

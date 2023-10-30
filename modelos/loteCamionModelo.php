@@ -1,0 +1,58 @@
+<?php
+
+class loteCamionModelo
+{
+    public $db;
+
+    public function __construct()
+    {
+        $this->db = new mysqli('localhost', 'root', '', 'QDS');
+        mysqli_set_charset($this->db, 'utf8');
+    }
+
+    public function obtenerCamionPorId($id_camion)
+    {
+        $lote = [];
+        $instruccion = "SELECT * FROM transporta INNER JOIN lote ON transporta.id_lote = lote.id_lote WHERE id_camion='$id_camion';";
+        $resultado = mysqli_query($this->db, $instruccion);
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            array_push($lote, $row);
+        }
+        return $lote;
+    }
+
+
+
+    public function guardarLoteCamion($id_lote, $id_camion)
+    {
+        $instruccion = "INSERT INTO transporta (id_lote,id_camion) VALUES ('$id_lote','$id_camion')";
+        mysqli_query($this->db, $instruccion);
+
+        $instruccion = "UPDATE lote SET estado='En almacén central (camión)' WHERE id_lote ='$id_lote'";
+        mysqli_query($this->db, $instruccion);
+
+        $resultado = [
+            'error' => "Éxito",
+            'respuesta' => "Lote " . $id_lote . " asignado correctamente al camión " . $id_camion,
+        ];
+        return $resultado;
+    }
+
+    public function eliminarPaqueteLote($id_camion, $id_lote)
+    {
+        $instruccion = "DELETE FROM transporta WHERE id_lote='$id_lote'";
+        mysqli_query($this->db, $instruccion);
+
+        $instruccion = "UPDATE lote SET estado='En almacén central' WHERE id_lote ='$id_lote'";
+        mysqli_query($this->db, $instruccion);
+
+        $resultado = [
+            'error' => "Éxito",
+            'respuesta' => "Paquete desasignado",
+        ];
+        return $resultado;
+    }
+
+}
+
+?>

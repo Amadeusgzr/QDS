@@ -19,7 +19,7 @@ require '../plantillas/menu-cuenta.php';
     <a href="op-camiones.php" class="opcion-aplicacion" id="op1">
         <h2>Camiones</h2>
     </a>
-    <a href="op.php" class="opcion-aplicacion" id="op1">
+    <a href="op-camionetas.php" class="opcion-aplicacion" id="op1">
         <h2>Camionetas</h2>
     </a>
 </div>

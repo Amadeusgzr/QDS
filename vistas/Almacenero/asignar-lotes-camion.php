@@ -15,15 +15,18 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <div id="div-elegir-lote">
-    <h1 class="h1-tabla2">Asignar paquetes a lote</h1>
-    <p class="adv">El lote al cual se le quiera asignar los paquetes ya debe estar creado</p>
-    <form action="asignar-paquetes-lote-2.php" method="get" class="form-asignar">
-        <select name="id_lote" id="select-lote">
+    <h1 class="h1-tabla2">Asignar lotes a camión</h1>
+    <p class="adv">El camión al cual se le quiera asignar los lotes ya debe estar creado</p>
+    <form action="asignar-lotes-camion-2.php" method="get" class="form-asignar">
+        <select name="id_camion" id="select-lote">
             <?php
-            require("../../controladores/api/lote/obtenerDato.php");
-            foreach ($decode as $lote) {
-                $id_lote = $lote["id_lote"];
-                echo "<option value='$id_lote'>Lote $id_lote</option>";
+            require("../../controladores/api/camion/obtenerDato.php");
+            foreach ($decode as $camion) {
+                $id_camion = $camion["id_camion"];
+                $estado = $camion["estado"];
+                $matricula = $camion["matricula"];
+
+                echo "<option value='$id_camion'>$matricula - $estado</option>";
             }
 
             ?>
