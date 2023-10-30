@@ -25,9 +25,9 @@ require '../plantillas/menu-cuenta.php';
         <p>Gestión de Camioneros</p>
         <div class="div-img-icono"><img src="../img/iconos/icono-usuario.png" alt=""></div>
     </a>
-    <a href="op-camiones.php" class="opcion-aplicacion" id="op3">
-        <h2>Camiones</h2>
-        <p>Gestión de Camiones</p>
+    <a href="op-vehiculos.php" class="opcion-aplicacion" id="op3">
+        <h2>Vehiculos</h2>
+        <p>Gestión de Vehiculos</p>
         <div class="div-img-icono"><img src="../img/iconos/camion.png" alt=""></div>
     </a>
     <a href="../Almacenero/index.php" class="opcion-aplicacion" id="op4">
@@ -45,7 +45,7 @@ require '../plantillas/menu-cuenta.php';
         <p>Gestión de Empresas Clientes</p>
         <div class="div-img-icono"><img src="../img/iconos/empresa.png" alt=""></div>
     </a>
-    <a href="op-rutas-tray.php" class="opcion-aplicacion" id="op7">
+    <a href="op-rutas-trayectos.php" class="opcion-aplicacion" id="op7">
         <h2>Rutas</h2>
         <p>Gestión de Rutas</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>

@@ -52,7 +52,10 @@ if ($_POST) {
                 'error' => "Éxito",
                 'respuesta' => "Camión guardado"
             ];
-            $instruccion = "insert into camion(matricula, volumen_disponible, peso_soportado, estado) value ('$matricula[$i]', '$volumen_disponible[$i]', '$peso_soportado[$i]', 'Disponible')";
+            $instruccion = "insert into vehiculo(matricula, volumen_disponible, peso_soportado, estado) value ('$matricula[$i]', '$volumen_disponible[$i]', '$peso_soportado[$i]', 'Disponible')";
+            $conexion->query($instruccion);
+            $id_camion = mysqli_insert_id($conexion);
+            $instruccion = "insert into camion(id_camion) value ('$id_camion')";
             $conexion->query($instruccion);
         } else {
             $respuesta = [

@@ -32,8 +32,6 @@ require '../plantillas/menu-cuenta.php';
                     if (isset($_GET)) {
                         $id_lote = $_GET['id_lote'];
                     }
-
-
                     $id_paquete = $paquete["id_paquete"];
                     if ($paquete['estado'] == "En almacén central") {
                         echo '<tr class="fila-ingreso-lote fila-opcion">';
@@ -48,66 +46,7 @@ require '../plantillas/menu-cuenta.php';
 
                 }
                 ?>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a></td>
-                </tr>
+
         </table>
     </div>
     <div class="div-btn-doble">
@@ -147,66 +86,6 @@ require '../plantillas/menu-cuenta.php';
                     echo '</tr>';
                 }
                 ?>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/resta.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/resta.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/resta.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/resta.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/resta.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/resta.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/resta.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/resta.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/resta.png' width='20px'></button></a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href=''><button class='btn-op btn-op1'><img src='../img/iconos/resta.png' width='20px'></button></a></td>
-                </tr>
         </table>
     </div>
     <div class="div-btn-doble">

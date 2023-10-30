@@ -112,7 +112,7 @@ if (isset($_GET['id_camionero'])) {
     $id_camion = $_GET['id_camion'];
 
 
-    $instruccion = "select * from camion where id_camion=$id_camion";
+    $instruccion = "select * from camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion where id_camion=$id_camion";
     $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {

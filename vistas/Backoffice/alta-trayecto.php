@@ -136,11 +136,12 @@ if ($_POST) {
                 echo 'No se pudo obtener una respuesta de la API de Google Maps Directions.';
             }
         }
+        include("../../modelos/db.php");
+        $instruccion = "insert into trayecto(destino, destinos_intermedios, distancia_recorrida, duracion_total) value ('$destino','$intermedios1_string','$distanciaTotal','$duracionTotal')";
+        $conexion->query($instruccion);
 }
 
-include("../../modelos/db.php");
-$instruccion = "insert into trayecto(destino, destinos_intermedios, distancia_recorrida, duracion_total) value ('$destino','$intermedios1_string','$distanciaTotal','$duracionTotal')";
-$conexion->query($instruccion);
+
 
 
 ?>
