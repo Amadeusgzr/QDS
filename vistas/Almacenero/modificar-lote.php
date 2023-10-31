@@ -31,24 +31,24 @@ foreach ($decode as $lote) {
 ?>
 <div class="form-crud">
     <form action="../../controladores/api/lote/modificarDato.php" method="post">
-        <legend>Modificar Lote</legend>
+        <legend class="legend-m-lote">Modificar Lote</legend>
         <p class="subtitulo-crud">Datos actuales</p>
-        <p><b>ID: </b>
+        <p><b class="p-id">ID: </b>
             <?= $id_lote ?>
         </p>
-        <p><b>Cantidad de paquetes: </b>
+        <p><b class="p-cant-paquetes">Cantidad de paquetes: </b>
             <?= $cant_paquetes ?>
         </p>
-        <p><b>Peso: </b>
+        <p><b class="p-peso">Peso: </b>
             <?= $peso ?> Kg
         </p>
-        <p><b>Volumen: </b>
+        <p><b class="p-volumen">Volumen: </b>
             <?= $volumen ?> Cm3
         </p>
-        <p><b>Fragil: </b>
+        <p><b class="p-fragil">Fragil: </b>
             <?= $fragil ?>
         </p>
-        <p class="subtitulo-crud">Datos modificados</p>
+        <p class="subtitulo-crud subtitulo-crud-2">Datos modificados</p>
         <input type="text" placeholder="ID" class="txt-crud" name="id_lote" value="<?= $id_lote ?>" required readonly>
         <input type="tel" placeholder="Cantidad de paquetes" class="txt-crud" name="cant_paquetes"
             value="<?= $cant_paquetes ?>" required>
@@ -68,6 +68,5 @@ foreach ($decode as $lote) {
         ?>
     </div>
     <script src="../js/mostrar-respuesta.js"></script>
-    <script src="../js/ocultar-get.js"></script>
 
 </div>

@@ -43,8 +43,8 @@ require '../plantillas/menu-cuenta.php';
                 echo "<td>$estado</td>";
                 echo "<td>
                 <a href='baja-dato.php?id_camion=$id_camion'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
-                <a href='modificar-camion.php?id_camion=$id_camion'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
-                <a href='consultar-dato.php?id_camion=$id_camion'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
+                <a href='modificar-camiones.php?id_camion=$id_camion'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                <a href='consultar-dato.php?id_camion1=$id_camion'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo "</tr>";
             }
@@ -55,7 +55,7 @@ require '../plantillas/menu-cuenta.php';
         <button class="estilo-boton boton-largo btn-limpiar">Limpiar</button>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-camion.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
+        <a href="alta-camiones.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
         <button class="boton-siguiente estilo-boton boton-eliminar" id="submit-as-lote-2">Eliminar</button>
     </div>
 </div>

@@ -122,6 +122,18 @@ function actualizarTextos(data) {
     document.querySelector(".boton-volver").value = data.btn_volver;
 
   }
+  else if(url.includes("Backoffice") && url.includes("op-vehiculos")){
+
+    document.querySelector(".h1-titulo").textContent = data.h1_vehiculos;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector("#h2-1").textContent = data.h1_tabla_camiones;
+    document.querySelector("#h2-2").textContent = data.h1_camionetas;
+
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+
+  }
   else if(url.includes("Backoffice") && url.includes("op-camiones")){
 
     document.querySelector(".h1-tabla").textContent = data.h1_tabla_camiones;
@@ -131,19 +143,20 @@ function actualizarTextos(data) {
     document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
 
   }
-  else if(url.includes("Backoffice") && url.includes("alta-camion")){
+  else if(url.includes("Backoffice") && url.includes("alta-camiones")){
 
     document.querySelector(".legend-form").textContent = data.legend_camion;
-    document.querySelector(".txt-1").placeholder = data.matrîcula;
+    document.querySelector(".txt-1").placeholder = data.matricula;
     document.querySelector(".txt-2").placeholder = data.peso_max;
     document.querySelector(".txt-3").placeholder = data.vol_max;
 
     document.querySelector(".boton-agregar").value = data.btn_agregar;
     document.querySelector(".boton-volver").value = data.btn_volver;
   }
-  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("camion")){
+  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("camion1")){
 
     document.querySelector(".legend-baja").textContent = data.legend_baja_camion;
     document.querySelector(".adv").textContent = data.adv_camion;
@@ -157,7 +170,7 @@ function actualizarTextos(data) {
     document.querySelector(".boton-eliminar").value = data.btn_eliminar;
     document.querySelector(".boton-volver").value = data.btn_volver;
   }
-  else if(url.includes("Backoffice") && url.includes("modificar-camion")){
+  else if(url.includes("Backoffice") && url.includes("modificar-camiones")){
 
     document.querySelector(".legend-m-camion").textContent = data.legend_m_camion;
     document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camion;
@@ -171,10 +184,74 @@ function actualizarTextos(data) {
     document.querySelector(".boton-volver").value = data.btn_volver;
     document.querySelector(".boton-siguiente").value = data.boton_modificar;
   }
-  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("camion")){
+  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("camion1")){
 
     document.querySelector(".legend-c-camion").textContent = data.legend_c_camion;
     document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camion;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-matricula").textContent = data.p_matricula;
+    document.querySelector(".p-peso-sop").textContent = data.p_peso_sop;
+    document.querySelector(".p-volumen-disp").textContent = data.p_volumen_disp;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("op-camionetas")){
+
+    document.querySelector(".h1-tabla").textContent = data.h1_camionetas;
+    document.querySelector("#th1-camionetas").textContent = data.th1_camionetas;
+    document.querySelector("#th2-camionetas").textContent = data.th2_camionetas;
+    document.querySelector("#th3-camionetas").textContent = data.th3_camionetas;
+
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("alta-camioneta")){
+
+    document.querySelector(".legend-form").textContent = data.legend_camioneta;
+    document.querySelector(".txt-1").placeholder = data.matricula;
+    document.querySelector(".txt-2").placeholder = data.peso_max;
+    document.querySelector(".txt-3").placeholder = data.vol_max;
+
+    document.querySelector(".boton-agregar").value = data.btn_agregar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("camioneta")){
+
+    document.querySelector(".legend-baja").textContent = data.legend_baja_camioneta;
+    document.querySelector(".adv").textContent = data.adv_camioneta;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camioneta;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-matricula").textContent = data.p_matricula;
+    document.querySelector(".p-peso-sop").textContent = data.p_peso_sop;
+    document.querySelector(".p-volumen-disp").textContent = data.p_volumen_disp;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+
+    document.querySelector(".boton-eliminar").value = data.btn_eliminar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("modificar-camioneta")){
+
+    document.querySelector(".legend-m-camioneta").textContent = data.legend_m_camioneta;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camioneta;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-matricula").textContent = data.p_matricula;
+    document.querySelector(".p-peso-sop").textContent = data.p_peso_sop;
+    document.querySelector(".p-volumen-disp").textContent = data.p_volumen_disp;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+    document.querySelector(".subtitulo-crud-2").textContent = data.subtitulo_2;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.boton_modificar;
+  }
+  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("camioneta")){
+
+    document.querySelector(".legend-c-camioneta").textContent = data.legend_c_camioneta;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camioneta;
     document.querySelector(".p-id").textContent = data.p_id;
     document.querySelector(".p-matricula").textContent = data.p_matricula;
     document.querySelector(".p-peso-sop").textContent = data.p_peso_sop;
@@ -453,6 +530,87 @@ function actualizarTextos(data) {
     document.querySelector(".p-detalles").textContent = data.p_detalles;
 
     document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Almacenero") && url.includes("op-lotes")){
+
+    document.querySelector(".h1-tabla").textContent = data.h2_lotes;
+    document.querySelector(".th1-lotes").textContent = data.th1_lotes;
+    document.querySelector(".th2-lotes").textContent = data.th2_lotes;
+    document.querySelector(".th3-lotes").textContent = data.th3_lotes;
+
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
+
+  }
+  else if(url.includes("Almacenero") && url.includes("baja-lote")){
+
+    document.querySelector(".legend-baja-lote").textContent = data.legend_baja_lote;
+    document.querySelector(".adv").textContent = data.adv_lote;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-peso").textContent = data.p_peso;
+    document.querySelector(".p-volumen").textContent = data.p_volumen;
+
+    document.querySelector(".boton-eliminar").value = data.btn_eliminar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Almacenero") && url.includes("modificar-lote")){
+
+    document.querySelector(".legend-m-lote").textContent = data.legend_m_lote;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_lote;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-cant-paquetes").textContent = data.p_cant_paquetes;
+    document.querySelector(".p-peso").textContent = data.p_peso;
+    document.querySelector(".p-volumen").textContent = data.p_volumen;
+    document.querySelector(".p-fragil").textContent = data.p_fragil;
+    document.querySelector(".subtitulo-crud-2").textContent = data.subtitulo_2;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.boton_modificar;
+  }
+  else if(url.includes("Almacenero") && url.includes("consultar-lote")){
+
+    document.querySelector(".legend-c-lote").textContent = data.legend_c_lote;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_lote;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-cant-paquetes").textContent = data.p_cant_paquetes;
+    document.querySelector(".p-peso").textContent = data.p_peso;
+    document.querySelector(".p-volumen").textContent = data.p_volumen;
+    document.querySelector(".p-fragil").textContent = data.p_fragil;
+    document.querySelector(".p-tipo").textContent = data.p_tipo;
+    if(document.querySelector(".p-detalles") !== null){
+      document.querySelector(".p-detalles").textContent = data.p_detalles;
+    }
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Almacenero") && url.includes("asignar-paquetes-lote-menu")){
+
+    document.querySelector(".h1-tabla2").textContent = data.h1_paquetes_lote;
+    document.querySelector(".adv").textContent = data.adv_paquetes_lote;
+
+    document.querySelector(".boton-siguiente").textContent = data.boton_siguiente;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+  }
+  else if(url.includes("Almacenero") && url.includes("asignar-paquetes-lote-2")){
+    document.querySelector(".h1-1").textContent = data.h1_tabla1_paquetes_lote;
+    document.querySelector(".h1-2").textContent = data.h1_tabla2_paquetes_lote;
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+    document.querySelector(".th1-paquetes-lotes").textContent = data.th1_paquetes_lotes;
+    document.querySelector(".th2-paquetes-lotes").textContent = data.th2_paquetes_lotes;
+    document.querySelector(".th3-paquetes-lotes").textContent = data.th3_paquetes_lotes;
+    document.querySelector(".th1-paquetes-lotes2").textContent = data.th1_paquetes_lotes;
+    document.querySelector(".th2-paquetes-lotes2").textContent = data.th2_paquetes_lotes;
+    document.querySelector(".th3-paquetes-lotes2").textContent = data.th3_paquetes_lotes;
+    
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar_seleccion;
+    document.querySelector(".btn-limpiar2").textContent = data.btn_limpiar;
+    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar_seleccion;
+
   }
 
 }

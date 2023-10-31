@@ -25,19 +25,17 @@ foreach ($decode as $lote) {
 }
 ?>
 <div class="form-crud">
-    <legend>Eliminar Lote</legend>
+    <legend class="legend-baja-lote">Eliminar Lote</legend>
     <p class="adv">¿Seguro que quiere eliminar el siguiente lote? Los cambios serán irreversibles</p>
-    <p><b>ID: </b>
+    <p><b class="p-id">ID: </b>
         <?= $id_lote ?>
     </p>
-    <p><b>Peso: </b>
+    <p><b class="p-peso">Peso: </b>
         <?= $peso ?> kg
     </p>
-    <p><b>Volumen: </b>
+    <p><b class="p-volumen">Volumen: </b>
         <?= $volumen ?>
     </p>
-    <a href="../../controladores/api/lote/eliminarDato.php?id_lote=<?= $id_lote ?>"><input type="submit" value="Eliminar"
-            class="estilo-boton boton-siguiente"></a>
+    <a href="../../controladores/api/lote/eliminarDato.php?id_lote=<?= $id_lote ?>"><input type="submit" value="Eliminar" class="estilo-boton boton-siguiente boton-eliminar"></a>
     <a href="op-lotes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
-    <script src="../js/ocultar-get.js"></script>
 </div>

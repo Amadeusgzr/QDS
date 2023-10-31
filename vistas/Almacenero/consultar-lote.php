@@ -29,35 +29,34 @@ foreach ($decode as $lote) {
 }
 ?>
 <div class="form-crud">
-    <legend>Consultar Lote</legend>
+    <legend class="legend-c-lote">Consultar Lote</legend>
     <p class="subtitulo-crud">Datos del lote</p>
-    <p><b>ID: </b>
+    <p><b class='p-id'>ID: </b>
         <?= $id_lote ?>
     </p>
-    <p><b>Cantidad de paquetes: </b>
+    <p><b class='p-cant-paquetes'>Cantidad de paquetes: </b>
         <?= $cant_paquetes ?>
     </p>
-    <p><b>Peso: </b>
+    <p><b class='p-peso'>Peso: </b>
         <?= $peso ?> Kg
     </p>
-    <p><b>Volumen: </b>
+    <p><b class='p-volumen'>Volumen: </b>
         <?= $volumen ?> Cm3
     </p>
-    <p><b>Fragil: </b>
+    <p><b class='p-fragil'>Fragil: </b>
         <?= $fragil ?>
     </p>
     <?php
     if ($fragil == "Si") {
-        echo "<p><b>Tipo: </b>$tipo</p>";
+        echo "<p><b class='p-tipo'>Tipo: </b>$tipo</p>";
     }
     ?>
     <?php
     if (!isset($detalles) || is_null($detalles) || empty(trim($detalles))) {
     } else {
-        echo "<p><b>Detalles: </b>$detalles</p>";
+        echo "<p><b class='p-detalles'>Detalles: </b>$detalles</p>";
     }
     ?>
     <a href="op-lotes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
-    <script src="../js/ocultar-get.js"></script>
 
 </div>

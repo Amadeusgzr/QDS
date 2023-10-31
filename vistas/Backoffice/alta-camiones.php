@@ -13,7 +13,7 @@ require '../plantillas/menu-cuenta.php';
 ?>
 
 <div class="form-crud">
-    <form action="alta-camion.php" method="post">
+    <form action="alta-camiones.php" method="post">
         <legend class="legend-form">Agregar Camión</legend>
         <input type="text" placeholder="Matrícula" class="txt-crud txt-1" name="matricula[]">
         <input type="text" placeholder="Peso max. (Kg)" class="txt-crud txt-2" name="peso_soportado[]">
@@ -65,7 +65,7 @@ if ($_POST) {
         }
     }
     $respuesta = json_encode($respuesta);
-    header('Location: alta-camion.php?datos=' . urlencode($respuesta));
+    header('Location: alta-camiones.php?datos=' . urlencode($respuesta));
 }
 ?>
 <div class="div-error">

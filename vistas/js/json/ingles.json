@@ -78,6 +78,10 @@
 
     "legend_c_camionero" : "Consult Trucker",
 
+    "--------- BACKOFFICE VEHICULOS ---------" : "",
+
+    "h1_vehiculos" : "Trucks and Vans",
+
     "--------- BACKOFFICE CAMIONES ---------" : "",
 
     "h1_tabla_camiones" : "Trucks",
@@ -108,6 +112,33 @@
     "--------- BACKOFFICE CONSULTAR CAMION ---------" : "",
 
     "legend_c_camion" : "Consult Truck",
+
+    "--------- BACKOFFICE CAMIONETAS ---------" : "",
+
+    "h1_camionetas" : "Vans",
+
+    "th1_camionetas" : "Key",
+    "th2_camionetas" : "Plate",
+    "th3_camionetas" : "Status",
+
+    "--------- BACKOFFICE AGREGAR CAMIONETA ---------" : "",
+
+    "legend_camioneta" : "Add Van",
+    "matricula" : "Plate",
+
+    "--------- BACKOFFICE ELIMINAR CAMIONETA ---------" : "",
+
+    "legend_baja_camioneta" : "Delete Van",
+    "adv_camioneta" : "Are you sure you want to delete the following van? The changes will be irreversible",
+
+    "--------- BACKOFFICE MODIFICAR CAMIONETA ---------" : "",
+
+    "legend_m_camioneta" : "Modify Van",
+    "subtitulo_camioneta" : "Van data",
+
+    "--------- BACKOFFICE CONSULTAR CAMIONETA ---------" : "",
+
+    "legend_c_camioneta" : "Consult Van",
 
     "--------- BACKOFFICE ALMACENES ---------" : "",
 
@@ -235,6 +266,46 @@
 
     "--------- ALMACENERO CONSULTAR PAQUETE ---------" : "",
 
-    "legend_c_paquete" : "Consult Package"
+    "legend_c_paquete" : "Consult Package",
+
+    "--------- ALMACENERO LOTES ---------" : "",
+
+    "h2_lotes" : "Lots",
+    "th1_lotes" : "Key",
+    "th2_lotes" : "Amount of Packages",
+    "th3_lotes" : "Weight",
+
+    "--------- ALMACENERO ELIMINAR LOTE ---------" : "",
+
+    "legend_baja_lote" : "Delete Lot",
+    "adv_lote" : "Are you sure you want to delete the following lot? The changes will be irreversible",
+    "subtitulo_lote" : "Lot data",
+
+    "--------- ALMACENERO MODIFICAR LOTE ---------" : "",
+
+    "legend_m_lote" : "Modify Lot",
+    "p_cant_paquetes" : "Amount of Packages: ",
+
+    "--------- ALMACENERO CONSULTAR LOTE ---------" : "",
+
+    "legend_c_lote" : "Consult Lot",
+
+    "--------- ASIGNAR PAQUETES A LOTE ---------" : "",
+
+    "h1_paquetes_lote" : "Assign Packages to Lots",
+    "adv_paquetes_lote" : "The lot to which you want to assign the packages must already be created",
+    "boton_siguiente" : "Next",
+
+    "--------- ASIGNAR PAQUETES A LOTE 2 ---------" : "",
+
+    "h1_tabla1_paquetes_lote" : "Unassigned Packages",
+    "th1_paquetes_lotes" : "Key",
+    "th2_paquetes_lotes" : "Destination",
+    "th3_paquetes_lotes" : "Status",
+
+    "h1_tabla2_paquetes_lote" : "Packages Assigned to Lot",
+
+    "btn_agregar_seleccion" : "Add Selected",
+    "btn_eliminar_seleccion" : "Remove Selected"
 
 }

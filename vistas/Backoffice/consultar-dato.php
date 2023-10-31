@@ -134,8 +134,8 @@ if (isset($_GET['id_camionero'])) {
         </div>";
     }
 
-} else if (isset($_GET['id_camion'])) {
-    $id_camion = $_GET['id_camion'];
+} else if (isset($_GET['id_camion1'])) {
+    $id_camion = $_GET['id_camion1'];
 
 
     $instruccion = "select * from camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion where id_camion=$id_camion";
@@ -175,8 +175,8 @@ if (isset($_GET['id_camionero'])) {
             $estado = $fila["estado"];
     
             echo "<div class='form-crud'>
-            <legend class='legend-c-camion'>Consultar Camión</legend>
-            <p class='subtitulo-crud'>Datos del camión</p>
+            <legend class='legend-c-camioneta'>Consultar Camioneta</legend>
+            <p class='subtitulo-crud'>Datos de la camioneta</p>
             <p><b class='p-id'>ID: </b>$id_camioneta</p>
             <p><b class='p-matricula'>Matrícula: </b>$matricula</p>
             <p><b class='p-peso-sop'>Peso soportado: </b>$peso_soportado Kg</p>

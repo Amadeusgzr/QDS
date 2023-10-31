@@ -31,9 +31,9 @@ require '../plantillas/menu-cuenta.php';
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
-                <th>ID</th>
-                <th>Cantidad de paquetes</th>
-                <th>Peso</th>
+                <th class="th1-lotes">ID</th>
+                <th class="th2-lotes">Cantidad de paquetes</th>
+                <th class="th3-lotes">Peso</th>
                 <th>OP</th>
             </tr>
             <?php
@@ -59,7 +59,7 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-uno">
-        <button class="estilo-boton boton-largo">Limpiar</button>
+        <button class="estilo-boton boton-largo btn-limpiar">Limpiar</button>
     </div>
     <div class="div-btn-doble">
         <a href="alta-lote.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>

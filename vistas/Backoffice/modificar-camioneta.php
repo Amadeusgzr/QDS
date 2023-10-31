@@ -28,7 +28,7 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 ?>
 <div class="form-crud">
     <form action="modificar.php" method="post">
-        <legend class="legend-m-camion">Modificar Camión</legend>
+        <legend class="legend-m-camioneta">Modificar Camioneta</legend>
         <p class="subtitulo-crud">Datos actuales</p>
         <p><b class="p-id">ID: </b>
             <?= $id_camioneta ?>

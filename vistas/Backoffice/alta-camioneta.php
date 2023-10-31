@@ -14,7 +14,7 @@ require '../plantillas/menu-cuenta.php';
 
 <div class="form-crud">
     <form action="alta-camioneta.php" method="post">
-        <legend class="legend-form">Agregar Camión</legend>
+        <legend class="legend-form">Agregar Camioneta</legend>
         <input type="text" placeholder="Matrícula" class="txt-crud txt-1" name="matricula[]">
         <input type="text" placeholder="Peso max. (Kg)" class="txt-crud txt-2" name="peso_soportado[]">
         <input type="text" placeholder="Volumen max. (Mts3)" class="txt-crud txt-3" name="volumen_disponible[]">

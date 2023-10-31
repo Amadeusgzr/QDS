@@ -109,6 +109,33 @@
 
     "legend_c_camion" : "Consultar Camión",
 
+    "--------- BACKOFFICE CAMIONETAS ---------" : "",
+
+    "h1_camionetas" : "Camionetas",
+
+    "th1_camionetas" : "ID",
+    "th2_camionetas" : "Matrícula",
+    "th3_camionetas" : "Estado",
+
+    "--------- BACKOFFICE AGREGAR CAMIONETA ---------" : "",
+
+    "legend_camioneta" : "Agregar Camioneta",
+    "matricula" : "Matrícula",
+
+    "--------- BACKOFFICE ELIMINAR CAMIONETA ---------" : "",
+
+    "legend_baja_camioneta" : "Eliminar Camioneta",
+    "adv_camioneta" : "¿Seguro que quiere eliminar la siguiente camioneta? Los cambios serán irreversibles",
+
+    "--------- BACKOFFICE MODIFICAR CAMIONETA ---------" : "",
+
+    "legend_m_camioneta" : "Modificar Camioneta",
+    "subtitulo_camioneta" : "Datos de la camioneta",
+
+    "--------- BACKOFFICE CONSULTAR CAMIONETA ---------" : "",
+
+    "legend_c_camioneta" : "Consultar Camioneta",
+
     "--------- BACKOFFICE ALMACENES ---------" : "",
 
     "h1_titulo_almacenes" : "Gestión de Almacenes",
@@ -235,7 +262,47 @@
 
     "--------- ALMACENERO CONSULTAR PAQUETE ---------" : "",
 
-    "legend_c_paquete" : "Consultar Paquete"
+    "legend_c_paquete" : "Consultar Paquete",
+
+    "--------- ALMACENERO LOTES ---------" : "",
+
+    "h2_lotes" : "Lotes",
+    "th1_lotes" : "ID",
+    "th2_lotes" : "cantidad de paquetes",
+    "th3_lotes" : "peso",
+
+    "--------- ALMACENERO ELIMINAR LOTE ---------" : "",
+
+    "legend_baja_lote" : "Eliminar Lote",
+    "adv_lote" : "¿Seguro que quiere eliminar el siguiente lote? Los cambios serán irreversibles",
+    "subtitulo_lote" : "Datos del lote",
+
+    "--------- ALMACENERO MODIFICAR LOTE ---------" : "",
+
+    "legend_m_lote" : "Modificar Lote",
+    "p_cant_paquetes" : "Cantidad de paquetes: ",
+
+    "--------- ALMACENERO CONSULTAR LOTE ---------" : "",
+
+    "legend_c_lote" : "Consultar Lote",
+
+    "--------- ASIGNAR PAQUETES A LOTE ---------" : "",
+
+    "h1_paquetes_lote" : "Asignar Paquetes a Lote",
+    "adv_paquetes_lote" : "El lote al cual se le quiera asignar los paquetes ya debe estar creado",
+    "boton_siguiente" : "Siguiente",
+
+    "--------- ASIGNAR PAQUETES A LOTE 2 ---------" : "",
+
+    "h1_tabla1_paquetes_lote" : "Paquetes sin Asignar",
+    "th1_paquetes_lotes" : "ID",
+    "th2_paquetes_lotes" : "Destino",
+    "th3_paquetes_lotes" : "Estado",
+
+    "h1_tabla2_paquetes_lote" : "Paquetes asignados al Lote",
+
+    "btn_agregar_seleccion" : "Agregar Selección",
+    "btn_eliminar_seleccion" : "Remover Selección"
 
 
 

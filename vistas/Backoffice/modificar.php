@@ -33,7 +33,7 @@ if (isset($_POST["id_almacen_central"])) {
 
     $instruccion1 = "update vehiculo set matricula='$matricula', peso_soportado='$peso_soportado', volumen_disponible='$volumen_disponible', estado='$estado' where id_vehiculo=$id_camion";
     $conexion->query($instruccion1);
-    header("Location: modificar-camion.php?id_camion=$id_camion");
+    header("Location: modificar-camiones.php?id_camion=$id_camion");
 
 } else if (isset($_POST["id_camioneta"])) {
     $id_camioneta = $_POST["id_camioneta"];

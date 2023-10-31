@@ -12,9 +12,13 @@ echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
-
-<div id="div-tabla-lote">
-    <h1 id="h1-lote">Paquetes</h1>
+<div class="div-btn-uno">
+    <a href="index.php">
+        <button class="boton-volver estilo-boton">Volver</button>
+    </a>
+</div>
+<div id="div-tabla">
+    <h1 class="h1-tabla">Paquetes a recoger</h1>
     <div class="div-error">
         <?php
         if (isset($_GET['datos'])) {
@@ -43,7 +47,8 @@ require '../plantillas/menu-cuenta.php';
                 echo '<td>' . $paquete["direccion"] . '</td>';
                 echo '<td>' . $paquete['estado'] . '</td>';
                 echo "<td>
-                <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete'><button>Recogido</button></a>";
+                <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete'><button>Recogido</button></a>
+                <a href='#'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
                 }
             }
 
@@ -51,21 +56,13 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-doble">
-    <button class="btn-limpiar estilo-boton btns-as-lote">Borrar</button>
-        <a href="index.php">
-            <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
-        </a>
-    </div>
-    <div class="div-btn-doble">
-        <a href="alta-paquete.php" id="a-agregar"><button class="estilo-boton btns-as-lote"
-                id="op-alta">Agregar</button></a>
-                <button class="boton-siguiente estilo-boton btns-as-lote" id="submit-as-lote-2">Siguiente</button>
-
+        <button class="btn-limpiar estilo-boton btns-as-lote">Limpiar</button>
+        <button class="boton-siguiente estilo-boton">Siguiente</button>
     </div>
 </div>
 
-<div id="div-tabla-lote">
-    <h1 id="h1-lote">Paquetes</h1>
+<div id="div-tabla">
+    <h1 class="h1-tabla">Paquetes ya recogidos</h1>
     <div class="div-error">
         <?php
         if (isset($_GET['datos'])) {
@@ -88,7 +85,7 @@ require '../plantillas/menu-cuenta.php';
             require("../../controladores/api/paquete/obtenerDato.php");
             foreach ($decode as $paquete) {
                 $id_paquete = $paquete["id_paquete"];
-                if ($paquete['estado'] == "En camión (central)") {
+                if ($paquete['estado'] == "En camioneta (central)") {
                 echo '<tr class="fila-ingreso-lote fila-opcion">';
                 echo '<td>' . $paquete["id_paquete"] . '</td>';
                 echo '<td>' . $paquete["direccion"] . '</td>';
@@ -96,11 +93,14 @@ require '../plantillas/menu-cuenta.php';
                 echo "<td>
                 <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete'><button>Desrecogido</button></a>";
                 }
-           
-
+        
             }
             ?>
         </table>
+    </div>
+    <div class="div-btn-doble">
+        <button class="btn-limpiar estilo-boton btns-as-lote">Limpiar</button>
+        <button class="boton-siguiente estilo-boton">Siguiente</button>
     </div>
 </div>
 

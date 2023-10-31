@@ -155,9 +155,9 @@ class paqueteModelo
             $resultado = mysqli_query($this->db, $instruccion);
             $fila =  mysqli_fetch_assoc($resultado);
             $estado = $fila["estado"];
-            if ($estado == "En almacén cliente" || $estado == "En camión (central)"){
+            if ($estado == "En almacén cliente" || $estado == "En camioneta (central)"){
                 if ($estado == "En almacén cliente"){
-                    $instruccion = "UPDATE paquete SET estado='En camión (central)' WHERE id_paquete = '$id_paquete'";
+                    $instruccion = "UPDATE paquete SET estado='En camioneta (central)' WHERE id_paquete = '$id_paquete'";
                     mysqli_query($this->db, $instruccion);
                     $resultado = [
                         'error' => "Éxito",

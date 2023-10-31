@@ -24,7 +24,7 @@ require '../plantillas/menu-cuenta.php';
         <input type="email" name="mail_destinatario[]" id="mail-destinatario-paq" class="destino-paq" placeholder="Correo destinatario" autocomplete="off" required>
         <input type="text" name="direccion[]" id="calle-destino-paq" class="destino-paq" placeholder="Direccion" autocomplete="off" required>
 
-        <select name="id_destino[]" id="select-fragil-paq" class="select-fragil-paq">
+        <select name="id_destino[]" id="select-datos-paquete">
         <option selected value="">Departamento</option>
         <?php
             require("../../controladores/api/destino/obtenerDato.php");
@@ -40,7 +40,7 @@ require '../plantillas/menu-cuenta.php';
         <input type="number" step="any" name="peso[]" id="peso-paq" class="destino-paq" placeholder="Peso (Kg)" autocomplete="off" required>
         <input type="number" step="any" name="volumen[]" id="volumen-paq" class="destino-paq" placeholder="Volumen (cm∧3)" autocomplete="off" required>
 
-        <select name="id_almacen_cliente[]" id="select-fragil-paq" class="select-fragil-paq">
+        <select name="id_almacen_cliente[]" id="select-datos-paquete">
         <?php
             require("../../controladores/api/almacenClienteEmpresa/obtenerDatoPorEmpresa.php");
 
@@ -56,7 +56,7 @@ require '../plantillas/menu-cuenta.php';
     </div>
 
     <div class="div-datos-paq">
-        <p id="p-fragil">Contenido frágil</p>
+        <p class="p-paquete">Contenido frágil</p>
         <div id="div-radios">
             <label for="radio-paq-si">Sí</label>
             <input type="checkbox" name="fragil[]" id="radio-paq-si" class="chk" value="Si">
