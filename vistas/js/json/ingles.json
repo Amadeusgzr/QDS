@@ -33,16 +33,26 @@
     "op5_p" : "Warehouses managment",
     "op6_h2" : "Client Companies",
     "op6_p" : "Client Companies managment",
-    "op7_h2" : "Routes and Journeys",
-    "op7_p" : "Rutes and Journeys managment",
+    "op7_h2" : "Journeys",
+    "op7_p" : "Journeys managment",
+
+    "--------- BACKOFFICE USUARIOS ---------" : "",
+
+    "h1_tabla_usuarios" : "Users",
+    "th1_usuarios" : "User",
+    "th2_usuarios" : "User Type",
+
+    "--------- BACKOFFICE AGREGAR USUARIO ---------" : "",
+
+    "legend_usuarios" : "Add User",
+    "plc1_usuario" : "Username",
+    "plc2_usuario" : "User Type",
 
     "--------- BACKOFFICE CAMIONEROS ---------" : "",
 
     "h1_tabla_camioneros" : "Truckers",
     "th1_camioneros" : "Name",
     "th2_camioneros" : "Status",
-
-    
 
     "btn_limpiar" : "Clear",
     "btn_volver" : "Back",
@@ -231,6 +241,24 @@
 
     "legend_c_empresa_cliente" : "Consult Client Company",
 
+    "--------- BACKOFFICE TRAYECTOS ---------" : "",
+
+    "h1_tabla_trayectos" : "Journeys",
+    "th1_trayectos" : "Key",
+    "th2_trayectos" : "Destination",
+    "th3_trayectos" : "Intermediate Destinations",
+
+    "--------- BACKOFFICE CONSULTAR TRAYECTOS ---------" : "",
+
+    "legend_c_trayecto" : "Consult Journey",
+    "subtitulo_trayecto" : "Journey data",
+
+    "p_destino" : "Destination: ",
+    "p_destinos_intermedios" : "Intermediate Destinations: ",
+    "p_distancia_recorrida" : "Distance Traveled: ",
+    "p_duracion_total" : "Total Duration: ",
+    "p_instrucciones" : "Instructions: ",
+
     "--------- ALMACENERO INDEX ---------" : "",
 
     "op1_almacenero_h2" : "Packages",
@@ -306,6 +334,25 @@
     "h1_tabla2_paquetes_lote" : "Packages Assigned to Lot",
 
     "btn_agregar_seleccion" : "Add Selected",
-    "btn_eliminar_seleccion" : "Remove Selected"
+    "btn_eliminar_seleccion" : "Remove Selected",
+
+    "--------- ASIGNAR LOTES A CAMION ---------" : "",
+
+    "h1_tabla2_lotes_camion" : "Assign Lots to Truck",
+    "adv_lotes_camion" : "The truck to which you want to assign the lots must already be created",
+    "h1_tabla_lotes_camion" : "Unassigned Lots",
+
+    "th1_lotes_camion" : "Key",
+    "th2_lotes_camion" : "Weight",
+    "th3_lotes_camion" : "Amount of Packages",
+
+    "h1_2_tabla_lotes_camion" : "Lots assigned to the Truck",
+
+    "th1_lotes_camion_2" : "Key",
+    "th2_lotes_camion_2" : "Weight",
+    "th3_lotes_camion_2" : "Amount of Packages"
+    
+
+    
 
 }

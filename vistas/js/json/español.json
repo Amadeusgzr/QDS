@@ -78,6 +78,10 @@
 
     "legend_c_camionero" : "Consultar camionero",
 
+    "--------- BACKOFFICE VEHICULOS ---------" : "",
+
+    "h1_vehiculos" : "Camiones y Camionetas",
+
     "--------- BACKOFFICE CAMIONES ---------" : "",
 
     "h1_tabla_camiones" : "Camiones",
@@ -227,6 +231,24 @@
 
     "legend_c_empresa_cliente" : "Consultar Empresa Cliente",
 
+    "--------- BACKOFFICE TRAYECTOS ---------" : "",
+
+    "h1_tabla_trayectos" : "Trayectos",
+    "th1_trayectos" : "ID",
+    "th2_trayectos" : "Destino",
+    "th3_trayectos" : "Destinos Intermedios",
+
+    "--------- BACKOFFICE CONSULTAR TRAYECTOS ---------" : "",
+
+    "legend_c_trayecto" : "Consultar Trayecto",
+    "subtitulo_trayecto" : "Datos del Trayecto",
+
+    "p_destino" : "Destino: ",
+    "p_destinos_intermedios" : "Destinos Intermedios: ",
+    "p_distancia_recorrida" : "Distancia Recorrida: ",
+    "p_duracion_total" : "Duración Total: ",
+    "p_instrucciones" : "Instrucciones: ",
+
     "--------- ALMACENERO INDEX ---------" : "",
 
     "op1_almacenero_h2" : "Paquetes",
@@ -302,7 +324,23 @@
     "h1_tabla2_paquetes_lote" : "Paquetes asignados al Lote",
 
     "btn_agregar_seleccion" : "Agregar Selección",
-    "btn_eliminar_seleccion" : "Remover Selección"
+    "btn_eliminar_seleccion" : "Remover Selección",
+
+    "--------- ASIGNAR LOTES A CAMION ---------" : "",
+
+    "h1_tabla2_lotes_camion" : "Asignar Lotes a Camión",
+    "adv_lotes_camion" : "El camión al cual se le quiera asignar los lotes ya debe estar creado",
+    "h1_tabla_lotes_camion" : "Lotes sin asignar",
+
+    "th1_lotes_camion" : "ID",
+    "th2_lotes_camion" : "Peso",
+    "th3_lotes_camion" : "Cantidad de paquetes",
+
+    "h1_2_tabla_lotes_camion" : "lotes asignados al Camión",
+
+    "th1_lotes_camion_2" : "ID",
+    "th2_lotes_camion_2" : "Peso",
+    "th3_lotes_camion_2" : "Cantidad de paquetes"
 
 
 

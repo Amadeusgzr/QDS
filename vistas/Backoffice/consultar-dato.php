@@ -246,14 +246,14 @@ if (isset($_GET['id_camionero'])) {
 
 
         echo "<div class='form-crud'>
-        <legend>Consultar Trayecto</legend>
+        <legend class='legend-c-trayecto'>Consultar Trayecto</legend>
         <p class='subtitulo-crud'>Datos de la ruta</p>
-        <p><b>ID: </b>$id_trayecto</p>
-        <p><b>Destino: </b>$destino</p>
-        <p><b>Destino Intermedios: </b>$destinos_intermedios</p>
-        <p><b>Distancia Recorrida: </b>$distancia_recorrida Km</p>
-        <p><b>Duración Total: </b>$duracion_total minutos</p>
-        <p><b>Instrucciones: </b></p>";
+        <p><b class='p-id'>ID: </b>$id_trayecto</p>
+        <p><b class='p-destino'>Destino: </b>$destino</p>
+        <p><b class='p-destinos-intermedios'>Destinos Intermedios: </b>$destinos_intermedios</p>
+        <p><b class='p-distancia-recorrida'>Distancia Recorrida: </b>$distancia_recorrida Km</p>
+        <p><b class='p-duracion-total'>Duración Total: </b>$duracion_total minutos</p>
+        <p><b class='p-instrucciones'>Instrucciones: </b></p>";
 
         $origen1 = str_replace(' ', '', $origen);
         $destino1 = str_replace(' ', '', $destino);

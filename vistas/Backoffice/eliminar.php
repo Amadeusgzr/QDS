@@ -17,6 +17,22 @@ if (isset($_GET['id_camionero'])) {
 } else if (isset($_GET['id_almacen_cliente'])) {
     $id_almacen_cliente = $_GET['id_almacen_cliente'];
 
+    $paquetes = [];
+    $instruccion = "select * from almacena where id_almacen_cliente=$id_almacen_cliente";
+    $resultado = mysqli_query($conexion, $instruccion);
+    while ($fila = mysqli_fetch_assoc($resultado)) {
+        array_push($paquetes, $fila);
+    }
+    
+    if (isset($paquetes)){
+        if (count($paquetes) > 0) {
+           $instruccion = "delete from almacena where id_almacen_cliente=$id_almacen_cliente";
+           $conexion->query($instruccion);
+        }
+    }
+
+    $instruccion = "delete from tiene where id_almacen_cliente=$id_almacen_cliente";
+    $conexion->query($instruccion);
 
     $instruccion = "delete from almacen_cliente where id_almacen_cliente=$id_almacen_cliente";
     $conexion->query($instruccion);

@@ -20,8 +20,8 @@ require '../plantillas/menu-cuenta.php';
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
-                <th>Usuario</th>
-                <th>Tipo de Usuario</th>
+                <th class="th1">Usuario</th>
+                <th class="th2">Tipo de Usuario</th>
                 <th>Mail</th>
                 <th class="th-op">OP</th>
             </tr>
@@ -52,7 +52,7 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-uno">
-        <button class="estilo-boton boton-largo">Reiniciar</button>
+        <button class="estilo-boton boton-largo btn-limpiar">Limpiar</button>
     </div>
     <div class="div-btn-doble">
         <a href="alta-usuario.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>

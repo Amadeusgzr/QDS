@@ -41,19 +41,35 @@ if (isset($_GET['id_camionero'])) {
     }
 } else if (isset($_GET['id_almacen_cliente'])) {
     $id_almacen_cliente = $_GET['id_almacen_cliente'];
-
-
+    $paquete = [];
+    $instruccion = "select * from almacena where id_almacen_cliente=$id_almacen_cliente";
+    $resultado = mysqli_query($conexion, $instruccion);
+    while ($fila = mysqli_fetch_assoc($resultado)) {
+        array_push($paquete, $fila);
+    }
+    
     $instruccion = "select * from almacen_cliente where id_almacen_cliente=$id_almacen_cliente";
     $filas = $conexion->query($instruccion);
+
+    
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         $id_almacen_cliente = $fila["id_almacen_cliente"];
         $telefono = $fila["telefono"];
         $direccion = $fila["direccion"];
         echo "<div class='form-crud'>
-        <legend class='legend-baja-almacen-cliente'>Eliminar Almacen Cliente</legend>
-        <p class='adv'>¿Seguro que quiere eliminar el siguiente almacén? Los cambios serán irreversibles</p>
-        <p class='subtitulo-crud'>Datos del almacén</p>
+        <legend class='legend-baja-almacen-cliente'>Eliminar Almacen Cliente</legend>";
+        if (isset($paquete)){
+            if (count($paquete) > 0) {
+                $cant_paquetes = count($paquete);
+                echo "<p class='adv adv-1'>Este almacén tiene $cant_paquetes paquete(s)</p>";
+                echo "<p class='adv adv-2'>¿Deseas eliminar el siguiente almacén y los paquetes de dentro? Los cambios son irreversibles.</p>";
+            } else {
+                echo "<p class='adv adv-3'>¿Seguro que quiere eliminar el siguiente almacén? Los cambios serán irreversibles.</p>";
+            }
+        }
+    
+        echo "<p class='subtitulo-crud'>Datos del almacén</p>
         <p><b class='p-id'>ID: </b>$id_almacen_cliente</p>
         <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
         <p><b class='p-direccion'>Dirección: </b>$direccion</p>
@@ -61,6 +77,7 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-almacen-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
+
 
 
 

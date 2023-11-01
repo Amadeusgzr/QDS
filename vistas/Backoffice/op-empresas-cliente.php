@@ -58,7 +58,7 @@ require '../plantillas/menu-cuenta.php';
         <button class="estilo-boton boton-largo btn-limpiar">Limpiar</button>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-almacen-cliente.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
+        <a href="alta-empresa-cliente.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
         <button class="boton-siguiente estilo-boton boton-eliminar" id="submit-as-lote-2">Eliminar</button>
     </div>
 </div>

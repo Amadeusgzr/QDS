@@ -13,18 +13,18 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 <div class="div-btn-uno">
-    <a href="asignar-lotes-camion.php">
+    <a href="asignar-lotes-camion-1.php">
         <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
     </a>
 </div>
 <div id="div-tabla">
-    <h1 class="h1-tabla">Lotes sin asignar</h1>
+    <h1 class="h1-tabla h1-1">Lotes sin asignar</h1>
     <div class="contenedor-tabla">
         <table id="tabla-lote">
             <tr class="fila-ingreso-lote">
-                <th>ID</th>
-                <th>Peso</th>
-                <th>Cantidad de paquetes</th>
+                <th class="th1-lotes-camion">ID</th>
+                <th class="th2-lotes-camion">Peso</th>
+                <th class="th3-lotes-camion">Cantidad de paquetes</th>
                 <th>Op</th>
                 <?php
                 require("../../controladores/api/lote/obtenerDato.php");
@@ -58,14 +58,14 @@ require '../plantillas/menu-cuenta.php';
 </div>
 
 <div id="div-tabla">
-    <h1 class="h1-tabla">Lotes asignados al camión
+    <h1 class="h1-tabla h1-2">Lotes asignados al camión
     </h1>
     <div class="contenedor-tabla">
         <table id="tabla-lote">
             <tr class="fila-ingreso-lote">
-                <th>ID</th>
-                <th>Peso</th>
-                <th>Cantidad de paquetes</th>
+                <th class="th1-lotes-camion-2">ID</th>
+                <th class="th2-lotes-camion-2">Peso</th>
+                <th class="th3-lotes-camion-2">Cantidad de paquetes</th>
                 <th>Op</th>
                 <?php
                 require("../../controladores/api/lote_camion/obtenerDatoPorId.php");
@@ -87,8 +87,8 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-doble">
-        <button class="btn-limpiar estilo-boton btn-limpiar">Limpiar</button>
-        <a href="hola.php?id_lote=<?= $id_lote ?>"><button class="boton-volver estilo-boton btns-as-lote">Eliminar Selección</button></a>
+        <button class="btn-limpiar estilo-boton btn-limpiar btn-limpiar2">Limpiar</button>
+        <a href="hola.php?id_lote=<?= $id_lote ?>"><button class="boton-volver estilo-boton boton-eliminar">Eliminar Selección</button></a>
     </div>
 </div>
 

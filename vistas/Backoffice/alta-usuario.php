@@ -14,11 +14,11 @@ require '../plantillas/menu-cuenta.php';
 
 <div class="form-crud">
     <form action="alta-usuario.php" method="post">
-        <legend>Agregar Usuario</legend>
-        <input type="text" placeholder="Usuario" class="txt-crud" name="nom_usu[]" required>
-        <input type="text" placeholder="Tipo de Usuario" class="txt-crud" name="tipo_usu[]" required>
+        <legend class="legend-usuarios">Agregar Usuario</legend>
+        <input type="text" placeholder="Usuario" class="txt-crud txt1" name="nom_usu[]" required>
+        <input type="text" placeholder="Tipo de Usuario" class="txt-crud txt2" name="tipo_usu[]" required>
         <input type="mail" placeholder="Mail" class="txt-crud" name="mail[]" required>
-        <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
+        <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente boton-agregar"></a>
     </form>
     <a href="op-usuarios.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>
