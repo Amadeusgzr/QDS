@@ -73,17 +73,6 @@ function actualizarTextos(data) {
     document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
 
   }
-  else if(url.includes("Backoffice") && url.includes("alta-usuario")){
-
-    document.querySelector(".legend-usuarios").textContent = data.legend_usuarios;
-
-    document.querySelector(".txt1").placeholder = data.plc1_usuario;
-    document.querySelector(".txt2").placeholder = data.plc2_usuario;
-
-    document.querySelector(".boton-volver").value = data.btn_volver;
-    document.querySelector(".boton-agregar").value = data.btn_agregar;
-
-  }
   else if(url.includes("Backoffice") && url.includes("op-camioneros")){
 
     document.querySelector(".h1-tabla").textContent = data.h1_tabla_camioneros;

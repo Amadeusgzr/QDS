@@ -12,6 +12,7 @@ echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 
+
 ?>
 
 <form action="../../controladores/api/lote/agregarDato.php" id="form-lote-2" method="post">
@@ -21,6 +22,18 @@ require '../plantillas/menu-cuenta.php';
         <?php
 
         ?>
+        <p class="p-lote">Almacén central</p>
+        <select name="id_almacen_central[]" id="select-datos-paquete">
+            <option value="" selected>Almacén Central</option>
+            <?php
+               require("../../controladores/api/almacenCentral/obtenerDato.php");
+               foreach ($decode as $almacen_central){
+                   $id_almacen_central = $almacen_central["id_almacen_central"];
+                   $numero_almacen = $almacen_central["numero_almacen"];
+                   echo "<option value='$id_almacen_central'> $numero_almacen </option>";
+               }
+            ?>
+        </select>
         <p class="p-lote">Fecha traslado</p>
         <input type="date" name="fecha_ideal_traslado[]" id="fecha-traslado-lote" class="tiempo-lote"
             placeholder="Nombre destinatario" autocomplete="off">

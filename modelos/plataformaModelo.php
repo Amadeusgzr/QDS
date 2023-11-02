@@ -14,7 +14,7 @@ class plataformaModelo
     {
         $where = ($id_plataforma == null) ? "" : " WHERE id_plataforma='$id_plataforma'";
         $plataformas = [];
-        $instruccion = "SELECT * FROM plataforma" . $where;
+        $instruccion = "SELECT * FROM plataforma INNER JOIN destino_paquete ON plataforma.departamento = destino_paquete.id_destino" . $where;
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($plataformas, $row);

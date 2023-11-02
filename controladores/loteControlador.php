@@ -20,9 +20,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 $respuesta1 = atributosVacio($_POST->fecha_ideal_traslado);
                 $respuesta2 = atributosVacio($_POST->hora_ideal_traslado);
                 $respuesta3 = atributosVacio($_POST->fragil);
+                $respuesta4 = atributosVacio($_POST->id_almacen_central);
 
-                if ($respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error") {
-                    $respuesta = $loteModelo->guardarLote($_POST->fecha_ideal_traslado[$i], $_POST->hora_ideal_traslado[$i], $_POST->fragil[$i], "Vidrio", "Pene");
+                if ($respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
+                    $respuesta = $loteModelo->guardarLote($_POST->fecha_ideal_traslado[$i], $_POST->hora_ideal_traslado[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i], $_POST->id_almacen_central[$i]);
                 } else {
                     $respuesta = [
                         'error' => 'Error',

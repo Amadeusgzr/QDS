@@ -47,7 +47,7 @@ require '../plantillas/menu-cuenta.php';
                 } else {
                     echo '<td>' . $lote["cant_paquetes"] . '</td>';
                 }
-                echo '<td>' . $lote['peso'] . '</td>';
+                echo '<td>' . $lote['peso'] . " kg" . '</td>';
                 echo "<td>
                 <a href='baja-lote.php?id_lote=$id_lote'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
                 <a href='modificar-lote.php?id_lote=$id_lote'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>

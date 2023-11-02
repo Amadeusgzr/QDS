@@ -33,8 +33,14 @@
     "op5_p" : "Gestión de Almacenes",
     "op6_h2" : "Empresas Cliente",
     "op6_p" : "Gestión de Empresas Cliente",
-    "op7_h2" : "Rutas y Trayectos",
-    "op7_p" : "Gestión de Rutas y Trayectos",
+    "op7_h2" : "Trayectos",
+    "op7_p" : "Gestión de Trayectos",
+
+    "--------- BACKOFFICE USUARIOS ---------" : "",
+
+    "h1_tabla_usuarios" : "Usuarios",
+    "th1_usuarios" : "Usuario",
+    "th2_usuarios" : "Tipo de usuario",
 
     "--------- BACKOFFICE CAMIONEROS ---------" : "",
 

@@ -4,6 +4,7 @@ $ch = curl_init();
 if ($_POST) {
     $fecha_ideal_traslado = $_POST["fecha_ideal_traslado"];
     $hora_ideal_traslado = $_POST["hora_ideal_traslado"];
+    $id_almacen_central = $_POST["id_almacen_central"];
     $fragil = $_POST["fragil"];
     if (isset($_POST["tipo"])) {
         $tipo = $_POST["tipo"];
@@ -20,6 +21,7 @@ if ($_POST) {
 $array = [
     'fecha_ideal_traslado' => $fecha_ideal_traslado,
     'hora_ideal_traslado' => $hora_ideal_traslado,
+    'id_almacen_central' => $id_almacen_central,
     'fragil' => $fragil,
     'tipo' => $tipo,
     'detalles' => $detalles,
@@ -39,7 +41,6 @@ if (curl_errno($ch)) {
 } else {
     $decode = json_decode($respuesta, true);
 }
-
 
 curl_close($ch);
 if ($decode['error'] == 'Error') {
