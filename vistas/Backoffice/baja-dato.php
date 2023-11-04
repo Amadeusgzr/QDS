@@ -274,28 +274,45 @@ if (isset($_GET['id_camionero'])) {
     $id_camioneta = $_GET['id_camioneta_horario'];
 
 
-    $instruccion = "select * from sale inner join vehiculo on sale.id_vehiculo = vehiculo.id_vehiculo inner join camioneta on vehiculo.id_vehiculo = camioneta.id_camioneta inner join recoge on camioneta.id_camioneta = recoge.id_camioneta where camioneta.id_camioneta=$id_camioneta";
+    $instruccion = "select * from sale inner join vehiculo on sale.id_vehiculo = vehiculo.id_vehiculo inner join camioneta on vehiculo.id_vehiculo = camioneta.id_camioneta where camioneta.id_camioneta=$id_camioneta";
     $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
-        $id_camioneta = $fila["id_camioneta"];
         $matricula = $fila["matricula"];
-        $peso_soportado = $fila["peso_soportado"];
-        $volumen_disponible = $fila["volumen_disponible"];
-        $estado = $fila["estado"];
-        echo "<div class='form-crud'>
-        <legend class='legend-baja'>Eliminar Camión</legend>
-        <p class='adv'>¿Seguro que quiere eliminar el siguiente camión? Los cambios serán irreversibles</p>
-        <p class='subtitulo-crud'>Datos del camión</p>
-        <p><b class='p-id'>ID: </b>$id_camioneta</p>
-        <p><b class='p-matricula'>Matrícula: </b>$matricula</p>
-        <p><b class='p-peso-sop'>Peso soportado: </b>$peso_soportado Kg</p>
-        <p><b class='p-volumen-disp'>Volumen disponible: </b>$volumen_disponible Cm3</p>
-        <p><b class='p-estado'>Estado: </b>$estado</p>
-        <a href='eliminar.php?id_camioneta=$id_camioneta'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
-        <a href='op-camionetas.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
-        </div>";
+        $fecha_salida = $fila["fecha_salida"];
+        $hora_salida = $fila["hora_salida"];
+        echo "
+        <div class='form-crud'>
+        <legend>Eliminar Horario</legend>
+        <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
+        <p>Datos de salida</p>
+        <p><b>Matricula: </b>$matricula</p>
+        <p><b>Fecha salida: </b>$fecha_salida</p>
+        <p><b>Hora salida: </b>$hora_salida</p>";
+        
     }
+
+    $instruccion = "select * from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta inner join almacen_cliente on recoge.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join tiene on tiene.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente where camioneta.id_camioneta=$id_camioneta ORDER BY fecha_recogida_ideal ASC, hora_recogida_ideal ASC;";
+    $filas = $conexion->query($instruccion);
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        echo "<hr>";
+        $id_almacen_cliente = $fila["id_almacen_cliente"];
+        $fecha_recogida_ideal = $fila["fecha_recogida_ideal"];
+        $hora_recogida_ideal = $fila["hora_recogida_ideal"];
+        $direccion_almacen = $fila["direccion"];
+        $empresa = $fila["nombre_de_empresa"];
+
+        
+        echo "
+        <p><b>Almacen cliente: </b>$direccion_almacen - $empresa</p>
+        <p><b>Fecha recogida estimado: </b>$fecha_recogida_ideal</p>
+        <p><b>Hora recogida estimado: </b>$hora_recogida_ideal</p>";
+    }
+
+    echo "<a href='eliminar.php?id_camioneta_horario=$id_camioneta'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
+    <a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+    </div>";
+
 } 
 
 ?>

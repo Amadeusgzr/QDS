@@ -38,6 +38,7 @@ require '../plantillas/menu-cuenta.php';
 
         <p class="p-paquete">Sobre la salida</p>
         <select name="id_almacen_central[]" class="estilo-select">
+        <option value="" selected>Almacén Central</option>
             <?php
             include("../../modelos/db.php");
             $instruccion = "select * from almacen_central";
@@ -57,11 +58,8 @@ require '../plantillas/menu-cuenta.php';
         <input type="time" placeholder="Hora salida" class="txt-crud" name="hora_salida[]" required>
 
         <p class="p-paquete">Sobre la recogida</p>
-        <input type="date" placeholder="Fecha recogida" class="txt-crud" name="fecha_recogida_ideal[]" required>
-        <input type="time" placeholder="Hora recogida" class="txt-crud" name="hora_recogida_ideal[]" required>
-
-        <p class="p-paquete">Almacenes cliente</p>
         <select name="id_almacen_cliente[]" class="estilo-select">
+        <option value="" selected>Almacén Cliente</option>
             <?php
             include("../../modelos/db.php");
             $instruccion = "select * from almacen_cliente inner join tiene on almacen_cliente.id_almacen_cliente = tiene.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente";
@@ -78,6 +76,26 @@ require '../plantillas/menu-cuenta.php';
             }
             ?>
         </select>
+        <select name="id_almacen_cliente[]" class="estilo-select">
+        <option value="" selected>Almacén Cliente</option>
+            <?php
+            include("../../modelos/db.php");
+            $instruccion = "select * from almacen_cliente inner join tiene on almacen_cliente.id_almacen_cliente = tiene.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente";
+            $almacenes_cliente = [];
+            $result = mysqli_query($conexion, $instruccion);
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($almacenes_cliente, $row);
+            }
+            foreach ($almacenes_cliente as $almacen_cliente) {
+                $id_almacen_cliente = $almacen_cliente['id_almacen_cliente'];
+                $direccion = $almacen_cliente['direccion'];
+                $empresa = $almacen_cliente['nombre_de_empresa'];
+                echo "<option value='$id_almacen_cliente'>$direccion - $empresa</option>";
+            }
+            ?>
+        </select>
+
+ 
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
 
 
@@ -97,10 +115,9 @@ if ($_POST) {
     $fecha_salida = $_POST["fecha_salida"];
     $hora_salida = $_POST["hora_salida"];
 
-    $fecha_recogida_ideal = $_POST["fecha_recogida_ideal"];
-    $hora_recogida_ideal = $_POST["hora_recogida_ideal"];
+    $id_almacenes_cliente = $_POST["id_almacen_cliente"];
 
-    $id_almacen_cliente = $_POST["id_almacen_cliente"];
+    print_r($id_almacenes_cliente);
 
     $numArrays = count($id_camioneta);
     for ($i = 0; $i < $numArrays; $i++) {
@@ -121,11 +138,11 @@ if ($_POST) {
             ];
             break;
         }
-        $respuesta = existencia('almacen_cliente', 'id_almacen_cliente', $id_almacen_cliente[$i]);
+        $respuesta = existencia('almacen_cliente', 'id_almacen_cliente', $id_almacenes_cliente[$i]);
         if ($respuesta['error'] !== "Error") {
             $respuesta = [
                 'error' => "Error",
-                'respuesta' => "No existe un almacén cliente con el ID $id_almacen_cliente[$i]"
+                'respuesta' => "No existe un almacén cliente con el ID $id_almacenes_cliente[$i]"
             ];
             break;
         }
@@ -134,14 +151,11 @@ if ($_POST) {
 
         $respuesta1 = atributosVacio($id_almacen_central);
         $respuesta2 = atributosVacio($fecha_salida);
-        $respuesta3 = atributosVacio($hora_salida);
+        $respuesta3 = atributosVacio($hora_salida);  
 
-        $respuesta4 = atributosVacio($fecha_recogida_ideal);
-        $respuesta5 = atributosVacio($hora_recogida_ideal);
+        $respuesta4 = atributosVacio($id_almacenes_cliente);
 
-        $respuesta6 = atributosVacio($id_almacen_cliente);
-
-        if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error" && $respuesta5['error'] !== "Error" && $respuesta6['error'] !== "Error") {
+        if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
             
             $respuesta = [
             'error' => "Éxito",
@@ -151,8 +165,80 @@ if ($_POST) {
             $instruccion = "insert into sale(id_vehiculo, id_almacen_central, fecha_salida, hora_salida) value ('$id_camioneta[$i]', '$id_almacen_central[$i]', '$fecha_salida[$i]', '$hora_salida[$i]')";
             $conexion->query($instruccion);
 
-            $instruccion = "insert into recoge(id_camioneta, id_almacen_cliente, fecha_recogida_ideal, hora_recogida_ideal) value ('$id_camioneta[$i]', '$id_almacen_cliente[$i]', '$fecha_recogida_ideal[$i]', '$hora_recogida_ideal[$i]')";
-            $conexion->query($instruccion);
+            $origen = "FelipeSanguinetti2474,DepartamentodeMontevideo";
+            $direccionDestino = "FelipeSanguinetti2474,DepartamentodeMontevideo";
+
+            $tiempoEsperaSegundos = 600; 
+
+            $api_key = 'AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM';
+
+            $horaEstimadaLlegadaTimestamp = strtotime("$fecha_salida[$i] $hora_salida[$i]");
+
+            foreach ($id_almacenes_cliente as $key => $id_almacen_cliente){
+                $instruccion = "select * from almacen_cliente where id_almacen_cliente=$id_almacen_cliente";
+                $resultado = mysqli_query($conexion, $instruccion);
+                $fila =  mysqli_fetch_assoc($resultado);
+                $puntoIntermedio = $fila["direccion"];
+
+
+                $puntoIntermedio = str_replace(' ', '', $puntoIntermedio);
+                $puntoIntermedio = "$puntoIntermedio,DepartamentodeMontevideo";
+                echo $puntoIntermedio . "<br>";
+
+
+                $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$puntoIntermedio&key=$api_key&region=uy&language=es";
+
+                $response = file_get_contents($apiURL);
+                $data = json_decode($response);
+
+                if ($data->status === "OK") {
+                    $duracionEnSegundos = $data->routes[0]->legs[0]->duration->value;
+
+                    $horaEstimadaLlegadaTimestamp += $duracionEnSegundos;
+
+                    // if ($key > 0) {
+                    //     $horaEstimadaLlegadaTimestamp += $tiempoEsperaSegundos;
+                    // }
+
+                    $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
+                    $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
+    
+                    echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
+                    echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
+
+                    $origen = $puntoIntermedio;
+
+                    $instruccion = "insert into recoge(id_camioneta, id_almacen_cliente, fecha_recogida_ideal, hora_recogida_ideal) value ('$id_camioneta[$i]', '$id_almacen_cliente', '$fechaEstimadaLlegada', '$horaEstimadaLlegada')";
+                    $conexion->query($instruccion);
+                } else {
+                    echo "Error al calcular la ruta: " . $data->status;
+                    break;
+                }
+            }
+
+            $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$direccionDestino&key=$api_key&region=uy&language=es";
+            $response = file_get_contents($apiURL);
+            $data = json_decode($response);
+
+            if ($data->status === "OK") {
+                $duracionEnSegundos = $data->routes[0]->legs[0]->duration->value;
+
+                // if (count($id_almacenes_cliente) > 0) {
+                //     $horaEstimadaLlegadaTimestamp += $tiempoEsperaSegundos;
+                //  }
+
+                $horaEstimadaLlegadaTimestamp += $duracionEnSegundos;
+
+                $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
+                $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
+
+// Imprimir la fecha y la hora estimadas de llegada
+                echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
+                echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
+                } else {
+                    echo "Error al calcular la ruta al destino final: " . $data->status;
+                }
+
         } else {
             $respuesta = [
                 'error' => "Error",
@@ -161,8 +247,11 @@ if ($_POST) {
         }
     }
     $respuesta = json_encode($respuesta);
-    header('Location: alta-horario-recogida.php?datos=' . urlencode($respuesta));
 }
+
+
+
+
 
 ?>
 <div class="div-error">

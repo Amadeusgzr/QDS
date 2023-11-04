@@ -20,14 +20,13 @@ require '../plantillas/menu-cuenta.php';
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
-                <th>Camión</th>
+                <th>Camioneta</th>
                 <th id="th1-plataformas">Fecha y hora de salida</th>
-                <th id="th1-plataformas">Fecha y hora de recogida</th>
                 <th>OP</th>
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from sale inner join vehiculo on sale.id_vehiculo = vehiculo.id_vehiculo inner join camioneta on vehiculo.id_vehiculo = camioneta.id_camioneta inner join recoge on camioneta.id_camioneta = recoge.id_camioneta";
+            $instruccion = "select * from sale inner join vehiculo on sale.id_vehiculo = vehiculo.id_vehiculo inner join camioneta on vehiculo.id_vehiculo = camioneta.id_camioneta";
             $horarios_recogida = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -41,12 +40,10 @@ require '../plantillas/menu-cuenta.php';
                 $fecha_salida = $horario_recogida["fecha_salida"];
                 $hora_salida = $horario_recogida["hora_salida"];
 
-                $fecha_recogida_ideal = $horario_recogida["fecha_recogida_ideal"];
-                $hora_recogida_ideal = $horario_recogida["hora_recogida_ideal"];
 
                 echo "<td>$matricula</td>";
                 echo "<td>$fecha_salida - $hora_salida</td>";
-                echo "<td>$fecha_recogida_ideal - $hora_recogida_ideal</td>";
+
 
                 echo "<td>
                 <a href='baja-dato.php?id_camioneta_horario=$id_camioneta'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>

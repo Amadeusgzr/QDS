@@ -307,45 +307,41 @@ if (isset($_GET['id_camionero'])) {
     <p><b>Mapa: </b></p>
     <div id="map" style="height: 400px; width: 100%;"></div>
  
- <script>
-            const start = "<?php echo $origen1;?>";
-            const end = "<?php echo $destino1;?>";
-            const waypointInputs = <?php echo $waypointsJson;?>;
+    <script>
+        const start = "<?php echo $origen1;?>";
+        const end = "<?php echo $destino1;?>";
+        const waypointInputs = <?php echo $waypointsJson;?>;
 
-            console.log(start);
-            console.log(end);
-            console.log(waypointInputs);
+        console.log(start);
+        console.log(end);
+        console.log(waypointInputs);
 
-            waypoints = [];
+        waypoints = [];
 
-            waypointInputs.forEach(function(input) {
-                if (input) {
-                    waypoints.push({
-                        location: input,
-                        stopover: true
-                    });
-                }
+        waypointInputs.forEach(function(input) {
+            if (input) {
+                waypoints.push({
+                    location: input,
+                    stopover: true
                 });
+            }
+        });
 
-            console.log(waypoints);
+        console.log(waypoints);
 
-            function initMap() {
-            // Configura el mapa
+        function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 0, lng: 0 },
                 zoom: 10
             });
 
-            // Crea una instancia de la clase DirectionsService
             var directionsService = new google.maps.DirectionsService();
 
-            // Crea una instancia de la clase DirectionsRenderer
             var directionsRenderer = new google.maps.DirectionsRenderer({
                 map: map,
                 suppressMarkers: true
             });
 
-            // Define la solicitud de ruta
             var request = {
                 origin: start,
                 destination: end,
@@ -357,51 +353,43 @@ if (isset($_GET['id_camionero'])) {
             var geocoder = new google.maps.Geocoder();
 
             geocoder.geocode({ 'address': start }, function (results, status) {
-    if (status === 'OK') {
-        var origenCoordenadas = results[0].geometry.location;
+                if (status === 'OK') {
+                    var origenCoordenadas = results[0].geometry.location;
 
-        // Crea un marcador para el origen
-        var originMarker = new google.maps.Marker({
-            position: origenCoordenadas,
-            map: map,
-            title: 'Origen'
-        });
-    }
-});
+                    var originMarker = new google.maps.Marker({
+                        position: origenCoordenadas,
+                        map: map,
+                        title: 'Origen'
+                    });
+                }
+            });
 
-// Obtén las coordenadas del destino
-geocoder.geocode({ 'address': end }, function (results, status) {
-    if (status === 'OK') {
-        var destinoCoordenadas = results[0].geometry.location;
+            geocoder.geocode({ 'address': end }, function (results, status) {
+                if (status === 'OK') {
+                    var destinoCoordenadas = results[0].geometry.location;
 
-        // Crea un marcador para el destino
-        var destinationMarker = new google.maps.Marker({
-            position: destinoCoordenadas,
-            map: map,
-            title: 'Destino'
-        });
-    }
-});
+                    var destinationMarker = new google.maps.Marker({
+                        position: destinoCoordenadas,
+                        map: map,
+                        title: 'Destino'
+                    });
+                }
+            });
 
-waypointInputs.forEach(function (waypoint) {
-        geocoder.geocode({ 'address': waypoint }, function (results, status) {
-            if (status === 'OK') {
-                var waypointCoordenadas = results[0].geometry.location;
+            waypointInputs.forEach(function (waypoint) {
+                geocoder.geocode({ 'address': waypoint }, function (results, status) {
+                    if (status === 'OK') {
+                        var waypointCoordenadas = results[0].geometry.location;
 
-                // Crea un marcador para el waypoint
-                var waypointMarker = new google.maps.Marker({
-                    position: waypointCoordenadas,
-                    map: map,
-                    title: 'Destino intermedio'
+                        var waypointMarker = new google.maps.Marker({
+                            position: waypointCoordenadas,
+                            map: map,
+                            title: 'Destino intermedio'
+                        });
+                    }
                 });
+            });  
 
-            }
-        });
-    });  
-
-
-
-            // Obtiene la ruta y muestra el resultado en el mapa
             directionsService.route(request, function(response, status) {
                 if (status == 'OK') {
                     directionsRenderer.setDirections(response);
@@ -414,6 +402,47 @@ waypointInputs.forEach(function (waypoint) {
     <a href='op-trayecto.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>
     <?php
+} else if (isset($_GET['id_camioneta_horario'])) {
+    $id_camioneta = $_GET['id_camioneta_horario'];
+
+
+    $instruccion = "select * from sale inner join vehiculo on sale.id_vehiculo = vehiculo.id_vehiculo inner join camioneta on vehiculo.id_vehiculo = camioneta.id_camioneta where camioneta.id_camioneta=$id_camioneta";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $matricula = $fila["matricula"];
+        $fecha_salida = $fila["fecha_salida"];
+        $hora_salida = $fila["hora_salida"];
+        echo "
+        <div class='form-crud'>
+        <legend>Eliminar Horario</legend>
+        <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
+        <p>Datos de salida</p>
+        <p><b>Matricula: </b>$matricula</p>
+        <p><b>Fecha salida: </b>$fecha_salida</p>
+        <p><b>Hora salida: </b>$hora_salida</p>";
+        
+    }
+
+    $instruccion = "select * from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta inner join almacen_cliente on recoge.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join tiene on tiene.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente where camioneta.id_camioneta=$id_camioneta ORDER BY fecha_recogida_ideal ASC, hora_recogida_ideal ASC;";
+    $filas = $conexion->query($instruccion);
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        echo "<hr>";
+        $id_almacen_cliente = $fila["id_almacen_cliente"];
+        $fecha_recogida_ideal = $fila["fecha_recogida_ideal"];
+        $hora_recogida_ideal = $fila["hora_recogida_ideal"];
+        $direccion_almacen = $fila["direccion"];
+        $empresa = $fila["nombre_de_empresa"];
+
+        
+        echo "
+        <p><b>Almacen cliente: </b>$direccion_almacen - $empresa</p>
+        <p><b>Fecha recogida estimado: </b>$fecha_recogida_ideal</p>
+        <p><b>Hora recogida estimado: </b>$hora_recogida_ideal</p>";
+    }
+
+    echo "<a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+    </div>";
 }
 ?>   
         

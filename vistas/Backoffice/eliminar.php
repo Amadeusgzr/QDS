@@ -68,6 +68,7 @@ if (isset($_GET['id_camionero'])) {
 
     $instruccion = "delete from camioneta where id_camioneta=$id_camioneta";
     $conexion->query($instruccion);
+
     $instruccion = "delete from vehiculo where id_vehiculo=$id_camioneta";
     $conexion->query($instruccion);
 
@@ -101,7 +102,6 @@ if (isset($_GET['id_camionero'])) {
     $instruccion = "select * from tiene where id_empresa_cliente=$id_empresa";
     $resultado = mysqli_query($conexion, $instruccion);
     $fila =  mysqli_fetch_assoc($resultado);
-    print_r($fila);
     if (isset($fila)){
         $respuesta = [
             'error' => "Error",
@@ -119,9 +119,15 @@ if (isset($_GET['id_camionero'])) {
     $respuesta = json_encode($respuesta);
     header("Location: op-empresas-cliente.php?datos=" . urlencode($respuesta));
 
+} else if (isset($_GET['id_camioneta_horario'])) {
+    $id_camioneta_horario = $_GET['id_camioneta_horario'];
 
-    
-    
+    $instruccion = "delete from sale where id_vehiculo='$id_camioneta_horario'";
+    $conexion->query($instruccion);
 
-} 
+    $instruccion = "delete from recoge where id_camioneta='$id_camioneta_horario'";
+    $conexion->query($instruccion);
+    header("Location: op-gestion-paquete-recogida.php");
+
+}
 ?>

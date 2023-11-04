@@ -27,6 +27,6 @@ if (curl_errno($ch)) {
     $decode = json_decode($respuesta, true);
 }
 curl_close($ch);
-header('Location: ../../../vistas/Camionero/op-paquetes.php?datos=' . urlencode($respuesta));
+header('Location: ../../../vistas/Camionero/recoger-paquetes-2.php?datos=' . urlencode($respuesta));
 
 ?>
