@@ -26,12 +26,13 @@ require '../plantillas/menu-cuenta.php';
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from sale inner join vehiculo on sale.id_vehiculo = vehiculo.id_vehiculo inner join camioneta on vehiculo.id_vehiculo = camioneta.id_camioneta";
+            $instruccion = "select distinct recoge.id_camioneta, vehiculo.matricula, fecha_salida, hora_salida, almacen_central_salida from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta";
             $horarios_recogida = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
                 array_push($horarios_recogida, $row);
             }
+
             foreach ($horarios_recogida as $horario_recogida) {
                 echo "<tr class='fila-ingreso-lote fila-opcion' id='fila-1'>";
                 $id_camioneta = $horario_recogida["id_camioneta"];
@@ -39,6 +40,7 @@ require '../plantillas/menu-cuenta.php';
 
                 $fecha_salida = $horario_recogida["fecha_salida"];
                 $hora_salida = $horario_recogida["hora_salida"];
+                $almacen_central_salida = $horario_recogida["almacen_central_salida"];
 
 
                 echo "<td>$matricula</td>";
@@ -46,11 +48,12 @@ require '../plantillas/menu-cuenta.php';
 
 
                 echo "<td>
-                <a href='baja-dato.php?id_camioneta_horario=$id_camioneta'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                <a href='baja-dato.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&hs=$hora_salida&acs=$almacen_central_salida'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
                 <a href='modificar-horario-recogida.php?id_camioneta_horario=$id_camioneta'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
-                <a href='consultar-dato.php?id_camioneta_horario=$id_camioneta'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
+                <a href='consultar-dato.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&hs=$hora_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo "</tr>";
+            
             }
             ?>
         </table>

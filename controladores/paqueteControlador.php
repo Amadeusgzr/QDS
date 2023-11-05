@@ -30,6 +30,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
             $respuesta = $paqueteModelo->obtenerPaquetePorCodigo($_POST->codigo);
         } else if (isset($_POST->empresa1)){
             $respuesta = $paqueteModelo->obtenerPaquetePorEmpresa($_POST->empresa1);
+        } else if (isset($_POST->id_camioneta)){
+            $respuesta = $paqueteModelo->obtenerPaquetePorCamioneta($_POST->id_camioneta);
+        }
+        else if (isset($_POST->id_paquete3)){
+            $respuesta = $paqueteModelo->buscarPorId($_POST->id_paquete3, $_POST->id_almacen_cliente, $_POST->estado);
         }
          else {
             $numArrays = count($_POST->mail_destinatario);

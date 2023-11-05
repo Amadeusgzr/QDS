@@ -32,7 +32,7 @@ class paqueteModelo
 
         if (count($paquete1) > 0){
             $paquete = [];
-            $instruccion = "SELECT *, paquete.estado AS paquete_estado FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN tiene ON almacena.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente INNER JOIN recoge ON almacena.id_almacen_cliente = recoge.id_almacen_cliente INNER JOIN camioneta ON recoge.id_camioneta = camioneta.id_camioneta INNER JOIN vehiculo ON camioneta.id_camioneta = vehiculo.id_vehiculo WHERE paquete.id_paquete='$id_paquete'";
+            $instruccion = "SELECT *, paquete.estado AS paquete_estado FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN tiene ON almacena.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente INNER JOIN recoge ON almacena.id_almacen_cliente = recoge.id_almacen_cliente INNER JOIN camioneta ON recoge.id_camioneta = camioneta.id_camioneta INNER JOIN vehiculo ON camioneta.id_camioneta = vehiculo.id_vehiculo WHERE paquete.id_paquete='$id_paquete' AND recoge.fecha_recogida IS NULL AND recoge.hora_recogida IS NULL ORDER BY fecha_recogida_ideal DESC, hora_recogida_ideal DESC";
             $resultado = mysqli_query($this->db, $instruccion);    
             while ($row = mysqli_fetch_assoc($resultado)) {
                 array_push($paquete, $row);
@@ -47,9 +47,6 @@ class paqueteModelo
         }
 
          return $paquete;
-        
-
-       
     }
     public function obtenerPaquetePorEmpresa($empresa)
     {
@@ -60,6 +57,63 @@ class paqueteModelo
             array_push($paquete, $row);
         }
         return $paquete;
+    }
+
+    public function obtenerPaquetePorCamioneta($id_camioneta)
+    {
+        $paquete = [];
+        $instruccion = "SELECT *, paquete.direccion AS paquete_direccion, paquete.estado AS paquete_estado FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN recoge ON almacena.id_almacen_cliente = recoge.id_almacen_cliente INNER JOIN camioneta ON recoge.id_camioneta = camioneta.id_camioneta WHERE camioneta.id_camioneta = '$id_camioneta';";
+        $resultado = mysqli_query($this->db, $instruccion);
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            array_push($paquete, $row);
+        }
+        return $paquete;
+    }
+
+
+
+    public function buscarPorId($id_paquete, $id_almacen_cliente, $estado)
+    {
+        $sentencia_paquete = "WHERE paquete.id_paquete=$id_paquete ";
+        $sentencia_almacen = "AND almacena.id_almacen_cliente=$id_almacen_cliente ";
+        $sentencia_estado = "AND paquete.estado='$estado'";
+
+        if(!isset($id_almacen_cliente) || is_null($id_almacen_cliente) || empty(trim($id_almacen_cliente))){
+            $sentencia_almacen = "";
+            if(!isset($id_paquete) || is_null($id_paquete) || empty(trim($id_paquete))){
+                $sentencia_paquete = "";
+                if(!isset($estado) || is_null($estado) || empty(trim($estado))){
+                    $sentencia_estado = "";
+                } else {
+                    $sentencia_estado = "WHERE estado='$estado'";
+                }
+            } else{
+                if(!isset($estado) || is_null($estado) || empty(trim($estado))){
+                    $sentencia_paquete = "WHERE paquete.id_paquete=$id_paquete";
+                    $sentencia_estado = "";
+                } else{
+                    $sentencia_paquete = "WHERE paquete.id_paquete=$id_paquete ";
+                    $sentencia_estado = "AND paquete.estado='$estado'";
+                }
+            }
+        } else{
+            if(!isset($id_paquete) || is_null($id_paquete) || empty(trim($id_paquete))){
+                $sentencia_almacen = "WHERE almacena.id_almacen_cliente=$id_almacen_cliente ";
+                $sentencia_paquete = "";
+            }
+            if(!isset($estado) || is_null($estado) || empty(trim($estado))){
+                $sentencia_estado = "";
+            }
+ 
+        }
+        $paquete = [];
+        $instruccion = "SELECT * FROM paquete INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete " . $sentencia_paquete . $sentencia_almacen . $sentencia_estado;
+        $resultado = mysqli_query($this->db, $instruccion);
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            array_push($paquete, $row);
+        }
+        return $paquete;
+
     }
 
     public function obtenerPaquetes($id_paquete = null)

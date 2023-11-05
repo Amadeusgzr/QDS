@@ -21,8 +21,14 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 if($_SESSION['tipo_usu'] == 'empresa'){
                     header("Location: ../vistas/Empresa/index.php");
                     exit();
-                } else{
-                    header("Location: ../index.php");
+                } else if ($_SESSION['tipo_usu'] == 'camionero'){
+                    header("Location: ../vistas/Camionero/index.php");
+                    exit();
+                } else if ($_SESSION['tipo_usu'] == 'almacenero') {
+                    header("Location: ../vistas/Almacenero/index.php");
+                    exit();
+                } else if ($_SESSION['tipo_usu'] == 'admin') {
+                    header("Location: ../vistas/Backoffice/index.php");
                     exit();
                 }
 

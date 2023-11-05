@@ -38,16 +38,17 @@ require '../plantillas/menu-cuenta.php';
                 <th>OP</th>
             </tr>
             <?php
-            require("../../controladores/api/paquete/obtenerDato.php");
+            require("../../controladores/api/paqueteCamionero/obtenerDatoPorCamioneta.php");
             foreach ($decode as $paquete) {
+                $id_camioneta = $_GET["id_camioneta"];
                 $id_paquete = $paquete["id_paquete"];
                 if ($paquete['estado'] == "En almacén cliente"){
                 echo '<tr class="fila-ingreso-lote fila-opcion">';
                 echo '<td>' . $paquete["id_paquete"] . '</td>';
                 echo '<td>' . $paquete["direccion"] . '</td>';
-                echo '<td>' . $paquete['estado'] . '</td>';
+                echo '<td>' . $paquete['paquete_estado'] . '</td>';
                 echo "<td>
-                <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete'><button>Recogido</button></a>
+                <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete&id_camioneta=$id_camioneta'><button>Recogido</button></a>
                 <a href='#'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
                 }
             }
@@ -82,8 +83,9 @@ require '../plantillas/menu-cuenta.php';
                 <th>OP</th>
             </tr>
             <?php
-            require("../../controladores/api/paquete/obtenerDato.php");
+            require("../../controladores/api/paqueteCamionero/obtenerDatoPorCamioneta.php");
             foreach ($decode as $paquete) {
+                $id_camioneta = $_GET["id_camioneta"];
                 $id_paquete = $paquete["id_paquete"];
                 if ($paquete['estado'] == "En camioneta (central)") {
                 echo '<tr class="fila-ingreso-lote fila-opcion">';
@@ -91,7 +93,7 @@ require '../plantillas/menu-cuenta.php';
                 echo '<td>' . $paquete["direccion"] . '</td>';
                 echo '<td>' . $paquete['estado'] . '</td>';
                 echo "<td>
-                <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete'><button>Desrecogido</button></a>";
+                <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete&id_camioneta=$id_camioneta'><button>Desrecogido</button></a>";
                 }
         
             }
@@ -105,7 +107,6 @@ require '../plantillas/menu-cuenta.php';
 </div>
 
 <script src="../js/mostrar-respuesta.js"></script>
-<script src="../js/ocultar-get-alta.js"></script>
 <script src="../js/asignar-paquetes-lote-2.js"></script>
 
 

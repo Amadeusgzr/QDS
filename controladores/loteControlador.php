@@ -36,19 +36,31 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
     case 'PUT':
         $_PUT = json_decode(file_get_contents('php://input', true));
-        $respuesta = atributoVacio($_PUT->id_lote);
-        $respuesta1 = atributoVacio($_PUT->cant_paquetes);
-        $respuesta2 = atributoVacio($_PUT->peso);
-        $respuesta3 = atributoVacio($_PUT->volumen);
-        $respuesta4 = atributoVacio($_PUT->fragil);
+        if (isset($_PUT->id_lote1)) {
+            $respuesta = atributoVacio($_PUT->id_lote1);
+            if ($respuesta['error'] !== "Error"){
+                $respuesta = $loteModelo->modificarEstadoLote($_PUT->id_lote1);
+            } else{
+                $respuesta = [
+                    'error' => 'Error',
+                    'respuesta' => 'El atributo está vacío'
+                ];
+            }      
+        } else{
+            $respuesta = atributoVacio($_PUT->id_lote);
+            $respuesta1 = atributoVacio($_PUT->cant_paquetes);
+            $respuesta2 = atributoVacio($_PUT->peso);
+            $respuesta3 = atributoVacio($_PUT->volumen);
+            $respuesta4 = atributoVacio($_PUT->fragil);
 
-        if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
-            $respuesta = $loteModelo->modificarLote($_PUT->id_lote, $_PUT->cant_paquetes, $_PUT->peso, $_PUT->volumen, $_PUT->fragil);
-        } else {
-            $respuesta = [
-                'error' => 'Error',
-                'respuesta' => 'Hay un atributo que no debe estar vacío'
-            ];
+            if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
+                $respuesta = $loteModelo->modificarLote($_PUT->id_lote, $_PUT->cant_paquetes, $_PUT->peso, $_PUT->volumen, $_PUT->fragil);
+            } else {
+                $respuesta = [
+                    'error' => 'Error',
+                    'respuesta' => 'Hay un atributo que no debe estar vacío'
+                ];
+            }
         }
         echo json_encode($respuesta);
         break;

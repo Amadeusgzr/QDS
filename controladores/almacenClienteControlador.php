@@ -6,6 +6,13 @@ header("Location: ../vistas/permisos.php");
 
 $almacenClienteModelo = new almacenClienteModelo();
 switch ($_SERVER['REQUEST_METHOD']) {
+    case 'GET':
+        $_GET = json_decode(file_get_contents('php://input', true));
+
+        $respuesta = $almacenClienteModelo->obtenerAlmacenesClientes();
+
+        echo json_encode($respuesta);
+        break;
     case 'POST':
         $_POST = json_decode(file_get_contents('php://input', true));
         $respuesta = $almacenClienteModelo->obtenerAlmacenClientePorEmpresa($_POST->empresa);

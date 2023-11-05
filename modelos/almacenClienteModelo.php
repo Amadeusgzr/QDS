@@ -10,6 +10,17 @@ class almacenClienteModelo
         mysqli_set_charset($this->db, 'utf8');
     }
 
+    public function obtenerAlmacenesClientes($id_almacen_cliente = null)
+    {
+        $where = ($id_almacen_cliente == null) ? "" : " WHERE id_almacen_cliente='$id_almacen_cliente'";
+        $almacenes_cliente = [];
+        $instruccion = "SELECT * FROM almacen_cliente";
+        $resultado = mysqli_query($this->db, $instruccion);
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            array_push($almacenes_cliente, $row);
+        }
+        return $almacenes_cliente;
+    }
     public function obtenerAlmacenClientePorEmpresa($empresa)
     {
         $almacen_cliente = [];

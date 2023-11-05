@@ -162,9 +162,6 @@ if ($_POST) {
             'respuesta' => "Horario asignado correctamente"
             ];
 
-            $instruccion = "insert into sale(id_vehiculo, id_almacen_central, fecha_salida, hora_salida) value ('$id_camioneta[$i]', '$id_almacen_central[$i]', '$fecha_salida[$i]', '$hora_salida[$i]')";
-            $conexion->query($instruccion);
-
             $origen = "FelipeSanguinetti2474,DepartamentodeMontevideo";
             $direccionDestino = "FelipeSanguinetti2474,DepartamentodeMontevideo";
 
@@ -208,7 +205,7 @@ if ($_POST) {
 
                     $origen = $puntoIntermedio;
 
-                    $instruccion = "insert into recoge(id_camioneta, id_almacen_cliente, fecha_recogida_ideal, hora_recogida_ideal) value ('$id_camioneta[$i]', '$id_almacen_cliente', '$fechaEstimadaLlegada', '$horaEstimadaLlegada')";
+                    $instruccion = "insert into recoge(id_camioneta, id_almacen_cliente, fecha_recogida_ideal, hora_recogida_ideal, fecha_salida, hora_salida, almacen_central_salida) value ('$id_camioneta[$i]', '$id_almacen_cliente', '$fechaEstimadaLlegada', '$horaEstimadaLlegada', '$fecha_salida[$i]', '$hora_salida[$i]', '$id_almacen_central[$i]')";
                     $conexion->query($instruccion);
                 } else {
                     echo "Error al calcular la ruta: " . $data->status;

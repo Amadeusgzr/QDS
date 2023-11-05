@@ -25,7 +25,6 @@ require '../plantillas/menu-cuenta.php';
                 $id_camioneta = $camioneta["id_camioneta"];
                 $estado = $camioneta["estado"];
                 $matricula = $camioneta["matricula"];
-
                 echo "<option value='$id_camioneta'>$matricula - $estado</option>";
             }
 

@@ -67,6 +67,44 @@ class loteModelo
         return $resultado;
     }
 
+    public function  modificarEstadoLote($id_lote)
+    {
+        $validar = $this->obtenerLotes($id_lote);
+        $resultado = [
+            'error' => "Error",
+            'respuesta' => "No existe el paquete con la ID " . $id_lote
+        ];
+        if (count($validar) > 0) {
+            $instruccion = "SELECT estado FROM lote WHERE id_lote='$id_lote'";
+            $resultado = mysqli_query($this->db, $instruccion);
+            $fila =  mysqli_fetch_assoc($resultado);
+            $estado = $fila["estado"];
+            if ($estado == "En almacén central (camión)" || $estado == "Entregado"){
+                if ($estado == "En almacén central (camión)"){
+                    $instruccion = "UPDATE lote SET estado='Entregado' WHERE id_lote = '$id_lote'";
+                    mysqli_query($this->db, $instruccion);
+                    $resultado = [
+                        'error' => "Éxito",
+                        'respuesta' => "Paquete entregado"
+                    ];     
+                } else {
+                    $instruccion = "UPDATE lote SET estado='En almacén central (camión)' WHERE id_lote = '$id_lote'";
+                    mysqli_query($this->db, $instruccion);
+                    $resultado = [
+                        'error' => "Éxito",
+                        'respuesta' => "Paquete desentregado"
+                    ];          
+                }
+            } else {
+                $resultado = [
+                    'error' => "Error",
+                    'respuesta' => "No tienes permisos para hacer esto"
+                ]; 
+            }
+        }
+        return $resultado;
+    }
+
     public function eliminarLote($id_lote)
     {
         $validar = $this->obtenerLotes($id_lote);

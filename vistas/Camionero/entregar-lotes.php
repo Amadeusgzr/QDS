@@ -18,13 +18,13 @@ require '../plantillas/menu-cuenta.php';
     <h1 class="h1-tabla2">Elegir camión</h1>
     <p class="adv">Elija el camión asignado para ver los lotes a entregar</p>
     <form action="entregar-lotes-2.php" method="get" class="form-asignar">
-        <select name="id_camioneta" id="select-lote">
+        <select name="id_camion" id="select-lote">
             <?php
             require("../../controladores/api/camion/obtenerDato.php");
-            foreach ($decode as $camioneta) {
-                $id_camion = $camioneta["id_camion"];
-                $estado = $camioneta["estado"];
-                $matricula = $camioneta["matricula"];
+            foreach ($decode as $camion) {
+                $id_camion = $camion["id_camion"];
+                $estado = $camion["estado"];
+                $matricula = $camion["matricula"];
 
                 echo "<option value='$id_camion'>$matricula - $estado</option>";
             }

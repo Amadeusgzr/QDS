@@ -404,27 +404,31 @@ if (isset($_GET['id_camionero'])) {
     <?php
 } else if (isset($_GET['id_camioneta_horario'])) {
     $id_camioneta = $_GET['id_camioneta_horario'];
+    $fecha_salida = $_GET["fs"];
+    $hora_salida = $_GET["hs"];
+    $almacen_central_salida = $_GET["acs"];
 
-
-    $instruccion = "select * from sale inner join vehiculo on sale.id_vehiculo = vehiculo.id_vehiculo inner join camioneta on vehiculo.id_vehiculo = camioneta.id_camioneta where camioneta.id_camioneta=$id_camioneta";
+    $instruccion = "select * from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta where camioneta.id_camioneta=$id_camioneta AND fecha_salida='$fecha_salida' AND hora_salida='$hora_salida'";
     $filas = $conexion->query($instruccion);
+    $filas = $filas->fetch_all(MYSQLI_ASSOC);
 
-    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
-        $matricula = $fila["matricula"];
-        $fecha_salida = $fila["fecha_salida"];
-        $hora_salida = $fila["hora_salida"];
-        echo "
-        <div class='form-crud'>
-        <legend>Eliminar Horario</legend>
-        <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
-        <p>Datos de salida</p>
-        <p><b>Matricula: </b>$matricula</p>
-        <p><b>Fecha salida: </b>$fecha_salida</p>
-        <p><b>Hora salida: </b>$hora_salida</p>";
-        
+    if (count($filas) > 0){
+        foreach ($filas as $fila) {
+            $matricula = $fila["matricula"];
+            $fecha_salida = $fila["fecha_salida"];
+            $hora_salida = $fila["hora_salida"];
+        } 
     }
+    echo "
+    <div class='form-crud'>
+    <legend>Eliminar Horario</legend>
+    <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
+    <p>Datos de salida</p>
+    <p><b>Matricula: </b>$matricula</p>
+    <p><b>Fecha salida: </b>$fecha_salida</p>
+    <p><b>Hora salida: </b>$hora_salida</p>";
 
-    $instruccion = "select * from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta inner join almacen_cliente on recoge.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join tiene on tiene.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente where camioneta.id_camioneta=$id_camioneta ORDER BY fecha_recogida_ideal ASC, hora_recogida_ideal ASC;";
+    $instruccion = "select * from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta inner join almacen_cliente on recoge.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join tiene on tiene.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente where camioneta.id_camioneta=$id_camioneta AND fecha_salida='$fecha_salida' AND hora_salida='$hora_salida' ORDER BY fecha_recogida_ideal ASC, hora_recogida_ideal ASC;";
     $filas = $conexion->query($instruccion);
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         echo "<hr>";
