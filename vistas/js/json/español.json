@@ -39,8 +39,9 @@
     "--------- BACKOFFICE USUARIOS ---------" : "",
 
     "h1_tabla_usuarios" : "Usuarios",
-    "th1_usuarios" : "Usuario",
-    "th2_usuarios" : "Tipo de usuario",
+    "th1_usuarios" : "ID",
+    "th2_usuarios" : "Usuario",
+    "th3_usuarios" : "Tipo de usuario",
 
     "--------- BACKOFFICE CAMIONEROS ---------" : "",
 
@@ -342,13 +343,50 @@
     "th2_lotes_camion" : "Peso",
     "th3_lotes_camion" : "Cantidad de paquetes",
 
-    "h1_2_tabla_lotes_camion" : "lotes asignados al Camión",
+    "h1_2_tabla_lotes_camion" : "Lotes asignados al Camión",
 
     "th1_lotes_camion_2" : "ID",
     "th2_lotes_camion_2" : "Peso",
-    "th3_lotes_camion_2" : "Cantidad de paquetes"
+    "th3_lotes_camion_2" : "Cantidad de paquetes",
 
+    "--------- CAMIONERO INDEX ---------" : "",
 
+    "op1_h2_camionero" : "Recogida de Paquetes",
+    "op1_p_camionero" : "Gestión de paquetes a recoger",
+    "op2_h2_camionero" : "Entrega de Lotes",
+    "op2_p_camionero" : "Gestión de Lotes a entregar",
+
+    "--------- CAMIONERO RECOGER PAQUETES ---------" : "",
+
+    "h1_tabla2_recoger_paquetes" : "Elegir Camión",
+    "adv_recoger_paquetes" : "Selecciona el camión asignado para ver los paquetes a recoger",
+
+    "--------- CAMIONERO RECOGER PAQUETES 2 ---------" : "",
+
+    "h1_tabla_recoger_paquetes" : "Paquetes a recoger",
+    "h1_2_tabla_recoger_paquetes" : "Paquetes recogidos",
+
+    "th1_recoger_paquetes" : "ID",
+    "th2_recoger_paquetes" : "Destino",
+    "th3_recoger_paquetes" : "Estado",
+
+    "--------- CAMIONERO ENTREGAR LOTES ---------" : "",
+
+    "h1_tabla2_entregar_lotes" : "Elegir Camión",
+    "adv_entregar_lotes" : "Selecciona el camión asignado para ver los lotes a entregar",
+
+    "--------- CAMIONERO ENTREGAR LOTES 2 ---------" : "",
+
+    "h1_tabla_entregar_lotes" : "Lotes a entregar",
+    "h1_2_tabla_entregar_lotes" : "Lotes entregados",
+
+    "th1_entregar_lotes" : "ID",
+    "th2_entregar_lotes" : "Cantidad de paquetes",
+    "th3_entregar_lotes" : "Estado",
+
+    "th1_entregar_lotes_2" : "ID",
+    "th2_entregar_lotes_2" : "Destino",
+    "th3_entregar_lotes_2" : "Estado"
 
 
 

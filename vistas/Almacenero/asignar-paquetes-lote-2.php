@@ -39,7 +39,7 @@ require '../plantillas/menu-cuenta.php';
                         echo '<td>' . $paquete["direccion"] . '</td>';
                         echo '<td>' . $paquete['estado'] . '</td>';
                         echo "<td>
-                <a href='../../controladores/api/paquete_lote/agregarDato.php?id_paquete=$id_paquete&id_lote=$id_lote'><button>Agregar</button></a>
+                <a href='../../controladores/api/paquete_lote/agregarDato.php?id_paquete=$id_paquete&id_lote=$id_lote'><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a>
                 </td>";
                         echo '</tr>';
                     }
@@ -81,7 +81,7 @@ require '../plantillas/menu-cuenta.php';
                     echo '<td>' . $paquete["direccion"] . '</td>';
                     echo '<td>' . $paquete["estado"] . '</td>';
                     echo "<td>
-                    <a href='../../controladores/api/paquete_lote/eliminarDato.php?id_paquete=$id_paquete&id_lote=$id_lote'><button>Eliminar</button></a>
+                    <a href='../../controladores/api/paquete_lote/eliminarDato.php?id_paquete=$id_paquete&id_lote=$id_lote'><button class='btn-op btn-op1'><img src='../img/iconos/resta.png' width='20px'></button></a>
                     </td>";
                     echo '</tr>';
                 }

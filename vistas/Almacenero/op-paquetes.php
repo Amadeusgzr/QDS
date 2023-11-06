@@ -12,35 +12,36 @@ echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
-<form action="op-paquetes.php" method="post">
-    <input type="text" name="id_paquete" value="">
-    <select name="id_almacen_cliente">
-    <option value="" selected>Almacén Cliente</option>
-        <?php
-            require("../../controladores/api/almacenCliente/obtenerDato.php");
-            foreach ($almacenes_clientes as $almacen_cliente){
-                $id_almacen_cliente = $almacen_cliente["id_almacen_cliente"];
-                $direccion = $almacen_cliente["direccion"];
-                echo "<option value='$id_almacen_cliente'> $direccion </option>";
-            }
-        ?>
-    </select>
-    <select name="estado">
-        <option value="" selected>Estado</option>
-        <option value="En almacén cliente">En almacén cliente</option>
-        <option value="En almacén central (lote)">En almacén central (lote)</option>
-
-    </select>
-    <button>Enviar</button>
-</form>
 
 <div class="div-btn-uno">
     <a href="index.php">
         <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
     </a>
 </div>
+
 <div id="div-tabla">  
     <h1 class="h1-tabla">Paquetes</h1>
+    <form action="op-paquetes.php" method="post" class="form-filtro">
+        <input type="text" name="id_paquete" value="" class="estilo-input">
+        <select name="id_almacen_cliente" class="estilo-input">
+            <option value="" selected>Almacén Cliente</option>
+            <?php
+                require("../../controladores/api/almacenCliente/obtenerDato.php");
+                foreach ($almacenes_clientes as $almacen_cliente){
+                    $id_almacen_cliente = $almacen_cliente["id_almacen_cliente"];
+                    $direccion = $almacen_cliente["direccion"];
+                    echo "<option value='$id_almacen_cliente'> $direccion </option>";
+                }
+            ?>
+        </select>
+        <select name="estado" class="estilo-input">
+            <option value="" selected>Estado</option>
+            <option value="En almacén cliente">En almacén cliente</option>
+            <option value="En almacén central (lote)">En almacén central (lote)</option>
+
+        </select>
+        <button class="estilo-input">Enviar</button>
+    </form>
     <div class="div-error">
         <?php
         if (isset($_GET['datos'])) {

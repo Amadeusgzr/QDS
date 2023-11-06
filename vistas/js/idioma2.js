@@ -478,6 +478,7 @@ function actualizarTextos(data) {
 
     document.querySelector(".boton-volver").value = data.btn_volver;
 
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
     document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
     document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
@@ -678,6 +679,72 @@ function actualizarTextos(data) {
     document.querySelector(".th1-lotes-camion-2").textContent = data.th1_lotes_camion_2;
     document.querySelector(".th2-lotes-camion-2").textContent = data.th2_lotes_camion_2;
     document.querySelector(".th3-lotes-camion-2").textContent = data.th3_lotes_camion_2;
+
+    document.querySelector(".btn-limpiar2").textContent = data.btn_limpiar;
+    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar_seleccion;
+
+  }
+  else if(url.includes("Camionero") && url.includes("index")){
+
+    document.querySelector("#op1 h2").textContent = data.op1_h2_camionero;
+    document.querySelector("#op1 p").textContent = data.op1_p_camionero;
+    document.querySelector("#op2 h2").textContent = data.op2_h2_camionero;
+    document.querySelector("#op2 p").textContent = data.op2_p_camionero;
+
+  }
+  else if(url.includes("Camionero") && url.includes("recoger-paquetes-1")){
+
+    document.querySelector(".h1-tabla2").textContent = data.h1_tabla2_recoger_paquetes;
+    document.querySelector(".adv").textContent = data.adv_recoger_paquetes;
+    document.querySelector(".boton-siguiente").textContent = data.boton_siguiente;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+  }
+  else if(url.includes("Camionero") && url.includes("recoger-paquetes-2")){
+
+    document.querySelector(".h1-1").textContent = data.h1_tabla_recoger_paquetes;
+    document.querySelector(".h1-2").textContent = data.h1_2_tabla_recoger_paquetes;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+    document.querySelector(".th1-recoger-paquetes").textContent = data.th1_recoger_paquetes;
+    document.querySelector(".th2-recoger-paquetes").textContent = data.th2_recoger_paquetes;
+    document.querySelector(".th3-recoger-paquetes").textContent = data.th3_recoger_paquetes;
+
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar_seleccion;
+
+    document.querySelector(".th1-recoger-paquetes-2").textContent = data.th1_recoger_paquetes;
+    document.querySelector(".th2-recoger-paquetes-2").textContent = data.th2_recoger_paquetes;
+    document.querySelector(".th3-recoger-paquetes-2").textContent = data.th3_recoger_paquetes;
+
+    document.querySelector(".btn-limpiar2").textContent = data.btn_limpiar;
+    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar_seleccion;
+
+  }
+  else if(url.includes("Camionero") && url.includes("entregar-lotes-1")){
+
+    document.querySelector(".h1-tabla2").textContent = data.h1_tabla2_entregar_lotes;
+    document.querySelector(".adv").textContent = data.adv_entregar_lotes;
+    document.querySelector(".boton-siguiente").textContent = data.boton_siguiente;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+  }
+  else if(url.includes("Camionero") && url.includes("entregar-lotes-2")){
+
+    document.querySelector(".h1-1").textContent = data.h1_tabla_entregar_lotes;
+    document.querySelector(".h1-2").textContent = data.h1_2_tabla_entregar_lotes;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+    document.querySelector(".th1-entregar-lotes").textContent = data.th1_entregar_lotes;
+    document.querySelector(".th2-entregar-lotes").textContent = data.th2_entregar_lotes;
+    document.querySelector(".th3-entregar-lotes").textContent = data.th3_entregar_lotes;
+
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar_seleccion;
+
+    document.querySelector(".th1-entregar-lotes-2").textContent = data.th1_entregar_lotes_2;
+    document.querySelector(".th2-entregar-lotes-2").textContent = data.th2_entregar_lotes_2;
+    document.querySelector(".th3-entregar-lotes-2").textContent = data.th3_entregar_lotes_2;
 
     document.querySelector(".btn-limpiar2").textContent = data.btn_limpiar;
     document.querySelector(".boton-eliminar").textContent = data.btn_eliminar_seleccion;

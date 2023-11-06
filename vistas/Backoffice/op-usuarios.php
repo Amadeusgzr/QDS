@@ -20,8 +20,9 @@ require '../plantillas/menu-cuenta.php';
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
-                <th class="th1">Usuario</th>
-                <th class="th2">Tipo de Usuario</th>
+                <th class="th1">ID</th>
+                <th class="th2">Usuario</th>
+                <th class="th3">Tipo de Usuario</th>
                 <th>Mail</th>
                 <th class="th-op">OP</th>
             </tr>
@@ -35,9 +36,11 @@ require '../plantillas/menu-cuenta.php';
             }
             foreach ($usuarios as $usuario) {
                 echo "<tr class='fila-ingreso-lote fila-opcion' id='fila-1'>";
+                $id_usuario = $usuario["id_usuario"];
                 $nom_usu = $usuario["nom_usu"];
                 $tipo_usu = $usuario["tipo_usu"];
                 $mail = $usuario["mail"];
+                echo "<td>$id_usuario</td>";
                 echo "<td>$nom_usu</td>";
                 echo "<td>$tipo_usu</td>";
                 echo "<td>$mail</td>";

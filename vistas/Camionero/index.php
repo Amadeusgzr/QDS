@@ -21,12 +21,12 @@ require '../plantillas/menu-cuenta.php';
     }
 ?>
 <main class="main-aplicacion">
-    <a href="recoger-paquetes.php" class="opcion-aplicacion" id="op1">
+    <a href="recoger-paquetes-1.php" class="opcion-aplicacion" id="op1">
         <h2>Recogida de paquetes</h2>
         <p>Gestión de paquetes a recoger</p>
         <div class="div-img-icono"><img src="../img/iconos/paquete.png" alt=""></div>
     </a>
-    <a href="entregar-lotes.php" class="opcion-aplicacion" id="op2">
+    <a href="entregar-lotes-1.php" class="opcion-aplicacion" id="op2">
         <h2>Entrega de lotes</h2>
         <p>Gestión de lotes a entregar</p>
         <div class="div-img-icono"><img src="../img/iconos/lote.png" alt=""></div>

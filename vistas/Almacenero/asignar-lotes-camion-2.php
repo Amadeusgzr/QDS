@@ -39,7 +39,7 @@ require '../plantillas/menu-cuenta.php';
                         echo '<td>' . $lote["peso"] . ' kg</td>';
                         echo '<td>' . $lote['cant_paquetes'] . ' paquete/s</td>';
                         echo "<td>
-                <a href='../../controladores/api/lote_camion/agregarDato.php?id_lote=$id_lote&id_camion=$id_camion'><button>Agregar</button></a>
+                <a href='../../controladores/api/lote_camion/agregarDato.php?id_lote=$id_lote&id_camion=$id_camion'><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a>
                 </td>";
                         echo '</tr>';
                     }
@@ -79,7 +79,7 @@ require '../plantillas/menu-cuenta.php';
                     echo '<td>' . $camion["peso"] . ' kg</td>';
                     echo '<td>' . $camion["cant_paquetes"] . ' paquete/s</td>';
                     echo "<td>
-                    <a href='../../controladores/api/lote_camion/eliminarDato.php?id_lote=$id_lote&id_camion=$id_camion'><button>Eliminar</button></a>
+                    <a href='../../controladores/api/lote_camion/eliminarDato.php?id_lote=$id_lote&id_camion=$id_camion'><button class='btn-op btn-op1'><img src='../img/iconos/resta.png' width='20px'></button></a>
                     </td>";
                     echo '</tr>';
                 }

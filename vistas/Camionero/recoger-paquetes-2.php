@@ -13,12 +13,12 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 <div class="div-btn-uno">
-    <a href="index.php">
+    <a href="recoger-paquetes-1.php">
         <button class="boton-volver estilo-boton">Volver</button>
     </a>
 </div>
 <div id="div-tabla">
-    <h1 class="h1-tabla">Paquetes a recoger</h1>
+    <h1 class="h1-tabla h1-1">Paquetes a recoger</h1>
     <div class="div-error">
         <?php
         if (isset($_GET['datos'])) {
@@ -32,9 +32,9 @@ require '../plantillas/menu-cuenta.php';
     <div class="contenedor-tabla">
         <table id="tabla-lote">
             <tr class="fila-ingreso-lote">
-                <th>ID</th>
-                <th>Destino</th>
-                <th>Estado</th>
+                <th class="th1-recoger-paquetes">ID</th>
+                <th class="th2-recoger-paquetes">Destino</th>
+                <th class="th3-recoger-paquetes">Estado</th>
                 <th>OP</th>
             </tr>
             <?php
@@ -58,12 +58,12 @@ require '../plantillas/menu-cuenta.php';
     </div>
     <div class="div-btn-doble">
         <button class="btn-limpiar estilo-boton btns-as-lote">Limpiar</button>
-        <button class="boton-siguiente estilo-boton">Siguiente</button>
+        <button class="boton-agregar estilo-boton">Agregar Selección</button>
     </div>
 </div>
 
 <div id="div-tabla">
-    <h1 class="h1-tabla">Paquetes ya recogidos</h1>
+    <h1 class="h1-tabla h1-2">Paquetes ya recogidos</h1>
     <div class="div-error">
         <?php
         if (isset($_GET['datos'])) {
@@ -77,9 +77,9 @@ require '../plantillas/menu-cuenta.php';
     <div class="contenedor-tabla">
         <table id="tabla-lote">
             <tr class="fila-ingreso-lote">
-                <th>ID</th>
-                <th>Destino</th>
-                <th>Estado</th>
+                <th class="th1-recoger-paquetes-2">ID</th>
+                <th class="th2-recoger-paquetes-2">Destino</th>
+                <th class="th3-recoger-paquetes-2">Estado</th>
                 <th>OP</th>
             </tr>
             <?php
@@ -101,8 +101,8 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-doble">
-        <button class="btn-limpiar estilo-boton btns-as-lote">Limpiar</button>
-        <button class="boton-siguiente estilo-boton">Siguiente</button>
+        <button class="btn-limpiar btn-limpiar2 estilo-boton">Limpiar</button>
+        <button class="boton-volver estilo-boton boton-eliminar">Remover Selección</button>
     </div>
 </div>
 

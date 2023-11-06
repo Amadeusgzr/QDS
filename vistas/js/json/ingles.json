@@ -39,8 +39,9 @@
     "--------- BACKOFFICE USUARIOS ---------" : "",
 
     "h1_tabla_usuarios" : "Users",
-    "th1_usuarios" : "User",
-    "th2_usuarios" : "User Type",
+    "th1_usuarios" : "Key",
+    "th2_usuarios" : "User",
+    "th3_usuarios" : "User Type",
 
 
     "--------- BACKOFFICE CAMIONEROS ---------" : "",
@@ -345,9 +346,46 @@
 
     "th1_lotes_camion_2" : "Key",
     "th2_lotes_camion_2" : "Weight",
-    "th3_lotes_camion_2" : "Amount of Packages"
+    "th3_lotes_camion_2" : "Amount of Packages",
     
+    "--------- CAMIONERO INDEX ---------" : "",
 
+    "op1_h2_camionero" : "Packages Pick Up",
+    "op1_p_camionero" : "Managment of packages to pick up",
+    "op2_h2_camionero" : "Lots delivery",
+    "op2_p_camionero" : "Managment of lots to delivery",
+
+    "--------- CAMIONERO RECOGER PAQUETES ---------" : "",
+
+    "h1_tabla2_recoger_paquetes" : "Truck Selection",
+    "adv_recoger_paquetes" : "Select the assigned truck to see the packages to pick up",
+
+    "--------- CAMIONERO RECOGER PAQUETES 2 ---------" : "",
+
+    "h1_tabla_recoger_paquetes" : "Packages to Pick Up",
+    "h1_2_tabla_recoger_paquetes" : "Packages Collected",
+
+    "th1_recoger_paquetes" : "Key",
+    "th2_recoger_paquetes" : "Destination",
+    "th3_recoger_paquetes" : "Status",
+
+    "--------- CAMIONERO ENTREGAR LOTES ---------" : "",
+
+    "h1_tabla2_entregar_lotes" : "Truck Selection",
+    "adv_entregar_lotes" : "Select the assigned truck to see the lots to delivery",
+
+    "--------- CAMIONERO ENTREGAR LOTES 2 ---------" : "",
+
+    "h1_tabla_entregar_lotes" : "Lots to delivery",
+    "h1_2_tabla_entregar_lotes" : "Delivered Lots",
+
+    "th1_entregar_lotes" : "Key",
+    "th2_entregar_lotes" : "Amount of packages",
+    "th3_entregar_lotes" : "Status",
+
+    "th1_entregar_lotes_2" : "Key",
+    "th2_entregar_lotes_2" : "Destination",
+    "th3_entregar_lotes_2" : "Status"
     
 
 }
