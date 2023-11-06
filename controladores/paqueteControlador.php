@@ -180,9 +180,17 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 $respuesta = $paqueteModelo->eliminarPaquete($_DELETE->id_paquete, $_DELETE->empresa, $_DELETE->tipo_usu);
             }
         } else {
-            foreach ($_DELETE as $array) {
-                $respuesta = $paqueteModelo->eliminarPaquete($array[0], $_DELETE->empresa, $_DELETE->tipo_usu);
+            $numArrays = count($_DELETE->arrayPaquetes);
+
+            $respuesta = atributoVacio($_DELETE->empresa);
+            $respuesta1 = atributoVacio($_DELETE->tipo_usu);
+            if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error") {
+
+                for ($i = 0; $i < $numArrays; $i++) {
+                    $respuesta = $paqueteModelo->eliminarPaquete($_DELETE->arrayPaquetes[$i][0], $_DELETE->empresa, $_DELETE->tipo_usu);
+                }
             }
+           
         }
 
         echo json_encode($respuesta);

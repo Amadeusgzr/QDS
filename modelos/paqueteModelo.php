@@ -244,6 +244,9 @@ class paqueteModelo
         ];
         if (count($validar) > 0) {
             if ($tipo_usu !== "empresa"){
+                $instruccion = "DELETE FROM almacena WHERE id_paquete='$id_paquete'";
+                mysqli_query($this->db, $instruccion);
+
                 $instruccion = "DELETE FROM paquete WHERE id_paquete='$id_paquete'";
                 mysqli_query($this->db, $instruccion);
                 $resultado = [
@@ -287,8 +290,6 @@ class paqueteModelo
 
         return $resultado;
     }
-
-
 
 }
 ?>

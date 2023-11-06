@@ -16,7 +16,14 @@ if (isset($_GET["id_paquete"])) {
 }
 if (isset($_POST['todo'])) {
     $jsonString = $_POST['todo'];
-    $array = json_decode($jsonString, true);
+    $empresa = $_SESSION["nom_usu"];
+    $tipo_usu = $_SESSION["tipo_usu"];
+    $arrayPaquetes = json_decode($jsonString, true);
+    $array = [
+        'arrayPaquetes'=> $arrayPaquetes,
+        'empresa' => "$empresa",
+        'tipo_usu' => "$tipo_usu"
+    ];
 }
 
 
