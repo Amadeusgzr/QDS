@@ -8,7 +8,6 @@ if ($_POST) {
     $peso = $_POST["peso"];
     $volumen = $_POST["volumen"];
     $fragil = $_POST["fragil"];
-    $empresa = $_SESSION["nom_usu"];
     if (isset($_POST["tipo"])) {
         $tipo = $_POST["tipo"];
     } else {
@@ -34,7 +33,6 @@ $array = [
     'detalles' => $detalles,
     'id_almacen_cliente' => $id_almacen_cliente,
     'id_destino' => $id_destino,
-    'empresa' => "$empresa"
 ];
 
 

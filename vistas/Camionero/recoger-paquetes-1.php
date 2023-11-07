@@ -17,7 +17,7 @@ require '../plantillas/menu-cuenta.php';
 <div id="div-elegir-lote">
     <h1 class="h1-tabla2">Elegir camioneta</h1>
     <p class="adv">Elija la camioneta asignada para ver los paquetes a recoger</p>
-    <form action="recoger-paquetes-2.php" method="get" class="form-asignar">
+    <form action="recoger-paquetes-3.php" method="get" class="form-asignar">
         <select name="id_camioneta" id="select-lote">
             <?php
             require("../../controladores/api/camioneta/obtenerDato.php");

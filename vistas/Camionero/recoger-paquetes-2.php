@@ -17,6 +17,26 @@ require '../plantillas/menu-cuenta.php';
         <button class="boton-volver estilo-boton">Volver</button>
     </a>
 </div>
+<?php
+require ('../../modelos/db.php');
+$id_almacen_cliente = $_GET["id_almacen_cliente"];
+$fecha_recogida_ideal = $_GET["fri"];
+$hora_recogida_ideal = $_GET["hri"];
+$id_camioneta = $_GET["id_camioneta"];
+
+$usuario = $_SESSION["nom_usu"];
+$instruccion = "SELECT * FROM solicitud WHERE id_almacen_cliente = $id_almacen_cliente AND usuario = '$usuario' AND fecha_recogida_ideal = '$fecha_recogida_ideal' AND hora_recogida_ideal = '$hora_recogida_ideal'";
+$resultado = mysqli_query($conexion, $instruccion);
+$fila =  mysqli_fetch_assoc($resultado);
+if(isset($fila)) {
+    $estado = $fila["estado"];
+    if($estado == "En espera") {
+    echo "Tienes una solicitud enviada a esta empresa debes de esperar...";
+    } else if($estado == "Denegada") {
+        echo "La solicitud se te ha denegado. Desead enviarla de vuelta?";
+    } else if($estado == "Aceptada") {
+
+?>
 <div id="div-tabla">
     <h1 class="h1-tabla h1-1">Paquetes a recoger</h1>
     <div class="div-error">
@@ -42,10 +62,10 @@ require '../plantillas/menu-cuenta.php';
             foreach ($decode as $paquete) {
                 $id_camioneta = $_GET["id_camioneta"];
                 $id_paquete = $paquete["id_paquete"];
-                if ($paquete['estado'] == "En almacén cliente"){
+                if ($paquete['paquete_estado'] == "En almacén cliente"){
                 echo '<tr class="fila-ingreso-lote fila-opcion">';
                 echo '<td>' . $paquete["id_paquete"] . '</td>';
-                echo '<td>' . $paquete["direccion"] . '</td>';
+                echo '<td>' . $paquete["paquete_direccion"] . '</td>';
                 echo '<td>' . $paquete['paquete_estado'] . '</td>';
                 echo "<td>
                 <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete&id_camioneta=$id_camioneta'><button>Recogido</button></a>
@@ -87,11 +107,11 @@ require '../plantillas/menu-cuenta.php';
             foreach ($decode as $paquete) {
                 $id_camioneta = $_GET["id_camioneta"];
                 $id_paquete = $paquete["id_paquete"];
-                if ($paquete['estado'] == "En camioneta (central)") {
+                if ($paquete['paquete_estado'] == "En camioneta (central)") {
                 echo '<tr class="fila-ingreso-lote fila-opcion">';
                 echo '<td>' . $paquete["id_paquete"] . '</td>';
-                echo '<td>' . $paquete["direccion"] . '</td>';
-                echo '<td>' . $paquete['estado'] . '</td>';
+                echo '<td>' . $paquete["paquete_direccion"] . '</td>';
+                echo '<td>' . $paquete['paquete_estado'] . '</td>';
                 echo "<td>
                 <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete&id_camioneta=$id_camioneta'><button>Desrecogido</button></a>";
                 }
@@ -113,3 +133,14 @@ require '../plantillas/menu-cuenta.php';
 </body>
 
 </html>
+
+<?php
+    }
+} else {
+    echo "No se ha enviado una solicitud a la empresa. Para poder ver los paquetes de este almacén debe de ya haber llegado a esta.";
+    echo "<a href='envio-solicitud.php?id_almacen_cliente=$id_almacen_cliente&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&hri=$hora_recogida_ideal'><button>Enviar solicitud</button></a>";
+
+
+
+}
+?>

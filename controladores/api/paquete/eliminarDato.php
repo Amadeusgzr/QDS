@@ -44,6 +44,7 @@ if (curl_errno($ch)) {
 }
 
 curl_close($ch);
+echo $respuesta;
 
 if ($_SESSION["tipo_usu"] !== "empresa"){
 if (isset($_GET["id_paquete"])) {

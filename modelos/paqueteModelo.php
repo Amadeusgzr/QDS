@@ -62,7 +62,7 @@ class paqueteModelo
     public function obtenerPaquetePorCamioneta($id_camioneta)
     {
         $paquete = [];
-        $instruccion = "SELECT *, paquete.direccion AS paquete_direccion, paquete.estado AS paquete_estado FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN recoge ON almacena.id_almacen_cliente = recoge.id_almacen_cliente INNER JOIN camioneta ON recoge.id_camioneta = camioneta.id_camioneta WHERE camioneta.id_camioneta = '$id_camioneta';";
+        $instruccion = "SELECT DISTINCT paquete.id_paquete, paquete.direccion AS paquete_direccion, paquete.estado AS paquete_estado FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete INNER JOIN recoge ON almacena.id_almacen_cliente = recoge.id_almacen_cliente INNER JOIN camioneta ON recoge.id_camioneta = camioneta.id_camioneta WHERE camioneta.id_camioneta = '$id_camioneta';";
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($paquete, $row);
@@ -76,7 +76,7 @@ class paqueteModelo
     {
         $sentencia_paquete = "WHERE paquete.id_paquete=$id_paquete ";
         $sentencia_almacen = "AND almacena.id_almacen_cliente=$id_almacen_cliente ";
-        $sentencia_estado = "AND paquete.estado='$estado'";
+        $sentencia_estado = "AND paquete.estado='$estado' ";
 
         if(!isset($id_almacen_cliente) || is_null($id_almacen_cliente) || empty(trim($id_almacen_cliente))){
             $sentencia_almacen = "";
@@ -85,15 +85,15 @@ class paqueteModelo
                 if(!isset($estado) || is_null($estado) || empty(trim($estado))){
                     $sentencia_estado = "";
                 } else {
-                    $sentencia_estado = "WHERE estado='$estado'";
+                    $sentencia_estado = "WHERE estado='$estado' ";
                 }
             } else{
                 if(!isset($estado) || is_null($estado) || empty(trim($estado))){
-                    $sentencia_paquete = "WHERE paquete.id_paquete=$id_paquete";
+                    $sentencia_paquete = "WHERE paquete.id_paquete=$id_paquete ";
                     $sentencia_estado = "";
                 } else{
                     $sentencia_paquete = "WHERE paquete.id_paquete=$id_paquete ";
-                    $sentencia_estado = "AND paquete.estado='$estado'";
+                    $sentencia_estado = "AND paquete.estado='$estado' ";
                 }
             }
         } else{
@@ -107,7 +107,7 @@ class paqueteModelo
  
         }
         $paquete = [];
-        $instruccion = "SELECT * FROM paquete INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete " . $sentencia_paquete . $sentencia_almacen . $sentencia_estado;
+        $instruccion = "SELECT * FROM paquete INNER JOIN almacena ON paquete.id_paquete = almacena.id_paquete " . $sentencia_paquete . $sentencia_almacen . $sentencia_estado . "ORDER BY paquete.id_paquete ASC";
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($paquete, $row);
@@ -120,7 +120,7 @@ class paqueteModelo
     {
         $where = ($id_paquete == null) ? "" : " WHERE id_paquete='$id_paquete'";
         $paquetes = [];
-        $instruccion = "SELECT * FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino" . $where;
+        $instruccion = "SELECT * FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino" . $where . " ORDER BY paquete.id_paquete ASC" ;
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($paquetes, $row);
@@ -129,11 +129,10 @@ class paqueteModelo
     }
 
 
-    public function guardarPaquete($mail_destinatario, $direccion, $peso, $volumen, $fragil, $tipo, $detalles, $codigo, $id_almacen_cliente, $id_destino)
+    public function guardarPaquete($mail_destinatario, $direccion, $peso, $volumen, $fragil, $tipo, $detalles, $codigo, $id_almacen_cliente, $id_destino, $estado)
     {
 
-
-        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles,codigo_seguimiento,id_destino) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles','$codigo','$id_destino')";
+        $instruccion = "INSERT INTO paquete (mail_destinatario,direccion,peso,volumen,fragil,tipo,detalles,codigo_seguimiento,id_destino,estado) VALUES ('$mail_destinatario','$direccion','$peso','$volumen','$fragil','$tipo','$detalles','$codigo','$id_destino','$estado')";
         mysqli_query($this->db, $instruccion);
 
         $id_paquete = mysqli_insert_id($this->db);

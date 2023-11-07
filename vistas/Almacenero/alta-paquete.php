@@ -23,14 +23,34 @@ require '../plantillas/menu-cuenta.php';
             placeholder="Correo destinatario" autocomplete="off" required>
         <input type="text" name="direccion[]" id="calle-destino-paq" class="destino-paq" placeholder="Direccion"
             autocomplete="off" required>
-        <input type="text" name="empresa[]" id="calle-destino-paq" class="destino-paq" placeholder="Empresa"
-        autocomplete="off" required>
+        <select name="id_destino[]" id="select-datos-paquete">
+        <option selected value="">Departamento</option>
+        <?php
+            require("../../controladores/api/destino/obtenerDato.php");
+            foreach ($decode as $destino){
+                $id_destino = $destino["id_destino"];
+                $departamento = $destino["departamento_destino"];
+                echo "<option value='$id_destino'> $departamento </option>";
+            }
+        ?>
+        </select>
         <p class="p-paquete">Características del paquete</p>
         <input type="number" step="any" name="peso[]" id="peso-paq" class="destino-paq" placeholder="Peso (Kg)"
             autocomplete="off" required>
         <input type="number" step="any" name="volumen[]" id="volumen-paq" class="destino-paq"
             placeholder="Volumen (cm∧3)" autocomplete="off" required>
-            
+
+        <select name="id_almacen_cliente[]" id="select-datos-paquete">
+        <?php
+            require("../../controladores/api/almacenCliente/obtenerDato.php");
+            foreach ($almacenes_clientes as $almacen_cliente){
+                $id_almacen_cliente = $almacen_cliente["id_almacen_cliente"];
+                $direccion = $almacen_cliente["direccion"];
+                $empresa = $almacen_cliente["nombre_de_empresa"];
+                echo "<option value='$id_almacen_cliente'> $direccion - $empresa</option>";
+            }
+        ?>
+        </select>
     </div>
 
     <div class="div-datos-paq">

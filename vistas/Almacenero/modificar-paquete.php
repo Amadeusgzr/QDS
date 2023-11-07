@@ -24,7 +24,7 @@ foreach ($decode as $paquete) {
     $peso = $paquete["peso"];
     $volumen = $paquete["volumen"];
     $fragil = $paquete["fragil"];
-    $estado = $paquete["estado"];
+    $estado = $paquete["paquete_estado"];
 }
 ?>
 <script>

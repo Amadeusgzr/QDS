@@ -27,7 +27,7 @@ foreach ($decode as $paquete) {
     $volumen = $paquete["volumen"];
     $fragil = $paquete["fragil"];
     $tipo = $paquete["tipo"];
-    $estado = $paquete["estado"];
+    $estado = $paquete["paquete_estado"];
     $detalles = $paquete["detalles"];
 
 }

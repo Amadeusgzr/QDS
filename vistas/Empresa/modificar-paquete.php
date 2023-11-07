@@ -23,7 +23,7 @@ foreach ($decode as $paquete) {
     $volumen = $paquete["volumen"];
     $fragil = $paquete["fragil"];
     $tipo = $paquete["tipo"];
-    $estado = $paquete["estado"];
+    $estado = $paquete["paquete_estado"];
     $detalles = $paquete["detalles"];
     $empresa = $paquete["nombre_de_empresa"];
     if ($estado !== "En almacén cliente" || $empresa !== $_SESSION["nom_usu"]){

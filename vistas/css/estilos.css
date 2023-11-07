@@ -40,6 +40,19 @@ table td, table th{
     text-shadow: 0 0 2px;
 }
 
+.seccion-btn {
+    padding: 10px 20px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+}
+
+.seccion-btn.active {
+    background-color: var(--color-principal);
+    color: #fff;
+}
+
+
 #btn-idioma{
     display: none;
 }

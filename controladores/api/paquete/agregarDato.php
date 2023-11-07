@@ -1,4 +1,5 @@
 <?php
+session_start();
 $ch = curl_init();
 
 if ($_POST) {
@@ -7,7 +8,8 @@ if ($_POST) {
     $peso = $_POST["peso"];
     $volumen = $_POST["volumen"];
     $fragil = $_POST["fragil"];
-    $empresa = $_POST["empresa"];
+    $id_destino = $_POST["id_destino"];
+    $id_almacen_cliente = $_POST["id_almacen_cliente"];
     if (isset($_POST["tipo"])) {
         $tipo = $_POST["tipo"];
     } else {
@@ -18,6 +20,7 @@ if ($_POST) {
     } else {
         $detalles = null;
     }
+    $usuario = $_SESSION["tipo_usu"];
 }
 
 $array = [
@@ -28,8 +31,9 @@ $array = [
     'fragil' => $fragil,
     'tipo' => $tipo,
     'detalles' => $detalles,
-    'empresaArray' => $empresa,
-
+    'id_destino' => $id_destino,
+    'id_almacen_cliente' => $id_almacen_cliente,
+    'usuario' => $usuario
 ];
 
 $datos = json_encode($array);
@@ -51,6 +55,7 @@ echo $respuesta;
 
 
 curl_close($ch);
+header('Location: ../../../vistas/Almacenero/alta-paquete.php?datos=' . urlencode($respuesta));
 
 
 
