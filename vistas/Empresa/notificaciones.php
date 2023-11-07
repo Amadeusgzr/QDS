@@ -18,13 +18,15 @@ require '../plantillas/menu-cuenta.php';
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <div class="navbar">
-        <button class="seccion-btn" id="En espera">En Espera</button>
-        <button class="seccion-btn active" id="Historial">Historial</button>
-        <button class="seccion-btn" id="Aceptada">Aceptadas</button>
-        <button class="seccion-btn" id="Denegada">Denegadas</button>
+    <div id="div-notificaciones">
+        <div class="navbar">
+            <button class="seccion-btn" id="En espera">En Espera</button>
+            <button class="seccion-btn active" id="Historial">Historial</button>
+            <button class="seccion-btn" id="Aceptada">Aceptadas</button>
+            <button class="seccion-btn" id="Denegada">Denegadas</button>
+        </div>
+        <div id="contenido">
     </div>
-    <div id="contenido">
     <!-- Aquí se cargarán las solicitudes según la sección seleccionada -->
 </div>
 

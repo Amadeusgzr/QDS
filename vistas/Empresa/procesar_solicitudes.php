@@ -48,8 +48,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 if ($estado == "Aceptada"){
     foreach ($solicitudes as $solicitud) {
         $id_solicitud = $solicitud["id_solicitud"];
-        echo "La solicitud $id_solicitud ha sido aceptada";
-        echo "<br>";
+        echo "<hr><p class='p-solicitud'>La solicitud $id_solicitud ha sido aceptada</p> <button class='boton-denegar'>Denegar</button>";
     }
 } else if ($estado == "Denegada"){
     foreach ($solicitudes as $solicitud) {
@@ -60,7 +59,8 @@ if ($estado == "Aceptada"){
 } else if ($estado == "En espera"){
     foreach ($solicitudes as $solicitud) {
         $id_solicitud = $solicitud["id_solicitud"];
-        echo "La solicitud $id_solicitud está en espera...";
+        $camionero = $solicitud["usuario"];
+        echo "La solicitud $id_solicitud está en espera, solicitud enviada por $camionero...";
         echo "<br>";
     }
 }
