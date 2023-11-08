@@ -120,7 +120,7 @@ class paqueteModelo
     {
         $where = ($id_paquete == null) ? "" : " WHERE id_paquete='$id_paquete'";
         $paquetes = [];
-        $instruccion = "SELECT * FROM paquete INNER JOIN destino_paquete ON paquete.id_destino = destino_paquete.id_destino" . $where . " ORDER BY paquete.id_paquete ASC" ;
+        $instruccion = "SELECT * FROM paquete INNER JOIN destino ON paquete.id_destino = destino.id_destino" . $where . " ORDER BY paquete.id_paquete ASC" ;
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($paquetes, $row);

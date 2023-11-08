@@ -55,6 +55,11 @@ require '../plantillas/menu-cuenta.php';
         <p>Gestión de horarios para recoger paquetes</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
     </a>
+    <a href="op-gestion-lote-entrega.php" class="opcion-aplicacion" id="op7">
+        <h2>Lotes a entregar</h2>
+        <p>Gestión de horarios para la entrega de lotes</p>
+        <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
+    </a>
 
 </main>
 

@@ -24,7 +24,7 @@ if (!isset($_SESSION['nom_usu'])) {
         <input type="checkbox" name="" id="btn-idioma">
         <label for="btn-idioma" class="lbl-idioma"></label>
     </div>
-    <a href="" class="a-op-cuenta aop3-index">Cambiar contraseña</a>
+    <a href="cambiar-contrasenia.php" class="a-op-cuenta aop3-index">Cambiar contraseña</a>
     <a href="../controladores/logout.php" class="a-op-cuenta aop4-index">Cerrar sesión</a>
     <p id="btn-cerrar-menu">x</p>
 </div>

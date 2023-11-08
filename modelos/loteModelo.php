@@ -23,7 +23,7 @@ class loteModelo
     {
         $where = ($id_lote == null) ? "" : " WHERE id_lote='$id_lote'";
         $lotes = [];
-        $instruccion = "SELECT * FROM lote" . $where;
+        $instruccion = "SELECT * FROM mostrar_lotes" . $where;
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($lotes, $row);

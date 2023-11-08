@@ -72,7 +72,7 @@ $(document).ready(function() {
     // Establece el intervalo de actualización periódica
     setInterval(actualizarSolicitudesPeriodicamente, intervalo);
 });
-    </script>
+</script>
 
 
 

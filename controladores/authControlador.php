@@ -11,7 +11,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         // Verifica las credenciales en el modelo
         $usuario = $authModelo->getUserByUsername($nom_usu);
         if ($usuario !== null) {
-            if ($contrasenia == $usuario['contrasenia']) {
+            if (password_verify($contrasenia, $usuario['contrasenia'])) {
                 // Las credenciales son válidas, inicia una sesión
                 session_start();
                 // Almacena información del usuario en la sesión

@@ -25,8 +25,31 @@ if (!isset($_SESSION['nom_usu'])) {
 
 <script src="vistas/js/index.js"></script>
 
+<script type="text/javascript">
+window.$crisp=[];
+window.CRISP_WEBSITE_ID="40f54e80-c222-466b-92aa-d3e1f9c64995";
+(function(){d=document;s=d.createElement("script");
+    s.src="https://client.crisp.chat/l.js";
+    s.async=1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+</script>
+
+
 <?php
+require ('modelos/db.php');
 
 require 'vistas/plantillas/footer.php';
-
+$ip=$_SERVER["REMOTE_ADDR"];
+$instruccion = "SELECT * FROM mensajes WHERE ip='$ip'";
+$mensajes = [];
+$result = mysqli_query($conexion, $instruccion);
+while ($row = mysqli_fetch_assoc($result)) {
+    array_push($mensajes, $row);
+}
+foreach( $mensajes as $mensaje ) {
+    $mensaje1 = $mensaje["mensaje"];
+    echo $mensaje1;
+    echo "<br>";
+}
 ?>
