@@ -12,9 +12,9 @@ if (isset($_SESSION['nom_usu'])) {
     <div class="div-datos-login">
         <h1 id="h1-login">Iniciar Sesión</h1>
         <input type="text" name="nom_usu" id="txt-mail" class="destino-paq" placeholder="Nombre de usuario" autocomplete="off" require>
-        <div id="div-contraseña">
-            <input type="password" name="contrasenia" id="txt-contraseña" class="destino-paq" placeholder="Contraseña" autocomplete="off" require>
-            <img src="img/iconos/ojo-cerrado.png" id="icono-ojo"></img>
+        <div class="div-contrasenia">
+            <input type="password" name="contrasenia" id="txt-contrasenia" class="destino-paq" placeholder="Contraseña" autocomplete="off" require>
+            <img src="img/iconos/ojo-cerrado.png" class="icono-ojo"></img>
         </div>
         <input type="submit" id="submit-login" value="Ingresar">
         <?php
@@ -26,7 +26,7 @@ if (isset($_SESSION['nom_usu'])) {
         }
         ?>
         <hr>
-        <a href="" id="a-contraseña">¿Olvidaste tu contraseña?</a>
+        <a href="" id="a-contrasenia">¿Olvidaste tu contraseña?</a>
     </div>
 </form>
 

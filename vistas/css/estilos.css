@@ -80,7 +80,7 @@ table td, table th{
     width: 25px;
     height: 25px;
     content: '';
-    background-image: url("../img/iconos/español.png");
+    background-image: url("../img/iconos/espanol.png");
     background-size: cover;
     border-radius: 100%;
     left: 5px;
@@ -235,6 +235,24 @@ nav a:hover{
     padding: 0 10px;
     border-radius: 10px;
 }
+
+#div-cambiar-contrasenia{
+    width: 95%;
+    max-width: 500px;
+    background-color: #86858536;
+    border: 1px solid #4040404d;
+    backdrop-filter: blur(5px);
+    margin: 10vh auto;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px;
+    flex-wrap: wrap;
+}
+
 
 /************************************************
 *                                               *
@@ -442,16 +460,46 @@ legend{
     flex-direction: column;
 }
 
-#div-contraseña{
+.div-contrasenia{
     display: flex;
     align-items: center;
 }
 
-#div-contraseña input{
+.adv-cambiar{
+    margin-bottom: 20px;
+}
+
+.div-contrasenia input{
     width: 100%;
 }
 
-#icono-ojo{
+#form-cambiar-contrasenia{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.div-contrasenia2{
+    width: 100%;
+    display: flex;
+}
+
+.div-contrasenia2 input{
+    width: 100%;
+}
+
+#form-cambiar-contrasenia input[type="submit"]{
+    padding: 10px;
+    transition-duration: .2s;
+    cursor: pointer;
+}
+
+#form-cambiar-contrasenia input[type="submit"]:hover{
+    box-shadow: 0 0 2px;
+}
+
+.icono-ojo{
     position: absolute;
     width: 25px;
     right: 50px;
@@ -480,7 +528,7 @@ hr{
     margin: 25px 0;
 }
 
-#a-contraseña{
+#a-contrasenia{
     text-align: center;
     color: var(--color-principal);
     font-size: 1.2em;

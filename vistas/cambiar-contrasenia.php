@@ -5,28 +5,30 @@ if (!isset($_SESSION['nom_usu'])) {
     header('Location: permisos.php');
     exit(); 
 } else {
-    echo "<link rel='stylesheet' href='css/estilos.css'>";
+     echo "<link rel='stylesheet' href='css/estilos.css'>";
     require 'plantillas/headerSeguimiento.php';
     require 'plantillas/menu-cuentaSeguimiento.php';
 }
 ?>
-<div id="div-elegir-lote">
+<div id="div-cambiar-contrasenia">
     <h1 class="h1-tabla2">Cambiar contraseña</h1>
-    <p class="adv">Aqui se cambia la contraseña</p>
-    <form action="cambiar-contrasenia.php" method="post">
+    <p class="adv adv-cambiar">La contraseña debe contener al menos 8 dígitos, una mayúscula, una minúscula y un número.</p>
+    <form action="cambiar-contrasenia.php" method="post" id="form-cambiar-contrasenia">
 
-    <div id="div-contraseña">
-        <input type="password" name="contrasenia_actual" class="txt-crud" id="txt-contraseña">
-        <img src="img/iconos/ojo-cerrado.png" id="icono-ojo"></img>
+    <div class="div-contrasenia div-contrasenia2">
+        <input type="password" name="contrasenia_actual" class="txt-crud txt1 txt-cambiar" id="txt-contrasenia" placeholder="Contraseña actual">
+        <img src="img/iconos/ojo-cerrado.png" class="icono-ojo botones ojo1"></img>
     </div>
 
-    <div id="div-contraseña">
-        <input type="password" name="contrasenia_cambiar" class="txt-crud" id="txt-contraseña">
-        <img src="img/iconos/ojo-cerrado.png" id="icono-ojo"></img>
+    <div class="div-contrasenia div-contrasenia2">
+        <input type="password" name="contrasenia_cambiar" class="txt-crud txt2 txt-cambiar" id="txt-contrasenia" placeholder="Contraseña nueva">
+        <img src="img/iconos/ojo-cerrado.png" class="icono-ojo botones ojo2"></img>
     </div>
-        <input type="password"name="contrasenia_repetir" class="txt-crud" id="txt-contraseña">
-        <img src="img/iconos/ojo-cerrado.png" id="icono-ojo"></img>
-        <input type="submit" value="Enviar">
+    <div class="div-contrasenia div-contrasenia2">
+    <input type="password"name="contrasenia_repetir" class="txt-crud txt3 txt-cambiar" id="txt-contrasenia" placeholder="Repetir contraseña nueva">
+        <img src="img/iconos/ojo-cerrado.png" class="icono-ojo botones ojo3"></img>
+    </div>
+    <input type="submit" value="Confirmar" class="estilo-boton">
         </form>
 
     <div id="mov-lote-lote">
@@ -36,7 +38,8 @@ if (!isset($_SESSION['nom_usu'])) {
     </div>
     
 </div>
-<script src="js/contrasenia.js"></script>
+
+<script src="js/cambiar-contrasenia.js"></script>
 
 <?php
 if($_POST){
