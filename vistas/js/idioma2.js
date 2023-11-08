@@ -15,7 +15,7 @@ chkIdioma.addEventListener("click", () => {
   if (chkIdioma.checked) {
     idioma = "ingles";
   } else {
-    idioma = "español";
+    idioma = "espanol";
   }
 
   localStorage.setItem("idioma", idioma);
