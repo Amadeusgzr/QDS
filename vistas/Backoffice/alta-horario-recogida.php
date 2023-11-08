@@ -20,7 +20,7 @@ require '../plantillas/menu-cuenta.php';
         <select name="id_camioneta[]" class="estilo-select">
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from camioneta inner join vehiculo on camioneta.id_camioneta = vehiculo.id_vehiculo";
+            $instruccion = "select * from mostrar_camionetas";
             $camionetas = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -38,7 +38,7 @@ require '../plantillas/menu-cuenta.php';
 
         <p class="p-paquete">Sobre la salida</p>
         <select name="id_almacen_central[]" class="estilo-select">
-        <option value="" selected>Almacén Central</option>
+            <option value="" selected>Almacén Central</option>
             <?php
             include("../../modelos/db.php");
             $instruccion = "select * from almacen_central";
@@ -59,7 +59,7 @@ require '../plantillas/menu-cuenta.php';
 
         <p class="p-paquete">Sobre la recogida</p>
         <select name="id_almacen_cliente[]" class="estilo-select">
-        <option value="" selected>Almacén Cliente</option>
+            <option value="" selected>Almacén Cliente</option>
             <?php
             include("../../modelos/db.php");
             $instruccion = "select * from almacen_cliente inner join tiene on almacen_cliente.id_almacen_cliente = tiene.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente";
@@ -77,7 +77,7 @@ require '../plantillas/menu-cuenta.php';
             ?>
         </select>
         <select name="id_almacen_cliente[]" class="estilo-select">
-        <option value="" selected>Almacén Cliente</option>
+            <option value="" selected>Almacén Cliente</option>
             <?php
             include("../../modelos/db.php");
             $instruccion = "select * from almacen_cliente inner join tiene on almacen_cliente.id_almacen_cliente = tiene.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente";
@@ -95,7 +95,7 @@ require '../plantillas/menu-cuenta.php';
             ?>
         </select>
 
- 
+
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
 
 
@@ -151,27 +151,27 @@ if ($_POST) {
 
         $respuesta1 = atributosVacio($id_almacen_central);
         $respuesta2 = atributosVacio($fecha_salida);
-        $respuesta3 = atributosVacio($hora_salida);  
+        $respuesta3 = atributosVacio($hora_salida);
 
         $respuesta4 = atributosVacio($id_almacenes_cliente);
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
-            
+
             $respuesta = [
-            'error' => "Éxito",
-            'respuesta' => "Horario asignado correctamente"
+                'error' => "Éxito",
+                'respuesta' => "Horario asignado correctamente"
             ];
 
             $origen = "FelipeSanguinetti2474,DepartamentodeMontevideo";
             $direccionDestino = "FelipeSanguinetti2474,DepartamentodeMontevideo";
 
-            $tiempoEsperaSegundos = 600; 
+            $tiempoEsperaSegundos = 600;
 
             $api_key = 'AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM';
 
             $horaEstimadaLlegadaTimestamp = strtotime("$fecha_salida[$i] $hora_salida[$i]");
 
-            foreach ($id_almacenes_cliente as $key => $id_almacen_cliente){
+            foreach ($id_almacenes_cliente as $key => $id_almacen_cliente) {
                 $instruccion = "select * from almacen_cliente where id_almacen_cliente=$id_almacen_cliente";
                 $resultado = mysqli_query($conexion, $instruccion);
                 $fila =  mysqli_fetch_assoc($resultado);
@@ -199,7 +199,7 @@ if ($_POST) {
 
                     $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
                     $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
-    
+
                     echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
                     echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
 
@@ -229,13 +229,12 @@ if ($_POST) {
                 $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
                 $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
 
-// Imprimir la fecha y la hora estimadas de llegada
+                // Imprimir la fecha y la hora estimadas de llegada
                 echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
                 echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
-                } else {
-                    echo "Error al calcular la ruta al destino final: " . $data->status;
-                }
-
+            } else {
+                echo "Error al calcular la ruta al destino final: " . $data->status;
+            }
         } else {
             $respuesta = [
                 'error' => "Error",

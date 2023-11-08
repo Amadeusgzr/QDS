@@ -13,7 +13,7 @@ class loteCamionModelo
     public function obtenerCamionPorId($id_camion)
     {
         $lote = [];
-        $instruccion = "SELECT * FROM transporta INNER JOIN lote ON transporta.id_lote = lote.id_lote WHERE id_camion='$id_camion';";
+        $instruccion = "SELECT * FROM mostrar_lotes WHERE id_camion='$id_camion';";
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($lote, $row);
@@ -54,5 +54,3 @@ class loteCamionModelo
     }
 
 }
-
-?>

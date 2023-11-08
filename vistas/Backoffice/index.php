@@ -15,7 +15,7 @@ require '../plantillas/menu-cuenta.php';
 
 
 <main class="main-aplicacion">
-<a href="op-usuarios.php" class="opcion-aplicacion" id="op1">
+    <a href="op-usuarios.php" class="opcion-aplicacion" id="op1">
         <h2>Usuarios</h2>
         <p>Gestión de Usuarios</p>
         <div class="div-img-icono"><img src="../img/iconos/icono-usuario.png" alt=""></div>
@@ -52,12 +52,12 @@ require '../plantillas/menu-cuenta.php';
     </a>
     <a href="op-gestion-paquete-recogida.php" class="opcion-aplicacion" id="op7">
         <h2>Paquetes a recoger</h2>
-        <p>Gestión de horarios para recoger paquetes</p>
+        <p>Gestión de horarios para recogida de paquetes</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
     </a>
     <a href="op-gestion-lote-entrega.php" class="opcion-aplicacion" id="op7">
         <h2>Lotes a entregar</h2>
-        <p>Gestión de horarios para la entrega de lotes</p>
+        <p>Gestión de horarios para entrega de lotes</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
     </a>
 

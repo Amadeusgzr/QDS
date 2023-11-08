@@ -56,7 +56,6 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-almacen-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
-
 } else if (isset($_GET['id_almacen_central'])) {
     $id_almacen_central = $_GET['id_almacen_central'];
 
@@ -78,7 +77,6 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-almacen-central.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
-
 } else if (isset($_GET['id_plataforma'])) {
     $id_plataforma = $_GET['id_plataforma'];
 
@@ -133,12 +131,11 @@ if (isset($_GET['id_camionero'])) {
         echo "<a href='op-plataforma.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
-
 } else if (isset($_GET['id_camion1'])) {
     $id_camion = $_GET['id_camion1'];
 
 
-    $instruccion = "select * from camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion where id_camion=$id_camion";
+    $instruccion = "select * from mostrar_camiones where id_camion=$id_camion";
     $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
@@ -146,6 +143,8 @@ if (isset($_GET['id_camionero'])) {
         $matricula = $fila["matricula"];
         $peso_soportado = $fila["peso_soportado"];
         $volumen_disponible = $fila["volumen_disponible"];
+        $peso_total_actual_camion = $fila["peso_total_actual_camion"];
+        $volumen_total_actual_camion = $fila["volumen_total_actual_camion"];
         $estado = $fila["estado"];
 
         echo "<div class='form-crud'>
@@ -154,27 +153,28 @@ if (isset($_GET['id_camionero'])) {
         <p><b class='p-id'>ID: </b>$id_camion</p>
         <p><b class='p-matricula'>Matrícula: </b>$matricula</p>
         <p><b class='p-peso-sop'>Peso soportado: </b>$peso_soportado Kg</p>
+        <p><b>Peso actual: </b>$peso_total_actual_camion Kg</p>
         <p><b class='p-volumen-disp'>Volumen disponible: </b>$volumen_disponible Cm3</p>
+        <p><b>Volumen actual: </b>$volumen_total_actual_camion Cm3</p>
         <p><b class='p-estado'>Estado: </b>$estado</p>
         <a href='op-camiones.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
-}
-    else if (isset($_GET['id_camioneta'])) {
-        $id_camioneta = $_GET['id_camioneta'];
-    
-    
-        $instruccion = "select * from camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta where id_camioneta=$id_camioneta";
-        $filas = $conexion->query($instruccion);
-    
-        foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
-            $id_camioneta = $fila["id_camioneta"];
-            $matricula = $fila["matricula"];
-            $peso_soportado = $fila["peso_soportado"];
-            $volumen_disponible = $fila["volumen_disponible"];
-            $estado = $fila["estado"];
-    
-            echo "<div class='form-crud'>
+} else if (isset($_GET['id_camioneta'])) {
+    $id_camioneta = $_GET['id_camioneta'];
+
+
+    $instruccion = "select * from camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta where id_camioneta=$id_camioneta";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_camioneta = $fila["id_camioneta"];
+        $matricula = $fila["matricula"];
+        $peso_soportado = $fila["peso_soportado"];
+        $volumen_disponible = $fila["volumen_disponible"];
+        $estado = $fila["estado"];
+
+        echo "<div class='form-crud'>
             <legend class='legend-c-camioneta'>Consultar Camioneta</legend>
             <p class='subtitulo-crud'>Datos de la camioneta</p>
             <p><b class='p-id'>ID: </b>$id_camioneta</p>
@@ -184,7 +184,7 @@ if (isset($_GET['id_camionero'])) {
             <p><b class='p-estado'>Estado: </b>$estado</p>
             <a href='op-camionetas.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
             </div>";
-        }
+    }
 } else if (isset($_GET['id_empresa_cliente'])) {
     $id_empresa_cliente = $_GET['id_empresa_cliente'];
 
@@ -208,7 +208,6 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-empresas-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
-
 } else if (isset($_GET['nom_usu'])) {
     $nom_usu = $_GET['nom_usu'];
 
@@ -228,7 +227,7 @@ if (isset($_GET['id_camionero'])) {
         <p><b>Mail: </b>$mail</p>
         <a href='op-usuarios.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
-    } 
+    }
 } else if (isset($_GET['id_trayecto'])) {
     $id_trayecto = $_GET['id_trayecto'];
 
@@ -271,7 +270,7 @@ if (isset($_GET['id_camionero'])) {
 
         if ($response) {
             $datos = json_decode($response, true);
-    
+
             if ($datos['status'] == 'OK') {
                 $distanciaTotal = 0;
                 $duracionTotal = 0;
@@ -295,22 +294,21 @@ if (isset($_GET['id_camionero'])) {
                         $duracionTotal += $step['duration']['value'];
                     }
                 }
-                $distanciaTotal = number_format($distanciaTotal / 1000 , 2);
+                $distanciaTotal = number_format($distanciaTotal / 1000, 2);
                 $duracionTotal = round($duracionTotal / 60);
-                
             } else {
                 echo 'No se pudo obtener una respuesta de la API de Google Maps Directions.';
             }
         }
     }
-    ?>
+?>
     <p><b>Mapa: </b></p>
     <div id="map" style="height: 400px; width: 100%;"></div>
- 
+
     <script>
-        const start = "<?php echo $origen1;?>";
-        const end = "<?php echo $destino1;?>";
-        const waypointInputs = <?php echo $waypointsJson;?>;
+        const start = "<?php echo $origen1; ?>";
+        const end = "<?php echo $destino1; ?>";
+        const waypointInputs = <?php echo $waypointsJson; ?>;
 
         console.log(start);
         console.log(end);
@@ -331,7 +329,10 @@ if (isset($_GET['id_camionero'])) {
 
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: 0, lng: 0 },
+                center: {
+                    lat: 0,
+                    lng: 0
+                },
                 zoom: 10
             });
 
@@ -352,7 +353,9 @@ if (isset($_GET['id_camionero'])) {
 
             var geocoder = new google.maps.Geocoder();
 
-            geocoder.geocode({ 'address': start }, function (results, status) {
+            geocoder.geocode({
+                'address': start
+            }, function(results, status) {
                 if (status === 'OK') {
                     var origenCoordenadas = results[0].geometry.location;
 
@@ -364,7 +367,9 @@ if (isset($_GET['id_camionero'])) {
                 }
             });
 
-            geocoder.geocode({ 'address': end }, function (results, status) {
+            geocoder.geocode({
+                'address': end
+            }, function(results, status) {
                 if (status === 'OK') {
                     var destinoCoordenadas = results[0].geometry.location;
 
@@ -376,8 +381,10 @@ if (isset($_GET['id_camionero'])) {
                 }
             });
 
-            waypointInputs.forEach(function (waypoint) {
-                geocoder.geocode({ 'address': waypoint }, function (results, status) {
+            waypointInputs.forEach(function(waypoint) {
+                geocoder.geocode({
+                    'address': waypoint
+                }, function(results, status) {
                     if (status === 'OK') {
                         var waypointCoordenadas = results[0].geometry.location;
 
@@ -388,7 +395,7 @@ if (isset($_GET['id_camionero'])) {
                         });
                     }
                 });
-            });  
+            });
 
             directionsService.route(request, function(response, status) {
                 if (status == 'OK') {
@@ -401,7 +408,7 @@ if (isset($_GET['id_camionero'])) {
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM&callback=initMap&region=uy&language=es" async defer></script>
     <a href='op-trayecto.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>
-    <?php
+<?php
 } else if (isset($_GET['id_camioneta_horario'])) {
     $id_camioneta = $_GET['id_camioneta_horario'];
     $fecha_salida = $_GET["fs"];
@@ -412,12 +419,12 @@ if (isset($_GET['id_camionero'])) {
     $filas = $conexion->query($instruccion);
     $filas = $filas->fetch_all(MYSQLI_ASSOC);
 
-    if (count($filas) > 0){
+    if (count($filas) > 0) {
         foreach ($filas as $fila) {
             $matricula = $fila["matricula"];
             $fecha_salida = $fila["fecha_salida"];
             $hora_salida = $fila["hora_salida"];
-        } 
+        }
     }
     echo "
     <div class='form-crud'>
@@ -438,7 +445,7 @@ if (isset($_GET['id_camionero'])) {
         $direccion_almacen = $fila["direccion"];
         $empresa = $fila["nombre_de_empresa"];
 
-        
+
         echo "
         <p><b>Almacen cliente: </b>$direccion_almacen - $empresa</p>
         <p><b>Fecha recogida estimado: </b>$fecha_recogida_ideal</p>
@@ -448,5 +455,4 @@ if (isset($_GET['id_camionero'])) {
     echo "<a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>";
 }
-?>   
-        
+?>

@@ -21,7 +21,7 @@ require '../plantillas/menu-cuenta.php';
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
                 <th>Camioneta</th>
-                <th id="th1-plataformas">Fecha y hora de salida</th>
+                <th id="th1-plataformas">Salida</th>
                 <th>OP</th>
             </tr>
             <?php
@@ -53,7 +53,6 @@ require '../plantillas/menu-cuenta.php';
                 <a href='consultar-dato.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&hs=$hora_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo "</tr>";
-            
             }
             ?>
         </table>

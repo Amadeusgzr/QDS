@@ -1,13 +1,16 @@
 <?php
 $ch = curl_init();
-if($_GET){
-if (isset($_GET["id_paquete"])) {
-$id_paquete = $_GET['id_paquete'];
-$id_camioneta = $_GET['id_camioneta'];
-$array = [
-    'id_paquete1' => "$id_paquete"
-];
-}
+if ($_GET) {
+    if (isset($_GET["id_paquete"])) {
+        $id_paquete = $_GET['id_paquete'];
+        $id_camioneta = $_GET['id_camioneta'];
+        $id_almacen_cliente = $_GET['id_almacen_cliente'];
+        $fri = $_GET['fri'];
+        $hri = $_GET['hri'];
+        $array = [
+            'id_paquete1' => "$id_paquete"
+        ];
+    }
 } else {
     $array = [
         'id_paquete1' => ""
@@ -28,6 +31,4 @@ if (curl_errno($ch)) {
     $decode = json_decode($respuesta, true);
 }
 curl_close($ch);
-header('Location: ../../../vistas/Camionero/recoger-paquetes-2.php?id_camioneta=' . $id_camioneta . '&datos=' . urlencode($respuesta));
-
-?>
+header('Location: ../../../vistas/Camionero/recoger-paquetes-2.php?id_camioneta=' . $id_camioneta . '&fri=' . $fri . '&hri=' . $hri . '&id_almacen_cliente=' . $id_almacen_cliente . '&datos=' . urlencode($respuesta));
