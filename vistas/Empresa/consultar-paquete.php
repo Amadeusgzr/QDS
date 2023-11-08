@@ -15,7 +15,6 @@ if(isset($decode['error'])){
     header("Location: ../error.php");
 }
 
-
 foreach ($decode as $paquete) {
     $id_paquete = $paquete["id_paquete"];
     $mail_destinatario = $paquete["mail_destinatario"];

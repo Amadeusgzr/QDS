@@ -29,7 +29,7 @@ require '../plantillas/menu-cuenta.php';
                 $id_paquete = $paquete["id_paquete"];
                 echo '<tr class="fila-ingreso-lote fila-opcion">';
                 echo '<td>' . $paquete["id_paquete"] . '</td>';
-                echo '<td>' . $paquete["direccion"] . '</td>';
+                echo '<td>' . $paquete["paquete_direccion"] . '</td>';
                 echo '<td>' . $paquete["fecha_recibido"] . " | " . $paquete["hora_recibido"] . '</td>';
 
                 echo "<td>

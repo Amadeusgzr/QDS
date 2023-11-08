@@ -14,7 +14,7 @@ class destinoModelo
     {
         $where = ($id_destino == null) ? "" : " WHERE id_destino='$id_destino'";
         $destinos = [];
-        $instruccion = "SELECT * FROM destino_paquete" . $where;
+        $instruccion = "SELECT * FROM destino" . $where;
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($destinos, $row);
