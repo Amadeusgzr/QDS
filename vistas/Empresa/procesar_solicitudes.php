@@ -64,8 +64,10 @@ if ($_POST) {
             foreach ($solicitudes as $solicitud) {
                 $id_solicitud = $solicitud["id_solicitud"];
                 $camionero = $solicitud["usuario"];
-                echo "La solicitud $id_solicitud está en espera, solicitud enviada por $camionero...";
-                echo "<br>";
+                ?>
+                <p>hola</p>
+                <?php
+
             }
         }
     }

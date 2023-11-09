@@ -3,6 +3,8 @@ const input2 = document.querySelector(".txt2");
 const input3 = document.querySelector(".txt3");
 const botones = document.querySelectorAll(".botones");
 
+
+
 botones.forEach(boton =>{
     boton.addEventListener("click", ()=>{
         if(boton.classList.contains("ojo1") && boton.getAttribute("src") === "img/iconos/ojo-cerrado.png"){
@@ -30,3 +32,16 @@ botones.forEach(boton =>{
         }
     });
 });
+
+const legend = document.querySelector("#legend");
+const divConfirmar = document.querySelector(".div-confirmar");
+const divCambiar = document.querySelector("#div-cambiar-contrasenia");
+if(legend.textContent == "Estas seguro de que quieres cambiar la contraseña"){
+    divConfirmar.style.display = "flex";
+    divCambiar.style.display = "none";
+    const botonCancelar = document.querySelector(".boton-cancelar");
+    botonCancelar.addEventListener("click", ()=>{
+        divConfirmar.style.display = "none";
+    divCambiar.style.display = "flex";
+    });
+}

@@ -1,4 +1,4 @@
-const input = document.querySelector("#txt-contraseña");
+const input = document.querySelector("#txt-contrasenia");
 const btn = document.querySelector("#icono-ojo");
 
 btn.addEventListener("click", ()=>{
