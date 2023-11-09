@@ -64,10 +64,24 @@ if ($_POST) {
             foreach ($solicitudes as $solicitud) {
                 $id_solicitud = $solicitud["id_solicitud"];
                 $camionero = $solicitud["usuario"];
+                $id_almacen_cliente = $solicitud["id_almacen_cliente"];
                 ?>
-                <p>hola</p>
-                <?php
+                <hr>
+                <form class="div-solicitud">
+                    <div class="solicitud-info">
+                        <img src="../img/iconos/icono-usuario.png" alt="">
+                        <p class="nombre-solicitud"><?= $camionero?></p>
+                    </div>
+                    <p class="mensaje-solicitud">Solicitud para retirar paquetes del almacén <?=$id_almacen_cliente ?></p>
+                    <div class="solicitud-info">
+                        <span>9/11/2023</span>
+                        <input type="text" hidden>
+                        <a href=""><button class=" estilo-boton2 boton-siguiente">Aceptar</button></a>
+                        <a href=""><button class=" estilo-boton2 boton-volver">Denegar</button></a>
+                    </div>
+            </form>
 
+                <?php
             }
         }
     }
