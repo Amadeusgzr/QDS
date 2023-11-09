@@ -74,7 +74,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                         $mail->Host = 'smtp.gmail.com';
                         $mail->SMTPAuth = true;
                         $mail->Username = 'qdservice.uy@gmail.com';
-                        $mail->Password = 'ykyelomckfbpugdb';
+                        $mail->Password = 'ggxvfmtelslnluko';
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                         $mail->Port = 587;
                     

@@ -5,9 +5,6 @@
             <li>+598 91 234 567</li>
             <li>2525 2525</li>
             <li>qds@gmail.com</li>
-            <li>        <?php
-        echo $_SERVER["REMOTE_ADDR"];
-        ?>      </li>
         </ul>
 
     </div>

@@ -12,6 +12,7 @@ if (!isset($_SESSION['nom_usu'])) {
 
 ?>
 
+
 <h1 id="h1-index">quick distribution service</h1>
 
 <form action="vistas/aplicacion-seguimiento.php" id="form-rastreo" method="get">
@@ -24,16 +25,9 @@ if (!isset($_SESSION['nom_usu'])) {
 </form>
 
 <script src="vistas/js/index.js"></script>
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="40f54e80-c222-466b-92aa-d3e1f9c64995";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 
-<script type="text/javascript">
-window.$crisp=[];
-window.CRISP_WEBSITE_ID="40f54e80-c222-466b-92aa-d3e1f9c64995";
-(function(){d=document;s=d.createElement("script");
-    s.src="https://client.crisp.chat/l.js";
-    s.async=1;
-    d.getElementsByTagName("head")[0].appendChild(s);
-    })();
-</script>
+
 
 <?php require 'vistas/plantillas/footer.php'; ?>
 
