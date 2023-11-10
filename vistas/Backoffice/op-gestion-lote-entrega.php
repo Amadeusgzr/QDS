@@ -26,7 +26,7 @@ require '../plantillas/menu-cuenta.php';
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select distinct transporta.id_camion, vehiculo.matricula, vehiculo.volumen_disponible, vehiculo.peso_soportado, vehiculo.estado, lleva.* from lleva inner join transporta on lleva.id_lote = transporta.id_lote inner join vehiculo on transporta.id_camion = vehiculo.id_vehiculo";
+            $instruccion = "select * from transporta inner join vehiculo on vehiculo.id_vehiculo = transporta.id_camion inner join lleva on transporta.id_lote = lleva.id_lote";
             $horarios_entrega = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {

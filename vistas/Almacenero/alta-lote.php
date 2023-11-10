@@ -34,12 +34,6 @@ require '../plantillas/menu-cuenta.php';
                }
             ?>
         </select>
-        <p class="p-lote">Fecha traslado</p>
-        <input type="date" name="fecha_ideal_traslado[]" id="fecha-traslado-lote" class="tiempo-lote"
-            placeholder="Nombre destinatario" autocomplete="off">
-        <p class="p-lote">Hora traslado</p>
-        <input type="time" name="hora_ideal_traslado[]" id="hora-traslado-lote" class="tiempo-lote"
-            placeholder="Nombre destinatario" autocomplete="off">
         <p class="p-lote">Contenido frágil</p>
         <div id="div-radios-lote">
             <label for="radio-lote-si">Sí</label>

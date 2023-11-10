@@ -13,23 +13,15 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 <div class="div-btn-uno">
-    <a href="recoger-paquetes-1.php">
+    <a href="recoger-paquetes-3.php?id_camioneta=<?= $_GET["id_camioneta"]?>">
         <button class="boton-volver estilo-boton">Volver</button>
     </a>
 </div>
 <?php
-require('../../modelos/db.php');
-$id_almacen_cliente = $_GET["id_almacen_cliente"];
-$fecha_recogida_ideal = $_GET["fri"];
-$hora_recogida_ideal = $_GET["hri"];
-$id_camioneta = $_GET["id_camioneta"];
-
-$usuario = $_SESSION["nom_usu"];
-$instruccion = "SELECT * FROM solicitud WHERE id_almacen_cliente = $id_almacen_cliente AND usuario = '$usuario' AND fecha_recogida_ideal = '$fecha_recogida_ideal' AND hora_recogida_ideal = '$hora_recogida_ideal'";
-$resultado = mysqli_query($conexion, $instruccion);
-$fila =  mysqli_fetch_assoc($resultado);
-if (isset($fila)) {
-    $estado = $fila["estado"];
+require("../../controladores/api/solicitud/obtenerDato.php");
+foreach($decode as $solicitud) {
+if (!empty($solicitud)){
+    $estado = $solicitud["estado"];
     if ($estado == "En espera") {
         echo "Tienes una solicitud enviada a esta empresa debes de esperar...";
     } else if ($estado == "Denegada") {
@@ -134,8 +126,11 @@ if (isset($fila)) {
         </html>
 
 <?php
-    }
-} else {
+} 
+
+}
+}
+if (empty($decode)) {
     echo "No se ha enviado una solicitud a la empresa. Para poder ver los paquetes de este almacén debe de ya haber llegado a esta.";
     echo "<a href='envio-solicitud.php?id_almacen_cliente=$id_almacen_cliente&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&hri=$hora_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'><button>Enviar solicitud</button></a>";
 }
