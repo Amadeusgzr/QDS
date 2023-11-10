@@ -500,7 +500,7 @@ legend{
     box-shadow: 0 0 2px;
 }
 
-#icono-ojo{
+.icono-ojo{
     position: absolute;
     width: 25px;
     right: 50px;
@@ -711,16 +711,42 @@ hr{
     font-size: 20px;
 }
 
+.div-almacen-recogida{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.div-almacen-recogida hr{
+    margin: 10px;
+}
+
+.div-almacen-recogida a{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.div-almacen-recogida button{
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
 /*   INGRESAR PAQUETE   */
 
 .form-filtro{
-    width: 95%;
-    max-width: 200px;
+    width: 80%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     gap: 10px;
     margin: 10px auto;
+}
+
+.form-filtro input, .form-filtro select, .form-filtro button{
+    flex-grow: 1;
 }
 
 #form-paquete{

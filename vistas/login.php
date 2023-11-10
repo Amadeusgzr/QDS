@@ -14,7 +14,7 @@ if (isset($_SESSION['nom_usu'])) {
         <input type="text" name="nom_usu" id="txt-mail" class="destino-paq" placeholder="Nombre de usuario" autocomplete="off" require>
         <div class="div-contrasenia">
             <input type="password" name="contrasenia" id="txt-contrasenia" class="destino-paq" placeholder="Contraseña" autocomplete="off" require>
-            <img src="img/iconos/ojo-cerrado.png" id="icono-ojo"></img>
+            <img src="img/iconos/ojo-cerrado.png" class="icono-ojo"></img>
         </div>
         <input type="submit" id="submit-login" value="Ingresar">
         <?php

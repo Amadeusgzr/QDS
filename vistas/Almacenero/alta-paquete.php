@@ -61,7 +61,7 @@ require '../plantillas/menu-cuenta.php';
             <label for="radio-paq-no">No</label>
             <input type="radio" name="fragil[]" id="radio-paq-no" class="chk" value="No" checked>
             <select name="tipo[]" id="select-fragil-paq" class="select-fragil-paq" disabled>
-                <option selected value="default" id="select-tipo">Contenido frágil</option>
+                <option selected value="" id="select-tipo">Contenido frágil</option>
                 <option value="Líquido">Líquido</option>
                 <option value="Vidrio">Vidrio</option>
             </select>

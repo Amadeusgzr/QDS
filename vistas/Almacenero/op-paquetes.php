@@ -21,8 +21,8 @@ require '../plantillas/menu-cuenta.php';
 
 <div id="div-tabla">  
     <h1 class="h1-tabla">Paquetes</h1>
-    <form action="op-paquetes.php" method="post" class="form-filtro">
-        <input type="text" name="id_paquete" value="" class="estilo-input">
+    <form action="op-paquetes.php" method="post" class="form-filtro" id="form-filtro">
+        <input type="text" name="id_paquete" value="" class="estilo-input" placeholder="ID...">
         <select name="id_almacen_cliente" class="estilo-input">
             <option value="" selected>Almacén Cliente</option>
             <?php

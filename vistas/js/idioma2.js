@@ -721,6 +721,24 @@ function actualizarTextos(data) {
     document.querySelector(".boton-eliminar").textContent = data.btn_eliminar_seleccion;
 
   }
+  else if(url.includes("Camionero") && url.includes("recoger-paquetes-3")){
+
+    document.querySelector(".h1-tabla2").textContent = data.h1_tabla_recoger_paquetes_3;
+    document.querySelector(".adv").textContent = data.adv_recoger_paquetes_3;
+    document.querySelectorAll(".p1").forEach(p => {
+      p.textContent = data.p1_recoger_paquetes_3;
+    });
+    document.querySelectorAll(".p2").forEach(p => {
+      p.textContent = data.p2_recoger_paquetes_3;
+    });
+    document.querySelectorAll(".btn-recoger-paquetes-3").forEach(btn => {
+      console.log(btn);
+      btn.textContent = data.btn_recoger_paquetes_3;
+    });
+    
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+  }
   else if(url.includes("Camionero") && url.includes("entregar-lotes-1")){
 
     document.querySelector(".h1-tabla2").textContent = data.h1_tabla2_entregar_lotes;

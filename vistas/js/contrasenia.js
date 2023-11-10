@@ -1,5 +1,5 @@
 const input = document.querySelector("#txt-contrasenia");
-const btn = document.querySelector("#icono-ojo");
+const btn = document.querySelector(".icono-ojo");
 
 btn.addEventListener("click", ()=>{
     if(btn.getAttribute("src") === "img/iconos/ojo-cerrado.png"){

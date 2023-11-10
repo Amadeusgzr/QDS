@@ -4,7 +4,7 @@ let selectFragil = document.getElementById("select-fragil-paq");
 
 radioNo.addEventListener("click",()=>{
     selectFragil.disabled = true;
-    selectFragil.value="default";
+    selectFragil.value = "";
 });
 
 radioSi.addEventListener("click",()=>{

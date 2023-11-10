@@ -370,6 +370,14 @@
     "th2_recoger_paquetes" : "Destino",
     "th3_recoger_paquetes" : "Estado",
 
+    "--------- CAMIONERO RECOGER PAQUETES 3 ---------" : "",
+
+    "h1_tabla_recoger_paquetes_3" : "Almacenes a recoger",
+    "adv_recoger_paquetes_3" : "Los siguientes almacenes son por los que tendra que pasar la camioneta",
+    "p1_recoger_paquetes_3" : "Almacén Cliente: ",
+    "p2_recoger_paquetes_3" : "Recogida: ",
+    "btn_recoger_paquetes_3" : "Ver paquetes del almacén",
+
     "--------- CAMIONERO ENTREGAR LOTES ---------" : "",
 
     "h1_tabla2_entregar_lotes" : "Elegir Camión",

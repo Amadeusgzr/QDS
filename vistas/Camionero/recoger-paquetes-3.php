@@ -24,11 +24,10 @@ require '../plantillas/menu-cuenta.php';
     $direccion = $almacen_cliente["direccion"];
     $fecha_recogida_ideal = $almacen_cliente["fecha_recogida_ideal1"];
     $hora_recogida_ideal = $almacen_cliente["hora_recogida_ideal1"];
-    echo "<p><b>Almacen Cliente: </b>Almacen $id_almacen_cliente - $direccion</p>
-    <p><b>Recogida: </b>$fecha_recogida_ideal $hora_recogida_ideal</p>
+    echo "<div class='div-almacen-recogida'><hr><p><b class='p1'>Almacen Cliente: </b>Almacen $id_almacen_cliente - $direccion</p>
+    <p><b class='p2'>Recogida: </b>$fecha_recogida_ideal $hora_recogida_ideal</p>
+    <a href='recoger-paquetes-2.php?id_camioneta=$id_camioneta&id_almacen_cliente=$id_almacen_cliente&fri=$fecha_recogida_ideal&hri=$hora_recogida_ideal'><button class='estilo-boton2 boton-siguiente btn-recoger-paquetes-3'>Ver paquetes del almacén</button></a></div>
     ";
-    echo "<a href='recoger-paquetes-2.php?id_camioneta=$id_camioneta&id_almacen_cliente=$id_almacen_cliente&fri=$fecha_recogida_ideal&hri=$hora_recogida_ideal'><button>Ver paquetes del almacén</button></a>";
-    echo "<hr>";
     }
     ?>
 

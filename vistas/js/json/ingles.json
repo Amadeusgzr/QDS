@@ -369,6 +369,14 @@
     "th2_recoger_paquetes" : "Destination",
     "th3_recoger_paquetes" : "Status",
 
+    "--------- CAMIONERO RECOGER PAQUETES 3 ---------" : "",
+
+    "h1_tabla_recoger_paquetes_3" : "Warehouses to Pick Up",
+    "adv_recoger_paquetes_3" : "The following warehouses are the ones the truck will have to pass through",
+    "p1_recoger_paquetes_3" : "Client Warehouse: ",
+    "p2_recoger_paquetes_3" : "Pick up: ",
+    "btn_recoger_paquetes_3" : "See warehouse packages",
+
     "--------- CAMIONERO ENTREGAR LOTES ---------" : "",
 
     "h1_tabla2_entregar_lotes" : "Truck Selection",
