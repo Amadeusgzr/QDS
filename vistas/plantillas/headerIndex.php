@@ -18,7 +18,6 @@
         <nav>
             <a href="index.php">Inicio</a>
             <a href="vistas/nuestroServicio.php">Nuestro Servicio</a>
-            <a href="">Ayuda</a>
             <a href="#footer-principal">Contacto</a>
         </nav>
         <a href="vistas/login.php">

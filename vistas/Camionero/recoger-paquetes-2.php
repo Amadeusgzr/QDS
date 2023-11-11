@@ -23,9 +23,9 @@ foreach ($decode as $solicitud) {
     if (!empty($solicitud)) {
         $estado = $solicitud["estado"];
         if ($estado == "En espera") {
-            echo "Tienes una solicitud enviada a esta empresa debes de esperar...";
+            echo "<div class='div-mensaje-solicitud-enviada'><img src='../img/iconos/advertencia.png'>Tienes una solicitud enviada a esta empresa debes de esperar...</div>";
         } else if ($estado == "Denegada") {
-            echo "La solicitud se te ha denegado. Desead enviarla de vuelta?";
+            echo "<div class='div-mensaje-solicitud-enviada'><img src='../img/iconos/advertencia.png'>La solicitud se te ha denegado. Deseas enviarla de vuelta? <a href='../../controladores/api/solicitud/agregarDato.php?id_almacen_cliente=$id_almacen_cliente&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&hri=$hora_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'><button class='estilo-boton boton-siguiente'>Enviar solicitud</button></a></div>";
         } else if ($estado == "Aceptada") {
 
             ?>
@@ -131,8 +131,7 @@ foreach ($decode as $solicitud) {
     }
 }
 if (empty($decode)) {
-    echo "No se ha enviado una solicitud a la empresa. Para poder ver los paquetes de este almacén debe de ya haber llegado a esta.";
-    echo "<a href='../../controladores/api/solicitud/agregarDato.php?id_almacen_cliente=$id_almacen_cliente&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&hri=$hora_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'><button>Enviar solicitud</button></a>";
+    echo "<div class='div-mensaje-solicitud-enviada'><img src='../img/iconos/advertencia.png'>No se ha enviado una solicitud a la empresa. Para poder ver los paquetes de este almacén debe de ya haber llegado a esta.<a href='../../controladores/api/solicitud/agregarDato.php?id_almacen_cliente=$id_almacen_cliente&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&hri=$hora_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'><button class='estilo-boton boton-siguiente'>Enviar solicitud</button></a></div>";
 }
 
 ?>

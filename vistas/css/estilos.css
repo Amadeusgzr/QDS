@@ -223,9 +223,12 @@ nav a:hover{
     align-items: center;
 }
 
-.p-solicitud{
-    background-color: #aaa;
-    display: inline;
+.div-aceptada{
+    width: 95%;
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    justify-content: center;
 }
 
 .boton-denegar{
@@ -1663,7 +1666,6 @@ label[for="radio-lote-no"]{
     max-height: 200px;
     padding: 20px;
     position: absolute;
-    background-color: #0F0;
     background-color: #adadaddc;
     border: 1px solid #4040408c;
     backdrop-filter: blur(5px);
@@ -1723,11 +1725,40 @@ label[for="radio-lote-no"]{
     width: 30px;
 }
 
+.div-mensaje-solicitud-enviada{
+    width: 95%;
+    max-width: 700px;
+    text-align: center;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #adadaddc;
+    border: 1px solid #4040408c;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.div-mensaje-solicitud-enviada img{
+    width: 80px;
+    filter: drop-shadow(0 0 5px);
+}
+
 .solicitud-info{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
+    max-width: 120px;
+    width: 120px;
+    text-align: center;
+}
+
+.nombre-solicitud{
+    text-align: center;
 }
 
 .mensaje-solicitud{
