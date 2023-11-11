@@ -51,6 +51,7 @@ require '../plantillas/menu-cuenta.php';
             }
             ?>
         </table>
+        <p class="adv">Para agregar, modificar o eliminar usuarios debe de utilizar el Centro de Cómputos</p>
     </div>
 
 </div>

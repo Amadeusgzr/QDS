@@ -39,6 +39,7 @@ require '../plantillas/menu-cuenta.php';
             <option value="En almacén cliente">En almacén cliente</option>
             <option value="En almacén central (lote)">En almacén central (lote)</option>
             <option value="En almacén central">En almacén central</option>
+            <option value="En camioneta (central)">En camioneta (central)</option>
         </select>
         <button class="estilo-input">Enviar</button>
     </form>

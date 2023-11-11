@@ -56,6 +56,45 @@ require '../plantillas/menu-cuenta.php';
         </select>
         <input type="date" placeholder="Fecha salida" class="txt-crud" name="fecha_salida[]" required>
         <input type="time" placeholder="Hora salida" class="txt-crud" name="hora_salida[]" required>
+        
+        <p class="p-paquete">Sobre la entrega</p>
+        <select name="id_plataforma[]" class="estilo-select">
+            <option value="" selected>Plataforma</option>
+            <?php
+            include("../../modelos/db.php");
+            $instruccion = "select * from plataforma inner join destino on plataforma.ubicacion = destino.id_destino";
+            $plataformas = [];
+            $result = mysqli_query($conexion, $instruccion);
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($plataformas, $row);
+            }
+            foreach ($plataformas as $plataforma) {
+                $id_plataforma = $plataforma['id_plataforma'];
+                $direccion = $plataforma['direccion'];
+                $departamento = $plataforma['departamento_destino'];
+                echo "<option value='$id_plataforma'>$direccion, $departamento</option>";
+            }
+            ?>
+        </select>
+        <select name="id_plataforma[]" class="estilo-select">
+            <option value="" selected>Plataforma</option>
+            <?php
+            include("../../modelos/db.php");
+            $instruccion = "select * from plataforma inner join destino on plataforma.ubicacion = destino.id_destino";
+            $plataformas = [];
+            $result = mysqli_query($conexion, $instruccion);
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($plataformas, $row);
+            }
+            foreach ($plataformas as $plataforma) {
+                $id_plataforma = $plataforma['id_plataforma'];
+                $direccion = $plataforma['direccion'];
+                $departamento = $plataforma['departamento_destino'];
+                echo "<option value='$id_plataforma'>$direccion, $departamento</option>";
+            }
+            ?>
+        </select>
+
 
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
 
@@ -72,6 +111,8 @@ if ($_POST) {
     $id_almacen_central = $_POST["id_almacen_central"];
     $fecha_salida = $_POST["fecha_salida"];
     $hora_salida = $_POST["hora_salida"];
+
+    $id_plataformas = $_POST["id_plataforma"];
 
 
 
@@ -101,123 +142,89 @@ if ($_POST) {
         $respuesta2 = atributosVacio($fecha_salida);
         $respuesta3 = atributosVacio($hora_salida);
 
-        if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error']) {
+        $respuesta4 = atributosVacio($id_plataformas);
+
+
+        if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
 
             $respuesta = [
                 'error' => "Éxito",
                 'respuesta' => "Horario asignado correctamente"
             ];
 
-            $instruccion = "SELECT DISTINCT plataforma.direccion, plataforma.ubicacion FROM transporta INNER JOIN lote ON transporta.id_lote = lote.id_lote INNER JOIN lleva ON lote.id_lote = lleva.id_lote INNER JOIN plataforma ON lleva.id_plataforma = plataforma.id_plataforma WHERE id_camion = $id_camion[$i]";
-            $lotes = [];
-            $result = mysqli_query($conexion, $instruccion);
-            while ($row = mysqli_fetch_assoc($result)) {
-                array_push($lotes, $row);
-            }
-            foreach ($lotes as $lote) {
-                $direccion = $lote["direccion"];
-                $ubicacion = $lote["ubicacion"];
+            $origen = "Felipe+Sanguinetti+2474,Departamento+de+Montevideo";
+            $direccionDestino = "Felipe+Sanguinetti+2474,Departamento+de+Montevideo";
+
+            $tiempoEsperaSegundos = 600;
+
+            $api_key = 'AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM';
+
+            $horaEstimadaLlegadaTimestamp = strtotime("$fecha_salida[$i] $hora_salida[$i]");
+
+            foreach ($id_plataformas as $key => $id_plataforma) {
+                $instruccion = "select * from plataforma inner join destino on plataforma.ubicacion = destino.id_destino where id_plataforma=$id_plataforma";
+                $resultado = mysqli_query($conexion, $instruccion);
+                $fila =  mysqli_fetch_assoc($resultado);
+                $puntoIntermedio = $fila["direccion"] . ", Departamento de " . $fila["departamento_destino"];
 
 
 
-                $fecha_ideal_entrega = "2023-11-23";
-                $hora_ideal_entrega = "14:00:00";
+                $puntoIntermedio = str_replace(' ', '', $puntoIntermedio);
+                echo $puntoIntermedio . "<br>";
 
-                $instruccion = "SELECT * FROM transporta INNER JOIN lote ON transporta.id_lote = lote.id_lote INNER JOIN lleva ON lote.id_lote = lleva.id_lote INNER JOIN plataforma ON lleva.id_plataforma = plataforma.id_plataforma WHERE id_camion = $id_camion[$i]";
-                $lotes1 = [];
-                $result = mysqli_query($conexion, $instruccion);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    array_push($lotes1, $row);
+
+                $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$puntoIntermedio&key=$api_key&region=uy&language=es";
+
+                $response = file_get_contents($apiURL);
+                $data = json_decode($response);
+
+                if ($data->status === "OK") {
+                    $duracionEnSegundos = $data->routes[0]->legs[0]->duration->value;
+
+                    $horaEstimadaLlegadaTimestamp += $duracionEnSegundos;
+
+                    // if ($key > 0) {
+                    //     $horaEstimadaLlegadaTimestamp += $tiempoEsperaSegundos;
+                    // }
+
+                    $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
+                    $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
+
+                    echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
+                    echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
+
+                    $origen = $puntoIntermedio;
+
+                    $instruccion = "insert into lleva(id_camion, id_plataforma, fecha_entrega_ideal, hora_entrega_ideal, fecha_salida, hora_salida, almacen_central_salida) value ('$id_camion[$i]', '$id_plataforma', '$fechaEstimadaLlegada', '$horaEstimadaLlegada', '$fecha_salida[$i]', '$hora_salida[$i]', '$id_almacen_central[$i]')";
+                    $conexion->query($instruccion);
+                } else {
+                    echo "Error al calcular la ruta: " . $data->status;
+                    break;
                 }
-                foreach ($lotes1 as $lote1) {
-                    $id_lote = $lote1["id_lote"];
-                    echo $id_lote;
-                    $instruccion = "SELECT * FROM transporta INNER JOIN lote ON transporta.id_lote = lote.id_lote INNER JOIN lleva ON lote.id_lote = lleva.id_lote INNER JOIN plataforma ON lleva.id_plataforma = plataforma.id_plataforma WHERE plataforma.direccion = '$direccion' AND plataforma.ubicacion = '$ubicacion' AND lote.id_lote = '$id_lote'";
-                    $resultado = mysqli_query($conexion, $instruccion);
-                    $fila =  mysqli_fetch_assoc($resultado);
-                    if (isset($fila)) {
-                        if (count($fila) > 0) {
-                            $instruccion = "UPDATE lleva SET fecha_entrega_ideal = '$fecha_ideal_entrega', hora_entrega_ideal = '$hora_ideal_entrega', fecha_salida = '$fecha_salida[$i]', hora_salida = '$hora_salida[$i]', almacen_central_salida = $id_almacen_central[$i] WHERE id_lote = $id_lote";
-                            mysqli_query($conexion, $instruccion);
-                        }
-                    }
-                }
-                echo "<br>";
             }
 
-            // $origen = "FelipeSanguinetti2474,DepartamentodeMontevideo";
-            // $direccionDestino = "FelipeSanguinetti2474,DepartamentodeMontevideo";
+            $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$direccionDestino&key=$api_key&region=uy&language=es";
+            $response = file_get_contents($apiURL);
+            $data = json_decode($response);
 
-            // $tiempoEsperaSegundos = 600;
+            if ($data->status === "OK") {
+                $duracionEnSegundos = $data->routes[0]->legs[0]->duration->value;
 
-            // $api_key = 'AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM';
+                // if (count($id_almacenes_cliente) > 0) {
+                //     $horaEstimadaLlegadaTimestamp += $tiempoEsperaSegundos;
+                //  }
 
-            // $horaEstimadaLlegadaTimestamp = strtotime("$fecha_salida[$i] $hora_salida[$i]");
+                $horaEstimadaLlegadaTimestamp += $duracionEnSegundos;
 
-            // foreach ($id_almacenes_cliente as $key => $id_almacen_cliente) {
-            //     $instruccion = "select * from almacen_cliente where id_almacen_cliente=$id_almacen_cliente";
-            //     $resultado = mysqli_query($conexion, $instruccion);
-            //     $fila =  mysqli_fetch_assoc($resultado);
-            //     $puntoIntermedio = $fila["direccion"];
+                $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
+                $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
 
-
-            //     $puntoIntermedio = str_replace(' ', '', $puntoIntermedio);
-            //     $puntoIntermedio = "$puntoIntermedio,DepartamentodeMontevideo";
-            //     echo $puntoIntermedio . "<br>";
-
-
-            //     $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$puntoIntermedio&key=$api_key&region=uy&language=es";
-
-            //     $response = file_get_contents($apiURL);
-            //     $data = json_decode($response);
-
-            //     if ($data->status === "OK") {
-            //         $duracionEnSegundos = $data->routes[0]->legs[0]->duration->value;
-
-            //         $horaEstimadaLlegadaTimestamp += $duracionEnSegundos;
-
-            //         // if ($key > 0) {
-            //         //     $horaEstimadaLlegadaTimestamp += $tiempoEsperaSegundos;
-            //         // }
-
-            //         $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
-            //         $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
-
-            //         echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
-            //         echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
-
-            //         $origen = $puntoIntermedio;
-
-            //         $instruccion = "insert into recoge(id_camioneta, id_almacen_cliente, fecha_recogida_ideal, hora_recogida_ideal, fecha_salida, hora_salida, almacen_central_salida) value ('$id_camioneta[$i]', '$id_almacen_cliente', '$fechaEstimadaLlegada', '$horaEstimadaLlegada', '$fecha_salida[$i]', '$hora_salida[$i]', '$id_almacen_central[$i]')";
-            //         $conexion->query($instruccion);
-            //     } else {
-            //         echo "Error al calcular la ruta: " . $data->status;
-            //         break;
-            //     }
-            // }
-
-            // $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$direccionDestino&key=$api_key&region=uy&language=es";
-            // $response = file_get_contents($apiURL);
-            // $data = json_decode($response);
-
-            // if ($data->status === "OK") {
-            //     $duracionEnSegundos = $data->routes[0]->legs[0]->duration->value;
-
-            //     // if (count($id_almacenes_cliente) > 0) {
-            //     //     $horaEstimadaLlegadaTimestamp += $tiempoEsperaSegundos;
-            //     //  }
-
-            //     $horaEstimadaLlegadaTimestamp += $duracionEnSegundos;
-
-            //     $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
-            //     $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
-
-            //     // Imprimir la fecha y la hora estimadas de llegada
-            //     echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
-            //     echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
-            // } else {
-            //     echo "Error al calcular la ruta al destino final: " . $data->status;
-            // }
+                // Imprimir la fecha y la hora estimadas de llegada
+                echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
+                echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
+            } else {
+                echo "Error al calcular la ruta al destino final: " . $data->status;
+            }
         } else {
             $respuesta = [
                 'error' => "Error",

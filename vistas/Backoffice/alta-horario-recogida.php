@@ -117,8 +117,6 @@ if ($_POST) {
 
     $id_almacenes_cliente = $_POST["id_almacen_cliente"];
 
-    print_r($id_almacenes_cliente);
-
     $numArrays = count($id_camioneta);
     for ($i = 0; $i < $numArrays; $i++) {
         include("../../modelos/db.php");

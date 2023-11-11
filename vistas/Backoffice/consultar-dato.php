@@ -454,5 +454,49 @@ if (isset($_GET['id_camionero'])) {
 
     echo "<a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>";
+} else if (isset($_GET['id_camion_horario'])) {
+    $id_camion = $_GET['id_camion_horario'];
+    $fecha_salida = $_GET["fs"];
+    $hora_salida = $_GET["hs"];
+    $almacen_central_salida = $_GET["acs"];
+
+    $instruccion = "select * from lleva inner join camion on lleva.id_camion = camion.id_camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion where camion.id_camion=$id_camion AND fecha_salida='$fecha_salida' AND hora_salida='$hora_salida'";
+    $filas = $conexion->query($instruccion);
+    $filas = $filas->fetch_all(MYSQLI_ASSOC);
+
+    if (count($filas) > 0) {
+        foreach ($filas as $fila) {
+            $matricula = $fila["matricula"];
+            $fecha_salida = $fila["fecha_salida"];
+            $hora_salida = $fila["hora_salida"];
+        }
+    }
+    echo "
+    <div class='form-crud'>
+    <legend>Eliminar Horario</legend>
+    <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
+    <p>Datos de salida</p>
+    <p><b>Matricula: </b>$matricula</p>
+    <p><b>Fecha salida: </b>$fecha_salida</p>
+    <p><b>Hora salida: </b>$hora_salida</p>";
+
+    $instruccion = "select * from lleva inner join camion on lleva.id_camion = camion.id_camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion inner join plataforma on lleva.id_plataforma = plataforma.id_plataforma inner join destino on plataforma.ubicacion = destino.id_destino where camion.id_camion=$id_camion AND fecha_salida='$fecha_salida' AND hora_salida='$hora_salida' ORDER BY fecha_entrega_ideal ASC, hora_entrega_ideal ASC;";
+    $filas = $conexion->query($instruccion);
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        echo "<hr>";
+        $id_plataforma = $fila["id_plataforma"];
+        $fecha_entrega_ideal = $fila["fecha_entrega_ideal"];
+        $hora_entrega_ideal = $fila["hora_entrega_ideal"];
+        $direccion_plataforma = $fila["direccion"];
+        $departamento_plataforma = $fila["departamento_destino"];
+
+        echo "
+        <p><b>Plataforma: </b>$direccion_plataforma, $departamento_plataforma</p>
+        <p><b>Fecha de entrega estimado: </b>$fecha_entrega_ideal</p>
+        <p><b>Hora de entrega estimado: </b>$hora_entrega_ideal</p>";
+    }
+
+    echo "<a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+    </div>";
 }
 ?>
