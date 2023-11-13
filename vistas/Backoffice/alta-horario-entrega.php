@@ -193,9 +193,12 @@ if ($_POST) {
                     echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
                     echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
 
+                    $fecha = $fechaEstimadaLlegada . " "  . $horaEstimadaLlegada;
+                    $fecha1 = $fecha_salida[$i] . " "  . $hora_salida[$i];
+
                     $origen = $puntoIntermedio;
 
-                    $instruccion = "insert into lleva(id_camion, id_plataforma, fecha_entrega_ideal, hora_entrega_ideal, fecha_salida, hora_salida, almacen_central_salida) value ('$id_camion[$i]', '$id_plataforma', '$fechaEstimadaLlegada', '$horaEstimadaLlegada', '$fecha_salida[$i]', '$hora_salida[$i]', '$id_almacen_central[$i]')";
+                    $instruccion = "insert into lleva(id_camion, id_plataforma, fecha_entrega_ideal, fecha_salida, almacen_central_salida) value ('$id_camion[$i]', '$id_plataforma', '$fecha', '$fecha1', '$id_almacen_central[$i]')";
                     $conexion->query($instruccion);
                 } else {
                     echo "Error al calcular la ruta: " . $data->status;

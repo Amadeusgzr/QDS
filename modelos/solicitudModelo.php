@@ -9,10 +9,10 @@ class solicitudModelo
         $this->db = new mysqli('localhost', 'root', '', 'QDS');
         mysqli_set_charset($this->db, 'utf8');
     }
-    public function obtenerSolicitud($id_camioneta, $id_almacen_cliente, $fecha_recogida_ideal, $hora_recogida_ideal, $usuario)
+    public function obtenerSolicitud($id_camioneta, $id_almacen_cliente, $fecha_recogida_ideal, $usuario)
     {
         $solicitud = [];
-        $instruccion = "SELECT * FROM solicitud WHERE id_almacen_cliente = $id_almacen_cliente AND usuario = '$usuario' AND fecha_recogida_ideal = '$fecha_recogida_ideal' AND hora_recogida_ideal = '$hora_recogida_ideal'";
+        $instruccion = "SELECT * FROM solicitud WHERE id_almacen_cliente = $id_almacen_cliente AND usuario = '$usuario' AND fecha_recogida_ideal = '$fecha_recogida_ideal'";
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($solicitud, $row);
@@ -66,14 +66,15 @@ class solicitudModelo
         return $resultado;
     }
 
-    public function guardarSolicitud($id_camioneta, $id_almacen_cliente, $fecha_recogida_ideal, $hora_recogida_ideal, $usuario)
+    public function guardarSolicitud($id_camioneta, $id_almacen_cliente, $fecha_recogida_ideal, $usuario)
     {   
+
         $instruccion = "SELECT * FROM almacen_cliente INNER JOIN tiene ON almacen_cliente.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON empresa_cliente.id_empresa_cliente = tiene.id_empresa_cliente WHERE tiene.id_almacen_cliente = $id_almacen_cliente";
         $resultado = mysqli_query($this->db, $instruccion);
         $fila =  mysqli_fetch_assoc($resultado);    
         $empresa = $fila["nombre_de_empresa"];
 
-        $instruccion= "INSERT INTO solicitud (usuario, usuario_destino, detalles, estado, id_almacen_cliente, fecha_recogida_ideal, hora_recogida_ideal) VALUES ('$usuario', '$empresa', 'El camionero $usuario llego a su almacén', 'En espera', '$id_almacen_cliente', '$fecha_recogida_ideal', '$hora_recogida_ideal')";
+        $instruccion= "INSERT INTO solicitud (usuario, usuario_destino, detalles, estado, id_almacen_cliente, fecha_recogida_ideal) VALUES ('$usuario', '$empresa', 'El camionero $usuario llego a su almacén', 'En espera', '$id_almacen_cliente', '$fecha_recogida_ideal')";
         mysqli_query($this->db, $instruccion);
 
         $resultado = [

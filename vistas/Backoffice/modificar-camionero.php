@@ -29,31 +29,34 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 <div class="form-crud">
     <form action="modificar.php" method="post">
         <legend class="legend-m-camionero">Modificar Camionero</legend>
-        <p class="subtitulo-crud">Datos actuales</p>
-        <p><b class='p-id'>ID: </b>
-            <?= $id_camionero ?>
-        </p>
-        <p><b class='p-cedula'>Cédula: </b>
-            <?= $cedula ?>
-        </p>
-        <p><b class='p-nombre'>Nombre: </b>
-            <?= $nombre_completo ?>
-        </p>
-        <p><b class='p-telefono'>Teléfono: </b>
-            <?= $telefono ?>
-        </p>
-        <p><b>Mail: </b>
-            <?= $mail ?>
-        </p>
-        <p class="subtitulo-crud subtitulo-crud-2">Datos modificados</p>
-        <input type="text" placeholder="ID" class="txt-crud" name="id_camionero" value="<?= $id_camionero ?>" required
-            readonly>
-        <input type="text" placeholder="Cédula" class="txt-crud" name="cedula" value="<?= $cedula ?>" required readonly>
-        <input type="text" placeholder="Nombre Completo" class="txt-crud" name="nombre_completo"
-            value="<?= $nombre_completo ?>" required>
-        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono" value="<?= $telefono ?>" required>
-        <input type="mail" placeholder="Mail" class="txt-crud" name="mail" value="<?= $mail ?>" required>
+        <label><b class='p-id'>ID:</b> <?= $id_camionero ?></label>
+
+        <label><b class='p-cedula'>Cédula: </b></label>
+        <input type="text" placeholder="Cédula" class="txt-crud" name="cedula[]" value="<?= $cedula ?>" required maxlength="8">
+
+        <label><b class='p-nombre'>Nombre: </b></label>
+        <input type="text" placeholder="Nombre Completo" class="txt-crud" name="nombre_completo[]"
+            value="<?= $nombre_completo ?>" required maxlength="45">
+
+        <label><b class='p-telefono'>Teléfono: </b></label>
+        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono[]" value="<?= $telefono ?>" required maxlength="20">
+
+        <label><b class='p-telefono'>Mail: </b></label>
+        <input type="mail" placeholder="Mail" class="txt-crud" name="mail[]" value="<?= $mail ?>" required maxlength="45">
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-camioneros.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>
+
+<div class="div-error">
+    <?php
+    if (isset($_GET['datos'])) {
+        $jsonDatos = urldecode($_GET['datos']);
+        $datos = json_decode($jsonDatos, true);
+        echo $datos['respuesta'];
+    }
+    ?>
+</div>
+
+<script src="../js/mostrar-respuesta.js"></script>
+<script src="../js/ocultar-get-modificar.js"></script>

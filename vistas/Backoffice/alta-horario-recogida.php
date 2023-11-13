@@ -160,8 +160,8 @@ if ($_POST) {
                 'respuesta' => "Horario asignado correctamente"
             ];
 
-            $origen = "FelipeSanguinetti2474,DepartamentodeMontevideo";
-            $direccionDestino = "FelipeSanguinetti2474,DepartamentodeMontevideo";
+            $origen = "Escuela+Superior+de+Informatica,Departamento+de+Montevideo";
+            $direccionDestino = "Escuela+Superior+de+Informatica,Departamento+de+Montevideo";
 
             $tiempoEsperaSegundos = 600;
 
@@ -169,31 +169,42 @@ if ($_POST) {
 
             $horaEstimadaLlegadaTimestamp = strtotime("$fecha_salida[$i] $hora_salida[$i]");
 
+            $puntosIntermedios = [];
             foreach ($id_almacenes_cliente as $key => $id_almacen_cliente) {
                 $instruccion = "select * from almacen_cliente where id_almacen_cliente=$id_almacen_cliente";
                 $resultado = mysqli_query($conexion, $instruccion);
-                $fila =  mysqli_fetch_assoc($resultado);
+                $fila = mysqli_fetch_assoc($resultado);
                 $puntoIntermedio = $fila["direccion"];
+                array_push($puntosIntermedios, $puntoIntermedio);
+            }
 
 
-                $puntoIntermedio = str_replace(' ', '', $puntoIntermedio);
-                $puntoIntermedio = "$puntoIntermedio,DepartamentodeMontevideo";
-                echo $puntoIntermedio . "<br>";
+            $puntosIntermedios = str_replace(' ', '+', $puntosIntermedios);
+            $puntosIntermedios = implode('|', $puntosIntermedios);
 
+            $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$direccionDestino&waypoints=optimize:true|$puntosIntermedios&key=$api_key&region=uy&language=es";
 
-                $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$puntoIntermedio&key=$api_key&region=uy&language=es";
+            $response = file_get_contents($apiURL);
+            $data = json_decode($response);
 
-                $response = file_get_contents($apiURL);
-                $data = json_decode($response);
+            if ($data->status === "OK") {
 
-                if ($data->status === "OK") {
-                    $duracionEnSegundos = $data->routes[0]->legs[0]->duration->value;
+                $rutaOptimizada = $data->routes[0];
+
+                // Calcular los horarios para la ruta optimizada
+                $horaEstimadaLlegadaTimestamp = strtotime("$fecha_salida[0] $hora_salida[0]");
+            
+                foreach ($rutaOptimizada->legs as $leg) {
+                    $duracionEnSegundos = $leg->duration->value;
 
                     $horaEstimadaLlegadaTimestamp += $duracionEnSegundos;
 
-                    // if ($key > 0) {
-                    //     $horaEstimadaLlegadaTimestamp += $tiempoEsperaSegundos;
-                    // }
+                    $direccion = $leg->end_address;
+                    $direccion = explode(",", $direccion);
+                    $direccion = trim($direccion[0]);
+                    echo $direccion . "<br>";
+
+
 
                     $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
                     $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
@@ -201,37 +212,25 @@ if ($_POST) {
                     echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
                     echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
 
-                    $origen = $puntoIntermedio;
+                    $fecha = $fechaEstimadaLlegada . " "  . $horaEstimadaLlegada;
+                    $fecha1 = $fecha_salida[$i] . " "  . $hora_salida[$i];
 
-                    $instruccion = "insert into recoge(id_camioneta, id_almacen_cliente, fecha_recogida_ideal, hora_recogida_ideal, fecha_salida, hora_salida, almacen_central_salida) value ('$id_camioneta[$i]', '$id_almacen_cliente', '$fechaEstimadaLlegada', '$horaEstimadaLlegada', '$fecha_salida[$i]', '$hora_salida[$i]', '$id_almacen_central[$i]')";
+                    $instruccion = "select * from almacen_cliente where direccion = '$direccion'";
+                    $resultado = mysqli_query($conexion, $instruccion);
+                    $fila = mysqli_fetch_assoc($resultado);
+                    if(isset($fila["id_almacen_cliente"])){
+
+                    $id_almacen_cliente =  $fila["id_almacen_cliente"];
+
+                    $instruccion = "insert into recoge(id_camioneta, id_almacen_cliente, fecha_recogida_ideal, fecha_salida, almacen_central_salida) value ('$id_camioneta[$i]', '$id_almacen_cliente', '$fecha', '$fecha1', '$id_almacen_central[$i]')";
                     $conexion->query($instruccion);
-                } else {
-                    echo "Error al calcular la ruta: " . $data->status;
-                    break;
+                    }
+
                 }
-            }
 
-            $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$direccionDestino&key=$api_key&region=uy&language=es";
-            $response = file_get_contents($apiURL);
-            $data = json_decode($response);
-
-            if ($data->status === "OK") {
-                $duracionEnSegundos = $data->routes[0]->legs[0]->duration->value;
-
-                // if (count($id_almacenes_cliente) > 0) {
-                //     $horaEstimadaLlegadaTimestamp += $tiempoEsperaSegundos;
-                //  }
-
-                $horaEstimadaLlegadaTimestamp += $duracionEnSegundos;
-
-                $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
-                $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
-
-                // Imprimir la fecha y la hora estimadas de llegada
-                echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
-                echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
             } else {
-                echo "Error al calcular la ruta al destino final: " . $data->status;
+                echo "Error al calcular la ruta: " . $data->status;
+                break;
             }
         } else {
             $respuesta = [
@@ -254,6 +253,33 @@ if ($_POST) {
         $jsonDatos = urldecode($_GET['datos']);
         $datos = json_decode($jsonDatos, true);
         echo $datos['respuesta'];
+    }
+
+    // Formar la cadena de waypoints para la API de Optimización de Rutas
+    $waypoints = implode('|', $direccionesPuntosRecogida);
+
+    // Hacer solicitud a la API de Direcciones de Google con optimización de ruta
+    $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$destino&waypoints=optimize:true|$waypoints&key=$api_key&region=uy&language=es";
+
+    $response = file_get_contents($apiURL);
+    $data = json_decode($response);
+
+    if ($data->status === "OK") {
+        // Procesar la respuesta y obtener la ruta optimizada
+        $rutaOptimizada = $data->routes[0];
+
+        // Calcular los horarios para la ruta optimizada
+        $horaEstimadaLlegadaTimestamp = strtotime("$fecha_salida[0] $hora_salida[0]");
+
+        foreach ($rutaOptimizada->legs as $leg) {
+            $duracionEnSegundos = $leg->duration->value;
+
+            $horaEstimadaLlegadaTimestamp += $duracionEnSegundos;
+
+            // Resto de tu código para almacenar la información en la base de datos
+        }
+    } else {
+        echo "Error al calcular la ruta optimizada: " . $data->status;
     }
     ?>
 </div>

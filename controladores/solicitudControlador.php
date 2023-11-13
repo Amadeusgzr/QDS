@@ -9,9 +9,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
         if (isset($_POST->estado)) {
             $respuesta = $solicitudModelo->obtenerSolicitudes($_POST->estado, $_POST->nom_usu);
         } else if (isset($_POST->usuario1)) {
-            $respuesta = $solicitudModelo->guardarSolicitud($_POST->id_camioneta, $_POST->id_almacen_cliente, $_POST->fecha_recogida_ideal, $_POST->hora_recogida_ideal, $_POST->usuario1);
+            $respuesta = $solicitudModelo->guardarSolicitud($_POST->id_camioneta, $_POST->id_almacen_cliente, $_POST->fecha_recogida_ideal, $_POST->usuario1);
         } else {
-            $respuesta = $solicitudModelo->obtenerSolicitud($_POST->id_camioneta, $_POST->id_almacen_cliente, $_POST->fecha_recogida_ideal, $_POST->hora_recogida_ideal, $_POST->usuario);
+            $respuesta = $solicitudModelo->obtenerSolicitud($_POST->id_camioneta, $_POST->id_almacen_cliente, $_POST->fecha_recogida_ideal, $_POST->usuario);
         }
         echo json_encode($respuesta);
         break;

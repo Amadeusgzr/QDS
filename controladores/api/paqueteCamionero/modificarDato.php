@@ -31,4 +31,4 @@ if (curl_errno($ch)) {
     $decode = json_decode($respuesta, true);
 }
 curl_close($ch);
-header('Location: ../../../vistas/Camionero/recoger-paquetes-2.php?id_camioneta=' . $id_camioneta . '&fri=' . $fri . '&hri=' . $hri . '&id_almacen_cliente=' . $id_almacen_cliente . '&datos=' . urlencode($respuesta));
+header('Location: ../../../vistas/Camionero/recoger-paquetes-2.php?id_camioneta=' . $id_camioneta . '&fri=' . $fri . '&id_almacen_cliente=' . $id_almacen_cliente . '&datos=' . urlencode($respuesta));

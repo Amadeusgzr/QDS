@@ -6,6 +6,7 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
     header("Location: ../permisos.php"); // Redirige a la página de inicio de sesión
     exit();
 }
+require ("../../controladores/funciones.php");
 include("../../modelos/db.php");
 if (isset($_POST["id_almacen_central"])) {
     $id_almacen_central = $_POST["id_almacen_central"];
@@ -53,9 +54,112 @@ if (isset($_POST["id_almacen_central"])) {
     $mail = $_POST["mail"];
     $telefono = $_POST["telefono"];
 
-    $instruccion1 = "update camionero set cedula='$cedula', nombre_completo='$nombre_completo', mail='$mail', telefono='$telefono' where id_camionero=$id_camionero";
-    $conexion->query($instruccion1);
-    header("Location: modificar-camionero.php?id_camionero=$id_camionero");
+    $numArrays = count($cedula);
+    for ($i = 0; $i < $numArrays; $i++) {
+        $respuesta = existencia('camionero', 'cedula', $cedula[$i]);
+        if ($respuesta['error'] == "Error") {
+            $respuesta = [
+                'error' => "Error",
+                'respuesta' => "Ya existe la cedula $cedula[$i]"
+            ];
+            break;
+        }
+        $respuesta = existencia('camionero', 'telefono', $telefono[$i]);
+        if ($respuesta['error'] == "Error") {
+            $respuesta = [
+                'error' => "Error",
+                'respuesta' => "Ya existe el telefono $telefono[$i]"
+            ];
+            break;
+        }
+        $respuesta = existencia('camionero', 'mail', $mail[$i]);
+        if ($respuesta['error'] == "Error") {
+            $respuesta = [
+                'error' => "Error",
+                'respuesta' => "Ya existe el mail $mail[$i]"
+            ];
+            break;
+        }
+        if (!filter_var($mail[$i], FILTER_VALIDATE_EMAIL)) {
+            $respuesta = [
+                'error' => 'Error',
+                'respuesta' => "La dirección de correo electrónico no es válida"
+            ];
+            break;
+        }
+
+        $respuesta = atributosVacio($cedula);
+        $respuesta1 = atributosVacio($nombre_completo);
+        $respuesta2 = atributosVacio($mail);
+        $respuesta3 = atributosVacio($telefono);
+
+        if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error") {
+
+            $respuesta = longitud($cedula[$i], 8);
+            $respuesta1 = longitud($nombre_completo[$i], 45);
+            $respuesta2 = longitud($mail[$i], 45);
+            $respuesta3 = longitud($telefono[$i], 20);
+
+            if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error") {
+
+                $respuesta = numeros($cedula[$i]);
+
+                if ($respuesta['error'] !== "Error") {
+
+                    if (preg_match('/^\+\d+(\s\d+)?$/', $telefono[$i]) || ctype_digit($telefono[$i])) {
+
+                        $respuesta = letras($nombre_completo[$i]);
+
+                        if ($respuesta['error'] !== "Error") {
+
+                            $respuesta = [
+                                'error' => "Éxito",
+                                'respuesta' => "Camionero modificado"
+                            ];
+                            $instruccion = "update camionero set cedula='$cedula[$i]', nombre_completo='$nombre_completo[$i]', mail='$mail[$i]', telefono='$telefono[$i]' where id_camionero=$id_camionero";
+                            $conexion->query($instruccion);
+
+  
+
+                        } else {
+                            $respuesta = [
+                                'error' => "Error",
+                                'respuesta' => "El nombre debe tener solo letras"
+                            ];
+                        }
+                    } else {
+                        $respuesta = [
+                            'error' => "Error",
+                            'respuesta' => "El teléfono no es válido"
+                        ];
+                    }
+
+
+
+                } else {
+                    $respuesta = [
+                        'error' => "Éxito",
+                        'respuesta' => "La cédula debe tener solo números"
+                    ];
+                }
+
+            } else {
+                $respuesta = [
+                    'error' => "Éxito",
+                    'respuesta' => "Palabras inválidas"
+                ];
+            }
+
+        } else {
+            $respuesta = [
+                'error' => "Error",
+                'respuesta' => "Campos sin completar"
+            ];
+        }
+    }
+    $conexion->close();
+    $respuesta = json_encode($respuesta);
+    header("Location: modificar-camionero.php?id_camionero=$id_camionero&datos="  . urlencode($respuesta));
 
 } else if (isset($_POST["id_empresa_cliente"])) {
     $id_empresa = $_POST["id_empresa_cliente"];

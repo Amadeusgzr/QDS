@@ -24,7 +24,6 @@ require '../plantillas/menu-cuenta.php';
                 <th class="th2">Usuario</th>
                 <th class="th3">Tipo de Usuario</th>
                 <th>Mail</th>
-                <th class="th-op">OP</th>
             </tr>
             <?php
             include("../../modelos/db.php");
@@ -44,14 +43,11 @@ require '../plantillas/menu-cuenta.php';
                 echo "<td>$nom_usu</td>";
                 echo "<td>$tipo_usu</td>";
                 echo "<td>$mail</td>";
-                echo "<td>
-                <a href='consultar-dato.php?nom_usu=$nom_usu'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
-                </td>";
                 echo "</tr>";
             }
             ?>
         </table>
-        <p class="adv">Para agregar, modificar o eliminar usuarios debe de utilizar el Centro de Cómputos</p>
+        <p class="adv" style="margin-top: 20px">Para agregar, modificar o eliminar usuarios debe de utilizar el Centro de Cómputos</p>
     </div>
 
 </div>

@@ -27,22 +27,16 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 <div class="form-crud">
     <form action="modificar.php" method="post">
         <legend class="legend-m-almacen-central">Modificar Almacén (central)</legend>
-        <p class="subtitulo-crud">Datos actuales</p>
-        <p><b class="p-id">ID: </b>
-            <?= $id_almacen_central ?>
-        </p>
-        <p><b class="p-telefono">Teléfono: </b>
-            <?= $telefono ?>
-        </p>
-        <p><b class="p-numero-almacen">Número de almacén: </b>
-            <?= $numero_almacen ?>
-        </p>
-        <p class="subtitulo-crud subtitulo-crud-2">Datos modificados</p>
-        <input type="text" placeholder="ID" class="txt-crud" name="id_almacen_central"
-            value="<?= $id_almacen_central ?>" required readonly>
+        
+        <label><b class='p-id'>ID:</b> <?= $id_almacen_central?></label>
+
+        <label><b class="p-telefono">Teléfono: </b></label>
         <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono" value="<?= $telefono ?>" required>
-        <input type="text" placeholder="Número de almacén" class="txt-crud" name="numero_almacen"
-            value="<?= $numero_almacen ?>" required>
+
+        <label><b class="p-numero-almacen">Número de almacén: </b></label>
+        <input type="text" placeholder="Número de almacén" class="txt-crud" name="numero_almacen" value="<?= $numero_almacen ?>" required>
+        
+        
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-almacen-central.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>

@@ -26,7 +26,7 @@ require '../plantillas/menu-cuenta.php';
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select distinct lleva.id_camion, vehiculo.matricula, fecha_salida, hora_salida, almacen_central_salida from lleva inner join camion on lleva.id_camion = camion.id_camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion";
+            $instruccion = "select distinct lleva.id_camion, vehiculo.matricula, fecha_salida, almacen_central_salida from lleva inner join camion on lleva.id_camion = camion.id_camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion";
             $horarios_entrega = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -39,18 +39,17 @@ require '../plantillas/menu-cuenta.php';
                 $matricula = $horario_entrega["matricula"];
 
                 $fecha_salida = $horario_entrega["fecha_salida"];
-                $hora_salida = $horario_entrega["hora_salida"];
                 $almacen_central_salida = $horario_entrega["almacen_central_salida"];
 
 
                 echo "<td>$matricula</td>";
-                echo "<td>$fecha_salida - $hora_salida</td>";
+                echo "<td>$fecha_salida</td>";
 
 
                 echo "<td>
-                <a href='baja-dato.php?id_camion_horario=$id_camion&fs=$fecha_salida&hs=$hora_salida&acs=$almacen_central_salida'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                <a href='baja-dato.php?id_camion_horario=$id_camion&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
                 <a href='modificar-horario-recogida.php?id_camion_horario=$id_camion'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
-                <a href='consultar-dato.php?id_camion_horario=$id_camion&fs=$fecha_salida&hs=$hora_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
+                <a href='consultar-dato.php?id_camion_horario=$id_camion&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo "</tr>";
             }

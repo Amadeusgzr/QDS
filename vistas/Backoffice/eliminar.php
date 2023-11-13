@@ -13,7 +13,14 @@ if (isset($_GET['id_camionero'])) {
 
     $instruccion = "delete from camionero where id_camionero=$id_camionero";
     $conexion->query($instruccion);
-    header("Location: op-camioneros.php");
+
+    $respuesta = [
+        'error' => "Éxito",
+        'respuesta' => "Camionero eliminado"
+    ];
+    $conexion->close();
+    $respuesta = json_encode($respuesta);
+    header("Location: op-camioneros.php?datos=" . urlencode($respuesta));
 } else if (isset($_GET['id_almacen_cliente'])) {
     $id_almacen_cliente = $_GET['id_almacen_cliente'];
 
@@ -121,13 +128,30 @@ if (isset($_GET['id_camionero'])) {
 
 } else if (isset($_GET['id_camioneta_horario'])) {
     $id_camioneta_horario = $_GET['id_camioneta_horario'];
+    $fecha_salida = $_GET["fs"];
+    $almacen_central_salida = $_GET["acs"];
 
-    $instruccion = "delete from sale where id_vehiculo='$id_camioneta_horario'";
-    $conexion->query($instruccion);
-
-    $instruccion = "delete from recoge where id_camioneta='$id_camioneta_horario'";
+    $instruccion = "delete from recoge where id_camioneta='$id_camioneta_horario' AND fecha_salida='$fecha_salida' AND almacen_central_salida='$almacen_central_salida'";
     $conexion->query($instruccion);
     header("Location: op-gestion-paquete-recogida.php");
 
+} else if (isset($_POST["todo"])){
+
+    $jsonString = $_POST['todo'];
+    $camioneros = json_decode($jsonString, true);
+
+    foreach ($camioneros as $camionero){
+        $id_camionero = $camionero[0];
+        $instruccion = "delete from camionero where id_camionero=$id_camionero";
+        $conexion->query($instruccion);
+    }
+    $respuesta = [
+        'error' => "Exito",
+        'respuesta' => "Camionero eliminado"
+    ];
+    $respuesta = json_encode($respuesta);
+
+    $respuesta = urlencode($respuesta);
+    echo $respuesta;
 }
 ?>

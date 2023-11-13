@@ -26,7 +26,7 @@ require '../plantillas/menu-cuenta.php';
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select distinct recoge.id_camioneta, vehiculo.matricula, fecha_salida, hora_salida, almacen_central_salida from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta";
+            $instruccion = "select distinct recoge.id_camioneta, vehiculo.matricula, fecha_salida, almacen_central_salida from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta";
             $horarios_recogida = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -39,18 +39,17 @@ require '../plantillas/menu-cuenta.php';
                 $matricula = $horario_recogida["matricula"];
 
                 $fecha_salida = $horario_recogida["fecha_salida"];
-                $hora_salida = $horario_recogida["hora_salida"];
                 $almacen_central_salida = $horario_recogida["almacen_central_salida"];
 
 
                 echo "<td>$matricula</td>";
-                echo "<td>$fecha_salida - $hora_salida</td>";
+                echo "<td>$fecha_salida</td>";
 
 
                 echo "<td>
-                <a href='baja-dato.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&hs=$hora_salida&acs=$almacen_central_salida'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
-                <a href='modificar-horario-recogida.php?id_camioneta_horario=$id_camioneta'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
-                <a href='consultar-dato.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&hs=$hora_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
+                <a href='baja-dato.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                <a href='modificar-horario-recogida.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                <a href='consultar-dato.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo "</tr>";
             }

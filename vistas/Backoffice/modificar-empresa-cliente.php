@@ -29,25 +29,17 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 <div class="form-crud">
     <form action="modificar.php" method="post">
         <legend class="legend-m-empresa-cliente">Modificar Empresa Cliente</legend>
-        <p class="subtitulo-crud">Datos actuales</p>
-        <p><b class='p-id'>ID: </b>
-            <?= $id_empresa ?>
-        </p>
-        <p><b class='p-cedula'>RUT: </b>
-            <?= $rut ?>
-        </p>
-        <p><b class='p-nombre'>Nombre: </b>
-            <?= $nombre_de_empresa ?>
-        </p>
-        <p><b>Mail: </b>
-            <?= $mail ?>
-        </p>
-        <p class="subtitulo-crud subtitulo-crud-2">Datos modificados</p>
-        <input type="text" placeholder="ID" class="txt-crud" name="id_empresa_cliente" value="<?= $id_empresa ?>" required readonly hidden>
+        <label><b class='p-id'>ID:</b> <?= $id_empresa?></label>
+
+        <p><b class='p-cedula'>RUT: </b><?= $rut ?></p>
         <input type="text" placeholder="RUT" class="txt-crud" name="rut" value="<?= $rut ?>" required>
-        <input type="tel" placeholder="Nombre" class="txt-crud" name="nombre_de_empresa"
-            value="<?= $nombre_de_empresa ?>" required>
+
+        <p><b class='p-nombre'>Nombre: </b><?= $nombre_de_empresa ?></p>
+        <input type="text" placeholder="Nombre" class="txt-crud" name="nombre_de_empresa" value="<?= $nombre_de_empresa ?>" required>
+
+        <p><b>Mail: </b><?= $mail ?></p>
         <input type="mail" placeholder="Mail" class="txt-crud" name="mail" value="<?= $mail ?>" required>
+        
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-empresas-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>

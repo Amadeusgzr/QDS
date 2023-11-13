@@ -20,6 +20,7 @@ require '../plantillas/menu-cuenta.php';
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
+                <th class="th0">ID</th>
                 <th class="th1">Nombre</th>
                 <th class="th2">Estado</th>
                 <th class="th-op">OP</th>
@@ -37,6 +38,8 @@ require '../plantillas/menu-cuenta.php';
                 $id_camionero = $camionero["id_camionero"];
                 $nombre_completo = $camionero["nombre_completo"];
                 $estado = $camionero["estado"];
+
+                echo "<td>$id_camionero</td>";
                 echo "<td>$nombre_completo</td>";
                 echo "<td>$estado</td>";
                 echo "<td>
@@ -53,12 +56,24 @@ require '../plantillas/menu-cuenta.php';
         <button class="estilo-boton boton-largo btn-limpiar">Limpiar</button>
     </div>
     <div class="div-btn-doble">
-        <a href="alta-camionero.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
+        <a href="alta-camionero.php" id="a-agregar"><button class="estilo-boton boton-agregar"
+                id="op-alta">Agregar</button></a>
         <button class="boton-siguiente estilo-boton boton-eliminar" id="submit-as-lote-2">Eliminar</button>
     </div>
 </div>
+<div class="div-error">
+    <?php
+    if (isset($_GET['datos'])) {
+        $jsonDatos = urldecode($_GET['datos']);
+        $datos = json_decode($jsonDatos, true);
+        echo $datos['respuesta'];
+    }
+    ?>
+</div>
 
-<script src="../js/seleccionar-filas.js"></script>
+<script src="../js/seleccionar-filas-camionero.js"></script>
+<script src="../js/mostrar-respuesta.js"></script>
+<script src="../js/ocultar-get-alta.js"></script>
 
 </body>
 

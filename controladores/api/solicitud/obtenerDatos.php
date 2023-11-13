@@ -75,7 +75,7 @@ if ($estado == "Historial") {
                 <div class='solicitud-info'>
                     <span>9/11/2023</span>
                     <input type='text' hidden>
-                    <a href='../../controladores/api/solicitud/modificarDato.php?id_solicitud=<?= $id_solicitud ?>&a=d'><button
+                    <a href='../../controladores/api/solicitud/modificarDato.php?id_solicitud=$id_solicitud&a=d'><button
                             class='estilo-boton2 boton-volver'>Denegar</button></a>
                 </div>
             </div>";

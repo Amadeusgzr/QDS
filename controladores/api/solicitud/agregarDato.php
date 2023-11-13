@@ -6,7 +6,6 @@ if($_GET){
     $id_almacen_cliente = $_GET["id_almacen_cliente"];
     $id_camioneta = $_GET["id_camioneta"];
     $fecha_recogida_ideal = $_GET["fri"];
-    $hora_recogida_ideal = $_GET["hri"];
     $usuario = $_SESSION["nom_usu"];
     
 
@@ -14,7 +13,6 @@ if($_GET){
         'id_almacen_cliente' => "$id_almacen_cliente",
         'id_camioneta' => "$id_camioneta",
         'fecha_recogida_ideal' => "$fecha_recogida_ideal",
-        "hora_recogida_ideal"=> "$hora_recogida_ideal",
         "usuario1"=> "$usuario",
     ];
     
@@ -35,6 +33,6 @@ if($_GET){
     
     
     curl_close($ch);
-    header('Location: ../../../vistas/Camionero/recoger-paquetes-2.php?id_camioneta=' . $id_camioneta . '&id_almacen_cliente=' . $id_almacen_cliente . '&fri=' . $fecha_recogida_ideal . '&hri=' . $hora_recogida_ideal . '&datos=' . urlencode($respuesta)); 
+    header('Location: ../../../vistas/Camionero/recoger-paquetes-2.php?id_camioneta=' . $id_camioneta . '&id_almacen_cliente=' . $id_almacen_cliente . '&fri=' . $fecha_recogida_ideal . '&datos=' . urlencode($respuesta)); 
 }
 ?>

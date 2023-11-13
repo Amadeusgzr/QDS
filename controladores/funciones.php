@@ -41,28 +41,54 @@ function existencia($tabla, $columna, $atributo)
     return $respuesta;
 }
 
-function verificarLongitud($atributos, $cantCaracteres){
+function longitud($palabra, $max_longitud)
+{
+    $longitud = strlen($palabra);
 
-    foreach ($atributos as $atributo) {
+    if ($longitud <= $max_longitud) {
         $respuesta = [
-            'error' => "Exito",
-            'respuesta' => "Exito"
+            'error' => "Éxito",
+            'respuesta' => "Palabra válida"
         ];
-        if (strlen($atributo) > $cantCaracteres){
-            $respuesta = [
-                'error' => "Error",
-                'respuesta' => "El atributo tiene que ser menor a " . $cantCaracteres . " caracteres"
-            ];
-        } else {
-            $respuesta = [
-                'error' => "Exito",
-                'respuesta' => "Exito"
-            ];
-        }
+    } else {
+        $respuesta = [
+            'error' => "Error",
+            'respuesta' => "Palabra inválida"
+        ];
     }
-
     return $respuesta;
-
 }
 
+function numeros($atributo)
+{
+    if (ctype_digit($atributo)) {
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Palabra válida"
+        ];
+    } else {
+        $respuesta = [
+            'error' => "Error",
+            'respuesta' => "Palabra inválida"
+        ];
+    }
+    return $respuesta;
+}
+
+function letras($atributo)
+{
+
+    if (preg_match('/^[A-Za-z\sáéíóúüÁÉÍÓÚÜ]+$/', $atributo)) {
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Palabra válida"
+        ];
+    } else {
+        $respuesta = [
+            'error' => "Error",
+            'respuesta' => "Palabra inválida"
+        ];
+    }
+    return $respuesta;
+}
 ?>

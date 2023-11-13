@@ -31,31 +31,21 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 <div class="form-crud">
     <form action="modificar.php" method="post">
         <legend class="legend-m-plataforma">Modificar Plataforma</legend>
-        <p class="subtitulo-crud">Datos actuales</p>
-        <p><b class="p-id">ID: </b>
-            <?= $id_plataforma ?>
-        </p>
-        <p><b class="p-telefono">Teléfono: </b>
-            <?= $telefono ?>
-        </p>
-        <p><b class="p-direccion">Dirección: </b>
-            <?= $direccion ?>
-        </p>
-        <p><b class="p-departamento">Departamento: </b>
-            <?= $departamento ?>
-        </p>
-        <p><b class="p-volumen-maximo">Volumen máx: </b>
-            <?= $volumen ?>
-        </p>
-        <p class="subtitulo-crud subtitulo-crud-2">Datos modificados</p>
-        <input type="text" placeholder="ID" class="txt-crud" name="id_plataforma" value="<?= $id_plataforma ?>" required
-            readonly>
+        <label><b class='p-id'>ID:</b> <?= $id_plataforma?></label>
+
+        <p><b class="p-telefono">Teléfono: </b><?= $telefono ?></p>
         <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono" value="<?= $telefono ?>" required>
+
+        <p><b class="p-direccion">Dirección: </b><?= $direccion ?></p>
         <input type="text" placeholder="Dirección" class="txt-crud" name="direccion" value="<?= $direccion ?>" required>
-        <input type="text" placeholder="Departamento" class="txt-crud" name="departamento" value="<?= $departamento ?>"
-            required>
-        <input type="text" placeholder="Volumen máx." class="txt-crud" name="volumen_maximo" value="<?= $volumen ?>"
-            required>
+
+        <p><b class="p-departamento">Departamento: </b><?= $departamento ?></p>
+        <input type="text" placeholder="Departamento" class="txt-crud" name="departamento" value="<?= $departamento ?>" required>
+
+        <p><b class="p-volumen-maximo">Volumen máx: </b><?= $volumen ?></p>
+        <input type="text" placeholder="Volumen máx." class="txt-crud" name="volumen_maximo" value="<?= $volumen ?>" required>
+        
+        
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-plataforma.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
