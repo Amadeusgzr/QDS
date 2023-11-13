@@ -18,14 +18,14 @@ require '../plantillas/menu-cuenta.php';
 <form action="../../controladores/api/paqueteEmpresa/agregarDato.php" id="form-paquete" method="post">
 
     <div class="div-datos-paq" id="hola">
-        <legend>Ingreso de Paquete</legend>
+        <legend class="legend-titulo">Ingreso de Paquete</legend>
 
-        <p class="p-paquete">Sobre el destino</p>
-        <input type="email" name="mail_destinatario[]" id="mail-destinatario-paq" class="destino-paq" placeholder="Correo destinatario" autocomplete="off" required>
-        <input type="text" name="direccion[]" id="calle-destino-paq" class="destino-paq" placeholder="Direccion" autocomplete="off" required>
+        <p class="p-paquete p-1">Sobre el destino</p>
+        <input type="email" name="mail_destinatario[]" id="mail-destinatario-paq" class="destino-paq input-correo" placeholder="Correo destinatario" autocomplete="off" required>
+        <input type="text" name="direccion[]" id="calle-destino-paq" class="destino-paq input-direccion" placeholder="Direccion" autocomplete="off" required>
 
         <select name="id_destino[]" id="select-datos-paquete">
-        <option selected value="">Departamento</option>
+        <option selected value="" class="option-departamento">Departamento</option>
         <?php
             require("../../controladores/api/destino/obtenerDato.php");
             foreach ($decode as $destino){
@@ -36,11 +36,12 @@ require '../plantillas/menu-cuenta.php';
         ?>
         </select>
 
-        <p class="p-paquete">Características del paquete</p>
-        <input type="number" step="any" name="peso[]" id="peso-paq" class="destino-paq" placeholder="Peso (Kg)" autocomplete="off" required>
-        <input type="number" step="any" name="volumen[]" id="volumen-paq" class="destino-paq" placeholder="Volumen (cm∧3)" autocomplete="off" required>
+        <p class="p-paquete p-2">Características del paquete</p>
+        <input type="number" step="any" name="peso[]" id="peso-paq" class="destino-paq input-peso" placeholder="Peso (Kg)" autocomplete="off" required>
+        <input type="number" step="any" name="volumen[]" id="volumen-paq" class="destino-paq input-volumen" placeholder="Volumen (cm∧3)" autocomplete="off" required>
 
         <select name="id_almacen_cliente[]" id="select-datos-paquete">
+            <option selected value="" class="option-almacen">Almacén</option>
         <?php
             require("../../controladores/api/almacenClienteEmpresa/obtenerDatoPorEmpresa.php");
 
@@ -56,20 +57,20 @@ require '../plantillas/menu-cuenta.php';
     </div>
 
     <div class="div-datos-paq">
-        <p class="p-paquete">Contenido frágil</p>
+        <p class="p-paquete p-3">Contenido frágil</p>
         <div id="div-radios">
-            <label for="radio-paq-si">Sí</label>
+            <label for="radio-paq-si" class="radio-si">Sí</label>
             <input type="radio" name="fragil[]" id="radio-paq-si" class="chk" value="Si">
-            <label for="radio-paq-no">No</label>
+            <label for="radio-paq-no" class="radio-no">No</label>
             <input type="radio" name="fragil[]" id="radio-paq-no" class="chk" value="No" checked>
 
             <select name="tipo[]" id="select-fragil-paq" class="select-fragil-paq" disabled>
-                <option selected value="" id="select-tipo">Contenido frágil</option>
+                <option selected value="" id="select-tipo" class="option-fragil">Contenido frágil</option>
                 <option value="Líquido">Líquido</option>
                 <option value="Vidrio">Vidrio</option>
             </select>
 
-            <p class="p-paquete">Detalles</p>
+            <p class="p-paquete p-4">Detalles</p>
             <textarea name="detalles[]" id="detalles-paq" cols="30" rows="8" maxlength="150" placeholder="Detalles adicionales (opcional)" form="form-paquete"></textarea>
         </div>
     </div>

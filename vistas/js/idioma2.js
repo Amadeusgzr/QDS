@@ -535,7 +535,6 @@ function actualizarTextos(data) {
     document.querySelector(".p-peso").textContent = data.p_peso;
     document.querySelector(".p-volumen").textContent = data.p_volumen;
     document.querySelector(".p-fragil").textContent = data.p_fragil;
-    document.querySelector(".p-tipo").textContent = data.p_tipo;
     document.querySelector(".p-estado").textContent = data.p_estado;
     document.querySelector(".p-detalles").textContent = data.p_detalles;
 
@@ -545,14 +544,12 @@ function actualizarTextos(data) {
   else if(url.includes("Almacenero") && url.includes("modificar-paquete")){
 
     document.querySelector(".legend-m-paquete").textContent = data.legend_m_paquete;
-    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_paquete;
     document.querySelector(".p-id").textContent = data.p_id;
     document.querySelector(".p-direccion").textContent = data.p_direccion;
     document.querySelector(".p-peso").textContent = data.p_peso;
     document.querySelector(".p-volumen").textContent = data.p_volumen;
     document.querySelector(".p-fragil").textContent = data.p_fragil;
     document.querySelector(".p-estado").textContent = data.p_estado;
-    document.querySelector(".subtitulo-crud-2").textContent = data.subtitulo_2;
 
     document.querySelector(".boton-volver").value = data.btn_volver;
     document.querySelector(".boton-siguiente").value = data.boton_modificar;
@@ -767,6 +764,106 @@ function actualizarTextos(data) {
     document.querySelector(".btn-limpiar2").textContent = data.btn_limpiar;
     document.querySelector(".boton-eliminar").textContent = data.btn_eliminar_seleccion;
 
+  }
+  if(url.includes("Empresa") && url.includes("index")){
+    
+    document.querySelector("#op1 h2").textContent = data.op1_h2_empresa;
+    document.querySelector("#op1 p").textContent = data.op1_p_empresa;
+    document.querySelector("#op2 h2").textContent = data.op2_h2_empresa;
+    document.querySelector("#op2 p").textContent = data.op2_p_empresa;
+    document.querySelector("#op3 h2").textContent = data.op3_h2_empresa;
+    document.querySelector("#op3 p").textContent = data.op3_p_empresa;
+
+  }
+  if(url.includes("Empresa") && url.includes("op-paquetes-cliente")){
+    
+    document.querySelector(".h1-tabla").textContent = data.h1_tabla_paq_cliente;
+    document.querySelector(".th1-paq-cliente").textContent = data.th1_paq_cliente;
+    document.querySelector(".th2-paq-cliente").textContent = data.th2_paq_cliente;
+    document.querySelector(".th3-paq-cliente").textContent = data.th3_paq_cliente;
+
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
+
+  }
+  if(url.includes("Empresa") && url.includes("alta-paquete")){
+    
+    document.querySelector(".legend-titulo").textContent = data.legend_titulo;
+    document.querySelector(".p-1").textContent = data.p_1_empresa_paquete;
+    document.querySelector(".input-correo").placeholder = data.input_correo;
+    document.querySelector(".input-direccion").placeholder = data.input_direccion;
+    document.querySelector(".option-departamento").textContent = data.option_departamento;
+    document.querySelector(".p-2").textContent = data.p_2_empresa_paquete;
+    document.querySelector(".input-peso").placeholder = data.input_peso;
+    document.querySelector(".input-volumen").placeholder = data.input_volumen;
+    document.querySelector(".option-almacen").textContent = data.option_almacen;
+    document.querySelector(".p-3").textContent = data.p_3_empresa_paquete;
+    document.querySelector(".radio-si").textContent = data.radio_si;
+    document.querySelector(".radio-no").textContent = data.radio_no;
+    document.querySelector(".option-fragil").textContent = data.p_3_empresa_paquete;
+    document.querySelector(".p-4").textContent = data.p_4_empresa_paquete;
+    document.querySelector("textarea").placeholder = data.textarea_empresa_paquete;
+    document.querySelector("#btnIngreso").value = data.btn_ingresar_paquete;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+
+  }
+  if(url.includes("Empresa") && url.includes("baja-paquete") && location.search.includes("paquete")){
+    
+    document.querySelector(".legend-baja-paquete").textContent = data.legend_baja_paquete;
+    document.querySelector(".adv").textContent = data.adv_paquete;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-mail-d").textContent = data.p_mail_d;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+    document.querySelector(".p-peso").textContent = data.p_peso;
+    document.querySelector(".p-volumen").textContent = data.p_volumen;
+    document.querySelector(".p-fragil").textContent = data.p_fragil;
+    if(document.querySelector(".p-tipo")){
+      document.querySelector(".p-tipo").textContent = data.p_tipo;
+    }
+    document.querySelector(".p-estado").textContent = data.p_estado;
+    if(document.querySelector(".p-detalles")){
+      document.querySelector(".p-detalles").textContent = data.p_detalles;
+    }
+
+    document.querySelector(".boton-eliminar").value = data.btn_eliminar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+
+  }
+  else if(url.includes("Empresa") && url.includes("modificar-paquete")){
+
+    document.querySelector(".legend-m-paquete").textContent = data.legend_m_paquete;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+    document.querySelector(".p-peso").textContent = data.p_peso;
+    document.querySelector(".p-volumen").textContent = data.p_volumen;
+    document.querySelector(".p-fragil").textContent = data.p_fragil;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.boton_modificar;
+  }
+  else if(url.includes("Empresa") && url.includes("consultar-paquete")){
+
+    document.querySelector(".legend-c-paquete").textContent = data.legend_c_paquete;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-mail-d").textContent = data.p_mail_d;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+    document.querySelector(".p-peso").textContent = data.p_peso;
+    document.querySelector(".p-volumen").textContent = data.p_volumen;
+    document.querySelector(".p-fragil").textContent = data.p_fragil;
+    if(document.querySelector(".p-fecha-traslado")){
+      document.querySelector(".p-fecha-traslado").textContent = data.p_fecha_traslado;
+    }
+    if(document.querySelector(".p-tipo")){
+      document.querySelector(".p-tipo").textContent = data.p_tipo;
+    }
+    document.querySelector(".p-estado").textContent = data.p_estado;
+    if(document.querySelector(".p-detalles")){
+      document.querySelector(".p-detalles").textContent = data.p_detalles;
+    }
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
   }
 
 }

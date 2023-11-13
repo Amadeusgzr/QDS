@@ -24,6 +24,7 @@ foreach ($decode as $paquete) {
     $peso = $paquete["peso"];
     $volumen = $paquete["volumen"];
     $fragil = $paquete["fragil"];
+    $tipo = $paquete["tipo"];
     $estado = $paquete["paquete_estado"];
 }
 ?>
@@ -46,33 +47,27 @@ foreach ($decode as $paquete) {
 <div class="form-crud">
     <form action="../../controladores/api/paquete/modificarDato.php" method="post">
         <legend class="legend-m-paquete">Modificar Paquete</legend>
-        <p class="subtitulo-crud">Datos actuales</p>
-        <p><b class="p-id">ID: </b>
-            <?= $id_paquete ?>
-        </p>
-        <p><b class="p-direccion">Dirección: </b>
-            <?= $direccion ?>
-        </p>
-        <p><b class="p-peso">Peso: </b>
-            <?= $peso ?>
-        </p>
-        <p><b class="p-volumen">Volumen: </b>
-            <?= $volumen ?>
-        </p>
-        <p><b class="p-fragil">Fragil: </b>
-            <?= $fragil ?>
-        </p>
-        <p><b class="p-estado">Estado: </b>
-            <?= $estado ?>
-        </p>
-        <p class="subtitulo-crud subtitulo-crud-2">Datos modificados</p>
-        <input type="text" placeholder="ID" class="txt-crud" name="id_paquete" value="<?= $id_paquete ?>" required
-            readonly>
+        <label><b class='p-id'>ID:</b> <?= $id_paquete ?></label>
+
+        <label><b class='p-direccion'>Dirección: </b></label>
         <input type="tel" placeholder="Direccion" class="txt-crud" name="direccion" value="<?= $direccion ?>" required>
+
+        <label><b class='p-peso'>Peso: </b></label>
         <input type="number" placeholder="Peso" class="txt-crud" name="peso" value="<?= $peso ?>" required>
+
+        <label><b class='p-volumen'>Volumen: </b></label>
         <input type="number" placeholder="Volumen" class="txt-crud" name="volumen" value="<?= $volumen ?>" required>
+
+        <label><b class='p-fragil'>Fragil: </b></label>
         <input type="text" placeholder="Fragil" class="txt-crud" name="fragil" value="<?= $fragil ?>" required>
-        <input type="text" placeholder="Estado" class="txt-crud" name="estado" value="<?= $estado ?>" required>
+
+        <?php
+        if ($fragil == "Si") {
+        echo "<label><b class='p-tipo'>Tipo: </b>$tipo</label>";
+        }
+        ?>
+        <label><b class='p-estado'>Estado: </b><?= $estado ?></label>
+
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-paquetes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>

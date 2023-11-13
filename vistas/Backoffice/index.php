@@ -46,8 +46,8 @@ require '../plantillas/menu-cuenta.php';
         <div class="div-img-icono"><img src="../img/iconos/empresa.png" alt=""></div>
     </a>
     <a href="op-trayecto.php" class="opcion-aplicacion" id="op7">
-        <h2>Rutas</h2>
-        <p>Gestión de Rutas</p>
+        <h2>Trayectos</h2>
+        <p>Gestión de Trayectos</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
     </a>
     <a href="op-gestion-paquete-recogida.php" class="opcion-aplicacion" id="op7">

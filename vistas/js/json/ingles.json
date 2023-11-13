@@ -207,7 +207,7 @@
     "--------- BACKOFFICE MODIFICAR PLATAFORMA ---------" : "",
 
     "legend_m_plataforma" : "Modify Platform",
-    "p_departamento" : "Department: ",
+    "p_departamento" : "Province: ",
     "p_volumen_maximo" : "Maximum Volume: ",
 
     "--------- BACKOFFICE CONSULTAR PLATAFORMA ---------" : "",
@@ -393,7 +393,41 @@
 
     "th1_entregar_lotes_2" : "Key",
     "th2_entregar_lotes_2" : "Destination",
-    "th3_entregar_lotes_2" : "Status"
-    
+    "th3_entregar_lotes_2" : "Status",
+
+    "--------- EMPRESA INDEX ---------" : "",
+
+    "op1_h2_empresa" : "Packages in Warehouse", 
+    "op1_p_empresa" : "Managment of packages in warehouses", 
+    "op2_h2_empresa" : "Packages in progress", 
+    "op2_p_empresa" : "Consult packages", 
+    "op3_h2_empresa" : "Delivered Packages", 
+    "op3_p_empresa" : "Consult delivered packages",
+
+    "--------- EMPRESA PAQUETES CLIENTE ---------" : "",
+
+    "h1_tabla_paq_cliente" : "Packages in Warehouse", 
+    "th1_paq_cliente" : "Key", 
+    "th2_paq_cliente" : "Warehouse", 
+    "th3_paq_cliente" : "Destination",
+
+    "--------- EMPRESA AGREGAR PAQUETE---------" : "",
+
+    "legend_titulo" : "Add Package", 
+    "p_1_empresa_paquete" : "About Destination", 
+    "input_correo" : "Email", 
+    "input_direccion" : "Address",
+    "option_departamento" : "Province",
+    "p_2_empresa_paquete" : "Package Features",
+    "input_peso" : "Weight (Kg)", 
+    "input_volumen" : "Volume (Cm3)",
+    "option_almacen" : "Warehouse",
+    "p_3_empresa_paquete" : "Fragile content",
+    "radio_si" : "Yes",
+    "radio_no" : "No",
+    "p_4_empresa_paquete" : "Details",
+    "textarea_empresa_paquete" : "Additional details (optional)",
+    "btn_ingresar_paquete" : "Add package",
+    "p_fecha_traslado" : "Date and Hour of pick up"
 
 }

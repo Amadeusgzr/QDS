@@ -57,7 +57,7 @@
 
     "--------- BACKOFFICE AGREGAR CAMIONERO ---------" : "",
 
-    "legend" : "Agregar Camionero",
+    "legend_camionero" : "Agregar Camionero",
     "cedula" : "Cédula",
     "nombre" : "Nombre Completo",
     "telefono" : "Teléfono",
@@ -394,7 +394,42 @@
 
     "th1_entregar_lotes_2" : "ID",
     "th2_entregar_lotes_2" : "Destino",
-    "th3_entregar_lotes_2" : "Estado"
+    "th3_entregar_lotes_2" : "Estado",
+
+    "--------- EMPRESA INDEX ---------" : "",
+
+    "op1_h2_empresa" : "Paquetes en almacén", 
+    "op1_p_empresa" : "Gestión de paquetes dentro del almacén", 
+    "op2_h2_empresa" : "Paquetes en transcurso", 
+    "op2_p_empresa" : "Consultar paquetes", 
+    "op3_h2_empresa" : "Paquetes entregados", 
+    "op3_p_empresa" : "Consultar paquetes entregados",
+
+    "--------- EMPRESA PAQUETES CLIENTE ---------" : "",
+
+    "h1_tabla_paq_cliente" : "Paquetes almacenados", 
+    "th1_paq_cliente" : "ID", 
+    "th2_paq_cliente" : "Almacén", 
+    "th3_paq_cliente" : "Destino",
+
+    "--------- EMPRESA AGREGAR PAQUETE---------" : "",
+
+    "legend_titulo" : "Agregar Paquete", 
+    "p_1_empresa_paquete" : "Sobre el destino", 
+    "input_correo" : "Correo electrónico", 
+    "input_direccion" : "Dirección",
+    "option_departamento" : "Departmento",
+    "p_2_empresa_paquete" : "Características del paquete",
+    "input_peso" : "Peso (Kg)", 
+    "input_volumen" : "Volumen (Cm3)",
+    "option_almacen" : "Almacén",
+    "p_3_empresa_paquete" : "Contenido frágil",
+    "radio_si" : "Sí",
+    "radio_no" : "No",
+    "p_4_empresa_paquete" : "Detalles",
+    "textarea_empresa_paquete" : "Detalles adicionales (opcional)",
+    "btn_ingresar_paquete" : "Ingresar paquete",
+    "p_fecha_traslado" : "Fecha y Hora ideal de recogida"
 
 
 

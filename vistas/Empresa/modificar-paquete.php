@@ -54,38 +54,30 @@ require '../plantillas/menu-cuenta.php';
 
 <div class="form-crud">
     <form action="../../controladores/api/paquete/modificarDato.php" method="post">
-        <legend>Modificar Paquete</legend>
-        <p class="subtitulo-crud">Datos actuales</p>
-        <p><b>ID: </b>
-            <?= $id_paquete ?>
-        </p>
-        <p><b>Dirección: </b>
-            <?= $direccion ?>
-        </p>
-        <p><b>Peso: </b>
-            <?= $peso ?>
-        </p>
-        <p><b>Volumen: </b>
-            <?= $volumen ?>
-        </p>
-        <p><b>Fragil: </b>
-            <?= $fragil ?>
-        </p>
+        <legend class="legend-m-paquete">Modificar Paquete</legend>
+
+        <label><b class='p-id'>ID:</b> <?= $id_paquete ?></label>
+
+        <label><b class='p-direccion'>Dirección: </b></label>
+        <input type="tel" placeholder="Direccion" class="txt-crud" name="direccion" value="<?= $direccion ?>" required>
+
+        <label><b class='p-peso'>Peso: </b></label>
+        <input type="number" placeholder="Peso" class="txt-crud" name="peso" value="<?= $peso ?>" required>
+
+        <label><b class='p-volumen'>Volumen: </b></label>
+        <input type="number" placeholder="Volumen" class="txt-crud" name="volumen" value="<?= $volumen ?>" required>
+
+        <label><b class='p-fragil'>Fragil: </b></label>
+        <input type="text" placeholder="Fragil" class="txt-crud" name="fragil" value="<?= $fragil ?>" required>
+
         <?php
         if ($fragil == "Si") {
-        echo "<p><b>Tipo: </b>$tipo</p>";
+        echo "<label><b class='p-tipo'>Tipo: </b>$tipo</label>";
         }
         ?>
-        <p><b>Estado: </b>
-            <?= $estado ?>
-        </p>
-        <p class="subtitulo-crud">Datos modificados</p>
-        <input type="text" placeholder="ID" class="txt-crud" name="id_paquete" value="<?= $id_paquete ?>" required
-            readonly hidden>
-        <input type="tel" placeholder="Direccion" class="txt-crud" name="direccion" value="<?= $direccion ?>" required>
-        <input type="number" placeholder="Peso" class="txt-crud" name="peso" value="<?= $peso ?>" required>
-        <input type="number" placeholder="Volumen" class="txt-crud" name="volumen" value="<?= $volumen ?>" required>
-        <input type="text" placeholder="Fragil" class="txt-crud" name="fragil" value="<?= $fragil ?>" required>
+        <label><b class='p-estado'>Estado: </b><?= $estado ?></label>
+        
+        
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-paquetes-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
