@@ -10,8 +10,7 @@ include("../../modelos/db.php");
 if (isset($_GET['id_camionero'])) {
     $id_camionero = $_GET['id_camionero'];
 
-
-    $instruccion = "delete from camionero where id_camionero=$id_camionero";
+    $instruccion = "update camionero set estado='No empleado' where id_camionero=$id_camionero";
     $conexion->query($instruccion);
 
     $respuesta = [
@@ -67,8 +66,13 @@ if (isset($_GET['id_camionero'])) {
     $instruccion = "delete from vehiculo where id_vehiculo=$id_camion";
     $conexion->query($instruccion);
 
-    header("Location: op-camiones.php");
-
+    $respuesta = [
+        'error' => "Éxito",
+        'respuesta' => "Camión eliminado"
+    ];
+    $conexion->close();
+    $respuesta = json_encode($respuesta);
+    header("Location: op-camiones.php?datos=" . urlencode($respuesta));
 } else if (isset($_GET['id_camioneta'])) {
     $id_camioneta = $_GET['id_camioneta'];
 
@@ -136,19 +140,35 @@ if (isset($_GET['id_camionero'])) {
     header("Location: op-gestion-paquete-recogida.php");
 
 } else if (isset($_POST["todo"])){
-
+    
     $jsonString = $_POST['todo'];
     $camioneros = json_decode($jsonString, true);
 
     foreach ($camioneros as $camionero){
         $id_camionero = $camionero[0];
-        $instruccion = "delete from camionero where id_camionero=$id_camionero";
+
+        $instruccion = "update camionero set estado='No empleado' where id_camionero=$id_camionero";
         $conexion->query($instruccion);
+
     }
-    $respuesta = [
-        'error' => "Exito",
-        'respuesta' => "Camionero eliminado"
-    ];
+
+    if (count($camioneros) == 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Camionero eliminado"
+            ];  
+    } else if (count($camioneros) > 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Camioneros eliminados"
+        ];  
+    } else {
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "No se ha seleccionado ninguna fila"
+        ]; 
+    }
+
     $respuesta = json_encode($respuesta);
 
     $respuesta = urlencode($respuesta);

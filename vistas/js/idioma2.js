@@ -66,11 +66,10 @@ function actualizarTextos(data) {
     document.querySelector(".h1-tabla").textContent = data.h1_tabla_usuarios;
     document.querySelector(".th1").textContent = data.th1_usuarios;
     document.querySelector(".th2").textContent = data.th2_usuarios;
+    document.querySelector(".th3").textContent = data.th3_usuarios;
 
-    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
-    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
-    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
+
 
   }
   else if(url.includes("Backoffice") && url.includes("op-camioneros")){

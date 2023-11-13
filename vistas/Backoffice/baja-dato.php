@@ -136,7 +136,7 @@ if (isset($_GET['id_camionero'])) {
         $id_camion = $fila["id_camion"];
         $matricula = $fila["matricula"];
         $peso_soportado = $fila["peso_soportado"];
-        $volumen_disponible = $fila["volumen_disponible"];
+        $volumen_disponible = $fila["volumen_maximo"];
         $estado = $fila["estado"];
         echo "<div class='form-crud'>
         <legend class='legend-baja'>Eliminar Camión</legend>

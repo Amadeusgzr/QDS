@@ -48,15 +48,48 @@ if ($_POST) {
         $respuesta2 = atributosVacio($volumen_disponible);
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
-            $respuesta = [
-                'error' => "Éxito",
-                'respuesta' => "Camión guardado"
-            ];
-            $instruccion = "insert into vehiculo(matricula, volumen_disponible, peso_soportado, estado) value ('$matricula[$i]', '$volumen_disponible[$i]', '$peso_soportado[$i]', 'Disponible')";
-            $conexion->query($instruccion);
-            $id_camion = mysqli_insert_id($conexion);
-            $instruccion = "insert into camion(id_camion) value ('$id_camion')";
-            $conexion->query($instruccion);
+
+            $respuesta = longitud($matricula[$i], 8);
+            $respuesta1 = longitud($peso_soportado[$i], 11);
+            $respuesta2 = longitud($volumen_disponible[$i], 11);
+
+
+
+            if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
+
+            $respuesta = numeros($peso_soportado[$i]);
+            $respuesta1 = numeros($volumen_disponible[$i]);
+                if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error"){
+                    if (preg_match('/^[a-zA-Z]{3}-(tp|tm)-\d{4}$/', $matrciula[$i])) {
+                        $respuesta = [
+                            'error' => "Éxito",
+                            'respuesta' => "Camión guardado"
+                        ];
+                        $instruccion = "insert into vehiculo(matricula, volumen_maximo, peso_soportado, estado) value ('$matricula[$i]', '$volumen_disponible[$i]', '$peso_soportado[$i]', 'Disponible')";
+                        $conexion->query($instruccion);
+                        $id_camion = mysqli_insert_id($conexion);
+                        $instruccion = "insert into camion(id_camion) value ('$id_camion')";
+                        $conexion->query($instruccion);
+                    } else {
+                        $respuesta = [
+                            'error' => "Error",
+                            'respuesta' => "Formato erróneo de matrícula"
+                        ];
+                    }
+
+                } else{
+                    $respuesta = [
+                        'error' => "Error",
+                        'respuesta' => "El peso y el volumen deben ser números"
+                    ];
+                }
+
+            } else{
+                $respuesta = [
+                    'error' => "Error",
+                    'respuesta' => "Palabras inválidas"
+                ];
+            }
         } else {
             $respuesta = [
                 'error' => "Error",

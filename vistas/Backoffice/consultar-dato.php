@@ -142,7 +142,7 @@ if (isset($_GET['id_camionero'])) {
         $id_camion = $fila["id_camion"];
         $matricula = $fila["matricula"];
         $peso_soportado = $fila["peso_soportado"];
-        $volumen_disponible = $fila["volumen_disponible"];
+        $volumen_disponible = $fila["volumen_maximo"];
         $peso_total_actual_camion = $fila["peso_total_actual_camion"];
         $volumen_total_actual_camion = $fila["volumen_total_actual_camion"];
         $estado = $fila["estado"];
