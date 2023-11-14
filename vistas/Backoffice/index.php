@@ -65,6 +65,11 @@ require '../plantillas/menu-cuenta.php';
         <p>Gestión de mensajes</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
     </a>
+    <a href="op-camionero-vehiculo.php" class="opcion-aplicacion" id="op7">
+        <h2>Asignar camioneros a vehículos</h2>
+        <p>Gestión de camioneros y vehículos</p>
+        <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
+    </a>
 
 </main>
 
