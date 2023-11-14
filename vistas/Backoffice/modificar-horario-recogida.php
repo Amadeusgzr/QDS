@@ -13,7 +13,7 @@ require '../plantillas/menu-cuenta.php';
 
 <?php
 include("../../modelos/db.php");
-$id_camioneta = $_GET['id_camioneta_horario'];
+$id_camioneta = $_GET['icth'];
 $fecha_salida = $_GET["fs"];
 $almacen_central_salida = $_GET["acs"];
 
@@ -78,7 +78,7 @@ if (count($filas) > 0) {
     <a href="op-gestion-paquete-recogida.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>
 <?php
-echo "<a href='detalles-horarios-recogida.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
+echo "<a href='detalles-horarios-recogida.php?icth=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
 
 echo "<a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>";

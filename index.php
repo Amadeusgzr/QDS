@@ -21,12 +21,19 @@ if (!isset($_SESSION['nom_usu'])) {
     <div id="div-datos-rastreo">
         <input id="codigo-rastreo" type="text" placeholder="xxxx-xxxx-xxxx" maxlength="14" autocomplete="off" required size="13" name="codigo_seguimiento" spellcheck="false">
         <input id="submit-rastreo" type="submit" value="Rastrear">
+        <?php
+        if (isset($_GET['respuesta'])) {
+            $jsonDatos = urldecode($_GET['respuesta']);
+            $datos = json_decode($jsonDatos, true);
+            $respuesta = $datos['respuesta'];
+            echo "<p class='adv'>$respuesta</p>";
+        }
+        ?>
     </div>
 </form>
 
 <script src="vistas/js/index.js"></script>
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="40f54e80-c222-466b-92aa-d3e1f9c64995";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
-
 
 
 <?php require 'vistas/plantillas/footer.php'; ?>

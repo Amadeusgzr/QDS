@@ -20,13 +20,13 @@
             </div>
         </form>
         <?php
-if (isset($_GET['datos'])) {
-    $jsonDatos = urldecode($_GET['datos']);
-    $datos = json_decode($jsonDatos, true);
-    $respuesta = $datos['respuesta'];
-    echo "<p style='color: white'>$respuesta</p>";
-}
-?>
+        if (isset($_GET['datos'])) {
+            $jsonDatos = urldecode($_GET['datos']);
+            $datos = json_decode($jsonDatos, true);
+            $respuesta = $datos['respuesta'];
+            echo "<p style='color: white'>$respuesta</p>";
+        }
+        ?>
 
 </div>
 </footer>

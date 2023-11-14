@@ -24,11 +24,19 @@ if (!isset($_SESSION['nom_usu'])) {
             <div id="div-logo">
             <a href="../../index.php"><img src="../img/logoBlanco.png" alt="Logo"></a>
             </div>
-            <div id="div-cuenta">
-                <img id="img-cuenta" src="../img/iconos/icono-usuario-blanco.png" alt="">
-                <p id="p-nombre">
+            <div class='div-der-header'>
+                <?php if($_SESSION['tipo_usu'] == "admin"){ ?>
+                    <div class='div-mensajes'>
+                        <a href="ver-mensajes.php"><img src="../img/iconos/escribiendo.png" alt="" class='img-mensajes'></a>
+                        <div class='notificacion-circulo'></div>
+                    </div>
+                <?php } ?>
+                <div id="div-cuenta">
+                    <img id="img-cuenta" src="../img/iconos/icono-usuario-blanco.png" alt="">
+                    <p id="p-nombre">
                     <?= $_SESSION['nom_usu'] ?>
-                </p>
+                    </p>
+                </div>
             </div>
         </div>
     </header>

@@ -270,8 +270,8 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-empresas-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
-}   else if (isset($_GET['id_camioneta_horario'])) {
-    $id_camioneta = $_GET['id_camioneta_horario'];
+}   else if (isset($_GET['icth'])) {
+    $id_camioneta = $_GET['icth'];
     $fecha_salida = $_GET["fs"];
     $almacen_central_salida = $_GET["acs"];
 
@@ -286,7 +286,7 @@ if (isset($_GET['id_camionero'])) {
 
     echo "
     <div class='form-crud'>
-    <legend>Eliminar Horario</legend>
+    <legend class='legend-baja-horario'>Eliminar Horario</legend>
     <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
     <p>Datos de salida</p>
     <p><b>Matricula: </b>$matricula</p>
@@ -308,7 +308,7 @@ if (isset($_GET['id_camionero'])) {
         ";
     }
 
-    echo "<a href='eliminar.php?id_camioneta_horario=$id_camioneta&&fs=$fecha_salida&acs=$almacen_central_salida'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
+    echo "<a href='eliminar.php?icth=$id_camioneta&&fs=$fecha_salida&acs=$almacen_central_salida'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
     <a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>";
 

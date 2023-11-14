@@ -166,11 +166,40 @@ nav a:hover{
     transform: translateY(-2px);
 }
 
+.div-der-header{
+    display: flex;
+    align-items: center;
+}
+
+.img-mensajes{
+    width: 50px;
+    margin-right: 20px;
+}
+
+
+.div-mensajes{
+    position: relative;
+    transform: scale(0.85);
+}
+
+.notificacion-circulo{
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: #e5c619;
+    border-radius: 100%;
+    top: 5px;
+    right: 20px;
+    box-shadow: 0 0 5px;
+}
+
 #div-cuenta{
     display: flex;
     align-items: center;
     position: relative;
     cursor: pointer;
+    gap: 20px;
 }
 
 #div-cuenta img{
@@ -180,7 +209,6 @@ nav a:hover{
 
 #p-nombre{
     color: #fff;
-    margin-left: 20px;
     text-shadow: var(--sombra-blanca);
     font-size: 1.2em;
 }
@@ -1407,6 +1435,21 @@ label[for="radio-lote-no"]{
 
 /***** CAMIONEROS *****/
 
+.div-instrucciones{
+    border: 5px ridge #ccc;
+    height: 300px;
+    overflow-y: scroll;
+    padding: 20px;
+    box-shadow: inset 0 0 10px;
+}
+
+#map{
+    width: 100%; 
+    aspect-ratio: 1 / 1; 
+    box-shadow: 0 0 10px;
+    border-radius: 20px;
+}
+
 .opcion-aplicacion-2{
     background-color: #86858536;
     border: 1px solid #000;
@@ -2018,10 +2061,26 @@ label[for="radio-lote-no"]{
     .mensaje-solicitud{
         margin: 10px 0;
     }
-    table h1{
-        font-size: 1em;
+    #div-tabla h1{
+        font-size: 1.2em;
+        padding: 20px 20px 10px 20px;
     }
 
+    .btn-limpiar{
+        font-size: 12px;
+    }
+
+    .boton-agregar{
+        font-size: 12px;
+    }
+
+    .boton-siguiente{
+        font-size: 12px;
+    }
+
+    .boton-volver{
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 413px){

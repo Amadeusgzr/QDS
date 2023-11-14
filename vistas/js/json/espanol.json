@@ -39,6 +39,8 @@
     "op8_p" : "Gestión de horarios para recogida de paquetes",
     "op9_h2" : "Lotes a entregar",
     "op9_p" : "Gestión de horarios para entrega de lotes",
+    "op10_h2" : "Asignar Camineros a Vehículos",
+    "op10_p" : "Asignación de camioneros a vehículos",
 
     "--------- BACKOFFICE USUARIOS ---------" : "",
 
@@ -265,6 +267,18 @@
     "h1_tabla_gestion_paquetes" : "Horarios de Salida y Recogida en Almacenes",
     "th1_gestion_paquetes" : "Camioneta",
     "th2_gestion_paquetes" : "Salida",
+
+    "--------- BACKOFFICE ALTA HORARIO RECOGIDA ---------" : "",
+
+    "legend_titulo_alta_recogida" : "Agregar horario",
+    "p_camioneta" : "Camioneta",
+    "p_sobre_salida" : "Sobre la salida",
+    "p_sobre_recogida" : "Sobre la recogida",
+
+    "--------- BACKOFFICE BAJA HORARIO RECOGIDA ---------" : "",
+
+    "legend_baja_horario" : "Eliminar horario",
+    "adv_horario" : "¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles",
 
     "--------- ALMACENERO INDEX ---------" : "",
 

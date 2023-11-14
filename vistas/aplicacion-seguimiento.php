@@ -26,7 +26,6 @@ if ($_GET){
     $tipo = $paquete["tipo"];
     $estado = $paquete["estado"];
     $detalles = $paquete["detalles"];
-}
 ?>
 <div class="form-crud">
     <legend>Datos del paquete</legend>
@@ -58,6 +57,17 @@ if ($_GET){
     } else {
         echo "<p><b>Detalles: </b>$detalles</p>";
     }
+}
+if (!isset($id_paquete) || empty(trim($id_paquete)) || is_null($id_paquete)){
+    $respuesta = [  
+        "error" => "Error",
+        "respuesta" => "Código erróneo"
+    ];
+    $respuesta = json_encode($respuesta);
+    header("Location: ../index.php?respuesta=" . urlencode($respuesta));
+} 
+} else{
+    header ("Location: error.php");
 }
     ?>
 

@@ -130,8 +130,8 @@ if (isset($_GET['id_camionero'])) {
     $respuesta = json_encode($respuesta);
     header("Location: op-empresas-cliente.php?datos=" . urlencode($respuesta));
 
-} else if (isset($_GET['id_camioneta_horario'])) {
-    $id_camioneta_horario = $_GET['id_camioneta_horario'];
+} else if (isset($_GET['icth'])) {
+    $id_camioneta_horario = $_GET['icth'];
     $fecha_salida = $_GET["fs"];
     $almacen_central_salida = $_GET["acs"];
 

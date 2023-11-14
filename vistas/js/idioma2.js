@@ -63,6 +63,8 @@ function actualizarTextos(data) {
     document.querySelector("#op8 p").textContent = data.op8_p;
     document.querySelector("#op9 h2").textContent = data.op9_h2;
     document.querySelector("#op9 p").textContent = data.op9_p;
+    document.querySelector("#op10 h2").textContent = data.op10_h2;
+    document.querySelector("#op10 p").textContent = data.op10_p;
 
   }
   else if(url.includes("Backoffice") && url.includes("op-usuarios")){
@@ -512,6 +514,28 @@ function actualizarTextos(data) {
     document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
     document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
+  }
+  else if(url.includes("Backoffice") && url.includes("alta-horario-recogida")){
+
+    document.querySelector(".legend-titulo").textContent = data.legend_titulo_alta_recogida;
+    document.querySelector(".p-camioneta").textContent = data.p_camioneta;
+    document.querySelector(".p-sobre-salida").textContent = data.p_sobre_salida;
+    document.querySelector(".p-sobre-recogida").textContent = data.p_sobre_recogida;
+
+    document.querySelector(".boton-siguiente").value = data.btn_agregar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("fs")){
+
+    document.querySelector(".legend-baja-horario").textContent = data.legend_baja_horario;
+    document.querySelector(".adv").textContent = data.adv_horario;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_empresa;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-nombre").textContent = data.p_nombre;
+    document.querySelector(".p-cedula").textContent = data.p_rut;
+
+    document.querySelector(".boton-eliminar").value = data.btn_eliminar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
   }
   else if(url.includes("Almacenero") && url.includes("index")){
     

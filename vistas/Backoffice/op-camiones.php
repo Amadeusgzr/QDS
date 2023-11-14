@@ -27,7 +27,7 @@ require '../plantillas/menu-cuenta.php';
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from mostrar_camiones";
+            $instruccion = "select * from camion inner join vehiculo on camion.id_camion = vehiculo.id_vehiculo";
             $camiones = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {

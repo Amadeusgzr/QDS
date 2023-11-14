@@ -135,7 +135,7 @@ if (isset($_GET['id_camionero'])) {
     $id_camion = $_GET['id_camion1'];
 
 
-    $instruccion = "select * from mostrar_camiones where id_camion=$id_camion";
+    $instruccion = "select * from camion inner join vehiculo on camion.id_camion = vehiculo.id_vehiculo where id_camion=$id_camion";
     $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
@@ -208,8 +208,8 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-empresas-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
-} else if (isset($_GET['id_camioneta_horario'])) {
-    $id_camioneta = $_GET['id_camioneta_horario'];
+} else if (isset($_GET['icth'])) {
+    $id_camioneta = $_GET['icth'];
     $fecha_salida = $_GET["fs"];
     $almacen_central_salida = $_GET["acs"];
 
@@ -252,7 +252,7 @@ if (isset($_GET['id_camionero'])) {
         <p><b>Fecha recogida estimado: </b>$fecha_recogida_ideal</p>";
     }
 
-    echo "<a href='detalles-horarios-recogida.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
+    echo "<a href='detalles-horarios-recogida.php?icth=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
 
     echo "<a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>";

@@ -14,13 +14,13 @@ require '../plantillas/menu-cuenta.php';
 
 <div class="form-crud">
     <form action="alta-horario-recogida.php" method="post">
-        <legend>Agregar Empresa Cliente</legend>
+        <legend class="legend-titulo">Agregar horario (recogida de paquetes)</legend>
 
-        <p class="p-paquete">Camioneta</p>
+        <p class="p-paquete p-camioneta">Camioneta</p>
         <select name="id_camioneta[]" class="estilo-select">
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from mostrar_camionetas";
+            $instruccion = "select * from camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta";
             $camionetas = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -36,7 +36,7 @@ require '../plantillas/menu-cuenta.php';
             ?>
         </select>
 
-        <p class="p-paquete">Sobre la salida</p>
+        <p class="p-paquete p-sobre-salida">Sobre la salida</p>
         <select name="id_almacen_central[]" class="estilo-select">
             <option value="" selected>Almacén Central</option>
             <?php
@@ -57,7 +57,7 @@ require '../plantillas/menu-cuenta.php';
         <input type="date" placeholder="Fecha salida" class="txt-crud" name="fecha_salida[]" required>
         <input type="time" placeholder="Hora salida" class="txt-crud" name="hora_salida[]" required>
 
-        <p class="p-paquete">Sobre la recogida</p>
+        <p class="p-paquete p-sobre-recogida">Sobre la recogida</p>
         <select name="id_almacen_cliente[]" class="estilo-select">
             <option value="" selected>Almacén Cliente</option>
             <?php

@@ -27,6 +27,12 @@ if (count($filas) > 0) {
         $fecha_salida = $fila["fecha_salida"];
     }
 }
+?>
+<div class="div-btn-uno">
+<a href='consultar-dato.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+</div>
+
+<?php
 echo "
     <div class='form-crud'>";
 
@@ -47,6 +53,12 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 
 
 }
+
+?>
+
+<div class='div-instrucciones'>
+
+<?php
 
 echo "<h2>Instrucciones</h2>";
 $origen = "Escuela+Superior+de+Informatica,Departamento+de+Montevideo";
@@ -106,8 +118,9 @@ if ($response) {
 }
 ?>
 
-<p><b>Mapa: </b></p>
-<div id="map" style="height: 400px; width: 100%;"></div>
+</div>
+
+<div id="map"></div>
 
 <script>
     const start = "<?php echo $origen; ?>";
@@ -213,7 +226,3 @@ if ($response) {
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM&callback=initMap&region=uy&language=es"
     async defer></script>
 </div>
-<?php
-echo "<a href='consultar-dato.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
-    </div>";
-?>
