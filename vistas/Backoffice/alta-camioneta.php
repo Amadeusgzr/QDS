@@ -15,9 +15,9 @@ require '../plantillas/menu-cuenta.php';
 <div class="form-crud">
     <form action="alta-camioneta.php" method="post">
         <legend class="legend-form">Agregar Camioneta</legend>
-        <input type="text" placeholder="Matrícula" class="txt-crud txt-1" name="matricula[]">
-        <input type="text" placeholder="Peso max. (Kg)" class="txt-crud txt-2" name="peso_soportado[]">
-        <input type="text" placeholder="Volumen max. (Mts3)" class="txt-crud txt-3" name="volumen_disponible[]">
+        <input type="text" placeholder="Matrícula" class="txt-crud txt-1" name="matricula[]" maxlength="8" required>
+        <input type="text" placeholder="Peso max. (Kg)" class="txt-crud txt-2" name="peso_soportado[]" maxlength="11" required>
+        <input type="text" placeholder="Volumen max. (Mts3)" class="txt-crud txt-3" name="volumen_disponible[]" maxlength="11" required>
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente boton-agregar"></a>
     </form>
     <a href="op-camionetas.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
@@ -48,15 +48,47 @@ if ($_POST) {
         $respuesta2 = atributosVacio($volumen_disponible);
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
-            $respuesta = [
-                'error' => "Éxito",
-                'respuesta' => "Camioneta guardada"
-            ];
-            $instruccion = "insert into vehiculo(matricula, volumen_disponible, peso_soportado, estado) value ('$matricula[$i]', '$volumen_disponible[$i]', '$peso_soportado[$i]', 'Disponible')";
-            $conexion->query($instruccion);
-            $id_camioneta = mysqli_insert_id($conexion);
-            $instruccion = "insert into camioneta(id_camioneta) value ('$id_camioneta')";
-            $conexion->query($instruccion);
+            $respuesta = longitud($matricula[$i], 8);
+            $respuesta1 = longitud($peso_soportado[$i], 11);
+            $respuesta2 = longitud($volumen_disponible[$i], 11);
+
+
+
+            if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
+
+            $respuesta = numeros($peso_soportado[$i]);
+            $respuesta1 = numeros($volumen_disponible[$i]);
+                if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error"){
+                    if (preg_match('/^(STM)-[0-9]{4}$/', $matricula[$i])) {
+                        $respuesta = [
+                            'error' => "Éxito",
+                            'respuesta' => "Camión guardado"
+                        ];
+                        $instruccion = "insert into vehiculo(matricula, volumen_maximo, peso_soportado, estado) value ('$matricula[$i]', '$volumen_disponible[$i]', '$peso_soportado[$i]', 'Disponible')";
+                        $conexion->query($instruccion);
+                        $id_camion = mysqli_insert_id($conexion);
+                        $instruccion = "insert into camioneta(id_camioneta) value ('$id_camioneta')";
+                        $conexion->query($instruccion);
+                    } else {
+                        $respuesta = [
+                            'error' => "Error",
+                            'respuesta' => "Formato erróneo de matrícula"
+                        ];
+                    }
+
+                } else{
+                    $respuesta = [
+                        'error' => "Error",
+                        'respuesta' => "El peso y el volumen deben ser números"
+                    ];
+                }
+
+            } else{
+                $respuesta = [
+                    'error' => "Error",
+                    'respuesta' => "Palabras inválidas"
+                ];
+            }
         } else {
             $respuesta = [
                 'error' => "Error",

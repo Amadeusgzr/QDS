@@ -11,16 +11,28 @@
 
     <div id="div-footer2">
         <h2 id="h2-msg">Envíanos un mensaje</h2>
-        <form action="vistas/respuesta.php" id="form-mensaje" method="post">
-            <div id="div-inputs" >
-                <input type="text" name="nombre" id="msg-nombre" placeholder="Nombre">
+        <form action="controladores/api/mensaje/agregarDato.php" id="form-mensaje" method="post">
+            <div id="div-inputs">
+                <input type="text" name="nombre_remitente" id="msg-nombre" placeholder="Nombre">
+                <input type="mail" name="mail_remitente" id="msg-mail" placeholder="Correo electrónico">
                 <textarea name="mensaje" id="txt-mensaje-footer" cols="30" rows="8" placeholder="Mensaje"></textarea>
                 <input type="submit" id="msg-submit" value="Enviar">
             </div>
         </form>
+        <?php
+if (isset($_GET['datos'])) {
+    $jsonDatos = urldecode($_GET['datos']);
+    $datos = json_decode($jsonDatos, true);
+    $respuesta = $datos['respuesta'];
+    echo "<p style='color: white'>$respuesta</p>";
+}
+?>
 
-    </div>
+</div>
 </footer>
+<script src="vistas/js/ocultar-get-alta.js"></script>
+
+
 </body>
 
 </html>

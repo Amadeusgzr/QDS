@@ -32,20 +32,3 @@ if (!isset($_SESSION['nom_usu'])) {
 <?php require 'vistas/plantillas/footer.php'; ?>
 
 
-
-<?php
-// require ('modelos/db.php');
-
-// $ip=$_SERVER["REMOTE_ADDR"];
-// $instruccion = "SELECT * FROM mensajes WHERE ip='$ip'";
-// $mensajes = [];
-// $result = mysqli_query($conexion, $instruccion);
-// while ($row = mysqli_fetch_assoc($result)) {
-//     array_push($mensajes, $row);
-// }
-// foreach( $mensajes as $mensaje ) {
-//     $mensaje1 = $mensaje["mensaje"];
-//     echo $mensaje1;
-//     echo "<br>";
-// }
-?>

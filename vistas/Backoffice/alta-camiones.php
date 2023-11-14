@@ -15,9 +15,9 @@ require '../plantillas/menu-cuenta.php';
 <div class="form-crud">
     <form action="alta-camiones.php" method="post">
         <legend class="legend-form">Agregar Camión</legend>
-        <input type="text" placeholder="Matrícula" class="txt-crud txt-1" name="matricula[]">
-        <input type="text" placeholder="Peso max. (Kg)" class="txt-crud txt-2" name="peso_soportado[]">
-        <input type="text" placeholder="Volumen max. (Mts3)" class="txt-crud txt-3" name="volumen_disponible[]">
+        <input type="text" placeholder="Matrícula" class="txt-crud txt-1" name="matricula[]" maxlength="8" required>
+        <input type="text" placeholder="Peso max. (Kg)" class="txt-crud txt-2" name="peso_soportado[]" maxlength="11" required>
+        <input type="text" placeholder="Volumen max. (Mts3)" class="txt-crud txt-3" name="volumen_disponible[]" maxlength="11" required>
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente boton-agregar"></a>
     </form>
     <a href="op-camiones.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
@@ -60,7 +60,7 @@ if ($_POST) {
             $respuesta = numeros($peso_soportado[$i]);
             $respuesta1 = numeros($volumen_disponible[$i]);
                 if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error"){
-                    if (preg_match('/^[a-zA-Z]{3}-(tp|tm)-\d{4}$/', $matrciula[$i])) {
+                    if (preg_match('/^(STP)-[0-9]{4}$/', $matricula[$i])) {
                         $respuesta = [
                             'error' => "Éxito",
                             'respuesta' => "Camión guardado"

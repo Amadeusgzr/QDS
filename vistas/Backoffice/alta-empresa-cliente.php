@@ -15,9 +15,9 @@ require '../plantillas/menu-cuenta.php';
 <div class="form-crud">
     <form action="alta-empresa-cliente.php" method="post">
         <legend>Agregar Empresa Cliente</legend>
-        <input type="text" placeholder="RUT" class="txt-crud" name="rut[]" required>
-        <input type="text" placeholder="Nombre" class="txt-crud" name="nombre_de_empresa[]" required>
-        <input type="tel" placeholder="Mail" class="txt-crud" name="mail[]" required>
+        <input type="text" placeholder="RUT" class="txt-crud" name="rut[]" required maxlength="12">
+        <input type="text" placeholder="Nombre" class="txt-crud" name="nombre_de_empresa[]" required maxlength="50">
+        <input type="mail" placeholder="Mail" class="txt-crud" name="mail[]" required maxlength="45">
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-empresas-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
@@ -53,7 +53,7 @@ if ($_POST) {
         if (!filter_var($mail[$i], FILTER_VALIDATE_EMAIL)) {
             $respuesta = [
                 'error' => 'Error',
-                'respuesta' => "La dirección de correo electrónico no es válida $mail[$i]"
+                'respuesta' => "La dirección de correo electrónico no es válida"
             ];
             break;
         }
@@ -61,23 +61,38 @@ if ($_POST) {
         $respuesta = atributosVacio($rut);
         $respuesta1 = atributosVacio($nombre_de_empresa);
         $respuesta2 = atributosVacio($mail);
-        $respuesta3 = verificarLongitud($rut, 12);
-        $respuesta4 = verificarLongitud($nombre_de_empresa, 50);
-        $respuesta5 = verificarLongitud($mail, 45);
+
         $respuestaCaracteres = [];
         print_r($respuesta3);
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
-            
-            $respuesta = [
-            'error' => "Éxito",
-            'respuesta' => "Empresa guardada"
-            ];
-            $instruccion = "insert into empresa_cliente(rut, nombre_de_empresa, mail) value ('$rut[$i]', '$nombre_de_empresa[$i]', '$mail[$i]')";
-            $conexion->query($instruccion);
-        
-               
-            
+
+            $respuesta = longitud($rut[$i], 12);
+            $respuesta1 = longitud($nombre_de_empresa[$i], 50);
+            $respuesta2 = longitud($mail[$i], 45);
+            if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
+
+                $respuesta = numeros($rut[$i]);
+
+                if ($respuesta['error'] !== "Error") {
+                    $respuesta = [
+                        'error' => "Éxito",
+                        'respuesta' => "Empresa guardada"
+                    ];
+                    $instruccion = "insert into empresa_cliente(rut, nombre_de_empresa, mail) value ('$rut[$i]', '$nombre_de_empresa[$i]', '$mail[$i]')";
+                    $conexion->query($instruccion);
+                } else {
+                    $respuesta = [
+                        'error' => "Error",
+                        'respuesta' => "El RUT debe tener solo números"
+                    ];
+                }
+            } else {
+                $respuesta = [
+                    'error' => "Error",
+                    'respuesta' => "Palabras inválidas"
+                ];
+            }
         } else {
             $respuesta = [
                 'error' => "Error",

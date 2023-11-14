@@ -10,7 +10,7 @@ include("../../modelos/db.php");
 if (isset($_GET['id_camionero'])) {
     $id_camionero = $_GET['id_camionero'];
 
-    $instruccion = "update camionero set estado='No empleado' where id_camionero=$id_camionero";
+    $instruccion = "update camionero set estado='De baja' where id_camionero=$id_camionero";
     $conexion->query($instruccion);
 
     $respuesta = [
@@ -147,7 +147,7 @@ if (isset($_GET['id_camionero'])) {
     foreach ($camioneros as $camionero){
         $id_camionero = $camionero[0];
 
-        $instruccion = "update camionero set estado='No empleado' where id_camionero=$id_camionero";
+        $instruccion = "update camionero set estado='De baja' where id_camionero=$id_camionero";
         $conexion->query($instruccion);
 
     }

@@ -18,11 +18,15 @@ if (isset($_SESSION['nom_usu'])) {
         </div>
         <input type="submit" id="submit-login" value="Ingresar">
         <?php
-        if (isset($_GET['data'])) {
-            $jsonData = urldecode($_GET['data']);
+        if (isset($_GET['datos'])) {
+            $jsonData = urldecode($_GET['datos']);
             $data = json_decode($jsonData, true);
-            $respuesta = $data['resultado'];
+            $respuesta = $data['respuesta'];
+            if ($data['error'] == 'Error') {
             echo "<p class='p-respuesta'>$respuesta</p>";
+            } else {
+                echo "<p style='color:green'>$respuesta</p>";
+            }
         }
         ?>
         <hr>

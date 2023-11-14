@@ -6,7 +6,9 @@ class solicitudModelo
 
     public function __construct()
     {
-        $this->db = new mysqli('localhost', 'root', '', 'QDS');
+        require("config.php");
+
+        $this->db = new mysqli($host, $user, $pass, $db);
         mysqli_set_charset($this->db, 'utf8');
     }
     public function obtenerSolicitud($id_camioneta, $id_almacen_cliente, $fecha_recogida_ideal, $usuario)

@@ -59,6 +59,10 @@ function actualizarTextos(data) {
     document.querySelector("#op6 p").textContent = data.op6_p;
     document.querySelector("#op7 h2").textContent = data.op7_h2;
     document.querySelector("#op7 p").textContent = data.op7_p;
+    document.querySelector("#op8 h2").textContent = data.op8_h2;
+    document.querySelector("#op8 p").textContent = data.op8_p;
+    document.querySelector("#op9 h2").textContent = data.op9_h2;
+    document.querySelector("#op9 p").textContent = data.op9_p;
 
   }
   else if(url.includes("Backoffice") && url.includes("op-usuarios")){
@@ -498,7 +502,18 @@ function actualizarTextos(data) {
     document.querySelector(".boton-volver").value = data.btn_volver;
 
   }
-  if(url.includes("Almacenero") && url.includes("index")){
+  else if(url.includes("Backoffice") && url.includes("op-gestion-paquete-recogida")){
+
+    document.querySelector(".h1-tabla").textContent = data.h1_tabla_gestion_paquetes;
+    document.querySelector(".th1-gestion-paquetes").textContent = data.th1_gestion_paquetes;
+    document.querySelector(".th2-gestion-paquetes").textContent = data.th2_gestion_paquetes;
+
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
+  }
+  else if(url.includes("Almacenero") && url.includes("index")){
     
     document.querySelector("#op1 h2").textContent = data.op1_almacenero_h2;
     document.querySelector("#op1 p").textContent = data.op1_almacenero_p;

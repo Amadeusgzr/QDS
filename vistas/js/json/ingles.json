@@ -35,6 +35,10 @@
     "op6_p" : "Client Companies managment",
     "op7_h2" : "Journeys",
     "op7_p" : "Journeys managment",
+    "op8_h2" : "Packages to pick up",
+    "op8_p" : "Management of schedules for package pick up",
+    "op9_h2" : "Lots to delivery",
+    "op9_p" : "Management of schedules for lots delivery",
 
     "--------- BACKOFFICE USUARIOS ---------" : "",
 
@@ -254,6 +258,13 @@
     "p_distancia_recorrida" : "Distance Traveled: ",
     "p_duracion_total" : "Total Duration: ",
     "p_instrucciones" : "Instructions: ",
+
+    "--------- BACKOFFICE GESTION PAQUETES ---------" : "",
+
+    "h1_tabla_gestion_paquetes" : "Departure and pick up times in Warehouses",
+    "th1_gestion_paquetes" : "Van",
+    "th2_gestion_paquetes" : "Departure",
+
 
     "--------- ALMACENERO INDEX ---------" : "",
 

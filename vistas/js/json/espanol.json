@@ -35,6 +35,10 @@
     "op6_p" : "Gestión de Empresas Cliente",
     "op7_h2" : "Trayectos",
     "op7_p" : "Gestión de Trayectos",
+    "op8_h2" : "Paquetes a recoger",
+    "op8_p" : "Gestión de horarios para recogida de paquetes",
+    "op9_h2" : "Lotes a entregar",
+    "op9_p" : "Gestión de horarios para entrega de lotes",
 
     "--------- BACKOFFICE USUARIOS ---------" : "",
 
@@ -255,6 +259,12 @@
     "p_distancia_recorrida" : "Distancia Recorrida: ",
     "p_duracion_total" : "Duración Total: ",
     "p_instrucciones" : "Instrucciones: ",
+
+    "--------- BACKOFFICE GESTION PAQUETES ---------" : "",
+
+    "h1_tabla_gestion_paquetes" : "Horarios de Salida y Recogida en Almacenes",
+    "th1_gestion_paquetes" : "Camioneta",
+    "th2_gestion_paquetes" : "Salida",
 
     "--------- ALMACENERO INDEX ---------" : "",
 

@@ -20,8 +20,8 @@ require '../plantillas/menu-cuenta.php';
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
-                <th>Camioneta</th>
-                <th id="th1-plataformas">Salida</th>
+                <th class="th1-gestion-paquetes">Camioneta</th>
+                <th id="th1-plataformas" class="th2-gestion-paquetes">Salida</th>
                 <th>OP</th>
             </tr>
             <?php

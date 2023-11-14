@@ -2018,6 +2018,9 @@ label[for="radio-lote-no"]{
     .mensaje-solicitud{
         margin: 10px 0;
     }
+    table h1{
+        font-size: 1em;
+    }
 
 }
 

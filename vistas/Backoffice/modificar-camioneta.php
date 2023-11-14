@@ -21,7 +21,7 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
     $id_camioneta = $fila["id_camioneta"];
     $matricula = $fila["matricula"];
     $peso_soportado = $fila["peso_soportado"];
-    $volumen_disponible = $fila["volumen_disponible"];
+    $volumen_disponible = $fila["volumen_maximo"];
     $estado = $fila["estado"];
 }
 

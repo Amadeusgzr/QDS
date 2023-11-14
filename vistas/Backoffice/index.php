@@ -60,6 +60,11 @@ require '../plantillas/menu-cuenta.php';
         <p>Gestión de horarios para entrega de lotes</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
     </a>
+    <a href="ver-mensajes.php" class="opcion-aplicacion" id="op7">
+        <h2>Mensajes</h2>
+        <p>Gestión de mensajes</p>
+        <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
+    </a>
 
 </main>
 

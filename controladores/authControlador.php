@@ -57,10 +57,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
                     // Las credenciales son invÃ¡lidas, devuelve un mensaje de error
                     $response = [
                         'error' => "Error",
-                        'resultado' => "Credenciales Inválidas"
+                        'respuesta' => "Credenciales Inválidas"
                     ];
                     $response = json_encode($response);
-                    header('Location: ../vistas/login.php?data=' . urlencode($response));
+                    header('Location: ../vistas/login.php?datos=' . urlencode($response));
                     echo json_encode($response);
                 }
             }
@@ -69,10 +69,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
             // Las credenciales son invÃ¡lidas, devuelve un mensaje de error
             $response = [
                 'error' => "Error",
-                'resultado' => "Credenciales Inválidas"
+                'respuesta' => "Credenciales Inválidas"
             ];
             $response = json_encode($response);
-            header('Location: ../vistas/login.php?data=' . urlencode($response));
+            header('Location: ../vistas/login.php?datos=' . urlencode($response));
             echo json_encode($response);
         }
             break;

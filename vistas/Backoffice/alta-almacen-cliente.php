@@ -15,9 +15,9 @@ require '../plantillas/menu-cuenta.php';
 <div class="form-crud">
     <form action="alta-almacen-cliente.php" method="post">
         <legend>Agregar Almacén Cliente</legend>
-        <input type="text" placeholder="Teléfono" class="txt-crud" name="telefono[]" required>
-        <input type="tel" placeholder="Dirección" class="txt-crud" name="direccion[]" required>
-        <select name="id_empresa_cliente[]" class="estilo-select">
+        <input type="text" placeholder="Teléfono" class="txt-crud" name="telefono[]" required maxlength="20">
+        <input type="tel" placeholder="Dirección" class="txt-crud" name="direccion[]" required maxlength="45">
+        <select name="id_empresa_cliente[]" class="estilo-select" maxlength="11">
             <option value="" selected>Empresa</option>
             <?php
             include("../../modelos/db.php");
@@ -65,17 +65,44 @@ if ($_POST) {
         $respuesta2 = atributosVacio($id_empresa_cliente);
 
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
-            $respuesta = [
-                'error' => "Éxito",
-                'respuesta' => "Almacén guardado"
-            ];
-            $instruccion = "insert into almacen_cliente(direccion, telefono) value ('$direccion[$i]', '$telefono[$i]')";
-            $conexion->query($instruccion);
 
-            $id_almacen_cliente = mysqli_insert_id($conexion);
-            
-            $instruccion = "insert into tiene(id_almacen_cliente, id_empresa_cliente) value ('$id_almacen_cliente', '$id_empresa_cliente[$i]')";
-            $conexion->query($instruccion);
+            $respuesta = longitud($telefono[$i], 20);
+            $respuesta1 = longitud($direccion[$i], 65);
+            $respuesta2 = longitud($id_empresa_cliente[$i], 11);
+
+            if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
+
+                $respuesta = numeros($telefono[$i]);
+                $respuesta1 = numeros($id_empresa_cliente[$i]);
+
+                if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error") {
+
+                    $respuesta = [
+                        'error' => "Éxito",
+                        'respuesta' => "Almacén guardado"
+                    ];
+                    $instruccion = "insert into almacen_cliente(direccion, telefono) value ('$direccion[$i]', '$telefono[$i]')";
+                    $conexion->query($instruccion);
+
+                    $id_almacen_cliente = mysqli_insert_id($conexion);
+
+                    $instruccion = "insert into tiene(id_almacen_cliente, id_empresa_cliente) value ('$id_almacen_cliente', '$id_empresa_cliente[$i]')";
+                    $conexion->query($instruccion);
+                } else {
+                    $respuesta = [
+                        'error' => "Error",
+                        'respuesta' => "Debes completar el teléfono y el ID con números"
+                    ];
+                }
+
+
+            } else {
+                $respuesta = [
+                    'error' => "Error",
+                    'respuesta' => "Palabras inválidas"
+                ];
+            }
+
         } else {
             $respuesta = [
                 'error' => "Error",
