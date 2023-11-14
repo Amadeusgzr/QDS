@@ -28,7 +28,28 @@ if (!isset($_SESSION['nom_usu'])) {
                 <?php if($_SESSION['tipo_usu'] == "admin"){ ?>
                     <div class='div-mensajes'>
                         <a href="vistas/Backoffice/ver-mensajes.php"><img src="vistas/img/iconos/escribiendo.png" alt="" class='img-mensajes'></a>
-                        <div class='notificacion-circulo'></div>
+                        <script>
+                        function hacerSolicitud() {
+                            var xhr = new XMLHttpRequest();
+
+                            xhr.open('GET', 'controladores/api/mensaje/obtenerCantidadMensaje.php', true);
+
+                            xhr.onreadystatechange = function() {
+                                if (xhr.readyState == 4 && xhr.status == 200) {
+                                    var respuesta = xhr.responseText;
+                                    document.getElementById('resultado').innerHTML = respuesta;
+                                }
+                            };
+
+                            xhr.send();
+                        }
+
+                        hacerSolicitud();
+
+                        setInterval(hacerSolicitud, 1000);
+                        </script>
+                        <div id="resultado">
+                        </div>
                     </div>
                 <?php } ?>
                 <div id="div-cuenta">

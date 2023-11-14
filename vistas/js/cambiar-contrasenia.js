@@ -32,16 +32,3 @@ botones.forEach(boton =>{
         }
     });
 });
-
-const legend = document.querySelector("#legend");
-const divConfirmar = document.querySelector(".div-confirmar");
-const divCambiar = document.querySelector("#div-cambiar-contrasenia");
-if(legend.textContent == "Estas seguro de que quieres cambiar la contraseña"){
-    divConfirmar.style.display = "flex";
-    divCambiar.style.display = "none";
-    const botonCancelar = document.querySelector(".boton-cancelar");
-    botonCancelar.addEventListener("click", ()=>{
-        divConfirmar.style.display = "none";
-    divCambiar.style.display = "flex";
-    });
-}

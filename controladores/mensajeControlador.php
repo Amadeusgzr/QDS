@@ -4,6 +4,11 @@ require '../modelos/mensajeModelo.php';
 
 $mensajeModelo = new mensajeModelo();
 switch ($_SERVER['REQUEST_METHOD']) {
+    case 'GET':
+        $_GET = json_decode(file_get_contents('php://input', true));
+        $respuesta = $mensajeModelo->obtenerCantidadMensaje();
+        echo json_encode($respuesta);
+        break;
     case 'POST':
         $_POST = json_decode(file_get_contents('php://input', true));
 

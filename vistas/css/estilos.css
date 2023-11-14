@@ -1053,6 +1053,12 @@ label[for="radio-paq-no"]{
     font-weight: bolder;
 }
 
+.adv2{
+    color: var(--color-principal);
+    font-weight: bolder;
+    padding: 10px 0;
+}
+
 #tabla-lote{
     width: 95%;
     border: 2px solid #000;
@@ -1826,6 +1832,15 @@ label[for="radio-lote-no"]{
 .estilo-boton2:hover{
     transform: scale(1.05);
     box-shadow: 0 0 2px #000;
+}
+
+.input-padding{
+    padding: 5px 10px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0 0 5px;
+    outline: none;
+    border: 1px solid var(--color-principal);
 }
 
 /************************************************

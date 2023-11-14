@@ -84,12 +84,6 @@ if (isset($_GET['id_camionero'])) {
     $conexion->query($instruccion);
 
     header("Location: op-camionetas.php");
-
-} else if (isset($_GET['id_trayecto'])) {
-    $id_trayecto = $_GET['id_trayecto'];
-    $instruccion = "delete from trayecto where id_trayecto=$id_trayecto";
-    $conexion->query($instruccion);
-    header("Location: op-trayecto.php");
 } else if (isset($_GET['id_ruta'])) {
     $id_ruta = $_GET['id_ruta'];
 
@@ -138,7 +132,12 @@ if (isset($_GET['id_camionero'])) {
     $instruccion = "delete from recoge where id_camioneta='$id_camioneta_horario' AND fecha_salida='$fecha_salida' AND almacen_central_salida='$almacen_central_salida'";
     $conexion->query($instruccion);
     header("Location: op-gestion-paquete-recogida.php");
-
+} else if (isset($_GET['id_maneja'])) {
+        $id_maneja = $_GET['id_maneja'];
+    
+        $instruccion = "delete from maneja where id_maneja=$id_maneja";
+        $conexion->query($instruccion);
+        header("Location: op-camionero-vehiculo.php");
 } else if (isset($_POST["todo"])){
     
     $jsonString = $_POST['todo'];

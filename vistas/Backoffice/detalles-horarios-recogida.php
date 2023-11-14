@@ -13,7 +13,7 @@ require '../plantillas/menu-cuenta.php';
 <?php
 include("../../modelos/db.php");
 
-$id_camioneta = $_GET['id_camioneta_horario'];
+$id_camioneta = $_GET['icth'];
 $fecha_salida = $_GET["fs"];
 $almacen_central_salida = $_GET["acs"];
 
@@ -29,7 +29,7 @@ if (count($filas) > 0) {
 }
 ?>
 <div class="div-btn-uno">
-<a href='consultar-dato.php?id_camioneta_horario=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+<a href='consultar-dato.php?icth=<?=$id_camioneta?>&fs=<?=$fecha_salida?>&acs=<?=$almacen_central_salida?>'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
 </div>
 
 <?php

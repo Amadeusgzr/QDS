@@ -31,17 +31,17 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         <legend class="legend-m-camioneta">Modificar Camioneta</legend>
         <label><b class='p-id'>ID:</b> <?= $id_camioneta?></label>
 
-        <label><b class="p-matricula">Matrícula: </b><?= $matricula ?></label>
-        <input type="text" placeholder="Matrícula" class="txt-crud" name="matricula" value="<?= $matricula ?>" required readonly>
+        <label><b class="p-matricula">Matrícula: </b></label>
+        <input type="text" placeholder="Matrícula" class="txt-crud txt1" name="matricula" value="<?= $matricula ?>" required readonly>
 
-        <label><b class="p-peso-sop">Peso soportado: </b><?= $peso_soportado ?> Kg</label>
-        <input type="text" placeholder="Peso soportado" class="txt-crud" name="peso_soportado" value="<?= $peso_soportado ?>" required>
+        <label><b class="p-peso-sop">Peso soportado: </b></label>
+        <input type="text" placeholder="Peso soportado" class="txt-crud txt2" name="peso_soportado" value="<?= $peso_soportado ?>" required>
 
-        <label><b class="p-volumen-disp">Volumen disponible: </b><?= $volumen_disponible ?> Cm3</label>
-        <input type="text" placeholder="Volumen disponible" class="txt-crud" name="volumen_disponible" value="<?= $volumen_disponible ?>" required>
+        <label><b class="p-volumen-disp">Volumen disponible: </b></label>
+        <input type="text" placeholder="Volumen disponible" class="txt-crud txt3" name="volumen_disponible" value="<?= $volumen_disponible ?>" required>
 
-        <label><b class="p-estado">Estado: </b><?= $estado ?></label>
-        <input type="text" placeholder="Estado" class="txt-crud" name="estado" value="<?= $estado ?>" required>
+        <label><b class="p-estado">Estado: </b></label>
+        <input type="text" placeholder="Estado" class="txt-crud txt4" name="estado" value="<?= $estado ?>" required>
         
         
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>

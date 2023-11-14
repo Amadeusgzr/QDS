@@ -14,14 +14,14 @@ require '../plantillas/menu-cuenta.php';
 <?php
 include("../../modelos/db.php");
 $id_plataforma = $_GET['id_plataforma'];
-$instruccion = "select * from plataforma where id_plataforma=$id_plataforma";
+$instruccion = "select * from plataforma inner join destino on plataforma.ubicacion = destino.id_destino where id_plataforma=$id_plataforma";
 $filas = $conexion->query($instruccion);
 
 foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
     $id_plataforma = $fila["id_plataforma"];
     $telefono = $fila["telefono"];
     $direccion = $fila["direccion"];
-    $departamento = $fila["departamento"];
+    $departamento = $fila["departamento_destino"];
     $volumen = $fila["volumen_maximo"];
 }
 
@@ -33,17 +33,17 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         <legend class="legend-m-plataforma">Modificar Plataforma</legend>
         <label><b class='p-id'>ID:</b> <?= $id_plataforma?></label>
 
-        <p><b class="p-telefono">Teléfono: </b><?= $telefono ?></p>
-        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono" value="<?= $telefono ?>" required>
+        <label><b class="p-telefono">Teléfono: </b></label>
+        <input type="tel" placeholder="Teléfono" class="txt-crud txt1" name="telefono" value="<?= $telefono ?>" required>
 
-        <p><b class="p-direccion">Dirección: </b><?= $direccion ?></p>
-        <input type="text" placeholder="Dirección" class="txt-crud" name="direccion" value="<?= $direccion ?>" required>
+        <label><b class="p-direccion">Dirección: </b></label>
+        <input type="text" placeholder="Dirección" class="txt-crud txt2" name="direccion" value="<?= $direccion ?>" required>
 
-        <p><b class="p-departamento">Departamento: </b><?= $departamento ?></p>
-        <input type="text" placeholder="Departamento" class="txt-crud" name="departamento" value="<?= $departamento ?>" required>
+        <label><b class="p-departamento">Departamento: </b></label>
+        <input type="text" placeholder="Departamento" class="txt-crud txt3" name="departamento" value="<?= $departamento ?>" required>
 
-        <p><b class="p-volumen-maximo">Volumen máx: </b><?= $volumen ?></p>
-        <input type="text" placeholder="Volumen máx." class="txt-crud" name="volumen_maximo" value="<?= $volumen ?>" required>
+        <label><b class="p-volumen-maximo">Volumen máx: </b></label>
+        <input type="text" placeholder="Volumen máx." class="txt-crud txt4" name="volumen_maximo" value="<?= $volumen ?>" required>
         
         
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>

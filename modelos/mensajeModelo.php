@@ -13,6 +13,22 @@ class mensajeModelo
 
 
     }
+
+    public function obtenerCantidadMensaje()
+    {
+        $mensajes = [];
+        $instruccion = "SELECT * FROM mensaje WHERE estado = 'Sin responder'";
+        $resultado = mysqli_query($this->db, $instruccion);
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            array_push($mensajes, $row);
+        }
+        $cantidad = count($mensajes);
+        $respuesta = [
+            "cantidad" => $cantidad
+        ];
+        return $respuesta;
+    }
+
     public function guardarMensaje($nombre_remitente, $mail_remitente, $mensaje, $fecha_mensaje)
     {   
 

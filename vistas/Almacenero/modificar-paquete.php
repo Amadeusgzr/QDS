@@ -50,16 +50,16 @@ foreach ($decode as $paquete) {
         <label><b class='p-id'>ID:</b> <?= $id_paquete ?></label>
 
         <label><b class='p-direccion'>Dirección: </b></label>
-        <input type="tel" placeholder="Direccion" class="txt-crud" name="direccion" value="<?= $direccion ?>" required>
+        <input type="tel" placeholder="Direccion" class="txt-crud txt1" name="direccion" value="<?= $direccion ?>" required>
 
         <label><b class='p-peso'>Peso: </b></label>
-        <input type="number" placeholder="Peso" class="txt-crud" name="peso" value="<?= $peso ?>" required>
+        <input type="number" placeholder="Peso" class="txt-crud txt2" name="peso" value="<?= $peso ?>" required>
 
         <label><b class='p-volumen'>Volumen: </b></label>
-        <input type="number" placeholder="Volumen" class="txt-crud" name="volumen" value="<?= $volumen ?>" required>
+        <input type="number" placeholder="Volumen" class="txt-crud txt3" name="volumen" value="<?= $volumen ?>" required>
 
         <label><b class='p-fragil'>Fragil: </b></label>
-        <input type="text" placeholder="Fragil" class="txt-crud" name="fragil" value="<?= $fragil ?>" required>
+        <input type="text" placeholder="Fragil" class="txt-crud txt4" name="fragil" value="<?= $fragil ?>" required>
 
         <?php
         if ($fragil == "Si") {

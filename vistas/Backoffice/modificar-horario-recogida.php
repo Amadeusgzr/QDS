@@ -40,13 +40,13 @@ if (count($filas) > 0) {
 
 <div class="form-crud">
     <form action="modificar.php" method="post">
-        <legend class="legend-m-camionero">Modificar Camionero</legend>
+        <legend class="legend-m-horario-recogida">Modificar horario recogida</legend>
         <p class="subtitulo-crud">Datos actuales</p>
-        <input type="text" value="<?= $matricula?>">
-        <input type="text" value="<?= $almacen_central_salida?>">
+        <input type="text" class="estilo-input" value="<?= $matricula?>">
+        <input type="text" class="estilo-input" value="<?= $almacen_central_salida?>">
 
-        <input type="date" value="<?= $fecha0?>">
-        <input type="time" value="<?= $hora0?>">
+        <input type="date" class="estilo-input" value="<?= $fecha0?>">
+        <input type="time" class="estilo-input" value="<?= $hora0?>">
 
         <?php
         $instruccion = "select * from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta inner join almacen_cliente on recoge.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join tiene on tiene.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente where camioneta.id_camioneta=$id_camioneta AND fecha_salida='$fecha_salida' ORDER BY fecha_recogida_ideal ASC;";
@@ -66,9 +66,9 @@ if (count($filas) > 0) {
             $hora = $fecha_recogida_ideal->format('H:i:s'); 
             
         
-            echo "<p><b>Almacén:</b> $direccion_almacen - $empresa</p>
-                    <input value='$fecha' type='date'>
-                    <input value='$hora' type='time'>
+            echo "<p><b class='p-almacen'>Almacén:</b> $direccion_almacen - $empresa</p>
+                    <input class='estilo-input' value='$fecha' type='date'>
+                    <input class='estilo-input' value='$hora' type='time'>
             
             ";
 
@@ -77,11 +77,3 @@ if (count($filas) > 0) {
     </form>
     <a href="op-gestion-paquete-recogida.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>
-<?php
-echo "<a href='detalles-horarios-recogida.php?icth=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
-
-echo "<a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
-    </div>";
-
-
-?>

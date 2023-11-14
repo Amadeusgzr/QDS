@@ -88,7 +88,7 @@ if (isset($_GET['id_camionero'])) {
         $id_plataforma = $fila["id_plataforma"];
         $telefono = $fila["telefono"];
         $direccion = $fila["direccion"];
-        $departamento = $fila["departamento"];
+        $departamento = $fila["departamento_destino"];
         $volumen = $fila["volumen_maximo"];
 
         $api_key = 'AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM';
@@ -110,8 +110,7 @@ if (isset($_GET['id_camionero'])) {
         <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
         <p><b class='p-direccion'>Dirección: </b>$direccion</p>
         <p><b class='p-departamento'>Departamento: </b>$departamento</p>
-        <p><b class='p-volumen-maximo'>Volumen máx.: </b>$volumen</p>
-        <p><b class='p-trayecto'>Trayecto: </b></p>";
+        <p><b class='p-volumen-maximo'>Volumen máx.: </b>$volumen</p>";
         if ($data->status === "OK") {
             // Recuperar las direcciones en texto
             $pasos = $data->routes[0]->legs[0]->steps;
@@ -225,11 +224,11 @@ if (isset($_GET['id_camionero'])) {
     }
     echo "
     <div class='form-crud'>
-    <legend>Eliminar Horario</legend>
+    <legend class='legend-c-horario'>Consultar Horario</legend>
     <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
-    <p>Datos de salida</p>
-    <p><b>Matricula: </b>$matricula</p>
-    <p><b>Fecha salida: </b>$fecha_salida</p>";
+    <p class='p-datos-de-salida'>Datos de salida</p>
+    <p><b class='p-matricula'>Matricula: </b>$matricula</p>
+    <p><b class='p-fecha-salida'>Fecha salida: </b>$fecha_salida</p>";
 
     $instruccion = "select * from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta inner join almacen_cliente on recoge.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join tiene on tiene.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente where camioneta.id_camioneta=$id_camioneta AND fecha_salida='$fecha_salida' ORDER BY fecha_recogida_ideal ASC;";
     $filas = $conexion->query($instruccion);
@@ -248,8 +247,8 @@ if (isset($_GET['id_camionero'])) {
 
 
         echo "
-        <p><b>Almacen cliente: </b>$direccion_almacen - $empresa</p>
-        <p><b>Fecha recogida estimado: </b>$fecha_recogida_ideal</p>";
+        <p><b class='p-almacen-cliente'>Almacen cliente: </b>$direccion_almacen - $empresa</p>
+        <p><b class='p-fecha-recogida-estimada'>Fecha recogida estimado: </b>$fecha_recogida_ideal</p>";
     }
 
     echo "<a href='detalles-horarios-recogida.php?icth=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
@@ -295,5 +294,25 @@ if (isset($_GET['id_camionero'])) {
 
     echo "<a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>";
+} else if (isset($_GET['id_maneja'])) {
+    $id_maneja = $_GET['id_maneja'];
+
+    $instruccion = "select * from maneja inner join vehiculo on maneja.id_vehiculo = vehiculo.id_vehiculo inner join camionero on maneja.id_camionero = camionero.id_camionero where maneja.id_maneja=$id_maneja";
+    $filas = $conexion->query($instruccion);
+    $filas = $filas->fetch_all(MYSQLI_ASSOC);
+    foreach ($filas as $fila){
+        $matricula = $fila["matricula"];
+        $nombre_completo = $fila["nombre_completo"];
+        echo "
+        <div class='form-crud'>
+        <legend>Eliminar Horario</legend>
+        <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
+        <p>Datos de salida</p>
+        <p><b>Matricula: </b>$matricula</p>
+        <p><b>Fecha salida: </b>$nombre_completo</p>";
+    
+        echo "<a href='op-camionero-vehiculo.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
 }
 ?>

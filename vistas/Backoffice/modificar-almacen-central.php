@@ -31,10 +31,10 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         <label><b class='p-id'>ID:</b> <?= $id_almacen_central?></label>
 
         <label><b class="p-telefono">Teléfono: </b></label>
-        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono" value="<?= $telefono ?>" required>
+        <input type="tel" placeholder="Teléfono" class="txt-crud txt1" name="telefono" value="<?= $telefono ?>" required>
 
         <label><b class="p-numero-almacen">Número de almacén: </b></label>
-        <input type="text" placeholder="Número de almacén" class="txt-crud" name="numero_almacen" value="<?= $numero_almacen ?>" required>
+        <input type="text" placeholder="Número de almacén" class="txt-crud txt2" name="numero_almacen" value="<?= $numero_almacen ?>" required>
         
         
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>

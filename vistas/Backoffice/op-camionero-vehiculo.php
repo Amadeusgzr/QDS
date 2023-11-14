@@ -16,7 +16,7 @@ require '../plantillas/menu-cuenta.php';
     </a>
 </div>
 <div id="div-tabla">
-    <h1 class="h1-tabla">Camioneros</h1>
+    <h1 class="h1-tabla">Maneja</h1>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">

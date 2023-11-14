@@ -6,57 +6,8 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
     header("Location: ../permisos.php"); // Redirige a la página de inicio de sesión
     exit();
 }
-echo "<link rel='stylesheet' href='../css/estilos.css'>";
+include("../../modelos/db.php");
 require '../../controladores/funciones.php';
-require '../plantillas/headerIngresado.php';
-require '../plantillas/menu-cuenta.php';
-?>
-
-<div class="form-crud">
-    <form action="alta-camionero-vehiculo.php" method="post">
-        <legend class="legend-form">Asignar vehículo a camionero</legend>
-        <select name="id_camionero[]" id="">
-            <?php
-            include("../../modelos/db.php");
-            $instruccion = "select * from camionero where estado != 'De baja'";
-            $camioneros = [];
-            $result = mysqli_query($conexion, $instruccion);
-            while ($row = mysqli_fetch_assoc($result)) {
-                array_push($camioneros, $row);
-            }
-            foreach ($camioneros as $camionero) {
-                $id_camionero = $camionero["id_camionero"];
-                $nombre_completo = $camionero["nombre_completo"];
-                echo "<option value='$id_camionero'>$nombre_completo</option>";
-            }
-            ?>
-        </select>
-        <select name="id_vehiculo[]" id="">
-        <?php
-            include("../../modelos/db.php");
-            $instruccion = "select * from vehiculo";
-            $vehiculos = [];
-            $result = mysqli_query($conexion, $instruccion);
-            while ($row = mysqli_fetch_assoc($result)) {
-                array_push($vehiculos, $row);
-            }
-            foreach ($vehiculos as $vehiculo) {
-                $id_vehiculo = $vehiculo["id_vehiculo"];
-                $matricula = $vehiculo["matricula"];
-                echo "<option value='$id_vehiculo'>$matricula</option>";
-            }
-            ?>
-        </select>
-        <input type="date" name="fecha_inicio_manejo[]">
-        <input type="date" name="fecha_fin_manejo[]">
-
-        <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente boton-agregar"></a>
-    </form>
-    <a href="op-camionero-vehiculo.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
-</div>
-
-<?php
-
 
 if ($_POST) {
     $id_camionero = $_POST["id_camionero"];
@@ -104,9 +55,59 @@ if ($_POST) {
     }
     $respuesta = json_encode($respuesta);
     header('Location: alta-camionero-vehiculo.php?datos=' . urlencode($respuesta));
-
 }
+echo "<link rel='stylesheet' href='../css/estilos.css'>";
+require '../plantillas/headerIngresado.php';
+require '../plantillas/menu-cuenta.php';
+
+
 ?>
+
+
+
+<div class="form-crud">
+    <form action="alta-camionero-vehiculo.php" method="post">
+        <legend class="legend-form">Asignar vehículo a camionero</legend>
+        <select name="id_camionero[]" id="">
+            <?php
+            $instruccion = "select * from camionero where estado != 'De baja'";
+            $camioneros = [];
+            $result = mysqli_query($conexion, $instruccion);
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($camioneros, $row);
+            }
+            foreach ($camioneros as $camionero) {
+                $id_camionero = $camionero["id_camionero"];
+                $nombre_completo = $camionero["nombre_completo"];
+                echo "<option value='$id_camionero'>$nombre_completo</option>";
+            }
+            ?>
+        </select>
+        <select name="id_vehiculo[]" id="">
+        <?php
+            include("../../modelos/db.php");
+            $instruccion = "select * from vehiculo";
+            $vehiculos = [];
+            $result = mysqli_query($conexion, $instruccion);
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($vehiculos, $row);
+            }
+            foreach ($vehiculos as $vehiculo) {
+                $id_vehiculo = $vehiculo["id_vehiculo"];
+                $matricula = $vehiculo["matricula"];
+                echo "<option value='$id_vehiculo'>$matricula</option>";
+            }
+            ?>
+        </select>
+        <input type="date" name="fecha_inicio_manejo[]">
+        <input type="date" name="fecha_fin_manejo[]">
+
+        <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente boton-agregar"></a>
+    </form>
+    <a href="op-camionero-vehiculo.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
+</div>
+
+
 <div class="div-error">
     <?php
     if (isset($_GET['datos'])) {

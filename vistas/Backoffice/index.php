@@ -45,22 +45,17 @@ require '../plantillas/menu-cuenta.php';
         <p>Gestión de Empresas Clientes</p>
         <div class="div-img-icono"><img src="../img/iconos/empresa.png" alt=""></div>
     </a>
-    <a href="op-trayecto.php" class="opcion-aplicacion" id="op7">
-        <h2>Trayectos</h2>
-        <p>Gestión de Trayectos</p>
-        <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
-    </a>
-    <a href="op-gestion-paquete-recogida.php" class="opcion-aplicacion" id="op8">
+    <a href="op-gestion-paquete-recogida.php" class="opcion-aplicacion" id="op7">
         <h2>Paquetes a recoger</h2>
         <p>Gestión de horarios para recogida de paquetes</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
     </a>
-    <a href="op-gestion-lote-entrega.php" class="opcion-aplicacion" id="op9">
+    <a href="op-gestion-lote-entrega.php" class="opcion-aplicacion" id="op8">
         <h2>Lotes a entregar</h2>
         <p>Gestión de horarios para entrega de lotes</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>
     </a>
-    <a href="op-camionero-vehiculo.php" class="opcion-aplicacion" id="op10">
+    <a href="op-camionero-vehiculo.php" class="opcion-aplicacion" id="op9">
         <h2>Asignar camioneros a vehículos</h2>
         <p>Gestión de camioneros y vehículos</p>
         <div class="div-img-icono"><img src="../img/iconos/ruta.png" alt=""></div>

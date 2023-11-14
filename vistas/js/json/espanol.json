@@ -15,6 +15,15 @@
     "msg" : "Mensaje",
     "msg_submit" : "Enviar",
 
+    
+    "--------- CAMBIAR CONTRASENIA ---------" : "",
+    "h1_cambiar_contrasenia" : "Cambiar contraseña",
+    "adv_cambiar_contrasenia" : "La contraseña debe contener al menos 8 dígitos, una mayúscula, una minúscula y un número.",
+    "txt1_cambiar_contrasenia" : "Contraseña",
+    "txt2_cambiar_contrasenia" : "Nueva contraseña",
+    "txt3_cambiar_contrasenia" : "Repetir nueva contraseña",
+    "boton_confirmar" : "Confirm",
+
     "--------- BACKOFFICE INDEX ---------" : "",
 
     "aop1_ingresado" : "Acceder",
@@ -33,14 +42,12 @@
     "op5_p" : "Gestión de Almacenes",
     "op6_h2" : "Empresas Cliente",
     "op6_p" : "Gestión de Empresas Cliente",
-    "op7_h2" : "Trayectos",
-    "op7_p" : "Gestión de Trayectos",
-    "op8_h2" : "Paquetes a recoger",
-    "op8_p" : "Gestión de horarios para recogida de paquetes",
-    "op9_h2" : "Lotes a entregar",
-    "op9_p" : "Gestión de horarios para entrega de lotes",
-    "op10_h2" : "Asignar Camineros a Vehículos",
-    "op10_p" : "Asignación de camioneros a vehículos",
+    "op7_h2" : "Paquetes a recoger",
+    "op7_p" : "Gestión de horarios para recogida de paquetes",
+    "op8_h2" : "Lotes a entregar",
+    "op8_p" : "Gestión de horarios para entrega de lotes",
+    "op9_h2" : "Asignar Camineros a Vehículos",
+    "op9_p" : "Asignación de camioneros a vehículos",
 
     "--------- BACKOFFICE USUARIOS ---------" : "",
 
@@ -70,7 +77,7 @@
 
     "--------- BACKOFFICE ELIMINAR CAMIONERO ---------" : "",
 
-    "legend_baja" : "Eliminar Camionero",
+    "legend_baja_camionero" : "Eliminar Camionero",
     "adv_camionero" : "¿Seguro que quiere eliminar al siguiente camionero? Los cambios serán irreversibles",
     "subtitulo_camionero" : "Datos del camionero",
     "p_id" : "ID: ",
@@ -149,6 +156,11 @@
     "legend_m_camioneta" : "Modificar Camioneta",
     "subtitulo_camioneta" : "Datos de la camioneta",
 
+    "txt1_camioneta" : "Matrícula",
+    "txt2_camioneta" : "Peso soportado",
+    "txt3_camioneta" : "Volumen disponible",
+    "txt4_camioneta" : "Estado",
+
     "--------- BACKOFFICE CONSULTAR CAMIONETA ---------" : "",
 
     "legend_c_camioneta" : "Consultar Camioneta",
@@ -178,7 +190,9 @@
 
     "--------- BACKOFFICE MODIFICAR ALMACEN CENTRAL ---------" : "",
 
-    "legend_m_almacen_central" : "Eliminar Almacén Central",
+    "legend_m_almacen_central" : "Modificar Almacén Central",
+    "txt1_almacen_central" : "Número de teléfono",
+    "txt2_almacen_central" : "Número de almacén",
 
     "--------- BACKOFFICE CONSULTAR ALMACEN CENTRAL ---------" : "",
 
@@ -196,6 +210,8 @@
     "--------- BACKOFFICE MODIFICAR ALMACEN CLIENTE ---------" : "",
 
     "legend_m_almacen_cliente" : "Modificar Almacén Cliente",
+    "txt1_almacen_cliente" : "Número de teléfono",
+    "txt2_almacen_cliente" : "Dirección",
 
     "--------- BACKOFFICE CONSULTAR ALMACEN CLIENTE ---------" : "",
 
@@ -216,6 +232,10 @@
     "legend_m_plataforma" : "Modificar Plataforma",
     "p_departamento" : "Departamento: ",
     "p_volumen_maximo" : "Volumen Máximo: ",
+    "txt1_plataforma" : "Número de teléfono",
+    "txt2_plataforma" : "Dirección",
+    "txt3_plataforma" : "Departamento",
+    "txt4_plataforma" : "Volumen máximo",
 
     "--------- BACKOFFICE CONSULTAR PLATAFORMA ---------" : "",
 
@@ -239,6 +259,9 @@
     "--------- BACKOFFICE MODIFICAR EMPRESA ---------" : "",
 
     "legend_m_empresa_cliente" : "Modificar Empresa Cliente",
+    "txt1_empresa_cliente" : "RUT",
+    "txt2_empresa_cliente" : "Nombre",
+    "txt3_empresa_cliente" : "Correo electrónico",
 
     "--------- BACKOFFICE CONSULTAR EMPRESA ---------" : "",
 
@@ -274,11 +297,27 @@
     "p_camioneta" : "Camioneta",
     "p_sobre_salida" : "Sobre la salida",
     "p_sobre_recogida" : "Sobre la recogida",
+    "p_almacen" : "Almacén: ",
 
     "--------- BACKOFFICE BAJA HORARIO RECOGIDA ---------" : "",
 
     "legend_baja_horario" : "Eliminar horario",
     "adv_horario" : "¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles",
+    "p-almacen-cliente" : "Almacén Cliente",
+    "p_datos_de_salida" : "Datos de salida",
+    "p_fecha_salida" : "Fecha de salida: ",
+    "p_almacen_cliente" : "Almacén Cliente: ",
+    "p_fecha_recogida_estimada" : "Fecha de recogida estimada: ",
+
+    "--------- BACKOFFICE MODIFICAR HORARIO RECOGIDA ---------" : "",
+
+    "legend_m_horario_recogida" : "Modificar horario recogida",
+    "subtitulo_horario" : "Datos actuales",
+
+    
+    "--------- BACKOFFICE CONSULTAR HORARIO RECOGIDA ---------" : "",
+
+    "legend_c_horario_recogida" : "Consultar horario",
 
     "--------- ALMACENERO INDEX ---------" : "",
 
@@ -312,6 +351,10 @@
     "--------- ALMACENERO MODIFICAR PAQUETE ---------" : "",
 
     "legend_m_paquete" : "Modificar Paquete",
+    "txt1_paquete" : "Dirección",
+    "txt2_paquete" : "Peso",
+    "txt3_paquete" : "Volumen",
+    "txt4_paquete" : "Frágil",
 
     "--------- ALMACENERO CONSULTAR PAQUETE ---------" : "",
 
@@ -334,6 +377,11 @@
 
     "legend_m_lote" : "Modificar Lote",
     "p_cant_paquetes" : "Cantidad de paquetes: ",
+    "txt1_lote" : "ID",
+    "txt2_lote" : "Cantidad de paquetes",
+    "txt3_lote" : "Peso",
+    "txt4_lote" : "Volumen",
+    "txt5_lote" : "Frágil",
 
     "--------- ALMACENERO CONSULTAR LOTE ---------" : "",
 

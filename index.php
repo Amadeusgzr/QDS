@@ -26,7 +26,7 @@ if (!isset($_SESSION['nom_usu'])) {
             $jsonDatos = urldecode($_GET['respuesta']);
             $datos = json_decode($jsonDatos, true);
             $respuesta = $datos['respuesta'];
-            echo "<p class='adv'>$respuesta</p>";
+            echo "<p class='adv2'>$respuesta</p>";
         }
         ?>
     </div>

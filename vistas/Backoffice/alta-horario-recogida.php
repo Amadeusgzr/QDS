@@ -20,7 +20,7 @@ require '../plantillas/menu-cuenta.php';
         <select name="id_camioneta[]" class="estilo-select">
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta";
+            $instruccion = "select * from mostrar_camionetas";
             $camionetas = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {

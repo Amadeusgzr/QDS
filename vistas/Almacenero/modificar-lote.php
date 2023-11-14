@@ -32,29 +32,20 @@ foreach ($decode as $lote) {
 <div class="form-crud">
     <form action="../../controladores/api/lote/modificarDato.php" method="post">
         <legend class="legend-m-lote">Modificar Lote</legend>
-        <p class="subtitulo-crud">Datos actuales</p>
-        <p><b class="p-id">ID: </b>
-            <?= $id_lote ?>
-        </p>
-        <p><b class="p-cant-paquetes">Cantidad de paquetes: </b>
-            <?= $cant_paquetes ?>
-        </p>
-        <p><b class="p-peso">Peso: </b>
-            <?= $peso ?> Kg
-        </p>
-        <p><b class="p-volumen">Volumen: </b>
-            <?= $volumen ?> Cm3
-        </p>
-        <p><b class="p-fragil">Fragil: </b>
-            <?= $fragil ?>
-        </p>
-        <p class="subtitulo-crud subtitulo-crud-2">Datos modificados</p>
-        <input type="text" placeholder="ID" class="txt-crud" name="id_lote" value="<?= $id_lote ?>" required readonly>
-        <input type="tel" placeholder="Cantidad de paquetes" class="txt-crud" name="cant_paquetes"
-            value="<?= $cant_paquetes ?>" required>
-        <input type="text" placeholder="Peso" class="txt-crud" name="peso" value="<?= $peso ?>" required>
-        <input type="text" placeholder="Volumen" class="txt-crud" name="volumen" value="<?= $volumen ?>" required>
-        <input type="text" placeholder="Fragil" class="txt-crud" name="fragil" value="<?= $fragil ?>" required>
+        <label><b class="p-id">ID: </b><?= $id_lote ?></label>
+
+        <label><b class="p-cant-paquetes">Cantidad de paquetes: </b></label>
+        <input type="tel" placeholder="Cantidad de paquetes" class="txt-crud txt1" name="cant_paquetes" value="<?= $cant_paquetes ?>" required>
+        
+        <label><b class="p-peso">Peso: </b></label>
+        <input type="text" placeholder="Peso" class="txt-crud txt2" name="peso" value="<?= $peso ?>" required>
+        
+        <label><b class="p-volumen">Volumen: </b></label>
+        <input type="text" placeholder="Volumen" class="txt-crud txt3" name="volumen" value="<?= $volumen ?>" required>
+        
+        <label><b class="p-fragil">Fragil: </b></label>
+        <input type="text" placeholder="Fragil" class="txt-crud txt4" name="fragil" value="<?= $fragil ?>" required>
+
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-lotes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>

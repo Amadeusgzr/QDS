@@ -30,7 +30,7 @@ if (!isset($_SESSION['nom_usu'])) {
         <img src="img/iconos/ojo-cerrado.png" class="icono-ojo botones ojo3"></img>
     </div>
     <p class="adv adv-cambiar"><?php if (isset($_GET['datos'])) {$respuesta = urldecode($_GET['datos']); $respuesta = json_decode($respuesta, true); echo $respuesta['respuesta'];} ?></p>
-    <input type="submit" value="Confirmar" class="estilo-boton btn-confirmar">
+    <input type="submit" value="Confirmar" class="estilo-boton btn-confirmar boton-siguiente">
         </form>
 
     <div id="mov-lote-lote" class="mov-cambiar">

@@ -31,14 +31,14 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         <legend class="legend-m-empresa-cliente">Modificar Empresa Cliente</legend>
         <label><b class='p-id'>ID:</b> <?= $id_empresa?></label>
 
-        <p><b class='p-cedula'>RUT: </b><?= $rut ?></p>
-        <input type="text" placeholder="RUT" class="txt-crud" name="rut" value="<?= $rut ?>" required>
+        <label><b class='p-cedula'>RUT: </b></label>
+        <input type="text" placeholder="RUT" class="txt-crud txt1" name="rut" value="<?= $rut ?>" required>
 
-        <p><b class='p-nombre'>Nombre: </b><?= $nombre_de_empresa ?></p>
-        <input type="text" placeholder="Nombre" class="txt-crud" name="nombre_de_empresa" value="<?= $nombre_de_empresa ?>" required>
+        <label><b class='p-nombre'>Nombre: </b></label>
+        <input type="text" placeholder="Nombre" class="txt-crud txt2" name="nombre_de_empresa" value="<?= $nombre_de_empresa ?>" required>
 
-        <p><b>Mail: </b><?= $mail ?></p>
-        <input type="mail" placeholder="Mail" class="txt-crud" name="mail" value="<?= $mail ?>" required>
+        <label><b>Mail: </b></label>
+        <input type="mail" placeholder="Mail" class="txt-crud txt3" name="mail" value="<?= $mail ?>" required>
         
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>

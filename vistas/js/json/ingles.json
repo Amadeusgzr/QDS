@@ -15,6 +15,14 @@
     "msg" : "Message",
     "msg_submit" : "Send",
 
+    "--------- CAMBIAR CONTRASENIA ---------" : "",
+    "h1_cambiar_contrasenia" : "Change password",
+    "adv_cambiar_contrasenia" : "The password must contain at least 8 digits, one uppercase letter, one lowercase letter, and one number.",
+    "txt1_cambiar_contrasenia" : "Current password",
+    "txt2_cambiar_contrasenia" : "New password",
+    "txt3_cambiar_contrasenia" : "Repeat new password",
+    "boton_confirmar" : "Confirm",
+
     "--------- BACKOFFICE INDEX ---------" : "",
 
     "aop1_ingresado" : "Enter",
@@ -33,14 +41,12 @@
     "op5_p" : "Warehouses managment",
     "op6_h2" : "Client Companies",
     "op6_p" : "Client Companies managment",
-    "op7_h2" : "Journeys",
-    "op7_p" : "Journeys managment",
-    "op8_h2" : "Packages to pick up",
-    "op8_p" : "Management of schedules for package pick up",
-    "op9_h2" : "Lots to delivery",
-    "op9_p" : "Management of schedules for lots delivery",
-    "op10_h2" : "Assign truckers to trucks",
-    "op10_p" : "Assignment of truckers to vehicles",
+    "op7_h2" : "Packages to pick up",
+    "op7_p" : "Management of schedules for package pick up",
+    "op8_h2" : "Lots to delivery",
+    "op8_p" : "Management of schedules for lots delivery",
+    "op9_h2" : "Assign truckers to trucks",
+    "op9_p" : "Assignment of truckers to vehicles",
 
     "--------- BACKOFFICE USUARIOS ---------" : "",
 
@@ -148,6 +154,11 @@
     "legend_m_camioneta" : "Modify Van",
     "subtitulo_camioneta" : "Van data",
 
+    "txt1_camioneta" : "Plate",
+    "txt2_camioneta" : "Supported Weight",
+    "txt3_camioneta" : "Available volume",
+    "txt4_camioneta" : "Status",
+
     "--------- BACKOFFICE CONSULTAR CAMIONETA ---------" : "",
 
     "legend_c_camioneta" : "Consult Van",
@@ -178,6 +189,8 @@
     "--------- BACKOFFICE MODIFICAR ALMACEN CENTRAL ---------" : "",
 
     "legend_m_almacen_central" : "Delete Central Warehouse",
+    "txt1_almacen_central" : "Phone number",
+    "txt2_almacen_central" : "Warehouse number",
 
     "--------- BACKOFFICE CONSULTAR ALMACEN CENTRAL ---------" : "",
 
@@ -195,6 +208,8 @@
     "--------- BACKOFFICE MODIFICAR ALMACEN CLIENTE ---------" : "",
 
     "legend_m_almacen_cliente" : "Modify Customer Warehouse",
+    "txt1_almacen_cliente" : "Phone number",
+    "txt2_almacen_cliente" : "Address",
 
     "--------- BACKOFFICE CONSULTAR ALMACEN CLIENTE ---------" : "",
 
@@ -215,6 +230,10 @@
     "legend_m_plataforma" : "Modify Platform",
     "p_departamento" : "Province: ",
     "p_volumen_maximo" : "Maximum Volume: ",
+    "txt1_plataforma" : "Phone number",
+    "txt2_plataforma" : "Address",
+    "txt3_plataforma" : "Province",
+    "txt4_plataforma" : "Maximum volume",
 
     "--------- BACKOFFICE CONSULTAR PLATAFORMA ---------" : "",
 
@@ -238,6 +257,9 @@
     "--------- BACKOFFICE MODIFICAR EMPRESA ---------" : "",
 
     "legend_m_empresa_cliente" : "Modify Client Company",
+    "txt1_empresa_cliente" : "ID",
+    "txt2_empresa_cliente" : "Name",
+    "txt3_empresa_cliente" : "Mail",
 
     "--------- BACKOFFICE CONSULTAR EMPRESA ---------" : "",
 
@@ -278,6 +300,20 @@
 
     "legend_baja_horario" : "Delete schedule",
     "adv_horario" : "Are you sure you want to delete the following schedule? The changes will be irreversible",
+    "p-almacen-cliente" : "Client Warehouse",
+    "p_datos_de_salida" : "Departure data",
+    "p_fecha_salida" : "Departure date: ",
+    "p_almacen_cliente" : "Customer Warehouse: ",
+    "p_fecha_recogida_estimada" : "Estimated pickup date: ",
+
+    "--------- BACKOFFICE MODIFICAR HORARIO RECOGIDA ---------" : "",
+
+    "legend_m_horario_recogida" : "Modify pick up schedule",
+    "subtitulo_horario" : "Schedule data",
+    
+    "--------- BACKOFFICE CONSULTAR HORARIO RECOGIDA ---------" : "",
+
+    "legend_c_horario_recogida" : "Consult schedule",
 
 
     "--------- ALMACENERO INDEX ---------" : "",
@@ -308,10 +344,15 @@
     "p_fragil" : "Fragile: ",
     "p_tipo" : "Type: ",
     "p_detalles" : "Details: ",
+    "p_almacen" : "Warehouse: ",
 
     "--------- ALMACENERO MODIFICAR PAQUETE ---------" : "",
 
     "legend_m_paquete" : "Modify Package",
+    "txt1_paquete" : "Address",
+    "txt2_paquete" : "Weight",
+    "txt3_paquete" : "Volume",
+    "txt4_paquete" : "Fragile",
 
     "--------- ALMACENERO CONSULTAR PAQUETE ---------" : "",
 
@@ -334,6 +375,11 @@
 
     "legend_m_lote" : "Modify Lot",
     "p_cant_paquetes" : "Amount of Packages: ",
+    "txt1_lote" : "Key",
+    "txt2_lote" : "Amount of packages",
+    "txt3_lote" : "Weight",
+    "txt4_lote" : "Volume",
+    "txt5_lote" : "Fragile",
 
     "--------- ALMACENERO CONSULTAR LOTE ---------" : "",
 

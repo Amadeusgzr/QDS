@@ -27,7 +27,7 @@ if (isset($_GET['id_camionero'])) {
         $mail = $fila["mail"];
 
         echo "<div class='form-crud'>
-        <legend class='legend-baja'>Eliminar Camionero</legend>
+        <legend class='legend-baja-camionero'>Eliminar Camionero</legend>
         <p class='adv'>¿Seguro que quiere eliminar al siguiente camionero? Los cambios serán irreversibles</p>
         <p class='subtitulo-crud'>Datos del camionero</p>
         <p><b class='p-id'>ID: </b>$id_camionero</p>
@@ -139,7 +139,7 @@ if (isset($_GET['id_camionero'])) {
         $volumen_disponible = $fila["volumen_maximo"];
         $estado = $fila["estado"];
         echo "<div class='form-crud'>
-        <legend class='legend-baja'>Eliminar Camión</legend>
+        <legend class='legend-baja-camion'>Eliminar Camión</legend>
         <p class='adv'>¿Seguro que quiere eliminar el siguiente camión? Los cambios serán irreversibles</p>
         <p class='subtitulo-crud'>Datos del camión</p>
         <p><b class='p-id'>ID: </b>$id_camion</p>
@@ -199,29 +199,6 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-empresas.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
-} else if (isset($_GET['id_trayecto'])) {
-    $id_trayecto = $_GET['id_trayecto'];
-
-
-    $instruccion = "SELECT trayecto.id_trayecto, plataforma.direccion, plataforma.departamento FROM trayecto INNER JOIN plataforma ON trayecto.id_plataforma=plataforma.id_plataforma WHERE id_trayecto=$id_trayecto";
-    $filas = $conexion->query($instruccion);
-
-    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
-        $id_trayecto = $fila["id_trayecto"];
-        $direccion = $fila['direccion'];
-        $departamento = $fila['departamento'];
-        echo "<div class='form-crud'>
-        <legend>Eliminar Trayecto</legend>
-        <p class='adv'>¿Seguro que quiere eliminar el siguiente trayecto? Los cambios serán irreversibles</p>
-        <p class='subtitulo-crud'>Datos del trayecto</p>
-        <p><b>ID: </b>$id_trayecto</p>
-        <p><b>Dirección final: </b>$direccion</p>
-        <p><b>Departamento final: </b>$departamento</p>
-        <a href='eliminar.php?id_trayecto=$id_trayecto'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
-        <a href='op-trayecto.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
-        </div>";
-    }
-
 } else if (isset($_GET['nom_usu'])) {
     $nom_usu = $_GET['nom_usu'];
 
@@ -288,9 +265,9 @@ if (isset($_GET['id_camionero'])) {
     <div class='form-crud'>
     <legend class='legend-baja-horario'>Eliminar Horario</legend>
     <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
-    <p>Datos de salida</p>
-    <p><b>Matricula: </b>$matricula</p>
-    <p><b>Fecha salida: </b>$fecha_salida</p>";
+    <p class='p-datos-de-salida'>Datos de salida</p>
+    <p><b class='p-matricula'>Matricula: </b>$matricula</p>
+    <p><b class='p-fecha-salida'>Fecha salida: </b>$fecha_salida</p>";
 
     $instruccion = "select * from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta inner join almacen_cliente on recoge.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join tiene on tiene.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente where camioneta.id_camioneta=$id_camioneta ORDER BY fecha_recogida_ideal ASC;";
     $filas = $conexion->query($instruccion);
@@ -303,15 +280,35 @@ if (isset($_GET['id_camionero'])) {
 
         
         echo "
-        <p><b>Almacen cliente: </b>$direccion_almacen - $empresa</p>
-        <p><b>Fecha recogida estimado: </b>$fecha_recogida_ideal</p>
+        <p><b class='p-almacen-cliente'>Almacen cliente: </b>$direccion_almacen - $empresa</p>
+        <p><b class='p-fecha-recogida-estimada'>Fecha recogida estimado: </b>$fecha_recogida_ideal</p>
         ";
-    }
+    } 
 
     echo "<a href='eliminar.php?icth=$id_camioneta&&fs=$fecha_salida&acs=$almacen_central_salida'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
     <a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>";
 
-} 
+} else if (isset($_GET['id_maneja'])) {
+    $id_maneja = $_GET['id_maneja'];
+
+    $instruccion = "select * from maneja inner join vehiculo on maneja.id_vehiculo = vehiculo.id_vehiculo inner join camionero on maneja.id_camionero = camionero.id_camionero where maneja.id_maneja=$id_maneja";
+    $filas = $conexion->query($instruccion);
+    $filas = $filas->fetch_all(MYSQLI_ASSOC);
+    foreach ($filas as $fila){
+        $matricula = $fila["matricula"];
+        $nombre_completo = $fila["nombre_completo"];
+
+        echo "<div class='form-crud'>
+        <legend class='legend-baja-empresa'>Eliminar Empresa Cliente</legend>
+        <p class='adv'>¿Seguro que quiere eliminar la siguiente empresa? Los cambios serán irreversibles</p>
+        <p class='subtitulo-crud'>Datos de la empresa</p>
+        <p><b class='p-id'>ID: </b>$matricula</p>
+        <p><b class='p-nombre'>Nombre: </b>$nombre_completo</p>
+        <a href='eliminar.php?id_maneja=$id_maneja'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
+        <a href='op-empresas-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
+}
 
 ?>
