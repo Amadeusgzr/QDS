@@ -1,4 +1,18 @@
 {
+
+    "aop1_index_no_login" : "Inicio",
+    "aop2_index_no_login" : "Nuestro Servicio",
+    "aop3_index_no_login" : "Contacto",
+
+    "h1_login" : "Iniciar Sesión",
+    "input_nombre_login" : "Nombre de usuario",
+    "input_contrasenia_login" : "Contraseña",
+
+    "btn_login" : "Iniciar Sesión",
+
+    "submit_login" : "Ingresar",
+    "olvidaste_tu_contrasenia" : "¿Olvidaste tu contraseña?",
+
     "aop1_index" : "Acceder",
     "aop1_no_index" : "Inicio",
     "aop3_index" : "Cambiar contraseña",
@@ -473,6 +487,10 @@
     "th1_recoger_paquetes" : "ID",
     "th2_recoger_paquetes" : "Destino",
     "th3_recoger_paquetes" : "Estado",
+
+    "alerta_no_se_ha_enviado" : "No se ha enviado una solicitud a la empresa. Para poder ver los paquetes de este almacén debe de ya haber llegado a esta.",
+    "btn_enviar_solicitud" : "Enviar solicitud",
+    "alerta_p_pendiente" : "Tienes una solicitud enviada a esta empresa debes de esperar...",
 
     "--------- CAMIONERO RECOGER PAQUETES 3 ---------" : "",
 

@@ -11,9 +11,9 @@ if (isset($_SESSION['nom_usu'])) {
 
     <div class="div-datos-login">
         <h1 id="h1-login">Iniciar Sesión</h1>
-        <input type="text" name="nom_usu" id="txt-mail" class="destino-paq" placeholder="Nombre de usuario" autocomplete="off" require>
+        <input type="text" name="nom_usu" id="txt-mail" class="destino-paq txt1" placeholder="Nombre de usuario" autocomplete="off" require>
         <div class="div-contrasenia">
-            <input type="password" name="contrasenia" id="txt-contrasenia" class="destino-paq" placeholder="Contraseña" autocomplete="off" require>
+            <input type="password" name="contrasenia" id="txt-contrasenia" class="destino-paq txt2" placeholder="Contraseña" autocomplete="off" require>
             <img src="img/iconos/ojo-cerrado.png" class="icono-ojo"></img>
         </div>
         <input type="submit" id="submit-login" value="Ingresar">
@@ -25,7 +25,7 @@ if (isset($_SESSION['nom_usu'])) {
             if ($data['error'] == 'Error') {
             echo "<p class='p-respuesta'>$respuesta</p>";
             } else {
-                echo "<p style='color:green'>$respuesta</p>";
+                echo "<p class='p-inicia-nueva-contra'>$respuesta</p>";
             }
         }
         ?>

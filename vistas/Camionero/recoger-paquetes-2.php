@@ -23,7 +23,7 @@ foreach ($decode as $solicitud) {
     if (!empty($solicitud)) {
         $estado = $solicitud["estado"];
         if ($estado == "En espera") {
-            echo "<div class='div-mensaje-solicitud-enviada'><img src='../img/iconos/advertencia.png'>Tienes una solicitud enviada a esta empresa debes de esperar...</div>";
+            echo "<div class='div-mensaje-solicitud-enviada'><img src='../img/iconos/advertencia.png'><p class='alerta-p-pendiente'>Tienes una solicitud enviada a esta empresa debes de esperar...</p></div>";
         } else if ($estado == "Denegada") {
             echo "<div class='div-mensaje-solicitud-enviada'><img src='../img/iconos/advertencia.png'>La solicitud se te ha denegado. Deseas enviarla de vuelta? <a href='../../controladores/api/solicitud/agregarDato.php?id_almacen_cliente=$id_almacen_cliente&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'><button class='estilo-boton boton-siguiente'>Enviar solicitud</button></a></div>";
         } else if ($estado == "Aceptada") {
@@ -163,4 +163,3 @@ if (empty($decode)) {
     window.onload = ocultarDatosEnURL;
 </script>
 <script src="../js/mostrar-respuesta.js"></script>
-<script src="../js/asignar-paquetes-lote-2.js"></script>

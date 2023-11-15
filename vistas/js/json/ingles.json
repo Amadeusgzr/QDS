@@ -1,4 +1,18 @@
 {
+
+    "aop1_index_no_login" : "Home",
+    "aop2_index_no_login" : "Our Service",
+    "aop3_index_no_login" : "Contact",
+
+    "h1_login" : "Log in",
+    "input_nombre_login" : "Username",
+    "input_contrasenia_login" : "Password",
+
+    "btn_login" : "Log In",
+
+    "submit_login" : "Enter",
+    "olvidaste_tu_contrasenia" : "Forgot your password?",
+
     "aop1_index" : "Log in",
     "aop1_no_index" : "Home",
     "aop3_index" : "Change password",
@@ -471,6 +485,10 @@
     "th1_recoger_paquetes" : "Key",
     "th2_recoger_paquetes" : "Destination",
     "th3_recoger_paquetes" : "Status",
+
+    "alerta_no_se_ha_enviado" : "A request has not been sent to the company. To be able to see the packages from this warehouse you must have already arrived at it.",
+    "btn_enviar_solicitud" : "Send request",
+    "alerta_p_pendiente" : "You have a request sent to this company you must wait...",
 
     "--------- CAMIONERO RECOGER PAQUETES 3 ---------" : "",
 

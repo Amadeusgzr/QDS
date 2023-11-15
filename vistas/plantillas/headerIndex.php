@@ -16,11 +16,19 @@
             <a href="index.php"><img src="vistas/img/logoBlanco.png" alt="Logo"></a>
         </div>
         <nav>
-            <a href="index.php">Inicio</a>
-            <a href="vistas/nuestroServicio.php">Nuestro Servicio</a>
-            <a href="#footer-principal">Contacto</a>
+            <a href="index.php" class="aop1-index">Inicio</a>
+            <a href="vistas/nuestroServicio.php" class="aop2-index">Nuestro Servicio</a>
+            <a href="#footer-principal" class="aop3-index">Contacto</a>
         </nav>
-        <a href="vistas/login.php">
-            <input id="boton-login" type="button" value="Iniciar Sesión" class="boton-header">
-        </a>
+        <div class="div-der-header-invitado">
+            <div class="div-toggle-idioma">
+                <input type="checkbox" name="" id="btn-idioma">
+                <label for="btn-idioma" class="lbl-idioma"></label>
+            </div>
+            <a href="vistas/login.php">
+                <input id="boton-login" type="button" value="Iniciar Sesión" class="boton-header">
+            </a>
+        </div>
     </header>
+
+    <script src="vistas/js/idiomaIndex.js"></script>

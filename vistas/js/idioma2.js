@@ -921,8 +921,13 @@ function actualizarTextos(data) {
       document.querySelector(".boton-eliminar").textContent = data.btn_eliminar_seleccion;
     }
 
-    if(document.querySelector("alerta-p")){
-      console.log(document.querySelector("alerta-p").textContent);
+    if(document.querySelector(".alerta-p")){
+      document.querySelector(".alerta-p").textContent = data.alerta_no_se_ha_enviado;
+      document.querySelector(".boton-siguiente").textContent = data.btn_enviar_solicitud;
+    }
+
+    if(document.querySelector(".alerta-p-pendiente")){
+      document.querySelector(".alerta-p-pendiente").textContent = data.alerta_p_pendiente;
     }
 
   }
