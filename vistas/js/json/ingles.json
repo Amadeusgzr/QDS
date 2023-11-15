@@ -341,6 +341,13 @@
 
     "legend_alta_camionero_vehiculo" : "Assign vehicle to trucker",
 
+    "--------- BACKOFFICE BAJA CAMIONERO VEHICULO ---------" : "",
+
+    "legend_baja_camionero_vehiculo" : "Unlink trucker from vehicle",
+    "adv_relacion" : "Are you sure you want to delete the following relation? The changes will be irreversible",
+    "subtitulo_relacion" : "Relation data",
+    
+
     "--------- ALMACENERO INDEX ---------" : "",
 
     "op1_almacenero_h2" : "Packages",
@@ -499,6 +506,8 @@
     "op2_p_empresa" : "Consult packages", 
     "op3_h2_empresa" : "Delivered Packages", 
     "op3_p_empresa" : "Consult delivered packages",
+    "op4_h2_empresa" : "Requests", 
+    "op4_p_empresa" : "Managment of requests",
 
     "--------- EMPRESA PAQUETES CLIENTE ---------" : "",
 
@@ -524,6 +533,36 @@
     "p_4_empresa_paquete" : "Details",
     "textarea_empresa_paquete" : "Additional details (optional)",
     "btn_ingresar_paquete" : "Add package",
-    "p_fecha_traslado" : "Date and Hour of pick up"
+    "p_fecha_traslado" : "Date and Hour of pick up",
+
+    "--------- EMPRESA PAQUETES EN TRANSCURSO ---------" : "",
+
+    "h1_paquetes_transcurso" : "Packages in progess", 
+    "th1_paquetes_transcurso" : "Key", 
+    "th2_paquetes_transcurso" : "Destination", 
+    "th3_paquetes_transcurso" : "Status",
+
+    "--------- EMPRESA PAQUETES ENTREGADOS ---------" : "",
+
+    "h1_paquetes_entregados" : "Delivered Packages", 
+    "th1_paquetes_entregados" : "Key", 
+    "th2_paquetes_entregados" : "Destination", 
+    "th3_paquetes_entregados" : "Date and hour",
+
+    "--------- EMPRESA NOTIFICACIONES ---------" : "",
+
+    "en_espera" : "On Hold", 
+    "historial" : "Record", 
+    "aceptadas" : "Acepted", 
+    "denegadas" : "Denied",
+    "mensaje" : "Request to pick packages from warehouse",
+    "btn_aceptar" : "Acept",
+    "btn_denegar" : "Deny",
+
+    "mensaje_historial_aceptada" : "The request has been acepted",
+    "mensaje_historial_denegada" : "The request has been denied"
+    
+
+    
 
 }

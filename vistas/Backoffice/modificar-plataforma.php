@@ -32,6 +32,8 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
     <form action="modificar.php" method="post">
         <legend class="legend-m-plataforma">Modificar Plataforma</legend>
         <label><b class='p-id'>ID:</b> <?= $id_plataforma?></label>
+        <input type="text" name="id_plataforma" value="<?=$id_plataforma?>" required hidden>
+
 
         <label><b class="p-telefono">Teléfono: </b></label>
         <input type="tel" placeholder="Teléfono" class="txt-crud txt1" name="telefono" value="<?= $telefono ?>" required>

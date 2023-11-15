@@ -45,7 +45,6 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $respuesta = curl_exec($ch);
 
-echo $respuesta;
 if (curl_errno($ch)) {
     echo curl_errno($ch);
 } else {

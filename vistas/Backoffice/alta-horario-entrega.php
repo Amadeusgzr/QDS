@@ -56,7 +56,7 @@ require '../plantillas/menu-cuenta.php';
         </select>
         <input type="date" placeholder="Fecha salida" class="txt-crud" name="fecha_salida[]" required>
         <input type="time" placeholder="Hora salida" class="txt-crud" name="hora_salida[]" required>
-        
+
         <p class="p-paquete p-sobre-la-entrega">Sobre la entrega</p>
         <select name="id_plataforma[]" class="estilo-select">
             <option value="" selected>Plataforma</option>
@@ -152,8 +152,8 @@ if ($_POST) {
                 'respuesta' => "Horario asignado correctamente"
             ];
 
-            $origen = "Felipe+Sanguinetti+2474,Departamento+de+Montevideo";
-            $direccionDestino = "Felipe+Sanguinetti+2474,Departamento+de+Montevideo";
+            $origen = "Escuela+Superior+de+Informatica,Departamento+de+Montevideo";
+            $direccionDestino = "Escuela+Superior+de+Informatica,Departamento+de+Montevideo";
 
             $tiempoEsperaSegundos = 600;
 
@@ -161,31 +161,43 @@ if ($_POST) {
 
             $horaEstimadaLlegadaTimestamp = strtotime("$fecha_salida[$i] $hora_salida[$i]");
 
+            $puntosIntermedios = [];
             foreach ($id_plataformas as $key => $id_plataforma) {
                 $instruccion = "select * from plataforma inner join destino on plataforma.ubicacion = destino.id_destino where id_plataforma=$id_plataforma";
                 $resultado = mysqli_query($conexion, $instruccion);
-                $fila =  mysqli_fetch_assoc($resultado);
+                $fila = mysqli_fetch_assoc($resultado);
                 $puntoIntermedio = $fila["direccion"] . ", Departamento de " . $fila["departamento_destino"];
 
+                array_push($puntosIntermedios, $puntoIntermedio);
+            }
 
 
-                $puntoIntermedio = str_replace(' ', '', $puntoIntermedio);
-                echo $puntoIntermedio . "<br>";
+            $puntosIntermedios = str_replace(' ', '+', $puntosIntermedios);
+            $puntosIntermedios = implode('|', $puntosIntermedios);
 
+            $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$direccionDestino&waypoints=optimize:true|$puntosIntermedios&key=$api_key&region=uy&language=es";
 
-                $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$puntoIntermedio&key=$api_key&region=uy&language=es";
+            $response = file_get_contents($apiURL);
+            $data = json_decode($response);
 
-                $response = file_get_contents($apiURL);
-                $data = json_decode($response);
+            if ($data->status === "OK") {
 
-                if ($data->status === "OK") {
-                    $duracionEnSegundos = $data->routes[0]->legs[0]->duration->value;
+                $rutaOptimizada = $data->routes[0];
+
+                // Calcular los horarios para la ruta optimizada
+                $horaEstimadaLlegadaTimestamp = strtotime("$fecha_salida[0] $hora_salida[0]");
+
+                foreach ($rutaOptimizada->legs as $leg) {
+                    $duracionEnSegundos = $leg->duration->value;
 
                     $horaEstimadaLlegadaTimestamp += $duracionEnSegundos;
 
-                    // if ($key > 0) {
-                    //     $horaEstimadaLlegadaTimestamp += $tiempoEsperaSegundos;
-                    // }
+                    $direccion = $leg->end_address;
+                    $direccion = explode(",", $direccion);
+                    $direccion = trim($direccion[0]);
+                    echo $direccion . "<br>";
+
+
 
                     $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
                     $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
@@ -193,50 +205,30 @@ if ($_POST) {
                     echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
                     echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
 
-                    $fecha = $fechaEstimadaLlegada . " "  . $horaEstimadaLlegada;
-                    $fecha1 = $fecha_salida[$i] . " "  . $hora_salida[$i];
+                    $fecha = $fechaEstimadaLlegada . " " . $horaEstimadaLlegada;
+                    $fecha1 = $fecha_salida[$i] . " " . $hora_salida[$i];
 
-                    $origen = $puntoIntermedio;
+                    $instruccion = "select * from plataforma where direccion = '$direccion'";
+                    $resultado = mysqli_query($conexion, $instruccion);
+                    $fila = mysqli_fetch_assoc($resultado);
+                    if (isset($fila["id_plataforma"])) {
 
-                    $instruccion = "insert into lleva(id_camion, id_plataforma, fecha_entrega_ideal, fecha_salida, almacen_central_salida) value ('$id_camion[$i]', '$id_plataforma', '$fecha', '$fecha1', '$id_almacen_central[$i]')";
-                    $conexion->query($instruccion);
-                } else {
-                    echo "Error al calcular la ruta: " . $data->status;
-                    break;
+                        $id_plataforma = $fila["id_plataforma"];
+                        echo $id_plataforma;
+
+                        $instruccion = "insert into lleva(id_camion, id_plataforma, fecha_entrega_ideal, fecha_salida, almacen_central_salida) value ('$id_camion[$i]', '$id_plataforma', '$fecha', '$fecha1', '$id_almacen_central[$i]')";
+                        $conexion->query($instruccion);
+                    }
                 }
-            }
-
-            $apiURL = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$direccionDestino&key=$api_key&region=uy&language=es";
-            $response = file_get_contents($apiURL);
-            $data = json_decode($response);
-
-            if ($data->status === "OK") {
-                $duracionEnSegundos = $data->routes[0]->legs[0]->duration->value;
-
-                // if (count($id_almacenes_cliente) > 0) {
-                //     $horaEstimadaLlegadaTimestamp += $tiempoEsperaSegundos;
-                //  }
-
-                $horaEstimadaLlegadaTimestamp += $duracionEnSegundos;
-
-                $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
-                $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
-
-                // Imprimir la fecha y la hora estimadas de llegada
-                echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
-                echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
             } else {
-                echo "Error al calcular la ruta al destino final: " . $data->status;
+                $respuesta = [
+                    'error' => "Error",
+                    'respuesta' => "Hay atributos que no deben estar vacíos"
+                ];
             }
-        } else {
-            $respuesta = [
-                'error' => "Error",
-                'respuesta' => "Hay atributos que no deben estar vacíos"
-            ];
-        }
+        }    // header("Location: alta-horario-entrega.php?datos=" . urlencode($respuesta));
     }
     $respuesta = json_encode($respuesta);
-    // header("Location: alta-horario-entrega.php?datos=" . urlencode($respuesta));
 }
 
 

@@ -38,7 +38,7 @@ if ($estado == "Historial") {
                     <img src='../img/iconos/icono-usuario.png' alt='>
                     <p class='nombre-solicitud'>$camionero</p>
                 </div>
-                <p class='mensaje-solicitud'>La solicitud $id_solicitud ha sido aceptada</p>
+                <p class='mensaje-solicitud mensaje-historial'>La solicitud $id_solicitud ha sido aceptada</p>
                 <div class='solicitud-info'>
                     <span>9/11/2023</span>
                     <input type='text' hidden>
@@ -112,7 +112,7 @@ if ($estado == "Historial") {
                         <?= $camionero ?>
                             </p>
                         </div>
-                        <p class="mensaje-solicitud">Solicitud para retirar paquetes del almacén
+                        <p class="mensaje-solicitud mensaje-espera">Solicitud para retirar paquetes del almacén
                     <?= $id_almacen_cliente ?>
                         </p>
                         <div class="solicitud-info">
@@ -121,7 +121,7 @@ if ($estado == "Historial") {
                             <a href="../../controladores/api/solicitud/modificarDato.php?id_solicitud=<?= $id_solicitud ?>&a=a"><button
                                     class="estilo-boton2 boton-siguiente">Aceptar</button></a>
                             <a href="../../controladores/api/solicitud/modificarDato.php?id_solicitud=<?= $id_solicitud ?>&a=d"><button
-                                    class="estilo-boton2 boton-volver">Denegar</button></a>
+                                    class="estilo-boton2 boton-volver boton-denegar2">Denegar</button></a>
                         </div>
                     </div>
 

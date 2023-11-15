@@ -180,7 +180,7 @@ if (isset($_POST["id_almacen_central"])) {
 
 
 
-    $instruccion1 = "update plataforma set direccion='$direccion', telefono='$telefono', departamento='$departamento', volumen_maximo='$volumen_maximo'  where id_plataforma=$id_plataforma";
+    $instruccion1 = "update plataforma set direccion='$direccion', telefono='$telefono', ubicacion='$departamento', volumen_maximo='$volumen_maximo' where id_plataforma=$id_plataforma";
     $conexion->query($instruccion1);
     header("Location: modificar-plataforma.php?id_plataforma=$id_plataforma");
 
@@ -192,7 +192,46 @@ if (isset($_POST["id_almacen_central"])) {
     $instruccion1 = "update login set nom_usu='$nom_usu', tipo_usu='$tipo_usu', mail='$mail' where nom_usu='$nom_usu'";
     $conexion->query($instruccion1);
     header("Location: modificar-usuario.php?nom_usu=$nom_usu");
-} 
+} else if (isset($_POST["icth"])) {
+    $id_camioneta_horario = $_POST["icth"];
+
+    $id_almacen_central = $_POST["iac"];
+    $fecha_salida = $_POST["fecha_salida"];
+    $hora_salida = $_POST["hora_salida"];
+
+    $id_almacenes_cliente = $_POST["iacl"];
+    $fechas_recogida = $_POST["fecha_recogida"];
+    $horas_recogida = $_POST["hora_recogida"];
+
+
+    $numArrays = count($id_almacenes_cliente);
+    for ($i = 0; $i < $numArrays; $i++) {
+        include("../../modelos/db.php");
+
+        $respuesta = atributosVacio($id_camioneta_horario);
+
+        $respuesta1 = atributosVacio($id_almacen_central);
+        $respuesta2 = atributosVacio($fecha_salida);
+        $respuesta3 = atributosVacio($hora_salida);
+
+        $respuesta4 = atributosVacio($id_almacenes_cliente);
+        $respuesta5 = atributosVacio($fechas_recogida);
+        $respuesta6 = atributosVacio($horas_recogida);
+
+
+
+
+        if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error" && $respuesta5['error'] !== "Error" && $respuesta6['error'] !== "Error") {
+
+        $fecha1 = $fecha_salida[0] . " "  . $hora_salida[0];
+        $fecha2 = $fechas_recogida[$i] . " " . $horas_recogida[$i]; 
+
+        $instruccion = "update recoge set fecha_recogida_ideal='$fecha2', id_almacen_cliente='$id_almacenes_cliente[$i] where id_camioneta='$id_camioneta_horario[0]' AND fecha_salida='$fecha1' AND almacen_central_salida='$id_almacen_central[0]'";
+        $conexion->query($instruccion);
+        }
+    }
+
+}
 
 
 

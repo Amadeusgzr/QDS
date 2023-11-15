@@ -345,6 +345,12 @@
 
     "legend_alta_camionero_vehiculo" : "Asignar vehículo a camionero",
 
+    "--------- BACKOFFICE BAJA CAMIONERO VEHICULO ---------" : "",
+
+    "legend_baja_camionero_vehiculo" : "Desvincular camionero de vehículo",
+    "adv_relacion" : "¿Seguro que quiere eliminar la siguiente relación? Los cambios serán irreversibles",
+    "subtitulo_relacion" : "Datos de la relación",
+
     "--------- ALMACENERO INDEX ---------" : "",
 
     "op1_almacenero_h2" : "Paquetes",
@@ -502,6 +508,8 @@
     "op2_p_empresa" : "Consultar paquetes", 
     "op3_h2_empresa" : "Paquetes entregados", 
     "op3_p_empresa" : "Consultar paquetes entregados",
+    "op4_h2_empresa" : "Solicitudes", 
+    "op4_p_empresa" : "Gestión de solicitudes",
 
     "--------- EMPRESA PAQUETES CLIENTE ---------" : "",
 
@@ -527,8 +535,30 @@
     "p_4_empresa_paquete" : "Detalles",
     "textarea_empresa_paquete" : "Detalles adicionales (opcional)",
     "btn_ingresar_paquete" : "Ingresar paquete",
-    "p_fecha_traslado" : "Fecha y Hora ideal de recogida"
+    "p_fecha_traslado" : "Fecha y Hora ideal de recogida",
 
+    "--------- EMPRESA PAQUETES EN TRANSCURSO ---------" : "",
 
+    "h1_paquetes_transcurso" : "Paquetes en transcurso", 
+    "th1_paquetes_transcurso" : "ID", 
+    "th2_paquetes_transcurso" : "Destino", 
+    "th3_paquetes_transcurso" : "Estado",
+    
+    "--------- EMPRESA PAQUETES ENTREGADOS ---------" : "",
+
+    "h1_paquetes_entregados" : "Paquetes entregados", 
+    "th1_paquetes_entregados" : "ID", 
+    "th2_paquetes_entregados" : "Destino", 
+    "th3_paquetes_entregados" : "Fecha y Hora",
+
+    "--------- EMPRESA NOTIFICACIONES ---------" : "",
+
+    "en_espera" : "En espera", 
+    "historial" : "Historial", 
+    "aceptadas" : "Aceptadas", 
+    "denegadas" : "Denegadas",
+    "mensaje" : "Solicitud para retirar paquetes del almacén",
+    "btn_aceptar" : "Aceptar",
+    "btn_denegar" : "Denegar"
 
 }

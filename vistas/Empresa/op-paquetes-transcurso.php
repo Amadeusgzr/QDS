@@ -11,15 +11,21 @@ require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
 
+<div class="div-btn-uno">
+    <a href="index.php">
+        <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
+    </a>
+</div>
+
 <div id="div-tabla">
     <h1 class="h1-tabla">Paquetes en transcurso</h1>
 
     <div class="contenedor-tabla">
         <table id="tabla-lote">
             <tr class="fila-ingreso-lote">
-                <th>ID</th>
-                <th>Destino</th>
-                <th>Estado</th>
+                <th class="th1-paq-transcurso">ID</th>
+                <th class="th2-paq-transcurso">Destino</th>
+                <th class="th3-paq-transcurso">Estado</th>
                 <th>OP</th>
 
             </tr>
@@ -41,11 +47,6 @@ require '../plantillas/menu-cuenta.php';
             }
             ?>
         </table>
-    </div>
-    <div class="div-btn-doble">
-        <a href="index.php">
-            <button class="boton-volver estilo-boton btns-as-lote ">Volver</button>
-        </a>
     </div>
 
 </div>

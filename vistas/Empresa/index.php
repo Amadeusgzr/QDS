@@ -26,10 +26,15 @@ require '../plantillas/menu-cuenta.php';
         <p>Consulta de paquetes</p>
         <div class="div-img-icono"><img src="../img/iconos/lote.png" alt=""></div>
     </a>
-    <a href="op-paquetes-entregados.php" class="opcion-aplicacion op-larga" id="op3">
+    <a href="op-paquetes-entregados.php" class="opcion-aplicacion" id="op3">
         <h2>Paquetes entregados</h2>
         <p>Consulta de paquetes entregados</p>
         <div class="div-img-icono2"><img src="../img/iconos/paquete-lote.png" alt=""></div>
+    </a>
+    <a href="notificaciones.php" class="opcion-aplicacion" id="op4">
+        <h2>Solicitudes</h2>
+        <p>Gestión de solicitudes</p>
+        <div class="div-img-icono"><div><div class="notificacion-circulo2"></div><img src="../img/iconos/notificacion.png" alt=""></div></div>
     </a>
 </main>
 

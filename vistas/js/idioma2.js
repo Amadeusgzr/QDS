@@ -653,6 +653,19 @@ function actualizarTextos(data) {
     document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
 
   }
+  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("id_maneja")){
+
+    document.querySelector(".legend-baja-relacion").textContent = data.legend_baja_camionero_vehiculo;
+    document.querySelector(".adv").textContent = data.adv_relacion;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_relacion;
+
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-nombre").textContent = data.p_nombre;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-eliminar").value = data.btn_eliminar;
+
+  }
   else if(url.includes("Almacenero") && url.includes("index")){
     
     document.querySelector("#op1 h2").textContent = data.op1_almacenero_h2;
@@ -864,23 +877,53 @@ function actualizarTextos(data) {
   }
   else if(url.includes("Camionero") && url.includes("recoger-paquetes-2")){
 
-    document.querySelector(".h1-1").textContent = data.h1_tabla_recoger_paquetes;
-    document.querySelector(".h1-2").textContent = data.h1_2_tabla_recoger_paquetes;
-    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    if(document.querySelector(".h1-1")){
+      document.querySelector(".h1-1").textContent = data.h1_tabla_recoger_paquetes;
+    }
+    if(document.querySelector(".h1-2")){
+      document.querySelector(".h1-2").textContent = data.h1_2_tabla_recoger_paquetes;
+    }
+    if(document.querySelector(".boton-volver")){
+      document.querySelector(".boton-volver").textContent = data.btn_volver;
+    }
 
-    document.querySelector(".th1-recoger-paquetes").textContent = data.th1_recoger_paquetes;
-    document.querySelector(".th2-recoger-paquetes").textContent = data.th2_recoger_paquetes;
-    document.querySelector(".th3-recoger-paquetes").textContent = data.th3_recoger_paquetes;
+    if(document.querySelector(".th1-recoger-paquetes")){
+      document.querySelector(".th1-recoger-paquetes").textContent = data.th1_recoger_paquetes;
+    }
+    if(document.querySelector(".th2-recoger-paquetes")){
+      document.querySelector(".th2-recoger-paquetes").textContent = data.th2_recoger_paquetes;
+    }
+    if(document.querySelector(".th3-recoger-paquetes")){
+      document.querySelector(".th3-recoger-paquetes").textContent = data.th3_recoger_paquetes;
+    }
 
-    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
-    document.querySelector(".boton-agregar").textContent = data.btn_agregar_seleccion;
+    if(document.querySelector(".btn-limpiar")){
+      document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    }
+    if(document.querySelector(".boton-agregar")){
+      document.querySelector(".boton-agregar").textContent = data.btn_agregar_seleccion;
+    }
 
-    document.querySelector(".th1-recoger-paquetes-2").textContent = data.th1_recoger_paquetes;
-    document.querySelector(".th2-recoger-paquetes-2").textContent = data.th2_recoger_paquetes;
-    document.querySelector(".th3-recoger-paquetes-2").textContent = data.th3_recoger_paquetes;
+    if(document.querySelector(".th1-recoger-paquetes-2")){
+      document.querySelector(".th1-recoger-paquetes-2").textContent = data.th1_recoger_paquetes;
+    }
+    if(document.querySelector(".th2-recoger-paquetes-2")){
+      document.querySelector(".th2-recoger-paquetes-2").textContent = data.th2_recoger_paquetes;
+    }
+    if(document.querySelector(".th3-recoger-paquetes-2")){
+      document.querySelector(".th3-recoger-paquetes-2").textContent = data.th3_recoger_paquetes;
+    }
 
-    document.querySelector(".btn-limpiar2").textContent = data.btn_limpiar;
-    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar_seleccion;
+    if(document.querySelector(".btn-limpiar2")){
+      document.querySelector(".btn-limpiar2").textContent = data.btn_limpiar;
+    }
+    if(document.querySelector(".boton-eliminar")){
+      document.querySelector(".boton-eliminar").textContent = data.btn_eliminar_seleccion;
+    }
+
+    if(document.querySelector("alerta-p")){
+      console.log(document.querySelector("alerta-p").textContent);
+    }
 
   }
   else if(url.includes("Camionero") && url.includes("recoger-paquetes-3")){
@@ -938,6 +981,8 @@ function actualizarTextos(data) {
     document.querySelector("#op2 p").textContent = data.op2_p_empresa;
     document.querySelector("#op3 h2").textContent = data.op3_h2_empresa;
     document.querySelector("#op3 p").textContent = data.op3_p_empresa;
+    document.querySelector("#op4 h2").textContent = data.op4_h2_empresa;
+    document.querySelector("#op4 p").textContent = data.op4_p_empresa;
 
   }
   if(url.includes("Empresa") && url.includes("op-paquetes-cliente")){
@@ -950,6 +995,7 @@ function actualizarTextos(data) {
     document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
     document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
 
   }
   if(url.includes("Empresa") && url.includes("alta-paquete")){
@@ -1024,11 +1070,62 @@ function actualizarTextos(data) {
       document.querySelector(".p-tipo").textContent = data.p_tipo;
     }
     document.querySelector(".p-estado").textContent = data.p_estado;
+    console.log(document.querySelector(".p-detalles"));
     if(document.querySelector(".p-detalles")){
       document.querySelector(".p-detalles").textContent = data.p_detalles;
     }
 
     document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Empresa") && url.includes("op-paquetes-transcurso")){
+    
+    document.querySelector(".h1-tabla").textContent = data.h1_paquetes_transcurso;
+    document.querySelector(".th1-paq-transcurso").textContent = data.th1_paquetes_transcurso;
+    document.querySelector(".th2-paq-transcurso").textContent = data.th2_paquetes_transcurso;
+    document.querySelector(".th3-paq-transcurso").textContent = data.th3_paquetes_transcurso;
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+  }
+  else if(url.includes("Empresa") && url.includes("op-paquetes-entregados")){
+    
+    document.querySelector(".h1-tabla").textContent = data.h1_paquetes_entregados;
+    document.querySelector(".th1-paq-entregados").textContent = data.th1_paquetes_entregados;
+    document.querySelector(".th2-paq-entregados").textContent = data.th2_paquetes_entregados;
+    document.querySelector(".th3-paq-entregados").textContent = data.th3_paquetes_entregados;
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+  }
+  else if(url.includes("Empresa") && url.includes("notificaciones")){
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".espera").textContent = data.en_espera;
+    document.querySelector(".historial").textContent = data.historial;
+    document.querySelector(".aceptadas").textContent = data.aceptadas;
+    document.querySelector(".denegadas").textContent = data.denegadas;
+
+    document.querySelectorAll(".mensaje-espera").forEach(mensaje => {
+      mensaje.textContent = data.mensaje;
+    });
+
+    document.querySelectorAll(".boton-siguiente").forEach(btn => {
+      btn.textContent = data.btn_aceptar;
+    });
+
+    document.querySelectorAll(".boton-denegar2").forEach(btn => {
+      btn.textContent = data.btn_denegar;
+    });
+
+    document.querySelectorAll(".mensaje-historial").forEach(mensaje => {
+      console.log(mensaje.textContent);
+      if(mensaje.textContent.includes("aceptada") || mensaje.textContent.includes("acepted")){
+        mensaje.textContent = data.mensaje_historial_aceptada;
+      }else if(mensaje.textContent.includes("denegada") || mensaje.textContent.includes("denied")){
+        mensaje.textContent = data.mensaje_historial_denegada;
+      }
+    });
+
   }
 
 }

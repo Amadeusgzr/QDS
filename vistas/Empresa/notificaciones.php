@@ -20,10 +20,10 @@ require '../plantillas/menu-cuenta.php';
 </div>
 <div id="div-notificaciones">
     <div class="navbar">
-        <button class="seccion-btn active" id="En espera">En Espera</button>
-        <button class="seccion-btn" id="Historial">Historial</button>
-        <button class="seccion-btn" id="Aceptada">Aceptadas</button>
-        <button class="seccion-btn" id="Denegada">Denegadas</button>
+        <button class="seccion-btn active espera" id="En espera">En Espera</button>
+        <button class="seccion-btn historial" id="Historial">Historial</button>
+        <button class="seccion-btn aceptadas" id="Aceptada">Aceptadas</button>
+        <button class="seccion-btn denegadas" id="Denegada">Denegadas</button>
     </div>
     <div id="contenido">
     </div>

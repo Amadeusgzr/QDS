@@ -269,7 +269,7 @@ if (isset($_GET['id_camionero'])) {
     <p><b class='p-matricula'>Matricula: </b>$matricula</p>
     <p><b class='p-fecha-salida'>Fecha salida: </b>$fecha_salida</p>";
 
-    $instruccion = "select * from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta inner join almacen_cliente on recoge.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join tiene on tiene.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente where camioneta.id_camioneta=$id_camioneta ORDER BY fecha_recogida_ideal ASC;";
+    $instruccion = "select * from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta inner join almacen_cliente on recoge.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join tiene on tiene.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente where camioneta.id_camioneta=$id_camioneta AND fecha_salida='$fecha_salida' ORDER BY fecha_recogida_ideal ASC;";
     $filas = $conexion->query($instruccion);
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         echo "<hr>";
@@ -300,13 +300,13 @@ if (isset($_GET['id_camionero'])) {
         $nombre_completo = $fila["nombre_completo"];
 
         echo "<div class='form-crud'>
-        <legend class='legend-baja-empresa'>Eliminar Empresa Cliente</legend>
-        <p class='adv'>¿Seguro que quiere eliminar la siguiente empresa? Los cambios serán irreversibles</p>
-        <p class='subtitulo-crud'>Datos de la empresa</p>
+        <legend class='legend-baja-relacion'>Desvincular camión y vehículo</legend>
+        <p class='adv'>¿Seguro que quiere eliminar la siguiente relación? Los cambios serán irreversibles</p>
+        <p class='subtitulo-crud'>Datos de la relación</p>
         <p><b class='p-id'>ID: </b>$matricula</p>
         <p><b class='p-nombre'>Nombre: </b>$nombre_completo</p>
         <a href='eliminar.php?id_maneja=$id_maneja'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
-        <a href='op-empresas-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        <a href='op-camionero-vehiculo.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
 }

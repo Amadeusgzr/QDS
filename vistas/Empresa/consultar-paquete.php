@@ -58,12 +58,6 @@ require '../plantillas/menu-cuenta.php';
         <?= $fragil ?>
     </p>
     <?php
-    if (!isset($detalles) || is_null($detalles) || empty(trim($detalles))) {
-    } else {
-        echo "<p><b class='p-detalles'>Detalles: </b>$detalles</p>";
-    }
-    ?>
-    <?php
     if(isset($paquete["matricula"])){
         $matricula = $paquete["matricula"];
         echo "    <p><b class='p-matricula'>Matrícula de la camioneta: </b>$matricula</p>";

@@ -133,7 +133,7 @@ foreach ($decode as $solicitud) {
 if (empty($decode)) {
     echo "<div class='div-mensaje-solicitud-enviada'>
     <img src='../img/iconos/advertencia.png'>
-    No se ha enviado una solicitud a la empresa. Para poder ver los paquetes de este almacén debe de ya haber llegado a esta.
+    <p class='alerta-p'>No se ha enviado una solicitud a la empresa. Para poder ver los paquetes de este almacén debe de ya haber llegado a esta.</p>
     <a href='../../controladores/api/solicitud/agregarDato.php?id_almacen_cliente=$id_almacen_cliente&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'>
     <button class='estilo-boton boton-siguiente'>Enviar solicitud</button></a>
     </div>";

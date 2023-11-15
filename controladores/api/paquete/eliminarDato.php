@@ -11,8 +11,6 @@ if (isset($_GET["id_paquete"])) {
         'empresa' => "$empresa",
         'tipo_usu' => "$tipo_usu"
     ];
-    print_r($array);
-
 }
 if (isset($_POST['todo'])) {
     $jsonString = $_POST['todo'];
