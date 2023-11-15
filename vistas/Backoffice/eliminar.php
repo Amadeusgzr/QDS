@@ -132,12 +132,23 @@ if (isset($_GET['id_camionero'])) {
     $instruccion = "delete from recoge where id_camioneta='$id_camioneta_horario' AND fecha_salida='$fecha_salida' AND almacen_central_salida='$almacen_central_salida'";
     $conexion->query($instruccion);
     header("Location: op-gestion-paquete-recogida.php");
+
+} else if (isset($_GET['id_camion_horario'])) {
+    $id_camion_horario = $_GET['id_camion_horario'];
+    $fecha_salida = $_GET["fs"];
+    $almacen_central_salida = $_GET["acs"];
+
+    $instruccion = "delete from lleva where id_camion='$id_camion_horario' AND fecha_salida='$fecha_salida' AND almacen_central_salida='$almacen_central_salida'";
+    $conexion->query($instruccion);
+    header("Location: op-gestion-lote-entrega.php");
+    
 } else if (isset($_GET['id_maneja'])) {
         $id_maneja = $_GET['id_maneja'];
     
         $instruccion = "delete from maneja where id_maneja=$id_maneja";
         $conexion->query($instruccion);
         header("Location: op-camionero-vehiculo.php");
+
 } else if (isset($_POST["todo"])){
     
     $jsonString = $_POST['todo'];

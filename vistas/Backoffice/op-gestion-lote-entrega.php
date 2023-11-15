@@ -48,7 +48,7 @@ require '../plantillas/menu-cuenta.php';
 
                 echo "<td>
                 <a href='baja-dato.php?id_camion_horario=$id_camion&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
-                <a href='modificar-horario-recogida.php?id_camion_horario=$id_camion'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                <a href='modificar-horario-entrega.php?id_camion_horario=$id_camion&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
                 <a href='consultar-dato.php?id_camion_horario=$id_camion&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                 </td>";
                 echo "</tr>";

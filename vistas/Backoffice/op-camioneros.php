@@ -27,7 +27,7 @@ require '../plantillas/menu-cuenta.php';
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from camionero where estado != 'No empleado'";
+            $instruccion = "select * from camionero where estado != 'De baja'";
             $camioneros = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {

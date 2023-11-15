@@ -309,6 +309,46 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-camionero-vehiculo.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
+}   else if (isset($_GET['id_camion_horario'])) {
+    $id_camion = $_GET['id_camion_horario'];
+    $fecha_salida = $_GET["fs"];
+    $almacen_central_salida = $_GET["acs"];
+
+
+    $instruccion = "select * from lleva inner join camion on lleva.id_camion = camion.id_camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion where camion.id_camion=$id_camion AND fecha_salida='$fecha_salida'";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $matricula = $fila["matricula"];
+        $fecha_salida = $fila["fecha_salida"];
+    }
+
+    echo "
+    <div class='form-crud'>
+    <legend class='legend-baja-horario'>Eliminar Horario</legend>
+    <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
+    <p class='p-datos-de-salida'>Datos de salida</p>
+    <p><b class='p-matricula'>Matricula: </b>$matricula</p>
+    <p><b class='p-fecha-salida'>Fecha salida: </b>$fecha_salida</p>";
+
+    $instruccion = "select * from lleva inner join camion on lleva.id_camion = camion.id_camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion inner join plataforma on lleva.id_plataforma = plataforma.id_plataforma where camion.id_camion=$id_camion AND fecha_salida='$fecha_salida' ORDER BY fecha_entrega_ideal ASC;";
+    $filas = $conexion->query($instruccion);
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        echo "<hr>";
+        $id_plataforma = $fila["id_plataforma"];
+        $fecha_entrega_ideal = $fila["fecha_entrega_ideal"];
+        $direccion_plataforma = $fila["direccion"];
+        
+        echo "
+        <p><b class='p-almacen-cliente'>Almacen cliente: </b>$direccion_plataforma</p>
+        <p><b class='p-fecha-recogida-estimada'>Fecha recogida estimado: </b>$fecha_entrega_ideal</p>
+        ";
+    } 
+
+    echo "<a href='eliminar.php?id_camion_horario=$id_camion&&fs=$fecha_salida&acs=$almacen_central_salida'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
+    <a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+    </div>";
+
 }
 
 ?>

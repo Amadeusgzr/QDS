@@ -225,12 +225,11 @@ if (isset($_POST["id_almacen_central"])) {
 
         $fecha1 = $fecha_salida[0] . " "  . $hora_salida[0];
         $fecha2 = $fechas_recogida[$i] . " " . $horas_recogida[$i]; 
-
-        $instruccion = "update recoge set fecha_recogida_ideal='$fecha2', id_almacen_cliente='$id_almacenes_cliente[$i] where id_camioneta='$id_camioneta_horario[0]' AND fecha_salida='$fecha1' AND almacen_central_salida='$id_almacen_central[0]'";
+        $instruccion = "update recoge set fecha_recogida_ideal='$fecha2' where id_camioneta='$id_camioneta_horario[0]' AND fecha_salida='$fecha1' AND almacen_central_salida='$id_almacen_central[0]' AND id_almacen_cliente='$id_almacenes_cliente[$i]'";
         $conexion->query($instruccion);
         }
     }
-
+    header("Location: modificar-horario-recogida.php?icth=$id_camioneta_horario[0]&fs=$fecha1&acs=$id_almacen_central[0]");
 }
 
 
