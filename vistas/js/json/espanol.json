@@ -318,6 +318,32 @@
     "--------- BACKOFFICE CONSULTAR HORARIO RECOGIDA ---------" : "",
 
     "legend_c_horario_recogida" : "Consultar horario",
+    "h2_instrucciones" : "Instrucciones",
+
+    "--------- BACKOFFICE GESTION LOTE ENTREGA ---------" : "",
+
+    "h1_gestion_lote_entrega" : "Horarios de salida y recogida en plataformas",
+    "th1_gestion_lote_entrega" : "Camión",
+    "th2_gestion_lote_entrega" : "Salida",
+
+    "--------- BACKOFFICE ALTA HORARIO ENTREGA ---------" : "",
+
+    "legend_alta_horario_entrega" : "Agregar horarios de entrega",
+    "p_camion" : "Camión",
+    "p_sobre_entrega" : "Sobre la entrega",
+    "p_plataforma" : "Plataforma: ",
+    "p_fecha_entrega_estimada" : "Fecha de entrega estimada: ",
+
+    "--------- BACKOFFICE MANEJA ---------" : "",
+
+    "h1_camionero_vehiculo" : "Camioneros a camiones",
+    "th1_camionero_vehiculo" : "ID",
+    "th2_camionero_vehiculo" : "Nombre",
+    "th3_camionero_vehiculo" : "Estado",
+
+    "--------- BACKOFFICE ALTA CAMIONERO VEHICULO ---------" : "",
+
+    "legend_alta_camionero_vehiculo" : "Asignar vehículo a camionero",
 
     "--------- ALMACENERO INDEX ---------" : "",
 

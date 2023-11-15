@@ -1441,18 +1441,42 @@ label[for="radio-lote-no"]{
 
 /***** CAMIONEROS *****/
 
+.div-instrucciones::-webkit-scrollbar{
+    width: 7px;
+}
+
+.div-instrucciones::-webkit-scrollbar-thumb{
+    background-color: #fff;
+}
+
 .div-instrucciones{
     border: 5px ridge #ccc;
     height: 300px;
     overflow-y: scroll;
     padding: 20px;
     box-shadow: inset 0 0 10px;
+    border-radius: 20px;
+}
+
+.div-mapa{
+    width: 95%;
+    max-width: 600px;
+    background-color: #86858536;
+    border: 1px solid #4040404d;
+    backdrop-filter: blur(5px);
+    margin: 5em auto;
+    padding: 15px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 5px;
+    gap: 1em;
 }
 
 #map{
     width: 100%; 
     aspect-ratio: 1 / 1; 
-    box-shadow: 0 0 10px;
+    border: 1px solid #000;
     border-radius: 20px;
 }
 

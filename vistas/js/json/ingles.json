@@ -314,7 +314,32 @@
     "--------- BACKOFFICE CONSULTAR HORARIO RECOGIDA ---------" : "",
 
     "legend_c_horario_recogida" : "Consult schedule",
+    "h2_instrucciones" : "Instructions",
 
+    "--------- BACKOFFICE GESTION LOTE ENTREGA ---------" : "",
+
+    "h1_gestion_lote_entrega" : "Departure and pickup schedules in platforms",
+    "th1_gestion_lote_entrega" : "Truck",
+    "th2_gestion_lote_entrega" : "Departure",
+
+    "--------- BACKOFFICE ALTA HORARIO ENTREGA ---------" : "",
+
+    "legend_alta_horario_entrega" : "Add delivery schedule",
+    "p_camion" : "Truck",
+    "p_sobre_entrega" : "About the delivery",
+    "p_plataforma" : "Platform: ",
+    "p_fecha_entrega_estimada" : "Estimated delivery date: ",
+
+    "--------- BACKOFFICE MANEJA ---------" : "",
+
+    "h1_camionero_vehiculo" : "Truckers to trucks",
+    "th1_camionero_vehiculo" : "Key",
+    "th2_camionero_vehiculo" : "Name",
+    "th3_camionero_vehiculo" : "Status",
+
+    "--------- BACKOFFICE ALTA CAMIONERO VEHICULO ---------" : "",
+
+    "legend_alta_camionero_vehiculo" : "Assign vehicle to trucker",
 
     "--------- ALMACENERO INDEX ---------" : "",
 

@@ -67,8 +67,8 @@ require '../plantillas/menu-cuenta.php';
 
 <div class="form-crud">
     <form action="alta-camionero-vehiculo.php" method="post">
-        <legend class="legend-form">Asignar vehículo a camionero</legend>
-        <select name="id_camionero[]" id="">
+        <legend class="legend">Asignar vehículo a camionero</legend>
+        <select name="id_camionero[]" id="" class="estilo-input">
             <?php
             $instruccion = "select * from camionero where estado != 'De baja'";
             $camioneros = [];
@@ -83,7 +83,7 @@ require '../plantillas/menu-cuenta.php';
             }
             ?>
         </select>
-        <select name="id_vehiculo[]" id="">
+        <select name="id_vehiculo[]" id="" class="estilo-input">
         <?php
             include("../../modelos/db.php");
             $instruccion = "select * from vehiculo";
@@ -99,8 +99,8 @@ require '../plantillas/menu-cuenta.php';
             }
             ?>
         </select>
-        <input type="date" name="fecha_inicio_manejo[]">
-        <input type="date" name="fecha_fin_manejo[]">
+        <input type="date" name="fecha_inicio_manejo[]" class="estilo-input">
+        <input type="date" name="fecha_fin_manejo[]" class="estilo-input">
 
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente boton-agregar"></a>
     </form>

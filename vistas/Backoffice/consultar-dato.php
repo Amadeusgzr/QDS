@@ -272,11 +272,11 @@ if (isset($_GET['id_camionero'])) {
     }
     echo "
     <div class='form-crud'>
-    <legend>Eliminar Horario</legend>
+    <legend class='legend-c-horario'>Consultar Horario</legend>
     <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
-    <p>Datos de salida</p>
-    <p><b>Matricula: </b>$matricula</p>
-    <p><b>Fecha salida: </b>$fecha_salida</p>";
+    <p class='p-datos-de-salida'>Datos de salida</p>
+    <p><b class='p-matricula'>Matricula: </b>$matricula</p>
+    <p><b class='p-fecha-salida'>Fecha salida: </b>$fecha_salida</p>";
 
     $instruccion = "select * from lleva inner join camion on lleva.id_camion = camion.id_camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion inner join plataforma on lleva.id_plataforma = plataforma.id_plataforma inner join destino on plataforma.ubicacion = destino.id_destino where camion.id_camion=$id_camion AND fecha_salida='$fecha_salida' ORDER BY fecha_entrega_ideal ASC;";
     $filas = $conexion->query($instruccion);
@@ -288,11 +288,11 @@ if (isset($_GET['id_camionero'])) {
         $departamento_plataforma = $fila["departamento_destino"];
 
         echo "
-        <p><b>Plataforma: </b>$direccion_plataforma, $departamento_plataforma</p>
-        <p><b>Fecha de entrega estimado: </b>$fecha_entrega_ideal</p>";
+        <p><b class='p-plataforma'>Plataforma: </b>$direccion_plataforma, $departamento_plataforma</p>
+        <p><b class='p-fecha-entrega-estimada'>Fecha de entrega estimado: </b>$fecha_entrega_ideal</p>";
     }
 
-    echo "<a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+    echo "<a href='op-gestion-lote-entrega.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>";
 } else if (isset($_GET['id_maneja'])) {
     $id_maneja = $_GET['id_maneja'];

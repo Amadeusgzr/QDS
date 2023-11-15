@@ -14,9 +14,9 @@ require '../plantillas/menu-cuenta.php';
 
 <div class="form-crud">
     <form action="alta-horario-entrega.php" method="post">
-        <legend>Agregar horarios de entrega</legend>
+        <legend class="legend-alta-horario-entrega">Agregar horarios de entrega</legend>
 
-        <p class="p-paquete">Camión</p>
+        <p class="p-paquete p-camion">Camión</p>
         <select name="id_camion[]" class="estilo-select">
             <?php
             include("../../modelos/db.php");
@@ -36,7 +36,7 @@ require '../plantillas/menu-cuenta.php';
             ?>
         </select>
 
-        <p class="p-paquete">Sobre la salida</p>
+        <p class="p-paquete p-sobre-la-salida">Sobre la salida</p>
         <select name="id_almacen_central[]" class="estilo-select">
             <option value="" selected>Almacén Central</option>
             <?php
@@ -57,7 +57,7 @@ require '../plantillas/menu-cuenta.php';
         <input type="date" placeholder="Fecha salida" class="txt-crud" name="fecha_salida[]" required>
         <input type="time" placeholder="Hora salida" class="txt-crud" name="hora_salida[]" required>
         
-        <p class="p-paquete">Sobre la entrega</p>
+        <p class="p-paquete p-sobre-la-entrega">Sobre la entrega</p>
         <select name="id_plataforma[]" class="estilo-select">
             <option value="" selected>Plataforma</option>
             <?php

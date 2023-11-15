@@ -34,7 +34,7 @@ if (count($filas) > 0) {
 
 <?php
 echo "
-    <div class='form-crud'>";
+    <div class='div-mapa'>";
 
 
 $instruccion = "select * from recoge inner join camioneta on recoge.id_camioneta = camioneta.id_camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta inner join almacen_cliente on recoge.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join tiene on tiene.id_almacen_cliente = almacen_cliente.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente where camioneta.id_camioneta=$id_camioneta AND fecha_salida='$fecha_salida' ORDER BY fecha_recogida_ideal ASC;";
@@ -60,7 +60,7 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 
 <?php
 
-echo "<h2>Instrucciones</h2>";
+echo "<h2 class='h2-instrucciones' style='margin-bottom: 10px'>Instrucciones</h2>";
 $origen = "Escuela+Superior+de+Informatica,Departamento+de+Montevideo";
 $direccionDestino = "Escuela+Superior+de+Informatica,Departamento+de+Montevideo";
 

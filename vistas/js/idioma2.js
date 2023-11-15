@@ -93,6 +93,14 @@ function actualizarTextos(data) {
     document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
 
   }
+  else if(url.includes("Backoffice") && url.includes("alta-camionero-vehiculo")){
+
+    document.querySelector(".legend").textContent = data.legend_alta_camionero_vehiculo;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-agregar").value = data.btn_agregar;
+
+  }
   else if(url.includes("Backoffice") && url.includes("alta-camionero")){
 
     document.querySelector(".legend-form").textContent = data.legend_camionero;
@@ -579,6 +587,70 @@ function actualizarTextos(data) {
     });
 
     document.querySelector(".boton-volver").value = data.btn_volver;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("detalles-horarios-recogida") && location.search.includes("icth")){
+
+    document.querySelector(".h2-instrucciones").textContent = data.h2_instrucciones;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("op-gestion-lote-entrega")){
+
+    document.querySelector(".h1-tabla").textContent = data.h1_gestion_lote_entrega;
+
+    document.querySelector(".th1-gestion-lote-entrega").textContent = data.th1_gestion_lote_entrega;
+    document.querySelector(".th2-gestion-lote-entrega").textContent = data.th2_gestion_lote_entrega;
+
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("alta-horario-entrega")){
+
+    document.querySelector(".legend-alta-horario-entrega").textContent = data.legend_alta_horario_entrega;
+
+    document.querySelector(".p-camion").textContent = data.p_camion;
+    document.querySelector(".p-sobre-la-salida").textContent = data.p_sobre_salida;
+    document.querySelector(".p-sobre-la-entrega").textContent = data.p_sobre_entrega;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.btn_agregar;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("id_camion_horario") && location.search.includes("fs")){
+
+    document.querySelector(".legend-c-horario").textContent = data.legend_c_horario_recogida;
+    document.querySelector(".adv").textContent = data.adv_horario;
+    document.querySelector(".p-datos-de-salida").textContent = data.p_datos_de_salida;
+    document.querySelector(".p-matricula").textContent = data.p_matricula;
+    document.querySelector(".p-fecha-salida").textContent = data.p_fecha_salida;
+
+    document.querySelectorAll(".p-plataforma").forEach(plataforma => {
+      plataforma.textContent = data.p_plataforma;
+    });
+
+    document.querySelectorAll(".p-fecha-entrega-estimada").forEach(fecha => {
+      fecha.textContent = data.p_fecha_entrega_estimada;
+    });
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("op-camionero-vehiculo")){
+
+    document.querySelector(".h1-tabla").textContent = data.h1_camionero_vehiculo;
+
+    document.querySelector(".th1-camionero-vehiculo").textContent = data.th1_camionero_vehiculo;
+    document.querySelector(".th2-camionero-vehiculo").textContent = data.th2_camionero_vehiculo;
+    document.querySelector(".th3-camionero-vehiculo").textContent = data.th3_camionero_vehiculo;
+
+    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+    document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
 
   }
   else if(url.includes("Almacenero") && url.includes("index")){
