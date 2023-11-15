@@ -2,8 +2,18 @@
 
     "aop1_index_no_login" : "Inicio",
     "aop2_index_no_login" : "Nuestro Servicio",
-    "aop3_index_no_login" : "Contacto",
 
+    "h1_1_nuestro_servicio" : "Nuestro Servicio",
+    "p_1_nuestro_servicio" : "Quick Distribution Service ofrece un servicio de distribucion de paquetes para distintas empresas del país, nos encargamos de mejorar los procesos logísiticos para satisfacer a los clientes y brindarles la mejor de las experiencias. Con nuestro servicio, tus productos podrán llegar a cualquier parte del país de una forma rápida, eficiente y eficaz.",
+
+    "h1_2_nuestro_servicio" : "Trabaja con nosotros",
+    "p_2_nuestro_servicio" : "Únete a QDS y comienza a utilizar nuestro servicio desde ahora, nos encargaremos de hacer llegar tus productos a tus clientes.",
+
+    "span_1_nuestro_servicio" : "Personal altamente calificado",
+    "span_2_nuestro_servicio" : "Brindamos seguridad a nuestros clientes",
+    "span_3_nuestro_servicio" : "Entregas inmediatas a todo el país",
+
+    "aop3_index_no_login" : "Contacto",
     "h1_login" : "Iniciar Sesión",
     "input_nombre_login" : "Nombre de usuario",
     "input_contrasenia_login" : "Contraseña",

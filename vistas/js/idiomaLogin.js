@@ -1,3 +1,4 @@
+let url = location.href;
 const chkIdioma = document.querySelector("#btn-idioma");
 
 let idioma = "español";
@@ -43,12 +44,27 @@ function actualizarTextos(data) {
 
   document.querySelector("#boton-login").value = data.btn_login;
 
-  document.querySelector("#h1-login").textContent = data.h1_login;
-  document.querySelector(".txt1").placeholder = data.input_nombre_login;
-  document.querySelector(".txt2").placeholder = data.input_contrasenia_login;
+  if(document.querySelector("#h1-login")){
+    document.querySelector("#h1-login").textContent = data.h1_login;
+    document.querySelector(".txt1").placeholder = data.input_nombre_login;
+    document.querySelector(".txt2").placeholder = data.input_contrasenia_login;
 
-  document.querySelector("#submit-login").value = data.submit_login;
-  document.querySelector("#a-contrasenia").textContent = data.olvidaste_tu_contrasenia;
+    document.querySelector("#submit-login").value = data.submit_login;
+    document.querySelector("#a-contrasenia").textContent = data.olvidaste_tu_contrasenia;
+
+  }
+
+  if(url.includes("nuestroServicio")){
+    document.querySelector(".titulo-1").textContent = data.h1_1_nuestro_servicio;
+    document.querySelector(".p-1").textContent = data.p_1_nuestro_servicio;
+    document.querySelector(".titulo-2").textContent = data.h1_2_nuestro_servicio;
+    document.querySelector(".p-2").textContent = data.p_2_nuestro_servicio;
+
+    document.querySelector(".span-1").textContent = data.span_1_nuestro_servicio;
+    document.querySelector(".span-2").textContent = data.span_2_nuestro_servicio;
+    document.querySelector(".span-3").textContent = data.span_3_nuestro_servicio;
+    
+  }
 
 }
 

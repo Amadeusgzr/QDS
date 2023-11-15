@@ -2,8 +2,18 @@
 
     "aop1_index_no_login" : "Home",
     "aop2_index_no_login" : "Our Service",
-    "aop3_index_no_login" : "Contact",
 
+    "h1_1_nuestro_servicio" : "Our Service",
+    "p_1_nuestro_servicio" : "Quick Distribution Service offers a package distribution service for different companies in the country, we are in charge of improving logistics processes to satisfy customers and provide them with the best experiences. With our service, your products can reach any part of the country quickly, efficiently and effectively.",
+
+    "h1_2_nuestro_servicio" : "Join Us",
+    "p_2_nuestro_servicio" : "Join QDS and start using our service now, we will take care of getting your products to your customers.",
+
+    "span_1_nuestro_servicio" : "Highly qualified staff",
+    "span_2_nuestro_servicio" : "We provide security to our clients",
+    "span_3_nuestro_servicio" : "Immediate deliveries to the entire country",
+
+    "aop3_index_no_login" : "Contact",
     "h1_login" : "Log in",
     "input_nombre_login" : "Username",
     "input_contrasenia_login" : "Password",

@@ -6,7 +6,16 @@
             <li>2525 2525</li>
             <li>qds@gmail.com</li>
         </ul>
-
+        <div class="div-redes">
+            <div class="div-redes-2">
+                <a href=""><img src="vistas/img/iconos/facebook.png" alt="" class="red"></a>
+                <a href=""><img src="vistas/img/iconos/instagram.png" alt="" class="red"></a>
+            </div>
+            <div class="div-redes-2">
+                <a href=""><img src="vistas/img/iconos/twitter.png" alt="" class="red"></a>
+                <a href=""><img src="vistas/img/iconos/linkedin.png" alt="" class="red"></a>
+            </div>
+        </div>
     </div>
 
     <div id="div-footer2">
