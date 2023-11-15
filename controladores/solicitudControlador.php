@@ -17,7 +17,12 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
     case 'PUT':
         $_PUT = json_decode(file_get_contents('php://input', true));
+        if(isset($_PUT->id_almacen_cliente)) {
+            $respuesta = $solicitudModelo->modificarEstadoSolicitud($_PUT->id_camioneta, $_PUT->id_almacen_cliente, $_PUT->fecha_recogida_ideal, $_PUT->usuario1);
+        } else{
             $respuesta = $solicitudModelo->modificarSolicitud($_PUT->id_solicitud, $_PUT->accion);
+
+        }
         echo json_encode($respuesta);
         break;
 }

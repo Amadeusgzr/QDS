@@ -81,7 +81,7 @@ if (isset($_GET['id_camionero'])) {
     $id_plataforma = $_GET['id_plataforma'];
 
 
-    $instruccion = "select * from plataforma where id_plataforma=$id_plataforma";
+    $instruccion = "select * from plataforma inner join destino on plataforma.ubicacion = destino.id_destino where id_plataforma=$id_plataforma";
     $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
@@ -91,18 +91,7 @@ if (isset($_GET['id_camionero'])) {
         $departamento = $fila["departamento_destino"];
         $volumen = $fila["volumen_maximo"];
 
-        $api_key = 'AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM';
-        $origen = 'FelipeSanguinetti2474';
-        $destino = str_replace(' ', '', $direccion) . ",Departamentode" . $departamento;
         // Construir la URL para la solicitud a la API
-        $url = "https://maps.googleapis.com/maps/api/directions/json?origin=$origen&destination=$destino&key=$api_key&region=uy&language=es";
-
-        $response = file_get_contents($url);
-
-        $data = json_decode($response);
-
-        // Realizar la solicitud a la API
-        $response = file_get_contents($url);
         echo "<div class='form-crud'>
         <legend class='legend-c-plataforma'>Consultar Plataforma</legend>
         <p class='subtitulo-crud'>Datos de la plataforma</p>
@@ -111,22 +100,7 @@ if (isset($_GET['id_camionero'])) {
         <p><b class='p-direccion'>Dirección: </b>$direccion</p>
         <p><b class='p-departamento'>Departamento: </b>$departamento</p>
         <p><b class='p-volumen-maximo'>Volumen máx.: </b>$volumen</p>";
-        if ($data->status === "OK") {
-            // Recuperar las direcciones en texto
-            $pasos = $data->routes[0]->legs[0]->steps;
-            $direccionesTexto = [];
 
-            $data = json_decode($response);
-
-            foreach ($pasos as $paso) {
-                $direccionesTexto[] = $paso->html_instructions;
-            }
-
-            // Imprimir las direcciones en texto
-            foreach ($direccionesTexto as $direcciones) {
-                echo "<p>$direcciones</p>";
-            }
-        }
         echo "<a href='op-plataforma.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
@@ -225,7 +199,7 @@ if (isset($_GET['id_camionero'])) {
     echo "
     <div class='form-crud'>
     <legend class='legend-c-horario'>Consultar Horario</legend>
-    <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
+    <p class='subtitulo-crud'>Datos del horario</p>
     <p class='p-datos-de-salida'>Datos de salida</p>
     <p><b class='p-matricula'>Matricula: </b>$matricula</p>
     <p><b class='p-fecha-salida'>Fecha salida: </b>$fecha_salida</p>";
@@ -273,7 +247,7 @@ if (isset($_GET['id_camionero'])) {
     echo "
     <div class='form-crud'>
     <legend class='legend-c-horario'>Consultar Horario</legend>
-    <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
+    <p class='subtitulo-crud'>Datos del horario</p>
     <p class='p-datos-de-salida'>Datos de salida</p>
     <p><b class='p-matricula'>Matricula: </b>$matricula</p>
     <p><b class='p-fecha-salida'>Fecha salida: </b>$fecha_salida</p>";
@@ -305,14 +279,32 @@ if (isset($_GET['id_camionero'])) {
         $nombre_completo = $fila["nombre_completo"];
         echo "
         <div class='form-crud'>
-        <legend>Eliminar Horario</legend>
-        <p class='adv'>¿Seguro que quiere eliminar el siguiente horario? Los cambios serán irreversibles</p>
-        <p>Datos de salida</p>
-        <p><b>Matricula: </b>$matricula</p>
-        <p><b>Fecha salida: </b>$nombre_completo</p>";
+        <legend class='legend-c-relacion'>Consultar camionero a vehículo</legend>
+        <p><b class='p-matricula'>Matricula: </b>$matricula</p>
+        <p><b class='p-fecha-salida'>Fecha salida: </b>$nombre_completo</p>";
     
         echo "<a href='op-camionero-vehiculo.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
+} else if (isset($_GET['id_usuario'])) {
+    $id_usuario = $_GET['id_usuario'];
+
+    $instruccion = "select * from login where id_usuario='$id_usuario'";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $nom_usu = $fila["nom_usu"];
+        $tipo_usu = $fila["tipo_usu"];
+        $mail = $fila["mail"];
+
+        echo "<div class='form-crud'>
+        <legend>Consultar Usuario</legend>
+        <p class='subtitulo-crud'>Datos del usuario</p>
+        <p><b>Usuario: </b>$nom_usu</p>
+        <p><b>Tipo de Usuario: </b>$tipo_usu</p>
+        <p><b>Mail: </b>$mail</p>
+        <a href='op-usuarios.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    } 
 }
 ?>

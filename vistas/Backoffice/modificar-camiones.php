@@ -31,6 +31,7 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         <legend class="legend-m-camion">Modificar Camión</legend>
 
         <label><b class='p-id'>ID:</b> <?= $id_camion?></label>
+        <input type="text" name="id_camion" value="<?=$id_camion?>" required hidden>
 
         <label><b class="p-matricula">Matrícula: </b></label>
         <input type="text" placeholder="Matrícula" class="txt-crud" name="matricula" value="<?= $matricula ?>" required readonly>

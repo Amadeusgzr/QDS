@@ -28,7 +28,7 @@ require '../plantillas/menu-cuenta.php';
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from empresa_cliente";
+            $instruccion = "select * from empresa_cliente where estado != 'De baja'";
             $empresas = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {

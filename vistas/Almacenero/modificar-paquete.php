@@ -63,10 +63,13 @@ foreach ($decode as $paquete) {
 
         <?php
         if ($fragil == "Si") {
-        echo "<label><b class='p-tipo'>Tipo: </b>$tipo</label>";
+        echo "<label><b class='p-tipo'>Tipo: </label>
+        <input type='text' placeholder='Tipo' class='txt-crud txt5' name='tipo' value='$tipo' required>";
         }
         ?>
-        <label><b class='p-estado'>Estado: </b><?= $estado ?></label>
+
+        <label><b class='p-estado'>Estado: </b></label>
+        <input type="text" placeholder="Estado" class="txt-crud txt6" name="estado" value="<?= $estado ?>" required>
 
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>

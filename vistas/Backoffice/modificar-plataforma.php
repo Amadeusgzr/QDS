@@ -21,7 +21,7 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
     $id_plataforma = $fila["id_plataforma"];
     $telefono = $fila["telefono"];
     $direccion = $fila["direccion"];
-    $departamento = $fila["departamento_destino"];
+    $ubicacion = $fila["ubicacion"];
     $volumen = $fila["volumen_maximo"];
 }
 
@@ -42,8 +42,25 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         <input type="text" placeholder="Dirección" class="txt-crud txt2" name="direccion" value="<?= $direccion ?>" required>
 
         <label><b class="p-departamento">Departamento: </b></label>
-        <input type="text" placeholder="Departamento" class="txt-crud txt3" name="departamento" value="<?= $departamento ?>" required>
-
+        <select name="departamento" class="txt-crud">
+      <?php
+      $instruccion = "select * from destino";
+      $destinos = [];
+      $result = mysqli_query($conexion, $instruccion);
+      while ($row = mysqli_fetch_assoc($result)) {
+          array_push($destinos, $row);
+      }
+      foreach ($destinos as $destino) {
+          $id_destino = $destino['id_destino'];
+          $departamento = $destino['departamento_destino'];
+          if ($id_destino == $ubicacion) {
+          echo "<option value='$id_destino' selected>$departamento</option>";
+          } else{
+            echo "<option value='$id_destino'>$departamento</option>";
+          }
+      }
+      ?>
+    </select>
         <label><b class="p-volumen-maximo">Volumen máx: </b></label>
         <input type="text" placeholder="Volumen máx." class="txt-crud txt4" name="volumen_maximo" value="<?= $volumen ?>" required>
         

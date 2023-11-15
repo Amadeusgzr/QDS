@@ -199,11 +199,11 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-empresas.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
-} else if (isset($_GET['nom_usu'])) {
-    $nom_usu = $_GET['nom_usu'];
+} else if (isset($_GET['id_usuario'])) {
+    $id_usuario = $_GET['id_usuario'];
 
 
-    $instruccion = "select * from login where nom_usu='$nom_usu'";
+    $instruccion = "select * from login where id_usuario='$id_usuario'";
     $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
@@ -218,7 +218,7 @@ if (isset($_GET['id_camionero'])) {
         <p><b>Usuario: </b>$nom_usu</p>
         <p><b>Tipo de Usuario: </b>$tipo_usu</p>
         <p><b>Mail: </b>$mail</p>
-        <a href='eliminar.php?nom_usu=$nom_usu'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='eliminar.php?id_usuario=$id_usuario'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-usuarios.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
@@ -309,7 +309,30 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-camionero-vehiculo.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     }
-}   else if (isset($_GET['id_camion_horario'])) {
+}  else if (isset($_GET['nom_usu'])) {
+    $nom_usu = $_GET['nom_usu'];
+
+
+    $instruccion = "select * from login where nom_usu='$nom_usu'";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $nombre_usu = $fila["nom_usu"];
+        $tipo_usu = $fila["tipo_usu"];
+        $mail = $fila["mail"];
+
+        echo "<div class='form-crud'>
+        <legend>Eliminar Usuario</legend>
+        <p class='adv'>¿Seguro que quiere eliminar el siguiente usuario? Los cambios serán irreversibles</p>
+        <p class='subtitulo-crud'>Datos del usuario</p>
+        <p><b>Usuario: </b>$nombre_usu</p>
+        <p><b>Tipo de Usuario: </b>$tipo_usu</p>
+        <p><b>Mail: </b>$mail</p>
+        <a href='eliminar.php?nom_usu=$nom_usu'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
+        <a href='op-usuarios.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
+} else if (isset($_GET['id_camion_horario'])) {
     $id_camion = $_GET['id_camion_horario'];
     $fecha_salida = $_GET["fs"];
     $almacen_central_salida = $_GET["acs"];
@@ -346,7 +369,7 @@ if (isset($_GET['id_camionero'])) {
     } 
 
     echo "<a href='eliminar.php?id_camion_horario=$id_camion&&fs=$fecha_salida&acs=$almacen_central_salida'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente boton-eliminar'></a>
-    <a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+    <a href='op-gestion-lote-entrega.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>";
 
 }

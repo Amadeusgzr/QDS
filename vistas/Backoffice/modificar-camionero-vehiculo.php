@@ -27,8 +27,13 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 ?>
 <div class="form-crud">
     <form action="modificar.php" method="post">
-        <legend class="legend-m-camion">Modificar Camión</legend>
-        <select name="id_camionero[]" id="" class="estilo-input">
+        <legend class="legend-m-relacion">Modificar Asignacion</legend>
+
+        <label for=""></label>
+        <input type="text" name="id_maneja" value="<?= $id_maneja?>" class="txt-crud" hidden readonly required>
+
+        <label for="" class="p-nombre"></label>
+        <select name="ic" id="" class="txt-crud">
             <?php
             $instruccion = "select * from camionero where estado != 'De baja'";
             $camioneros = [];
@@ -40,28 +45,43 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
                 $id_camionero1 = $camionero["id_camionero"];
                 $nombre_completo = $camionero["nombre_completo"];
                 if ($id_camionero == $id_camionero1){
-                    echo "<option value='$id_camionero' selected>$nombre_completo</option>";
+                    echo "<option value='$id_camionero1' selected>$nombre_completo</option>";
                 } else {
-                    echo "<option value='$id_camionero'>$nombre_completo</option>";
+                    echo "<option value='$id_camionero1'>$nombre_completo</option>";
                 }
             }
             ?>
         </select>
-        <label><b class='p-id'>ID:</b> <?= $id_camion?></label>
 
-        <label><b class="p-matricula">Matrícula: </b></label>
-        <input type="text" placeholder="Matrícula" class="txt-crud" name="matricula" value="<?= $matricula ?>" required readonly>
+        <label for="" class="p-matricula"></label>
+        <select name="iv" id="" class="txt-crud">
+        <?php
+            include("../../modelos/db.php");
+            $instruccion = "select * from vehiculo where estado != 'De baja'";
+            $vehiculos = [];
+            $result = mysqli_query($conexion, $instruccion);
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($vehiculos, $row);
+            }
+            foreach ($vehiculos as $vehiculo) {
+                $id_vehiculo1 = $vehiculo["id_vehiculo"];
+                $matricula = $vehiculo["matricula"];
+                if ($id_vehiculo == $id_vehiculo1){
+                    echo "<option value='$id_vehiculo1' selected>$matricula</option>";
+                } else {
+                    echo "<option value='$id_vehiculo1'>$matricula</option>";
+                }
+            }
+            ?>
+        </select>
 
-        <label><b class="p-peso-sop">Peso soportado: </b></label>
-        <input type="text" placeholder="Peso soportado" class="txt-crud" name="peso_soportado" value="<?= $peso_soportado ?>" required>
+        <label for="" class="p-fecha-inicio"></label>
+        <input type="date" name="fecha_inicio_manejo" class="txt-crud" value="<?=$fecha_inicio_manejo?>">
 
-        <label><b class="p-volumen-disp">Volumen disponible: </b></label>
-        <input type="tel" placeholder="Volumen disponible" class="txt-crud" name="volumen_disponible" value="<?= $volumen_disponible ?>" required>
-
-        <label><b class="p-estado">Estado: </b></label>
-        <input type="text" placeholder="Estado" class="txt-crud" name="estado" value="<?= $estado ?>" required>
+        <label for="" class="p-fecha-fin"></label>
+        <input type="date" name="fecha_fin_manejo" class="txt-crud" value="<?=$fecha_fin_manejo?>">
         
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
-    <a href="op-camiones.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
+    <a href="op-camionero-vehiculo.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>

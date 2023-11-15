@@ -24,6 +24,7 @@ require '../plantillas/menu-cuenta.php';
                 <th class="th2">Usuario</th>
                 <th class="th3">Tipo de Usuario</th>
                 <th>Mail</th>
+                <th>OP</th>
             </tr>
             <?php
             include("../../modelos/db.php");
@@ -43,12 +44,24 @@ require '../plantillas/menu-cuenta.php';
                 echo "<td>$nom_usu</td>";
                 echo "<td>$tipo_usu</td>";
                 echo "<td>$mail</td>";
+                echo "<td>
+                <a href='baja-dato.php?id_usuario=$id_usuario'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                <a href='modificar-usuario.php?id_usuario=$id_usuario'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                <a href='consultar-dato.php?id_usuario=$id_usuario'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
+                </td>";
                 echo "</tr>";
             }
             ?>
         </table>
-        <p class="adv" style="margin-top: 20px">Para agregar, modificar o eliminar usuarios debe de utilizar el Centro de Cómputos</p>
     </div>
+    <div class="div-btn-uno">
+        <button class="estilo-boton boton-largo btn-limpiar">Limpiar</button>
+    </div>
+    <div class="div-btn-doble">
+        <a href="alta-usuario.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
+        <button class="boton-siguiente estilo-boton boton-eliminar" id="submit-as-lote-2">Eliminar</button>
+    </div>
+</div>
 
 </div>
 

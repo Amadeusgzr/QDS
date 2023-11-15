@@ -39,7 +39,17 @@ require '../plantillas/menu-cuenta.php';
         </a>
     </div>
 </div>
-
+<div class="div-error">
+        <?php
+        if (isset($_GET['datos'])) {
+            $jsonDatos = urldecode($_GET['datos']);
+            $datos = json_decode($jsonDatos, true);
+            echo $datos['respuesta'];
+        }
+        ?>
+    </div>
+<script src="../js/mostrar-respuesta.js"></script>
+<script src="../js/ocultar-get-alta.js"></script>
 </body>
 
 </html>

@@ -29,7 +29,9 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 <div class="form-crud">
     <form action="modificar.php" method="post">
         <legend class="legend-m-camioneta">Modificar Camioneta</legend>
+
         <label><b class='p-id'>ID:</b> <?= $id_camioneta?></label>
+        <input type="text" name="id_camioneta" value="<?=$id_camioneta?>" required hidden>
 
         <label><b class="p-matricula">Matrícula: </b></label>
         <input type="text" placeholder="Matrícula" class="txt-crud txt1" name="matricula" value="<?= $matricula ?>" required readonly>

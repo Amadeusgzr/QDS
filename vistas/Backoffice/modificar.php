@@ -6,7 +6,7 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
     header("Location: ../permisos.php"); // Redirige a la página de inicio de sesión
     exit();
 }
-require ("../../controladores/funciones.php");
+require("../../controladores/funciones.php");
 include("../../modelos/db.php");
 if (isset($_POST["id_almacen_central"])) {
     $id_almacen_central = $_POST["id_almacen_central"];
@@ -32,7 +32,7 @@ if (isset($_POST["id_almacen_central"])) {
     $volumen_disponible = $_POST["volumen_disponible"];
     $estado = $_POST["estado"];
 
-    $instruccion1 = "update vehiculo set matricula='$matricula', peso_soportado='$peso_soportado', volumen_disponible='$volumen_disponible', estado='$estado' where id_vehiculo=$id_camion";
+    $instruccion1 = "update vehiculo set matricula='$matricula', peso_soportado='$peso_soportado', volumen_maximo='$volumen_disponible', estado='$estado' where id_vehiculo=$id_camion";
     $conexion->query($instruccion1);
     header("Location: modificar-camiones.php?id_camion=$id_camion");
 
@@ -43,7 +43,7 @@ if (isset($_POST["id_almacen_central"])) {
     $volumen_disponible = $_POST["volumen_disponible"];
     $estado = $_POST["estado"];
 
-    $instruccion1 = "update vehiculo set matricula='$matricula', peso_soportado='$peso_soportado', volumen_disponible='$volumen_disponible', estado='$estado' where id_vehiculo=$id_camioneta";
+    $instruccion1 = "update vehiculo set matricula='$matricula', peso_soportado='$peso_soportado', volumen_maximo='$volumen_disponible', estado='$estado' where id_vehiculo=$id_camioneta";
     $conexion->query($instruccion1);
     header("Location: modificar-camioneta.php?id_camioneta=$id_camioneta");
 
@@ -54,112 +54,16 @@ if (isset($_POST["id_almacen_central"])) {
     $mail = $_POST["mail"];
     $telefono = $_POST["telefono"];
 
-    $numArrays = count($cedula);
-    for ($i = 0; $i < $numArrays; $i++) {
-        $respuesta = existencia('camionero', 'cedula', $cedula[$i]);
-        if ($respuesta['error'] == "Error") {
-            $respuesta = [
-                'error' => "Error",
-                'respuesta' => "Ya existe la cedula $cedula[$i]"
-            ];
-            break;
-        }
-        $respuesta = existencia('camionero', 'telefono', $telefono[$i]);
-        if ($respuesta['error'] == "Error") {
-            $respuesta = [
-                'error' => "Error",
-                'respuesta' => "Ya existe el telefono $telefono[$i]"
-            ];
-            break;
-        }
-        $respuesta = existencia('camionero', 'mail', $mail[$i]);
-        if ($respuesta['error'] == "Error") {
-            $respuesta = [
-                'error' => "Error",
-                'respuesta' => "Ya existe el mail $mail[$i]"
-            ];
-            break;
-        }
-        if (!filter_var($mail[$i], FILTER_VALIDATE_EMAIL)) {
-            $respuesta = [
-                'error' => 'Error',
-                'respuesta' => "La dirección de correo electrónico no es válida"
-            ];
-            break;
-        }
 
-        $respuesta = atributosVacio($cedula);
-        $respuesta1 = atributosVacio($nombre_completo);
-        $respuesta2 = atributosVacio($mail);
-        $respuesta3 = atributosVacio($telefono);
-
-        if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error") {
-
-            $respuesta = longitud($cedula[$i], 8);
-            $respuesta1 = longitud($nombre_completo[$i], 45);
-            $respuesta2 = longitud($mail[$i], 45);
-            $respuesta3 = longitud($telefono[$i], 20);
-
-            if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error") {
-
-                $respuesta = numeros($cedula[$i]);
-
-                if ($respuesta['error'] !== "Error") {
-
-                    if (preg_match('/^\+\d+(\s\d+)?$/', $telefono[$i]) || ctype_digit($telefono[$i])) {
-
-                        $respuesta = letras($nombre_completo[$i]);
-
-                        if ($respuesta['error'] !== "Error") {
-
-                            $respuesta = [
-                                'error' => "Éxito",
-                                'respuesta' => "Camionero modificado"
-                            ];
-                            $instruccion = "update camionero set cedula='$cedula[$i]', nombre_completo='$nombre_completo[$i]', mail='$mail[$i]', telefono='$telefono[$i]' where id_camionero=$id_camionero";
-                            $conexion->query($instruccion);
-
-  
-
-                        } else {
-                            $respuesta = [
-                                'error' => "Error",
-                                'respuesta' => "El nombre debe tener solo letras"
-                            ];
-                        }
-                    } else {
-                        $respuesta = [
-                            'error' => "Error",
-                            'respuesta' => "El teléfono no es válido"
-                        ];
-                    }
+    $instruccion = "update camionero set cedula='$cedula', nombre_completo='$nombre_completo', mail='$mail', telefono='$telefono' where id_camionero=$id_camionero";
+    $conexion->query($instruccion);
 
 
 
-                } else {
-                    $respuesta = [
-                        'error' => "Éxito",
-                        'respuesta' => "La cédula debe tener solo números"
-                    ];
-                }
-
-            } else {
-                $respuesta = [
-                    'error' => "Éxito",
-                    'respuesta' => "Palabras inválidas"
-                ];
-            }
-
-        } else {
-            $respuesta = [
-                'error' => "Error",
-                'respuesta' => "Campos sin completar"
-            ];
-        }
-    }
+                        
     $conexion->close();
     $respuesta = json_encode($respuesta);
-    header("Location: modificar-camionero.php?id_camionero=$id_camionero&datos="  . urlencode($respuesta));
+    header("Location: modificar-camionero.php?id_camionero=$id_camionero");
 
 } else if (isset($_POST["id_empresa_cliente"])) {
     $id_empresa = $_POST["id_empresa_cliente"];
@@ -184,14 +88,6 @@ if (isset($_POST["id_almacen_central"])) {
     $conexion->query($instruccion1);
     header("Location: modificar-plataforma.php?id_plataforma=$id_plataforma");
 
-} else if (isset($_POST["nom_usu"])) {
-    $nom_usu = $_POST["nom_usu"];
-    $tipo_usu = $_POST["tipo_usu"];
-    $mail = $_POST["mail"];
-
-    $instruccion1 = "update login set nom_usu='$nom_usu', tipo_usu='$tipo_usu', mail='$mail' where nom_usu='$nom_usu'";
-    $conexion->query($instruccion1);
-    header("Location: modificar-usuario.php?nom_usu=$nom_usu");
 } else if (isset($_POST["icth"])) {
     $id_camioneta_horario = $_POST["icth"];
 
@@ -219,18 +115,67 @@ if (isset($_POST["id_almacen_central"])) {
         $respuesta6 = atributosVacio($horas_recogida);
 
 
-
-
         if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error" && $respuesta5['error'] !== "Error" && $respuesta6['error'] !== "Error") {
+            date_default_timezone_set('America/Montevideo');
 
-        $fecha1 = $fecha_salida[0] . " "  . $hora_salida[0];
-        $fecha2 = $fechas_recogida[$i] . " " . $horas_recogida[$i]; 
-        $instruccion = "update recoge set fecha_recogida_ideal='$fecha2' where id_camioneta='$id_camioneta_horario[0]' AND fecha_salida='$fecha1' AND almacen_central_salida='$id_almacen_central[0]' AND id_almacen_cliente='$id_almacenes_cliente[$i]'";
-        $conexion->query($instruccion);
+            $fecha = $fechas_recogida[$i] . " " . $horas_recogida[$i];
+            $fecha = strtotime($fecha);
+
+            $fecha0 = $fecha_salida[0] . " " . $hora_salida[0];
+            $fecha0 = strtotime($fecha0);
+            $fecha1 = $fecha_salida[0] . " " . $hora_salida[0];
+            $fecha2 = $fechas_recogida[$i] . " " . $horas_recogida[$i];
+
+            if ($fecha0 < $fecha) {
+
+                $instruccion = "update recoge set fecha_recogida_ideal='$fecha2' where id_camioneta='$id_camioneta_horario[0]' AND fecha_salida='$fecha1' AND almacen_central_salida='$id_almacen_central[0]' AND id_almacen_cliente='$id_almacenes_cliente[$i]'";
+                $conexion->query($instruccion);
+                $respuesta = [
+                    'error' => "Error",
+                    'respuesta' => "Horario modificado"
+                ];
+            } else {
+                $respuesta = [
+                    'error' => "Error",
+                    'respuesta' => "La fecha de salida no puede ser mayor a una fecha de recogida"
+                ];
+            }
+        } else {
+            $respuesta = [
+                'error' => "Error",
+                'respuesta' => "Campos sin completar"
+            ];
         }
     }
-    header("Location: modificar-horario-recogida.php?icth=$id_camioneta_horario[0]&fs=$fecha1&acs=$id_almacen_central[0]");
+    $conexion->close();
+    $respuesta = json_encode($respuesta);
+    header("Location: modificar-horario-recogida.php?icth=$id_camioneta_horario[0]&fs=$fecha1&acs=$id_almacen_central[0]&datos=" . urlencode($respuesta));
+} else if (isset($_POST["id_maneja"])) {
+    $id_maneja = $_POST["id_maneja"];
+    $id_camionero = $_POST["ic"];
+    $id_vehiculo = $_POST["iv"];
+    $fecha_inicio_manejo = $_POST["fecha_inicio_manejo"];
+    $fecha_fin_manejo = $_POST["fecha_fin_manejo"];
+
+    $instruccion = "update maneja set id_camionero='$id_camionero', id_vehiculo='$id_vehiculo', fecha_inicio_manejo='$fecha_inicio_manejo' ,fecha_fin_manejo='$fecha_fin_manejo' where id_maneja = '$id_maneja'";
+    $conexion->query($instruccion);
+
+    header("Location: modificar-camionero-vehiculo.php?id_maneja=$id_maneja");
+
+}else if (isset($_POST["id_usuario"])) {
+    $id_usuario = $_POST["id_usuario"];
+    $nom_usu = $_POST["nom_usu"];
+    $tipo_usu = $_POST["tipo_usu"];
+    $mail = $_POST["mail"];
+
+    $instruccion = "update login set nom_usu='$nom_usu', tipo_usu='$tipo_usu', mail='$mail' where id_usuario = '$id_usuario'";
+    $conexion->query($instruccion);
+
+    header("Location: modificar-usuario.php?id_usuario=$id_usuario");
+
 }
+
+
 
 
 

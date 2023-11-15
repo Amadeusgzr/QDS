@@ -11,10 +11,7 @@ if (!isset($_SESSION['nom_usu'])) {
 
 
 ?>
-
-
 <h1 id="h1-index">quick distribution service</h1>
-
 <form action="vistas/aplicacion-seguimiento.php" id="form-rastreo" method="get">
     <legend id="sub-rastreo">Rastrear envío</legend>
     <p id="p-rastreo">Ingresa el código del envío para poder rastrearlo</p>

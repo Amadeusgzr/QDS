@@ -75,8 +75,6 @@ if (count($filas) > 0) {
                 if ($id_almacen_central == $almacen_central_salida){
                     echo "<input value='$id_almacen_central' name='iac[]' hidden>";
                     echo "Almacen " . $id_almacen_central ." - Puerta " . $numero_almacen;
-                } else{
-                    echo "<option value='$id_almacen_central'>Almacen $id_almacen_central - Puerta $numero_almacen</option>";
                 }
             }
             ?>
@@ -92,7 +90,7 @@ if (count($filas) > 0) {
 
         foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
             echo "<hr>";
-            echo "<p><b>Almacén</b></p>";
+            echo "<p><b class='p-almacen'>Almacén</b></p>";
             $id_almacen_cliente = $fila["id_almacen_cliente"];
             $fecha_recogida_ideal = $fila["fecha_recogida_ideal"];
             $direccion_almacen = $fila["direccion"];
@@ -102,8 +100,7 @@ if (count($filas) > 0) {
 
             $fecha = $fecha_recogida_ideal->format('Y-m-d'); 
             $hora = $fecha_recogida_ideal->format('H:i:s'); 
-            echo "<select name='iacl[]' class='estilo-select'>
-            <option value='' selected>Almacén Cliente</option>";
+
             $instruccion = "select * from almacen_cliente inner join tiene on almacen_cliente.id_almacen_cliente = tiene.id_almacen_cliente inner join empresa_cliente on tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente";
             $almacenes_cliente = [];
             $result = mysqli_query($conexion, $instruccion);
@@ -115,14 +112,11 @@ if (count($filas) > 0) {
                 $direccion = $almacen_cliente['direccion'];
                 $empresa = $almacen_cliente['nombre_de_empresa'];
                 if ($id_almacen_cliente == $id_almacen_cliente1){
-                    echo "<option value='$id_almacen_cliente1' selected>$direccion - $empresa</option>";
-                } else{
-                    echo "<option value='$id_almacen_cliente1'>$direccion - $empresa</option>";
-
-                }
+                    echo "<input value='$id_almacen_cliente1' hidden name='iacl[]'>";
+                    echo "Almacen " . $id_almacen_cliente ." - " . $direccion . " - "  . $empresa;
+                } 
             }
-            echo "</select>";
-            echo"<input value='$fecha' type='date' required class='txt-crud' placeholder='Fecha recogida' name='fecha_recogida[]'>
+            echo"<input value='$fecha' type='date' class='txt-crud' placeholder='Fecha recogida' name='fecha_recogida[]'>
             <input value='$hora' type='time' required class='txt-crud' placeholder='Hora recogida' name='hora_recogida[]'>
             ";
         }
@@ -132,3 +126,16 @@ if (count($filas) > 0) {
     </form>
     <a href="op-gestion-paquete-recogida.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
 </div>
+
+<div class="div-error">
+    <?php
+    if (isset($_GET['datos'])) {
+        $jsonDatos = urldecode($_GET['datos']);
+        $datos = json_decode($jsonDatos, true);
+        echo $datos['respuesta'];
+    }
+    ?>
+</div>
+
+<script src="../js/mostrar-respuesta.js"></script>
+<script src="../js/ocultar-get-modificar.js"></script>

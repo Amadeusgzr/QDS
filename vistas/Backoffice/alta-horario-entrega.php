@@ -11,9 +11,10 @@ require '../../controladores/funciones.php';
 require '../plantillas/headerIngresado.php';
 require '../plantillas/menu-cuenta.php';
 ?>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM&libraries=places"></script>
 
 <div class="form-crud">
-    <form action="alta-horario-entrega.php" method="post">
+    <form action="alta-horario-entrega.php" method="post" class="form-alta-horario">
         <legend class="legend-alta-horario-entrega">Agregar horarios de entrega</legend>
 
         <p class="p-paquete p-camion">Camión</p>
@@ -58,7 +59,7 @@ require '../plantillas/menu-cuenta.php';
         <input type="time" placeholder="Hora salida" class="txt-crud" name="hora_salida[]" required>
 
         <p class="p-paquete p-sobre-la-entrega">Sobre la entrega</p>
-        <select name="id_plataforma[]" class="estilo-select">
+        <select name="id_plataforma[]" class="estilo-select select-uno select-almacen">
             <option value="" selected>Plataforma</option>
             <?php
             include("../../modelos/db.php");
@@ -76,25 +77,11 @@ require '../plantillas/menu-cuenta.php';
             }
             ?>
         </select>
-        <select name="id_plataforma[]" class="estilo-select">
-            <option value="" selected>Plataforma</option>
-            <?php
-            include("../../modelos/db.php");
-            $instruccion = "select * from plataforma inner join destino on plataforma.ubicacion = destino.id_destino";
-            $plataformas = [];
-            $result = mysqli_query($conexion, $instruccion);
-            while ($row = mysqli_fetch_assoc($result)) {
-                array_push($plataformas, $row);
-            }
-            foreach ($plataformas as $plataforma) {
-                $id_plataforma = $plataforma['id_plataforma'];
-                $direccion = $plataforma['direccion'];
-                $departamento = $plataforma['departamento_destino'];
-                echo "<option value='$id_plataforma'>$direccion, $departamento</option>";
-            }
-            ?>
-        </select>
-
+        <div class='div-btn-doble'>
+            <div class='estilo-boton btn-agregar-almacen-cliente boton-agregar' style='text-align: center; font-size: 16px;'>Agregar plataforma</div>
+            <div class='estilo-boton btn-remover-almacen-cliente boton-volver' style='text-align: center; font-size: 16px;'>Remover plataforma</div>
+        </div>
+            <hr>
 
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
 
@@ -248,3 +235,4 @@ if ($_POST) {
 
 <script src="../js/ocultar-get-alta.js"></script>
 <script src="../js/mostrar-respuesta.js"></script>
+<script src="../js/select.js"></script>

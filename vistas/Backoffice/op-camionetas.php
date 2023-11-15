@@ -27,7 +27,7 @@ require '../plantillas/menu-cuenta.php';
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from mostrar_camionetas";
+            $instruccion = "select * from mostrar_camionetas where estado != 'De baja'";
             $camiones = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -60,8 +60,19 @@ require '../plantillas/menu-cuenta.php';
     </div>
 </div>
 
-<script src="../js/seleccionar-filas.js"></script>
+<div class="div-error">
+    <?php
+    if (isset($_GET['datos'])) {
+        $jsonDatos = urldecode($_GET['datos']);
+        $datos = json_decode($jsonDatos, true);
+        echo $datos['respuesta'];
+    }
+    ?>
+</div>
 
+<script src="../js/seleccionar-filas.js"></script>
+<script src="../js/mostrar-respuesta.js"></script>
+<script src="../js/ocultar-get-alta.js"></script>
 </body>
 
 </html>

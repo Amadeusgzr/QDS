@@ -23,10 +23,18 @@ require '../plantillas/menu-cuenta.php';
     $id_almacen_cliente = $almacen_cliente["id_almacen_cliente"];
     $direccion = $almacen_cliente["direccion"];
     $fecha_recogida_ideal = $almacen_cliente["fecha_recogida_ideal1"];
+    $fecha_recogida = $almacen_cliente["fecha_recogida"];
+    $fecha_salida = $almacen_cliente["fecha_salida"];
+    $id_camioneta = $almacen_cliente["id_camioneta"];
+
     echo "<div class='div-almacen-recogida'><hr><p><b class='p1'>Almacen Cliente: </b>Almacen $id_almacen_cliente - $direccion</p>
     <p><b class='p2'>Recogida: </b>$fecha_recogida_ideal</p>
     <a href='recoger-paquetes-2.php?id_camioneta=$id_camioneta&id_almacen_cliente=$id_almacen_cliente&fri=$fecha_recogida_ideal'><button class='estilo-boton2 boton-siguiente btn-recoger-paquetes-3'>Ver paquetes del almacén</button></a></div>
     ";
+    }
+    if (!isset($fecha_recogida) || is_null($fecha_recogida) || empty(trim($fecha_recogida))) {
+    } else{
+        echo "<a href='../../controladores/api/recoger_paquetesCamionero/modificarDato.php?fs=$fecha_salida&ic=$id_camioneta'>Finalizar recorrido</a>";
     }
     ?>
 

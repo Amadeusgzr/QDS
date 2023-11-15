@@ -52,6 +52,27 @@ class solicitudModelo
                 'error' => "Éxito",
                 'respuesta' => "Solicitud aceptada"
             ];
+            $instruccion = "SELECT * FROM solicitud WHERE id_solicitud = $id_solicitud";            
+            $solicitudes = [];
+            $result = mysqli_query($this->db, $instruccion);
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($solicitudes, $row);
+            }
+            foreach ($solicitudes as $solicitud){
+                $fecha_recogida_ideal = $solicitud["fecha_recogida_ideal"];
+                $id_almacen_cliente = $solicitud["id_almacen_cliente"];
+
+                date_default_timezone_set('America/Montevideo');
+                $fecha_hora_actual = time();
+
+                $fecha_hora_actual = date('Y-m-d H:i:s', $fecha_hora_actual);
+
+
+                $instruccion = "UPDATE recoge SET fecha_recogida='$fecha_hora_actual' WHERE fecha_recogida_ideal='$fecha_recogida_ideal' AND id_almacen_cliente='$id_almacen_cliente'";
+                mysqli_query($this->db, $instruccion);
+
+            }
+
         } else if ($accion == "d"){
             $instruccion = "UPDATE solicitud SET estado = 'Denegada' WHERE id_solicitud = $id_solicitud";
             mysqli_query($this->db, $instruccion);
@@ -59,6 +80,21 @@ class solicitudModelo
                 'error' => "Éxito",
                 'respuesta' => "Solicitud denegada"
             ];
+            $instruccion = "SELECT * FROM solicitud WHERE id_solicitud = $id_solicitud";            
+            $solicitudes = [];
+            $result = mysqli_query($this->db, $instruccion);
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($solicitudes, $row);
+            }
+            foreach ($solicitudes as $solicitud){
+                $fecha_recogida_ideal = $solicitud["fecha_recogida_ideal"];
+                $id_almacen_cliente = $solicitud["id_almacen_cliente"];
+
+
+                $instruccion = "UPDATE recoge SET fecha_recogida=NULL WHERE fecha_recogida_ideal='$fecha_recogida_ideal' AND id_almacen_cliente='$id_almacen_cliente'";
+                mysqli_query($this->db, $instruccion);
+                
+            }
         }  else {
             $resultado = [
                 'error' => "Error",
@@ -84,5 +120,17 @@ class solicitudModelo
             'respuesta' => "Solicitud enviada"
         ];        
         return $resultado;
+    }
+
+    public function modificarEstadoSolicitud($id_camioneta, $id_almacen_cliente, $fecha_recogida_ideal, $usuario)
+    {
+        $instruccion = "UPDATE solicitud SET estado = 'En espera' WHERE fecha_recogida_ideal = '$fecha_recogida_ideal' AND id_almacen_cliente = '$id_almacen_cliente'";
+        mysqli_query($this->db, $instruccion);
+        $resultado = [
+            'error' => "Éxito",
+            'respuesta' => "Solicitud reenviada"
+        ];
+        return $resultado;
+
     }
 }

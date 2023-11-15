@@ -58,7 +58,7 @@ require '../plantillas/menu-cuenta.php';
     $(document).ready(function () {
         function cargarSolicitudes(estado) {
             $.ajax({
-                url: "procesar_mensajes.php",
+                url: "../Backoffice/procesar_mensajes.php",
                 type: "POST",
                 data: { estado: estado },
                 success: function (data) {

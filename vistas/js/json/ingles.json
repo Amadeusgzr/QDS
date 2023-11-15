@@ -354,23 +354,43 @@
     "p_plataforma" : "Platform: ",
     "p_fecha_entrega_estimada" : "Estimated delivery date: ",
 
+    "--------- BACKOFFICE BAJA HORARIO ENTREGA ---------" : "",
+
+    
+
     "--------- BACKOFFICE MANEJA ---------" : "",
 
     "h1_camionero_vehiculo" : "Truckers to trucks",
-    "th1_camionero_vehiculo" : "Key",
+    "th1_camionero_vehiculo" : "Plate",
     "th2_camionero_vehiculo" : "Name",
-    "th3_camionero_vehiculo" : "Status",
+    "th3_camionero_vehiculo" : "Initial Date",
+    "th4_camionero_vehiculo" : "End Date",
 
     "--------- BACKOFFICE ALTA CAMIONERO VEHICULO ---------" : "",
 
-    "legend_alta_camionero_vehiculo" : "Assign vehicle to trucker",
+    "legend_alta_camionero_vehiculo" : "Assign trucker to vehicle",
 
     "--------- BACKOFFICE BAJA CAMIONERO VEHICULO ---------" : "",
 
     "legend_baja_camionero_vehiculo" : "Unlink trucker from vehicle",
     "adv_relacion" : "Are you sure you want to delete the following relation? The changes will be irreversible",
     "subtitulo_relacion" : "Relation data",
+
+    "--------- BACKOFFICE MODIFICAR CAMIONERO VEHICULO ---------" : "",
+
+    "legend_m_camionero_vehiculo" : "Modify trucker to vehicle",
+    "p_fecha_inicio" : "Initial Date:",
+    "p_fecha_fin" : "End Date:",
+
+    "--------- BACKOFFICE CONSULTAR CAMIONERO VEHICULO ---------" : "",
+
+    "legend_c_camionero_vehiculo" : "Consult trucker to vehicle",
+
+    "--------- BACKOFFICE VER MENSAJES ---------" : "",
     
+    "sin_responder" : "Unanswered messages",
+    "en_curso" : "In progress",
+    "resuelto" : "Resolved",
 
     "--------- ALMACENERO INDEX ---------" : "",
 

@@ -1,6 +1,14 @@
 <?php
 header("Location: ../vistas/permisos.php");
+$paqueteModelo = new paqueteModelo();
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
+require '../PHPMailer/src/Exception.php';
 class paqueteModelo
 {
 
@@ -207,7 +215,7 @@ class paqueteModelo
             'respuesta' => "No existe el paquete con la ID " . $id_paquete
         ];
         if (count($validar) > 0) {
-            $instruccion = "SELECT estado FROM paquete WHERE id_paquete='$id_paquete'";
+            $instruccion = "SELECT * FROM paquete WHERE id_paquete='$id_paquete'";
             $resultado = mysqli_query($this->db, $instruccion);
             $fila =  mysqli_fetch_assoc($resultado);
             $estado = $fila["estado"];
@@ -215,10 +223,46 @@ class paqueteModelo
                 if ($estado == "En almacén cliente"){
                     $instruccion = "UPDATE paquete SET estado='En camioneta (central)' WHERE id_paquete = '$id_paquete'";
                     mysqli_query($this->db, $instruccion);
+
+                    $mail_destinatario = $fila["mail_destinatario"];
+                    $codigoGenerado = $fila["codigo_seguimiento"];
+
+                    $mail = new PHPMailer(true);
+
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'qdservice.uy@gmail.com';
+                    $mail->Password = 'ggxvfmtelslnluko';
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                    $mail->Port = 587;
+
+                    $mail->setFrom('qdservice.uy@gmail.com', 'Quick Distribution Service');
+                    $mail->addAddress($mail_destinatario);
+
+                    $mail->AddEmbeddedImage('../vistas/img/logo.jpg', 'emailimg', 'attachment', 'base64', 'image/jpg');
+
+                    $mail->isHTML(true);
+                    $mail->Subject = 'Quick Distribution Service';
+                    $mail->Body = '<!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>Remito de Quick Distribution Service</title>
+                    </head>
+                    <body>
+                        <img src="cid:emailimg" alt="Logo de Quick Distribution Service">
+                        <h1>Remito de su paquete</h1>
+                        <p>El código de tu paquete es: ' . $codigoGenerado . '</p>
+                        <!-- Aquí puedes agregar más detalles sobre el paquete -->
+                    </body>
+                    </html>
+                    ';
+                    $mail->send();   
+                    
                     $resultado = [
                         'error' => "Éxito",
                         'respuesta' => "Paquete recogido"
-                    ];     
+                    ];
                 } else {
                     $instruccion = "UPDATE paquete SET estado='En almacén cliente' WHERE id_paquete = '$id_paquete'";
                     mysqli_query($this->db, $instruccion);

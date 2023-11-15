@@ -29,6 +29,7 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         <legend class="legend-m-almacen-cliente">Modificar Almacén (cliente)</legend>
 
         <label><b class='p-id'>ID:</b> <?= $id_almacen_cliente?></label>
+        <input type="text" name="id_almacen_cliente" value="<?=$id_almacen_cliente?>" required hidden>
 
         <label><b class='p-telefono'>Teléfono: </b></label>
         <input type="tel" placeholder="Teléfono" class="txt-crud txt1" name="telefono" value="<?= $telefono ?>" required>

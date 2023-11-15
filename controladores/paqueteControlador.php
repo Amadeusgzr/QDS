@@ -5,15 +5,7 @@ require("funciones.php");
 header("Location: ../vistas/permisos.php");
 
 
-$paqueteModelo = new paqueteModelo();
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-require '../PHPMailer/src/PHPMailer.php';
-require '../PHPMailer/src/SMTP.php';
-require '../PHPMailer/src/Exception.php';
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
 
@@ -82,38 +74,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                                 } else {
                                     $respuesta = $paqueteModelo->guardarPaquete($_POST->mail_destinatario[$i], $_POST->direccion[$i], $_POST->peso[$i], $_POST->volumen[$i], $_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i], $codigoGenerado, $_POST->id_almacen_cliente[$i], $_POST->id_destino[$i], 'En almacén cliente');
                                 }
-                                $mail_destinatario = $_POST->mail_destinatario[$i];
-                                $mail = new PHPMailer(true);
 
-                                $mail->isSMTP();
-                                $mail->Host = 'smtp.gmail.com';
-                                $mail->SMTPAuth = true;
-                                $mail->Username = 'qdservice.uy@gmail.com';
-                                $mail->Password = 'ggxvfmtelslnluko';
-                                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                                $mail->Port = 587;
-
-                                $mail->setFrom('qdservice.uy@gmail.com', 'Quick Distribution Service');
-                                $mail->addAddress($mail_destinatario);
-
-                                $mail->AddEmbeddedImage('../vistas/img/logo.jpg', 'emailimg', 'attachment', 'base64', 'image/jpg');
-
-                                $mail->isHTML(true);
-                                $mail->Subject = 'Quick Distribution Service';
-                                $mail->Body = '<!DOCTYPE html>
-                                <html>
-                                <head>
-                                    <title>Remito de Quick Distribution Service</title>
-                                </head>
-                                <body>
-                                    <img src="cid:emailimg" alt="Logo de Quick Distribution Service">
-                                    <h1>Remito de su paquete</h1>
-                                    <p>El código de tu paquete es: ' . $codigoGenerado . '</p>
-                                    <!-- Aquí puedes agregar más detalles sobre el paquete -->
-                                </body>
-                                </html>
-                                ';
-                                $mail->send();
                             } else {
                                 $respuesta = [
                                     'error' => "Error",

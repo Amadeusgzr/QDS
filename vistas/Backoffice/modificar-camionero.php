@@ -30,19 +30,20 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
     <form action="modificar.php" method="post">
         <legend class="legend-m-camionero">Modificar Camionero</legend>
         <label><b class='p-id'>ID:</b> <?= $id_camionero ?></label>
+        <input type="text" name="id_camionero" value="<?=$id_camionero?>" required hidden>
 
         <label><b class='p-cedula'>Cédula: </b></label>
-        <input type="text" placeholder="Cédula" class="txt-crud" name="cedula[]" value="<?= $cedula ?>" required maxlength="8">
+        <input type="text" placeholder="Cédula" class="txt-crud" name="cedula" value="<?= $cedula ?>" required maxlength="8">
 
         <label><b class='p-nombre'>Nombre: </b></label>
-        <input type="text" placeholder="Nombre Completo" class="txt-crud" name="nombre_completo[]"
+        <input type="text" placeholder="Nombre Completo" class="txt-crud" name="nombre_completo"
             value="<?= $nombre_completo ?>" required maxlength="45">
 
         <label><b class='p-telefono'>Teléfono: </b></label>
-        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono[]" value="<?= $telefono ?>" required maxlength="20">
+        <input type="tel" placeholder="Teléfono" class="txt-crud" name="telefono" value="<?= $telefono ?>" required maxlength="20">
 
         <label><b class='p-telefono'>Mail: </b></label>
-        <input type="mail" placeholder="Mail" class="txt-crud" name="mail[]" value="<?= $mail ?>" required maxlength="45">
+        <input type="mail" placeholder="Mail" class="txt-crud" name="mail" value="<?= $mail ?>" required maxlength="45">
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-camioneros.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>

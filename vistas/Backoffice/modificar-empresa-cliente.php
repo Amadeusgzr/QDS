@@ -29,7 +29,9 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 <div class="form-crud">
     <form action="modificar.php" method="post">
         <legend class="legend-m-empresa-cliente">Modificar Empresa Cliente</legend>
+
         <label><b class='p-id'>ID:</b> <?= $id_empresa?></label>
+        <input type="text" name="id_empresa_cliente" value="<?=$id_empresa?>" required hidden>
 
         <label><b class='p-cedula'>RUT: </b></label>
         <input type="text" placeholder="RUT" class="txt-crud txt1" name="rut" value="<?= $rut ?>" required>

@@ -361,9 +361,10 @@
     "--------- BACKOFFICE MANEJA ---------" : "",
 
     "h1_camionero_vehiculo" : "Camioneros a camiones",
-    "th1_camionero_vehiculo" : "ID",
+    "th1_camionero_vehiculo" : "Matrícula",
     "th2_camionero_vehiculo" : "Nombre",
-    "th3_camionero_vehiculo" : "Estado",
+    "th3_camionero_vehiculo" : "Fecha inicio",
+    "th4_camionero_vehiculo" : "Fecha fin",
 
     "--------- BACKOFFICE ALTA CAMIONERO VEHICULO ---------" : "",
 
@@ -374,6 +375,22 @@
     "legend_baja_camionero_vehiculo" : "Desvincular camionero de vehículo",
     "adv_relacion" : "¿Seguro que quiere eliminar la siguiente relación? Los cambios serán irreversibles",
     "subtitulo_relacion" : "Datos de la relación",
+
+    "--------- BACKOFFICE MODIFICAR CAMIONERO VEHICULO ---------" : "",
+
+    "legend_m_camionero_vehiculo" : "Modificar camión a camionero",
+    "p_fecha_inicio" : "Fecha inicio:",
+    "p_fecha_fin" : "Fecha fin:",
+
+    "--------- BACKOFFICE CONSULTAR CAMIONERO VEHICULO ---------" : "",
+
+    "legend_c_camionero_vehiculo" : "Consultar camión a vehículo",
+
+    "--------- BACKOFFICE VER MENSAJES ---------" : "",
+    
+    "sin_responder" : "Sin responder",
+    "en_curso" : "En progreso",
+    "resuelto" : "Resuelto",
 
     "--------- ALMACENERO INDEX ---------" : "",
 

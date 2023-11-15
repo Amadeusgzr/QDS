@@ -25,7 +25,7 @@ foreach ($decode as $solicitud) {
         if ($estado == "En espera") {
             echo "<div class='div-mensaje-solicitud-enviada'><img src='../img/iconos/advertencia.png'><p class='alerta-p-pendiente'>Tienes una solicitud enviada a esta empresa debes de esperar...</p></div>";
         } else if ($estado == "Denegada") {
-            echo "<div class='div-mensaje-solicitud-enviada'><img src='../img/iconos/advertencia.png'>La solicitud se te ha denegado. Deseas enviarla de vuelta? <a href='../../controladores/api/solicitud/agregarDato.php?id_almacen_cliente=$id_almacen_cliente&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'><button class='estilo-boton boton-siguiente'>Enviar solicitud</button></a></div>";
+            echo "<div class='div-mensaje-solicitud-enviada'><img src='../img/iconos/advertencia.png'>La solicitud se te ha denegado. Deseas enviarla de vuelta? <a href='../../controladores/api/solicitud/modificarEstado.php?id_almacen_cliente=$id_almacen_cliente&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal'><button class='estilo-boton boton-siguiente'>Enviar solicitud</button></a></div>";
         } else if ($estado == "Aceptada") {
 
             ?>
@@ -60,7 +60,7 @@ foreach ($decode as $solicitud) {
                                     echo '<td>' . $paquete["paquete_direccion"] . '</td>';
                                     echo '<td>' . $paquete['paquete_estado'] . '</td>';
                                     echo "<td>
-                <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'><button>Recogido</button></a>
+                <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'><button class='btn-op btn-op1'><img src='../img/iconos/tick.png' width='20px'></button></a>
                 <a href='#'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
                                 }
                             }
@@ -105,7 +105,7 @@ foreach ($decode as $solicitud) {
                                     echo '<td>' . $paquete["paquete_direccion"] . '</td>';
                                     echo '<td>' . $paquete['paquete_estado'] . '</td>';
                                     echo "<td>
-                <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'><button>Desrecogido</button></a>";
+                <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'><button class='btn-op btn-op1'><img src='../img/iconos/x.png' width='20px'></button></a>";
                                 }
                             }
                             ?>
@@ -134,7 +134,7 @@ if (empty($decode)) {
     echo "<div class='div-mensaje-solicitud-enviada'>
     <img src='../img/iconos/advertencia.png'>
     <p class='alerta-p'>No se ha enviado una solicitud a la empresa. Para poder ver los paquetes de este almacén debe de ya haber llegado a esta.</p>
-    <a href='../../controladores/api/solicitud/agregarDato.php?id_almacen_cliente=$id_almacen_cliente&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'>
+    <a href='../../controladores/api/solicitud/agregarDato.php?id_almacen_cliente=$id_almacen_cliente&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal'>
     <button class='estilo-boton boton-siguiente'>Enviar solicitud</button></a>
     </div>";
 }

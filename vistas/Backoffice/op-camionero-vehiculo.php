@@ -16,18 +16,19 @@ require '../plantillas/menu-cuenta.php';
     </a>
 </div>
 <div id="div-tabla">
-    <h1 class="h1-tabla">Maneja</h1>
+    <h1 class="h1-tabla">Camioneros a camiones</h1>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
-                <th class="th1-camionero-vehiculo">ID</th>
+                <th class="th1-camionero-vehiculo">Matrícula</th>
                 <th class="th2-camionero-vehiculo">Nombre</th>
-                <th class="th3-camionero-vehiculo">Estado</th>
+                <th class="th3-camionero-vehiculo">Fecha Inicio</th>
+                <th class="th4-camionero-vehiculo">Fecha Fin</th>
                 <th class="th-op">OP</th>
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from maneja";
+            $instruccion = "select * from maneja inner join vehiculo on maneja.id_vehiculo = vehiculo.id_vehiculo inner join camionero on camionero.id_camionero = camionero.id_camionero";
             $manejas = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -37,13 +38,15 @@ require '../plantillas/menu-cuenta.php';
                 echo "<tr class='fila-ingreso-lote fila-opcion' id='fila-1'>";
                 
                 $id_maneja = $maneja["id_maneja"];
-                $id_camionero = $maneja["id_camionero"];
-                $id_vehiculo = $maneja["id_vehiculo"];
+                $nombre_completo = $maneja["nombre_completo"];
+                $matricula = $maneja["matricula"];
                 $fecha_inicio_manejo = $maneja["fecha_inicio_manejo"];
+                $fecha_fin_manejo = $maneja["fecha_fin_manejo"];
 
-                echo "<td>$id_camionero</td>";
-                echo "<td>$id_vehiculo</td>";
+                echo "<td>$matricula</td>";
+                echo "<td>$nombre_completo</td>";
                 echo "<td>$fecha_inicio_manejo</td>";
+                echo "<td>$fecha_fin_manejo</td>";
                 echo "<td>
                 <a href='baja-dato.php?id_maneja=$id_maneja'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
                 <a href='modificar-camionero-vehiculo.php?id_maneja=$id_maneja'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>

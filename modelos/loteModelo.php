@@ -84,14 +84,36 @@ class loteModelo
             if ($estado == "En almacén central (camión)" || $estado == "Entregado"){
                 if ($estado == "En almacén central (camión)"){
                     $instruccion = "UPDATE lote SET estado='Entregado' WHERE id_lote = '$id_lote'";
-                    mysqli_query($this->db, $instruccion);
+                    mysqli_query($this->db, $instruccion);     
+                    $paquetes = [];
+                    $instruccion = "SELECT * FROM forma WHERE id_lote = $id_lote";
+                    $resultado = mysqli_query($this->db, $instruccion);
+                    while ($row = mysqli_fetch_assoc($resultado)) {
+                        array_push($paquetes, $row);
+                    }
+                    foreach ($paquetes as $paquete){
+                        $id_paquete = $paquete["id_paquete"];
+                        $instruccion = "UPDATE paquete SET estado ='Entregado' WHERE id_paquete = $id_paquete";
+                        mysqli_query($this->db, $instruccion);
+                    }
                     $resultado = [
                         'error' => "Éxito",
                         'respuesta' => "Paquete entregado"
-                    ];     
+                    ];
                 } else {
                     $instruccion = "UPDATE lote SET estado='En almacén central (camión)' WHERE id_lote = '$id_lote'";
                     mysqli_query($this->db, $instruccion);
+                    $instruccion = "SELECT * FROM forma WHERE id_lote = $id_lote";
+                    $resultado = mysqli_query($this->db, $instruccion);
+                    $paquetes = [];
+                    while ($row = mysqli_fetch_assoc($resultado)) {
+                        array_push($paquetes, $row);
+                    }
+                    foreach ($paquetes as $paquete){
+                        $id_paquete = $paquete["id_paquete"];
+                        $instruccion = "UPDATE paquete SET estado ='En almacén central (camión)' WHERE id_paquete = $id_paquete";
+                        mysqli_query($this->db, $instruccion);
+                    }
                     $resultado = [
                         'error' => "Éxito",
                         'respuesta' => "Paquete desentregado"
