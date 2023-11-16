@@ -4,6 +4,7 @@ $ch = curl_init();
 if ($_POST) {
     $id_almacen_central = $_POST["id_almacen_central"];
     $fragil = $_POST["fragil"];
+    $id_destino = $_POST["id_destino"];
     if (isset($_POST["tipo"])) {
         $tipo = $_POST["tipo"];
     } else {
@@ -18,6 +19,7 @@ if ($_POST) {
 
 $array = [
     'id_almacen_central' => $id_almacen_central,
+    'id_destino' => $id_destino,
     'fragil' => $fragil,
     'tipo' => $tipo,
     'detalles' => $detalles,

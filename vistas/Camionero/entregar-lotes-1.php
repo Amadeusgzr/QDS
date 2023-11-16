@@ -17,7 +17,7 @@ require '../plantillas/menu-cuenta.php';
 <div id="div-elegir-lote">
     <h1 class="h1-tabla2">Elegir camión</h1>
     <p class="adv">Elija el camión asignado para ver los lotes a entregar</p>
-    <form action="entregar-lotes-2.php" method="get" class="form-asignar">
+    <form action="entregar-lotes-3.php" method="get" class="form-asignar">
         <select name="id_camion" id="select-lote">
             <?php
             require("../../controladores/api/camion/obtenerDato.php");
@@ -40,7 +40,17 @@ require '../plantillas/menu-cuenta.php';
         </a>
     </div>
 </div>
-
+<div class="div-error">
+        <?php
+        if (isset($_GET['datos'])) {
+            $jsonDatos = urldecode($_GET['datos']);
+            $datos = json_decode($jsonDatos, true);
+            echo $datos['respuesta'];
+        }
+        ?>
+    </div>
+<script src="../js/mostrar-respuesta.js"></script>
+<script src="../js/ocultar-get-alta.js"></script>
 </body>
 
 </html>

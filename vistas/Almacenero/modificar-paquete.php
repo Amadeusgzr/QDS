@@ -48,9 +48,10 @@ foreach ($decode as $paquete) {
     <form action="../../controladores/api/paquete/modificarDato.php" method="post">
         <legend class="legend-m-paquete">Modificar Paquete</legend>
         <label><b class='p-id'>ID:</b> <?= $id_paquete ?></label>
+        <input type="text" placeholder="ID" class="txt-crud txt1" name="id_paquete" value="<?= $id_paquete ?>" required hidden>
 
         <label><b class='p-direccion'>Dirección: </b></label>
-        <input type="tel" placeholder="Direccion" class="txt-crud txt1" name="direccion" value="<?= $direccion ?>" required>
+        <input type="tel" placeholder="Direccion" class="txt-crud txt1" name="direccion" value="<?= $direccion ?>" id='direccio' required>
 
         <label><b class='p-peso'>Peso: </b></label>
         <input type="number" placeholder="Peso" class="txt-crud txt2" name="peso" value="<?= $peso ?>" required>
@@ -58,12 +59,19 @@ foreach ($decode as $paquete) {
         <label><b class='p-volumen'>Volumen: </b></label>
         <input type="number" placeholder="Volumen" class="txt-crud txt3" name="volumen" value="<?= $volumen ?>" required>
 
-        <label><b class='p-fragil'>Fragil: </b></label>
-        <input type="text" placeholder="Fragil" class="txt-crud txt4" name="fragil" value="<?= $fragil ?>" required>
+        <div>
+        <label for=""><b class='p-fragil'>Frágil</b></label>
+        <div style='margin-top: 10px;'>
+        <label for="radio-paq-si">Sí</label>
+            <input type="radio" name="fragil[]" id="radio-paq-si" class="chk" value="Si">
+            <label for="radio-paq-no">No</label>
+            <input type="radio" name="fragil[]" id="radio-paq-no" class="chk" value="No" checked>
+        </div>
+        </div>
 
         <?php
         if ($fragil == "Si") {
-        echo "<label><b class='p-tipo'>Tipo: </label>
+        echo "<label><b class='p-tipo'>Tipo: </b></label>
         <input type='text' placeholder='Tipo' class='txt-crud txt5' name='tipo' value='$tipo' required>";
         }
         ?>
@@ -85,3 +93,37 @@ foreach ($decode as $paquete) {
     </div>
     <script src="../js/mostrar-respuesta.js"></script>
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM&libraries=places"></script>
+<script>
+  function initAutocomplete() {
+    var input = document.getElementById('direccion');
+    var options = {
+      types: ['address'],
+      componentRestrictions: { country: 'uy' }, // Código de país para Uruguay (UY)
+    };
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+    autocomplete.setFields(['formatted_address']);
+
+    autocomplete.addListener('place_changed', function () {
+      var place = autocomplete.getPlace();
+      var filteredAddress = filterAddress(place.formatted_address);
+      input.value = filteredAddress;
+    });
+  }
+
+  function filterAddress(fullAddress) {
+    var commaIndex = fullAddress.indexOf(',');
+    if (commaIndex !== -1) {
+      return fullAddress.substring(0, commaIndex).trim();
+    } else {
+      return fullAddress;
+    }
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    initAutocomplete();
+  });
+</script>

@@ -21,7 +21,7 @@ require '../plantillas/menu-cuenta.php';
         <select name="id_camion[]" class="estilo-select">
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from mostrar_camiones";
+            $instruccion = "select * from mostrar_camiones where estado != 'De baja' AND estado != 'Fuera de servicio'";
             $camiones = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -63,7 +63,7 @@ require '../plantillas/menu-cuenta.php';
             <option value="" selected>Plataforma</option>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from plataforma inner join destino on plataforma.ubicacion = destino.id_destino";
+            $instruccion = "select * from plataforma inner join destino on plataforma.ubicacion = destino.id_destino where estado != 'De baja'";
             $plataformas = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -182,15 +182,14 @@ if ($_POST) {
                     $direccion = $leg->end_address;
                     $direccion = explode(",", $direccion);
                     $direccion = trim($direccion[0]);
-                    echo $direccion . "<br>";
+
 
 
 
                     $fechaEstimadaLlegada = date("Y-m-d", $horaEstimadaLlegadaTimestamp);
                     $horaEstimadaLlegada = date("H:i:s", $horaEstimadaLlegadaTimestamp);
 
-                    echo "Fecha estimada de llegada: $fechaEstimadaLlegada<br>";
-                    echo "Hora estimada de llegada: $horaEstimadaLlegada<br>";
+
 
                     $fecha = $fechaEstimadaLlegada . " " . $horaEstimadaLlegada;
                     $fecha1 = $fecha_salida[$i] . " " . $hora_salida[$i];
@@ -201,7 +200,6 @@ if ($_POST) {
                     if (isset($fila["id_plataforma"])) {
 
                         $id_plataforma = $fila["id_plataforma"];
-                        echo $id_plataforma;
 
                         $instruccion = "insert into lleva(id_camion, id_plataforma, fecha_entrega_ideal, fecha_salida, almacen_central_salida) value ('$id_camion[$i]', '$id_plataforma', '$fecha', '$fecha1', '$id_almacen_central[$i]')";
                         $conexion->query($instruccion);

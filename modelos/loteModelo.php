@@ -14,7 +14,7 @@ class loteModelo
     public function obtenerLote($id_lote)
     {
         $lote = [];
-        $instruccion = "SELECT * FROM lote WHERE id_lote='$id_lote'";
+        $instruccion = "SELECT * FROM mostrar_lotes WHERE id_lote='$id_lote'";
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($lote, $row);
@@ -34,9 +34,9 @@ class loteModelo
     }
 
 
-    public function guardarLote($fragil, $tipo, $detalles, $id_almacen_central)
+    public function guardarLote($fragil, $tipo, $detalles, $id_almacen_central, $id_destino)
     {
-        $instruccion = "INSERT INTO lote (fragil,tipo,detalles) VALUES ('$fragil','$tipo','$detalles')";
+        $instruccion = "INSERT INTO lote (fragil,tipo,detalles,id_destino) VALUES ('$fragil','$tipo','$detalles','$id_destino')";
         mysqli_query($this->db, $instruccion);
 
         $id_lote = mysqli_insert_id($this->db);
@@ -51,7 +51,7 @@ class loteModelo
         ];
         return $resultado;
     }
-    public function modificarLote($id_lote, $cant_paquetes, $peso, $volumen, $fragil)
+    public function modificarLote($id_lote, $fragil)
     {
         $validar = $this->obtenerLotes($id_lote);
         $resultado = [
@@ -59,7 +59,7 @@ class loteModelo
             'respuesta' => "No existe el paquete con la ID " . $id_lote
         ];
         if (count($validar) > 0) {
-            $instruccion = "UPDATE lote SET cant_paquetes='$cant_paquetes', peso='$peso', volumen='$volumen', fragil='$fragil' WHERE id_lote='$id_lote'";
+            $instruccion = "UPDATE lote SET fragil='$fragil' WHERE id_lote='$id_lote'";
             mysqli_query($this->db, $instruccion);
             $resultado = [
                 'error' => "Éxito",

@@ -218,6 +218,88 @@ function actualizarTextos(data) {
     document.querySelector(".boton-eliminar").value = data.btn_eliminar;
     document.querySelector(".boton-volver").value = data.btn_volver;
   }
+  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("id_camion_horario") && location.search.includes("fs")){
+    document.querySelector(".legend-baja-horario").textContent = data.legend_baja_horario;
+
+    document.querySelector(".adv").textContent = data.adv_horario;
+    document.querySelector(".p-datos-de-salida").textContent = data.p_datos_de_salida;
+    document.querySelector(".p-matricula").textContent = data.p_matricula;
+    document.querySelector(".p-fecha-salida").textContent = data.p_fecha_salida;
+
+    document.querySelectorAll(".p-almacen-cliente").forEach(almacen => {
+      almacen.textContent = data.p_almacen_cliente;
+    });
+    document.querySelectorAll(".p-fecha-recogida-estimada").forEach(fecha => {
+      fecha.textContent = data.p_fecha_recogida_estimada;
+    });
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+    document.querySelector(".boton-siguiente").value = data.btn_eliminar;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("modificar-horario-entrega")){
+    document.querySelector(".legend-m-horario").textContent = data.legend_m_horario_entrega;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_horario;
+    document.querySelector(".p-camion").textContent = data.p_camion;
+    document.querySelector(".p-sobre-salida").textContent = data.p_sobre_salida;
+    
+    document.querySelectorAll(".p-almacen").forEach(almacen => {
+      almacen.textContent = data.p_almacen;
+    });
+
+    
+    document.querySelector(".boton-siguiente").value = data.btn_agregar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("id_usuario")){
+    document.querySelector(".legend-b-usuario").textContent = data.legend_b_usuario;
+    document.querySelector(".adv").textContent = data.adv_usuario;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_usuario;
+    document.querySelector(".p-usuario").textContent = data.p_usuario;
+    document.querySelector(".p-tipo-usuario").textContent = data.p_tipo_usuario;
+
+    document.querySelector(".boton-siguiente").value = data.btn_eliminar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("modificar-usuario")){
+    document.querySelector(".legend-m-usuario").textContent = data.legend_m_usuario;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_usuario;
+    document.querySelector(".p-usuario").textContent = data.p_usuario;
+    document.querySelector(".p-tipo-usuario").textContent = data.p_tipo_usuario;
+
+    document.querySelector(".boton-siguiente").value = data.boton_modificar;
+    document.querySelector(".boton-volver").value = data.btn_volver;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("id_usuario")){
+    document.querySelector(".legend-c-usuario").textContent = data.legend_c_usuario;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_usuario;
+    document.querySelector(".p-usuario").textContent = data.p_usuario;
+    document.querySelector(".p-tipo-usuario").textContent = data.p_tipo_usuario;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("id_camion_horario")){
+
+    document.querySelector(".legend-c-horario").textContent = data.legend_c_horario_recogida;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_horario;
+    document.querySelector(".p-datos-de-salida").textContent = data.p_datos_de_salida;
+    document.querySelector(".p-matricula").textContent = data.p_matricula;
+    document.querySelector(".p-fecha-salida").textContent = data.p_fecha_salida;
+
+    document.querySelectorAll(".p-plataforma").forEach(almacen => {
+      almacen.textContent = data.p_plataforma;
+    });
+    document.querySelectorAll(".p-fecha-entrega-estimada").forEach(fecha => {
+      fecha.textContent = data.p_fecha_entrega_estimada;
+    });
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+
+  }
   else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("id_camion")){
 
     document.querySelector(".legend-baja-camion").textContent = data.legend_baja_camion;
@@ -650,7 +732,6 @@ function actualizarTextos(data) {
 
   }
   else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("id_camion_horario") && location.search.includes("fs")){
-
     document.querySelector(".legend-baja-horario").textContent = data.legend_baja_horario;
 
     document.querySelector(".p-camion").textContent = data.p_camion;
@@ -928,6 +1009,18 @@ function actualizarTextos(data) {
     document.querySelector("#op1 p").textContent = data.op1_p_camionero;
     document.querySelector("#op2 h2").textContent = data.op2_h2_camionero;
     document.querySelector("#op2 p").textContent = data.op2_p_camionero;
+    document.querySelector("#op3 h2").textContent = data.op3_h2_camionero;
+    document.querySelector("#op3 p").textContent = data.op3_p_camionero;
+
+  }
+  else if(url.includes("Camionero") && url.includes("ver-horarios")){
+
+    document.querySelector(".h1-tabla").textContent = data.h1_ver_horarios;
+    document.querySelector(".th1-ver-horario").textContent = data.th1_ver_horario;
+    document.querySelector(".th2-ver-horario").textContent = data.th2_ver_horario;
+    document.querySelector(".th3-ver-horario").textContent = data.th3_ver_horario;
+    document.querySelector(".th4-ver-horario").textContent = data.th4_ver_horario;
+    document.querySelector(".th5-ver-horario").textContent = data.th5_ver_horario;
 
   }
   else if(url.includes("Camionero") && url.includes("recoger-paquetes-1")){

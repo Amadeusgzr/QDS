@@ -19,9 +19,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
             for ($i = 0; $i < $numArrays; $i++) {
                 $respuesta1 = atributosVacio($_POST->fragil);
                 $respuesta2 = atributosVacio($_POST->id_almacen_central);
-
-                if ($respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error") {
-                    $respuesta = $loteModelo->guardarLote($_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i], $_POST->id_almacen_central[$i]);
+                $respuesta3 = atributosVacio($_POST->id_destino);
+                if ($respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error") {
+                    $respuesta = $loteModelo->guardarLote($_POST->fragil[$i], $_POST->tipo[$i], $_POST->detalles[$i], $_POST->id_almacen_central[$i], $_POST->id_destino[$i]);
                 } else {
                     $respuesta = [
                         'error' => 'Error',
@@ -46,13 +46,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
             }      
         } else{
             $respuesta = atributoVacio($_PUT->id_lote);
-            $respuesta1 = atributoVacio($_PUT->cant_paquetes);
-            $respuesta2 = atributoVacio($_PUT->peso);
-            $respuesta3 = atributoVacio($_PUT->volumen);
             $respuesta4 = atributoVacio($_PUT->fragil);
 
-            if ($respuesta['error'] !== "Error" && $respuesta1['error'] !== "Error" && $respuesta2['error'] !== "Error" && $respuesta3['error'] !== "Error" && $respuesta4['error'] !== "Error") {
-                $respuesta = $loteModelo->modificarLote($_PUT->id_lote, $_PUT->cant_paquetes, $_PUT->peso, $_PUT->volumen, $_PUT->fragil);
+            if ($respuesta['error'] !== "Error" && $respuesta4['error'] !== "Error") {
+                $respuesta = $loteModelo->modificarLote($_PUT->id_lote, $_PUT->fragil);
             } else {
                 $respuesta = [
                     'error' => 'Error',

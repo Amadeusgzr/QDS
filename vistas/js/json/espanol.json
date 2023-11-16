@@ -80,6 +80,22 @@
     "th2_usuarios" : "Usuario",
     "th3_usuarios" : "Tipo de usuario",
 
+    "--------- BACKOFFICE MODIFICAR USUARIOS ---------" : "",
+
+    "legend_m_usuario" : "Modificar Usuario",
+    "subtitulo_usuario" : "Datos del usuario",
+    "p_usuario" : "Usuario: ",
+    "p_tipo_usuario" : "Tipo de usuario: ",
+
+    "--------- BACKOFFICE ELIMINAR USUARIOS ---------" : "",
+
+    "legend_b_usuario" : "Eliminar usuario",
+    "adv_usuario" : "¿Seguro que quiere eliminar el siguiente usuario? Los cambios serán irreversibles", 
+
+    "--------- BACKOFFICE CONSULTAR USUARIOS ---------" : "",
+
+    "legend_c_usuario" : "Consultar usuario",
+
     "--------- BACKOFFICE CAMIONEROS ---------" : "",
 
     "h1_tabla_camioneros" : "Camioneros",
@@ -358,6 +374,10 @@
     "p_plataforma" : "Plataforma: ",
     "p_fecha_entrega_estimada" : "Fecha de entrega estimada: ",
 
+    "--------- BACKOFFICE MODIFICAR HORARIO ENTREGA ---------" : "",
+
+    "legend_m_horario_entrega" : "Modificar horarios de entrega",
+
     "--------- BACKOFFICE MANEJA ---------" : "",
 
     "h1_camionero_vehiculo" : "Camioneros a camiones",
@@ -500,10 +520,12 @@
     "op1_p_camionero" : "Gestión de paquetes a recoger",
     "op2_h2_camionero" : "Entrega de Lotes",
     "op2_p_camionero" : "Gestión de Lotes a entregar",
+    "op3_h2_camionero" : "Ver horarios",
+    "op3_p_camionero" : "Consultar horarios",
 
     "--------- CAMIONERO RECOGER PAQUETES ---------" : "",
 
-    "h1_tabla2_recoger_paquetes" : "Elegir Camión",
+    "h1_tabla2_recoger_paquetes" : "Elegir Camioneta",
     "adv_recoger_paquetes" : "Selecciona el camión asignado para ver los paquetes a recoger",
 
     "--------- CAMIONERO RECOGER PAQUETES 2 ---------" : "",
@@ -544,6 +566,14 @@
     "th1_entregar_lotes_2" : "ID",
     "th2_entregar_lotes_2" : "Destino",
     "th3_entregar_lotes_2" : "Estado",
+
+    "--------- CAMIONERO VER HORARIOS ---------" : "",
+
+    "h1_ver_horarios" : "Horarios",
+    "th1_ver_horario" : "Matrícula",
+    "th2_ver_horario" : "Nombre",
+    "th3_ver_horario" : "Fecha Inicio",
+    "th4_ver_horario" : "Fecha Fin",
 
     "--------- EMPRESA INDEX ---------" : "",
 

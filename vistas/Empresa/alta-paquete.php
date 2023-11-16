@@ -22,7 +22,7 @@ require '../plantillas/menu-cuenta.php';
 
         <p class="p-paquete p-1">Sobre el destino</p>
         <input type="email" name="mail_destinatario[]" id="mail-destinatario-paq" class="destino-paq input-correo" placeholder="Correo destinatario" autocomplete="off" required>
-        <input type="text" name="direccion[]" id="calle-destino-paq" class="destino-paq input-direccion" placeholder="Direccion" autocomplete="off" required>
+        <input type="text" name="direccion[]" id="direccion" class="destino-paq input-direccion" placeholder="Direccion" autocomplete="off" required>
 
         <select name="id_destino[]" id="select-datos-paquete">
         <option selected value="" class="option-departamento">Departamento</option>
@@ -31,7 +31,8 @@ require '../plantillas/menu-cuenta.php';
             foreach ($decode as $destino){
                 $id_destino = $destino["id_destino"];
                 $departamento = $destino["departamento_destino"];
-                echo "<option value='$id_destino'> $departamento </option>";
+                $ciudad = $destino["ciudad_destino"];
+                echo "<option value='$id_destino'> $ciudad, $departamento</option>";
             }
         ?>
         </select>
@@ -68,6 +69,8 @@ require '../plantillas/menu-cuenta.php';
                 <option selected value="" id="select-tipo" class="option-fragil">Contenido frágil</option>
                 <option value="Líquido">Líquido</option>
                 <option value="Vidrio">Vidrio</option>
+                <option value="Inflamable">Inflamable</option>
+
             </select>
 
             <p class="p-paquete p-4">Detalles</p>
@@ -80,6 +83,40 @@ require '../plantillas/menu-cuenta.php';
         <a href="op-paquetes-cliente.php"><input type="button" class="submit-paquete boton-volver" value="Volver"></a>
     </div>
 </form>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM&libraries=places"></script>
+<script>
+  function initAutocomplete() {
+    var input = document.getElementById('direccion');
+    var options = {
+      types: ['address'],
+      componentRestrictions: { country: 'uy' }, // Código de país para Uruguay (UY)
+    };
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+    autocomplete.setFields(['formatted_address']);
+
+    autocomplete.addListener('place_changed', function () {
+      var place = autocomplete.getPlace();
+      var filteredAddress = filterAddress(place.formatted_address);
+      input.value = filteredAddress;
+    });
+  }
+
+  function filterAddress(fullAddress) {
+    var commaIndex = fullAddress.indexOf(',');
+    if (commaIndex !== -1) {
+      return fullAddress.substring(0, commaIndex).trim();
+    } else {
+      return fullAddress;
+    }
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    initAutocomplete();
+  });
+</script>
 
 <script>
     document.getElementById("form-paquete").addEventListener("submit", function () {

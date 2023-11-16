@@ -3,17 +3,11 @@ $ch = curl_init();
 
 if ($_POST) {
     $id_lote = $_POST["id_lote"];
-    $cant_paquetes = $_POST["cant_paquetes"];
-    $peso = $_POST["peso"];
-    $volumen = $_POST["volumen"];
     $fragil = $_POST["fragil"];
 }
 
 $array = [
     'id_lote' => "$id_lote",
-    'cant_paquetes' => "$cant_paquetes",
-    'peso' => "$peso",
-    'volumen' => "$volumen",
     'fragil' => "$fragil",
 ];
 

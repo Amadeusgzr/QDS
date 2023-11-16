@@ -87,7 +87,7 @@ require '../plantillas/menu-cuenta.php';
 
 <?php
 if ($estado == "En almacén cliente"){
-    echo "<a href='op-paquetes-cliente.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+    echo "<a href='index.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     <script>
     // Agrega un evento de escucha para detectar cuando se presiona una tecla en el teclado
     document.addEventListener('keydown', function(event) {
@@ -98,7 +98,7 @@ if ($estado == "En almacén cliente"){
     });
     </script>";
 } else if ($estado == "Entregado"){
-    echo "<a href='op-paquetes-entregados.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+    echo "<a href='index.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         <script>
     // Agrega un evento de escucha para detectar cuando se presiona una tecla en el teclado
     document.addEventListener('keydown', function(event) {
@@ -109,7 +109,7 @@ if ($estado == "En almacén cliente"){
     });
     </script>";
 } else {
-    echo "<a href='op-paquetes-transcurso.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+    echo "<a href='index.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     <script>
     // Agrega un evento de escucha para detectar cuando se presiona una tecla en el teclado
     document.addEventListener('keydown', function(event) {

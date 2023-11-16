@@ -40,9 +40,9 @@ if (count($filas) > 0) {
 
 <div class="form-crud">
     <form action="modificar.php" method="post">
-        <legend class="legend-m-horario-recogida">Modificar horario entrega</legend>
+        <legend class="legend-m-horario">Modificar horario entrega</legend>
         <p class="subtitulo-crud">Datos actuales</p>
-        <p class="p-paquete p-camioneta">Camión</p>
+        <p class="p-paquete p-camion">Camión</p>
             <?php
             $instruccion = "select * from mostrar_camiones where id_camion = $id_camion";
             $camiones = [];
@@ -74,7 +74,7 @@ if (count($filas) > 0) {
                 $numero_almacen = $almacen_central['numero_almacen'];
                 if ($id_almacen_central == $almacen_central_salida){
                     echo "<input value='$id_almacen_central' name='iac[]' hidden>";
-                    echo "Almacen " . $id_almacen_central ." - Puerta " . $numero_almacen;
+                    echo "<p class='p-almacen'>Almacen</p> " . $id_almacen_central ." - Puerta " . $numero_almacen;
                 } else{
                     echo "<option value='$id_almacen_central'>Almacen $id_almacen_central - Puerta $numero_almacen</option>";
                 }
@@ -92,7 +92,7 @@ if (count($filas) > 0) {
 
         foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
             echo "<hr>";
-            echo "<p><b>Almacén</b></p>";
+            echo "<p><b class='p-almacen'>Almacén</b></p>";
             $id_plataforma = $fila["id_plataforma"];
             $fecha_entrega_ideal = $fila["fecha_entrega_ideal"];
             $direccion_plataforma = $fila["direccion"];

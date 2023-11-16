@@ -27,22 +27,20 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
 
 <div class="form-crud">
     <form action="modificar.php" method="post">
-        <legend>Modificar Usuario</legend>
+        <legend class='legend-m-usuario'>Modificar Usuario</legend>
         <p class="subtitulo-crud">Datos actuales</p>
-        <p><b>Usuario: </b>
-            <?= $nom_usu ?>
-        </p>
-        <p><b>Tipo de usuario: </b>
-            <?= $tipo_usu ?>
-        </p>
-        <p><b>Mail: </b>
-            <?= $mail ?>
-        </p>
-        <p class="subtitulo-crud">Datos modificados</p>
+
         <input type="text" placeholder="ID" class="txt-crud" name="id_usuario" value="<?= $id_usuario ?>" required readonly hidden>
+        
+        <p><b class='p-usuario'>Usuario:</b></p>
         <input type="text" placeholder="Usuario" class="txt-crud" name="nom_usu" value="<?= $nom_usu ?>" required readonly>
+        
+        <p><b class='p-tipo-usuario'>Tipo de usuario: </b></p>
         <input type="text" placeholder="Tipo de Usuario" class="txt-crud" name="tipo_usu" value="<?= $tipo_usu ?>" required>
+        
+        <p><b class='p-mail'>Mail: </b></p>
         <input type="text" placeholder="Mail" class="txt-crud" name="mail" value="<?= $mail ?>" required>
+        
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-usuarios.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>

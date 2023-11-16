@@ -46,7 +46,21 @@ require '../plantillas/menu-cuenta.php';
                 <option value="Vidrio">Vidrio</option>
             </select>
         </div>
+        <p class='p-lote'>Departamento</p>
+        <select name="id_destino[]" id="select-datos-paquete">
+            <option selected value="" class="option-departamento">Departamento</option>
+            <?php
+            require("../../controladores/api/destino/obtenerDato.php");
+            foreach ($decode as $destino) {
+                $id_destino = $destino["id_destino"];
+                $departamento = $destino["departamento_destino"];
+                $ciudad = $destino["ciudad_destino"];
+                echo "<option value='$id_destino'> $ciudad, $departamento</option>";
+            }
+            ?>
+        </select>
     </div>
+
 
     <div class="div-datos-lote">
         <p class="p-lote">Detalles</p>

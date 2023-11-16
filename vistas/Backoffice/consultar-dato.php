@@ -225,7 +225,7 @@ if (isset($_GET['id_camionero'])) {
         <p><b class='p-fecha-recogida-estimada'>Fecha recogida estimado: </b>$fecha_recogida_ideal</p>";
     }
 
-    echo "<a href='detalles-horarios-recogida.php?icth=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
+    echo "<a href='detalles-horarios-recogida.php?icth=$id_camioneta&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3 btn-ver-mapa'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
 
     echo "<a href='op-gestion-paquete-recogida.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>";
@@ -264,7 +264,9 @@ if (isset($_GET['id_camionero'])) {
         echo "
         <p><b class='p-plataforma'>Plataforma: </b>$direccion_plataforma, $departamento_plataforma</p>
         <p><b class='p-fecha-entrega-estimada'>Fecha de entrega estimado: </b>$fecha_entrega_ideal</p>";
-    }
+
+    }    echo "<a href='detalles-horarios-entrega.php?id_camion=$id_camion&fs=$fecha_salida&acs=$almacen_central_salida'><button class='btn-op btn-op3 btn-ver-mapa'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
+
 
     echo "<a href='op-gestion-lote-entrega.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
     </div>";
@@ -298,10 +300,10 @@ if (isset($_GET['id_camionero'])) {
         $mail = $fila["mail"];
 
         echo "<div class='form-crud'>
-        <legend>Consultar Usuario</legend>
+        <legend class='legend-c-usuario'>Consultar Usuario</legend>
         <p class='subtitulo-crud'>Datos del usuario</p>
-        <p><b>Usuario: </b>$nom_usu</p>
-        <p><b>Tipo de Usuario: </b>$tipo_usu</p>
+        <p><b class='p-usuario'>Usuario: </b>$nom_usu</p>
+        <p><b class='p-tipo-usuario'>Tipo de Usuario: </b>$tipo_usu</p>
         <p><b>Mail: </b>$mail</p>
         <a href='op-usuarios.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";

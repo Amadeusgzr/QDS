@@ -31,7 +31,7 @@ require '../plantillas/menu-cuenta.php';
         <p>Gestión de lotes a entregar</p>
         <div class="div-img-icono"><img src="../img/iconos/lote.png" alt=""></div>
     </a>
-    <a href=".php" class="opcion-aplicacion" id="op2">
+    <a href="ver-horarios.php" class="opcion-aplicacion" id="op3">
         <h2>Ver horarios</h2>
         <p>Consultar horarios</p>
         <div class="div-img-icono"><img src="../img/iconos/reloj.png" alt=""></div>

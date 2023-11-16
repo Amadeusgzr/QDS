@@ -29,8 +29,6 @@ if (isset($_SESSION['nom_usu'])) {
             }
         }
         ?>
-        <hr>
-        <a href="" id="a-contrasenia">¿Olvidaste tu contraseña?</a>
     </div>
 </form>
 

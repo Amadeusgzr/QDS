@@ -212,12 +212,12 @@ if (isset($_GET['id_camionero'])) {
         $mail = $fila["mail"];
 
         echo "<div class='form-crud'>
-        <legend>Eliminar Usuario</legend>
+        <legend class='legend-b-usuario'>Eliminar Usuario</legend>
         <p class='adv'>¿Seguro que quiere eliminar el siguiente usuario? Los cambios serán irreversibles</p>
         <p class='subtitulo-crud'>Datos del usuario</p>
-        <p><b>Usuario: </b>$nom_usu</p>
-        <p><b>Tipo de Usuario: </b>$tipo_usu</p>
-        <p><b>Mail: </b>$mail</p>
+        <p><b class='p-usuario'>Usuario: </b>$nom_usu</p>
+        <p><b class='p-tipo-usuario'>Tipo de Usuario: </b>$tipo_usu</p>
+        <p><b class='p-mail'>Mail: </b>$mail</p>
         <a href='eliminar.php?id_usuario=$id_usuario'><input type='submit' value='Eliminar' class='estilo-boton boton-siguiente'></a>
         <a href='op-usuarios.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";

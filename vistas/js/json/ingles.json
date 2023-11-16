@@ -79,6 +79,22 @@
     "th2_usuarios" : "User",
     "th3_usuarios" : "User Type",
 
+    "--------- BACKOFFICE MODIFICAR USUARIOS ---------" : "",
+
+    "legend_m_usuario" : "Modify User",
+    "subtitulo_usuario" : "User data",
+    "p_usuario" : "User: ",
+    "p_tipo_usuario" : "User type: ",
+
+    "--------- BACKOFFICE ELIMINAR USUARIOS ---------" : "",
+
+    "legend_b_usuario" : "Delete user",
+    "adv_usuario" : "Are you sure you want to delete the following user? The changes will be irreversible", 
+
+    "--------- BACKOFFICE CONSULTAR USUARIOS ---------" : "",
+
+    "legend_c_usuario" : "Consult user",
+
 
     "--------- BACKOFFICE CAMIONEROS ---------" : "",
 
@@ -354,9 +370,9 @@
     "p_plataforma" : "Platform: ",
     "p_fecha_entrega_estimada" : "Estimated delivery date: ",
 
-    "--------- BACKOFFICE BAJA HORARIO ENTREGA ---------" : "",
+    "--------- BACKOFFICE MODIFICAR HORARIO ENTREGA ---------" : "",
 
-    
+    "legend_m_horario_entrega" : "Modify delivery schedule",
 
     "--------- BACKOFFICE MANEJA ---------" : "",
 
@@ -501,10 +517,12 @@
     "op1_p_camionero" : "Managment of packages to pick up",
     "op2_h2_camionero" : "Lots delivery",
     "op2_p_camionero" : "Managment of lots to delivery",
+    "op3_h2_camionero" : "See schedules",
+    "op3_p_camionero" : "Consult schedules",
 
     "--------- CAMIONERO RECOGER PAQUETES ---------" : "",
 
-    "h1_tabla2_recoger_paquetes" : "Truck Selection",
+    "h1_tabla2_recoger_paquetes" : "Van Selection",
     "adv_recoger_paquetes" : "Select the assigned truck to see the packages to pick up",
 
     "--------- CAMIONERO RECOGER PAQUETES 2 ---------" : "",
@@ -545,6 +563,14 @@
     "th1_entregar_lotes_2" : "Key",
     "th2_entregar_lotes_2" : "Destination",
     "th3_entregar_lotes_2" : "Status",
+
+    "--------- CAMIONERO VER HORARIOS ---------" : "",
+
+    "h1_ver_horarios" : "Schedules",
+    "th1_ver_horario" : "Plate",
+    "th2_ver_horario" : "Name",
+    "th3_ver_horario" : "Initial Date",
+    "th4_ver_horario" : "End Date",
 
     "--------- EMPRESA INDEX ---------" : "",
 

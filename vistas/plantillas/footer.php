@@ -8,12 +8,12 @@
         </ul>
         <div class="div-redes">
             <div class="div-redes-2">
-                <a href=""><img src="vistas/img/iconos/facebook.png" alt="" class="red"></a>
-                <a href=""><img src="vistas/img/iconos/instagram.png" alt="" class="red"></a>
+                <a href="https://www.facebook.com/?locale=es_LA" target="_blank"><img src="vistas/img/iconos/facebook.png" alt="" class="red"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="vistas/img/iconos/instagram.png" alt="" class="red"></a>
             </div>
             <div class="div-redes-2">
-                <a href=""><img src="vistas/img/iconos/twitter.png" alt="" class="red"></a>
-                <a href=""><img src="vistas/img/iconos/linkedin.png" alt="" class="red"></a>
+                <a href="https://twitter.com/?lang=es" target="_blank"><img src="vistas/img/iconos/twitter.png" alt="" class="red"></a>
+                <a href="https://uy.linkedin.com" target="_blank"><img src="vistas/img/iconos/linkedin.png" alt="" class="red"></a>
             </div>
         </div>
     </div>

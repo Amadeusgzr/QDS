@@ -1,13 +1,15 @@
 <?php
 $ch = curl_init();
 
-$id_paquete = $_GET['id_paquete'];
+$id_camion = $_GET['id_camion'];
 $array = [
-    'id_paquete' => "$id_paquete",
+    'id_camion' => "$id_camion"
 ];
+
+
 $datos = json_encode($array);
 
-curl_setopt($ch, CURLOPT_URL, 'localhost/QDS/controladores/paqueteControlador.php');
+curl_setopt($ch, CURLOPT_URL, 'localhost/QDS/controladores/entregarLotesControlador.php');
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -20,5 +22,4 @@ if (curl_errno($ch)) {
     $decode = json_decode($respuesta, true);
 }
 curl_close($ch);
-
 ?>
