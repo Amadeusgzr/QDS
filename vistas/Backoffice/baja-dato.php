@@ -63,7 +63,6 @@ if (isset($_GET['id_camionero'])) {
             if (count($paquete) > 0) {
                 $cant_paquetes = count($paquete);
                 echo "<p class='adv adv-1'>Este almacén tiene $cant_paquetes paquete(s)</p>";
-                echo "<p class='adv adv-2'>¿Deseas eliminar el siguiente almacén y los paquetes de dentro? Los cambios son irreversibles.</p>";
             } else {
                 echo "<p class='adv adv-3'>¿Seguro que quiere eliminar el siguiente almacén? Los cambios serán irreversibles.</p>";
             }

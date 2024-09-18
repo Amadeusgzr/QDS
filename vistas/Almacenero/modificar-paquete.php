@@ -51,7 +51,7 @@ foreach ($decode as $paquete) {
         <input type="text" placeholder="ID" class="txt-crud txt1" name="id_paquete" value="<?= $id_paquete ?>" required hidden>
 
         <label><b class='p-direccion'>Dirección: </b></label>
-        <input type="tel" placeholder="Direccion" class="txt-crud txt1" name="direccion" value="<?= $direccion ?>" id='direccio' required>
+        <input type="tel" placeholder="Direccion" class="txt-crud txt1" name="direccion" value="<?= $direccion ?>" id='direc' required>
 
         <label><b class='p-peso'>Peso: </b></label>
         <input type="number" placeholder="Peso" class="txt-crud txt2" name="peso" value="<?= $peso ?>" required>
@@ -63,9 +63,9 @@ foreach ($decode as $paquete) {
         <label for=""><b class='p-fragil'>Frágil</b></label>
         <div style='margin-top: 10px;'>
         <label for="radio-paq-si">Sí</label>
-            <input type="radio" name="fragil[]" id="radio-paq-si" class="chk" value="Si">
+            <input type="radio" name="fragil" id="radio-paq-si" class="chk" value="Si">
             <label for="radio-paq-no">No</label>
-            <input type="radio" name="fragil[]" id="radio-paq-no" class="chk" value="No" checked>
+            <input type="radio" name="fragil" id="radio-paq-no" class="chk" value="No" checked>
         </div>
         </div>
 
@@ -77,8 +77,23 @@ foreach ($decode as $paquete) {
         ?>
 
         <label><b class='p-estado'>Estado: </b></label>
-        <input type="text" placeholder="Estado" class="txt-crud txt6" name="estado" value="<?= $estado ?>" required>
-
+        <select name="estado" required class="txt-crud txt6" placeholder="Estado">
+          <?php
+          if ($estado == "En almacén central"){
+            echo "<option value='En almacén central' selected>En almacén central</option>
+            <option value='En camioneta (central)'>En camioneta (central)</option>
+            ";
+          } else if ($estado == "En camioneta (central)"){
+            echo "<option value='En almacén central'>En almacén central</option>
+            <option value='En camioneta (central)' selected>En camioneta (central)</option>
+            ";
+          } else {
+            echo "<option value='En almacén central'>En almacén central</option>
+            <option value='En camioneta (central)'>En camioneta (central)</option>
+            ";
+          }
+          ?>
+        </select>
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>
     </form>
     <a href="op-paquetes.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>

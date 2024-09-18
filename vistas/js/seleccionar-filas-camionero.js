@@ -58,7 +58,6 @@ function enviarDatos() {
     xhr.send(formData);
     xhr.onload = function () {
         if (xhr.status === 200) {
-            console.log(xhr.responseText);
             // Manejar la respuesta del servidor si es necesario
             let respuesta = xhr.responseText;
             location.href = "op-camioneros.php?datos=" + respuesta;

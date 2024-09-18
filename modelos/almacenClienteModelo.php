@@ -16,7 +16,7 @@ class almacenClienteModelo
     {
         $where = ($id_almacen_cliente == null) ? "" : " WHERE id_almacen_cliente='$id_almacen_cliente'";
         $almacenes_cliente = [];
-        $instruccion = "SELECT * FROM almacen_cliente INNER JOIN tiene ON almacen_cliente.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente " . $where;
+        $instruccion = "SELECT * FROM almacen_cliente INNER JOIN tiene ON almacen_cliente.id_almacen_cliente = tiene.id_almacen_cliente INNER JOIN empresa_cliente ON tiene.id_empresa_cliente = empresa_cliente.id_empresa_cliente WHERE almacen_cliente.estado != 'De baja'";
         $resultado = mysqli_query($this->db, $instruccion);
         while ($row = mysqli_fetch_assoc($resultado)) {
             array_push($almacenes_cliente, $row);

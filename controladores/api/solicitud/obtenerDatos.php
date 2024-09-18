@@ -13,7 +13,7 @@ $array = [
 
 $datos = json_encode($array);
 
-curl_setopt($ch, CURLOPT_URL, 'localhost/QDS/controladores/solicitudControlador.php');
+curl_setopt($ch, CURLOPT_URL, 'localhost/datavision/controladores/solicitudControlador.php');
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -31,6 +31,7 @@ if ($estado == "Historial") {
     foreach ($decode as $solicitud) {
         $id_solicitud = $solicitud["id_solicitud"];
         $camionero = $solicitud["usuario"];
+        $fecha_solicitud = $solicitud["fecha_solicitud"];
         if ($solicitud["estado"] == "Aceptada") {
             echo "<hr>
             <div class='div-solicitud'>
@@ -40,7 +41,7 @@ if ($estado == "Historial") {
                 </div>
                 <p class='mensaje-solicitud mensaje-historial'>La solicitud $id_solicitud ha sido aceptada</p>
                 <div class='solicitud-info'>
-                    <span>9/11/2023</span>
+                    <span>$fecha_solicitud</span>
                     <input type='text' hidden>
                 </div>
             </div>";
@@ -53,7 +54,7 @@ if ($estado == "Historial") {
                 </div>
                 <p class='mensaje-solicitud'>La solicitud $id_solicitud ha sido denegada</p>
                 <div class='solicitud-info'>
-                    <span>9/11/2023</span>
+                    <span>$fecha_solicitud</span>
                     <input type='text' hidden>
                 </div>
             </div>";
@@ -64,6 +65,7 @@ if ($estado == "Historial") {
         foreach ($decode as $solicitud) {
             $id_solicitud = $solicitud["id_solicitud"];
             $camionero = $solicitud["usuario"];
+            $fecha_solicitud = $solicitud["fecha_solicitud"];
             echo "<hr>
             <div class='div-solicitud'>
                 <div class='solicitud-info'>
@@ -73,7 +75,7 @@ if ($estado == "Historial") {
                 <p class='mensaje-solicitud'>La solicitud $id_solicitud ha sido aceptada
                 </p>
                 <div class='solicitud-info'>
-                    <span>9/11/2023</span>
+                    <span>$fecha_solicitud</span>
                     <input type='text' hidden>
                     <a href='../../controladores/api/solicitud/modificarDato.php?id_solicitud=$id_solicitud&a=d'><button
                             class='estilo-boton2 boton-volver'>Denegar</button></a>
@@ -85,6 +87,7 @@ if ($estado == "Historial") {
         foreach ($decode as $solicitud) {
             $id_solicitud = $solicitud["id_solicitud"];
             $camionero = $solicitud["usuario"];
+            $fecha_solicitud = $solicitud["fecha_solicitud"];
             echo "<hr>
             <div class='div-solicitud'>
                 <div class='solicitud-info'>
@@ -93,7 +96,7 @@ if ($estado == "Historial") {
                 </div>
                 <p class='mensaje-solicitud'>La solicitud $id_solicitud ha sido denegada</p>
                 <div class='solicitud-info'>
-                    <span>9/11/2023</span>
+                    <span>$fecha_solicitud</span>
                     <input type='text' hidden>
                 </div>
             </div>";
@@ -103,6 +106,7 @@ if ($estado == "Historial") {
             $id_solicitud = $solicitud["id_solicitud"];
             $camionero = $solicitud["usuario"];
             $id_almacen_cliente = $solicitud["id_almacen_cliente"];
+            $fecha_solicitud = $solicitud["fecha_solicitud"];
             ?>
                     <hr>
                     <div class="div-solicitud">
@@ -116,7 +120,7 @@ if ($estado == "Historial") {
                     <?= $id_almacen_cliente ?>
                         </p>
                         <div class="solicitud-info">
-                            <span>9/11/2023</span>
+                            <span><?= $fecha_solicitud ?></span>
                             <input type="text" hidden>
                             <a href="../../controladores/api/solicitud/modificarDato.php?id_solicitud=<?= $id_solicitud ?>&a=a"><button
                                     class="estilo-boton2 boton-siguiente">Aceptar</button></a>

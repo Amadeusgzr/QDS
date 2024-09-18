@@ -34,7 +34,7 @@ require '../plantillas/menu-cuenta.php';
                 echo '<tr class="fila-ingreso-lote fila-opcion">';
                 echo '<td>' . $paquete["id_paquete"] . '</td>';
                 echo '<td>' . $paquete["paquete_direccion"] . '</td>';
-                echo '<td>' . $paquete["fecha_recibido"] . " | " . $paquete["hora_recibido"] . '</td>';
+                echo '<td>' . $paquete["fecha_recibido"] . '</td>';
 
                 echo "<td>
                 <a href='consultar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>

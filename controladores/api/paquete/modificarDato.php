@@ -26,7 +26,7 @@ $array = [
 
 $datos = json_encode($array);
 
-curl_setopt($ch, CURLOPT_URL, 'localhost/QDS/controladores/paqueteControlador.php');
+curl_setopt($ch, CURLOPT_URL, 'localhost/datavision/controladores/paqueteControlador.php');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
 curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

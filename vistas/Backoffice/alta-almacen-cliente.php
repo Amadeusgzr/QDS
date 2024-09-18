@@ -6,75 +6,7 @@ if (!isset($_SESSION['nom_usu']) || $_SESSION['tipo_usu'] !== 'admin') {
     header("Location: ../permisos.php"); // Redirige a la página de inicio de sesión
     exit();
 }
-echo "<link rel='stylesheet' href='../css/estilos.css'>";
 require '../../controladores/funciones.php';
-require '../plantillas/headerIngresado.php';
-require '../plantillas/menu-cuenta.php';
-?>
-
-<div class="form-crud">
-    <form action="alta-almacen-cliente.php" method="post">
-        <legend>Agregar Almacén Cliente</legend>
-        <input type="text" placeholder="Teléfono" class="txt-crud" name="telefono[]" required maxlength="20">
-        <input type="tel" placeholder="Dirección" class="txt-crud" name="direccion[]" required maxlength="45" id='direccion'>
-        <select name="id_empresa_cliente[]" class="estilo-select" maxlength="11">
-            <option value="" selected>Empresa</option>
-            <?php
-            include("../../modelos/db.php");
-            $instruccion = "select * from empresa_cliente";
-            $empresas = [];
-            $result = mysqli_query($conexion, $instruccion);
-            while ($row = mysqli_fetch_assoc($result)) {
-                array_push($empresas, $row);
-            }
-            foreach ($empresas as $empresa) {
-                $id_empresa_cliente = $empresa['id_empresa_cliente'];
-                $nombre_de_empresa = $empresa['nombre_de_empresa'];
-
-                echo "<option value='$id_empresa_cliente'>$nombre_de_empresa</option>";
-            }
-            ?>
-        </select>
-        <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
-    </form>
-    <a href="op-almacen-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
-</div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM&libraries=places"></script>
-<script>
-  function initAutocomplete() {
-    var input = document.getElementById('direccion');
-    var options = {
-      types: ['address'],
-      componentRestrictions: { country: 'uy' }, // Código de país para Uruguay (UY)
-    };
-    var autocomplete = new google.maps.places.Autocomplete(input, options);
-
-    autocomplete.setFields(['formatted_address']);
-
-    autocomplete.addListener('place_changed', function () {
-      var place = autocomplete.getPlace();
-      var filteredAddress = filterAddress(place.formatted_address);
-      input.value = filteredAddress;
-    });
-  }
-
-  function filterAddress(fullAddress) {
-    var commaIndex = fullAddress.indexOf(',');
-    if (commaIndex !== -1) {
-      return fullAddress.substring(0, commaIndex).trim();
-    } else {
-      return fullAddress;
-    }
-  }
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    initAutocomplete();
-  });
-</script>
-<?php
-
-
 if ($_POST) {
     $telefono = $_POST["telefono"];
     $direccion = $_POST["direccion"];
@@ -145,7 +77,74 @@ if ($_POST) {
     $respuesta = json_encode($respuesta);
     header('Location: alta-almacen-cliente.php?datos=' . urlencode($respuesta));
 }
+
+echo "<link rel='stylesheet' href='../css/estilos.css'>";
+
+require '../plantillas/headerIngresado.php';
+require '../plantillas/menu-cuenta.php';
 ?>
+
+<div class="form-crud">
+    <form action="alta-almacen-cliente.php" method="post">
+        <legend>Agregar Almacén Cliente</legend>
+        <input type="text" placeholder="Teléfono" class="txt-crud" name="telefono[]" required maxlength="20">
+        <input type="tel" placeholder="Dirección" class="txt-crud" name="direccion[]" required maxlength="45" id='direccion'>
+        <select name="id_empresa_cliente[]" class="estilo-select" maxlength="11">
+            <option value="" selected>Empresa</option>
+            <?php
+            include("../../modelos/db.php");
+            $instruccion = "select * from empresa_cliente where estado != 'De baja'";
+            $empresas = [];
+            $result = mysqli_query($conexion, $instruccion);
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($empresas, $row);
+            }
+            foreach ($empresas as $empresa) {
+                $id_empresa_cliente = $empresa['id_empresa_cliente'];
+                $nombre_de_empresa = $empresa['nombre_de_empresa'];
+
+                echo "<option value='$id_empresa_cliente'>$nombre_de_empresa</option>";
+            }
+            ?>
+        </select>
+        <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente"></a>
+    </form>
+    <a href="op-almacen-cliente.php"><input type="submit" value="Volver" class="estilo-boton boton-volver"></a>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3apFCRO-Fq2fccUb-g6GvinOzsh-vDYM&libraries=places"></script>
+<script>
+  function initAutocomplete() {
+    var input = document.getElementById('direccion');
+    var options = {
+      types: ['address'],
+      componentRestrictions: { country: 'uy' }, // Código de país para Uruguay (UY)
+    };
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+    autocomplete.setFields(['formatted_address']);
+
+    autocomplete.addListener('place_changed', function () {
+      var place = autocomplete.getPlace();
+      var filteredAddress = filterAddress(place.formatted_address);
+      input.value = filteredAddress;
+    });
+  }
+
+  function filterAddress(fullAddress) {
+    var commaIndex = fullAddress.indexOf(',');
+    if (commaIndex !== -1) {
+      return fullAddress.substring(0, commaIndex).trim();
+    } else {
+      return fullAddress;
+    }
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    initAutocomplete();
+  });
+</script>
+
 <div class="div-error">
     <?php
     if (isset($_GET['datos'])) {

@@ -23,5 +23,22 @@ class camionModelo
         }
         return $camiones;
     }
+
+    public function modificarEstado($id_camion)
+    {
+
+        $instruccion = "UPDATE vehiculo SET estado = 'En transcurso' WHERE id_vehiculo = '$id_camion'";
+        mysqli_query($this->db, $instruccion);
+
+        $resultado = [
+            'error' => "Éxito",
+            'respuesta' => "Recorrido iniciado"
+        ];
+
+        return $resultado;
+
+            
+        
+    }
 }
 ?>

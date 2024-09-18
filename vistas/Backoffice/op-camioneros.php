@@ -16,6 +16,7 @@ require '../plantillas/menu-cuenta.php';
     </a>
 </div>
 <div id="div-tabla">
+    <a href="op-camioneros-baja"><button class="btn-borrados btn-op"><img src="../img/iconos/lleno.png" alt=""></button></a>
     <h1 class="h1-tabla">Camioneros</h1>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">

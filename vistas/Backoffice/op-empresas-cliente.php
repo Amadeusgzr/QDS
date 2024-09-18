@@ -17,6 +17,7 @@ require '../plantillas/menu-cuenta.php';
 </div>
 <div id="div-tabla">
     <h1 class="h1-tabla">Empresas-Cliente</h1>
+    <a href="op-empresas-cliente-baja"><button class="btn-borrados btn-op"><img src="../img/iconos/lleno.png" alt=""></button></a>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
@@ -75,7 +76,7 @@ require '../plantillas/menu-cuenta.php';
 
 <script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ocultar-get-alta.js"></script>
-<script src="../js/seleccionar-filas.js"></script>
+<script src="../js/seleccionar-filas-empresas.js"></script>
 
 </body>
 

@@ -49,6 +49,24 @@ function actualizarTextos(data) {
     document.querySelector(".boton-siguiente").value = data.boton_confirmar;    
     document.querySelector(".boton-volver").textContent = data.btn_volver;    
   }
+  else if(url.includes("aplicacion-seguimiento")){
+
+    document.querySelector(".legend-seguimiento").textContent = data.legend_seguimiento;
+    document.querySelector(".p-mail-d").textContent = data.p_mail_d;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+  
+    document.querySelector(".p-peso").textContent = data.p_peso;
+    document.querySelector(".p-volumen").textContent = data.p_volumen;
+    document.querySelector(".p-fragil").textContent = data.p_fragil;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+    if(document.querySelector(".p-tipo")){
+      document.querySelector(".p-tipo").textContent = data.p_tipo;
+    }
+    if(document.querySelector(".p-detalles")){
+      document.querySelector(".p-detalles").textContent = data.p_detalles;
+    }
+    
+  }
 
 }
 

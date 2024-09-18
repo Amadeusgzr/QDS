@@ -43,7 +43,11 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         <input type="text" placeholder="Volumen disponible" class="txt-crud txt3" name="volumen_disponible" value="<?= $volumen_disponible ?>" required>
 
         <label><b class="p-estado">Estado: </b></label>
-        <input type="text" placeholder="Estado" class="txt-crud txt4" name="estado" value="<?= $estado ?>" required>
+        <select name="estado" class="txt-crud" required>
+            <option value="Disponible">Disponible</option>
+            <option value="Fuera de servicio">Fuera de servicio</option>
+            <option value="En transcurso">En transcurso</option>
+        </select>
         
         
         <a href=""><input type="submit" value="Modificar" class="estilo-boton boton-siguiente"></a>

@@ -1,7 +1,7 @@
 <?php
 $ch = curl_init();
 
-curl_setopt($ch, CURLOPT_URL, 'localhost/QDS/controladores/almacenCentralControlador.php');
+curl_setopt($ch, CURLOPT_URL, 'localhost/datavision/controladores/almacenCentralControlador.php');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $respuesta = curl_exec($ch);

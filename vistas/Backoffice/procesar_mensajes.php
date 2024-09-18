@@ -15,6 +15,7 @@ $estado = $_POST["estado"];
         $nombre_remitente = $mensaje["nombre_remitente"];
         $mensaje1 = $mensaje["mensaje"];
         $fecha_mensaje = $mensaje["fecha_mensaje"];
+        $mail_remitente = $mensaje["mail_remitente"];
         
         if ($estado1 == $estado) {
             echo "<hr>
@@ -22,6 +23,7 @@ $estado = $_POST["estado"];
                 <div class='solicitud-info'>
                     <img src='../img/iconos/icono-usuario.png' alt='>
                     <p class='nombre-solicitud'>$nombre_remitente</p>
+                    <p class='nombre-solicitud'>$mail_remitente</p>
                 </div>
                 <p class='mensaje-solicitud'>$mensaje1</p>
                 <div class='solicitud-info'>

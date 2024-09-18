@@ -17,6 +17,7 @@ require '../plantillas/menu-cuenta.php';
 </div>
 <div id="div-tabla">
     <h1 class="h1-tabla">Camiones</h1>
+    <a href="op-camiones-baja"><button class="btn-borrados btn-op"><img src="../img/iconos/lleno.png" alt=""></button></a>
     <div class="contenedor-tabla">
         <table id="tabla-admin-camioneros">
             <tr class="fila-ingreso-lote">
@@ -70,7 +71,7 @@ require '../plantillas/menu-cuenta.php';
     ?>
 </div>
 
-<script src="../js/seleccionar-filas.js"></script>
+<script src="../js/seleccionar-filas-camiones.js"></script>
 <script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ocultar-get-alta.js"></script>
 

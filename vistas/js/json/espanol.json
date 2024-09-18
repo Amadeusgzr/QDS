@@ -39,6 +39,9 @@
     "msg" : "Mensaje",
     "msg_submit" : "Enviar",
 
+    "--------- APLICACION DE SEGUIMIENTO ---------" : "",
+    "legend_seguimiento" : "Datos del paquete",
+
     
     "--------- CAMBIAR CONTRASENIA ---------" : "",
     "h1_cambiar_contrasenia" : "Cambiar contraseña",
@@ -138,6 +141,10 @@
 
     "legend_c_camionero" : "Consultar camionero",
 
+    "--------- BACKOFFICE CAMIONEROS BAJA ---------" : "",
+
+    "h1_tabla_camioneros_baja" : "Camioneros de baja",
+
     "--------- BACKOFFICE VEHICULOS ---------" : "",
 
     "h1_vehiculos" : "Camiones y Camionetas",
@@ -151,7 +158,7 @@
     "--------- BACKOFFICE AGREGAR CAMION ---------" : "",
 
     "legend_camion" : "Agregar Camión",
-    "matrîcula" : "Matrícula",
+    "matrîcula" : "Matrícula (Ej: STP-6969)",
     "peso_max" : "Peso max. (Kg)",
     "vol_max" : "Volumen max. (Mts3)",
 
@@ -173,6 +180,10 @@
 
     "legend_c_camion" : "Consultar Camión",
 
+    "--------- BACKOFFICE CAMIONES BAJA ---------" : "",
+
+    "h1_tabla_camiones_baja" : "Camiones de baja",
+
     "--------- BACKOFFICE CAMIONETAS ---------" : "",
 
     "h1_camionetas" : "Camionetas",
@@ -184,7 +195,7 @@
     "--------- BACKOFFICE AGREGAR CAMIONETA ---------" : "",
 
     "legend_camioneta" : "Agregar Camioneta",
-    "matricula" : "Matrícula",
+    "matricula" : "Matrícula (Ej: STM-3333)",
 
     "--------- BACKOFFICE ELIMINAR CAMIONETA ---------" : "",
 
@@ -204,6 +215,10 @@
     "--------- BACKOFFICE CONSULTAR CAMIONETA ---------" : "",
 
     "legend_c_camioneta" : "Consultar Camioneta",
+
+    "--------- BACKOFFICE CAMIONETAS BAJA ---------" : "",
+
+    "h1_camionetas_baja" : "Camionetas de baja",
 
     "--------- BACKOFFICE ALMACENES ---------" : "",
 
@@ -238,6 +253,10 @@
 
     "legend_c_almacen_central" : "Consultar Almacén Central",
 
+    "--------- BACKOFFICE ALMACENES CENTRALES BAJA ---------" : "",
+
+    "h2_almacen_central_baja" : "Almacenes de baja",
+
     "--------- BACKOFFICE ALMACENES CLIENTES ---------" : "",
 
     "th1_almacen_cliente" : "Dirección",
@@ -256,6 +275,10 @@
     "--------- BACKOFFICE CONSULTAR ALMACEN CLIENTE ---------" : "",
 
     "legend_c_almacen_cliente" : "Consultar Almacén Cliente",
+
+    "--------- BACKOFFICE ALMACENES CLIENTES BAJA ---------" : "",
+
+    "h2_almacen_cliente_baja" : "Almacenes cliente de baja",
 
     "--------- BACKOFFICE PLATAFORMAS ---------" : "",
 
@@ -282,6 +305,10 @@
     "legend_c_plataforma" : "Consultar Plataforma",
     "p_trayecto" : "Trayecto: ",
 
+    "--------- BACKOFFICE PLATAFORMAS BAJA ---------" : "",
+
+    "h2_plataformas_baja" : "Plataformas de baja",
+
     "--------- BACKOFFICE EMPRESA CLIENTE ---------" : "",
 
     "h2_empresas_cliente" : "Empresas Cliente",
@@ -306,6 +333,10 @@
     "--------- BACKOFFICE CONSULTAR EMPRESA ---------" : "",
 
     "legend_c_empresa_cliente" : "Consultar Empresa Cliente",
+
+    "--------- BACKOFFICE EMPRESA CLIENTE BAJA ---------" : "",
+
+    "h2_empresas_cliente_baja" : "Empresas cliente de baja",
 
     "--------- BACKOFFICE TRAYECTOS ---------" : "",
 
@@ -526,7 +557,7 @@
     "--------- CAMIONERO RECOGER PAQUETES ---------" : "",
 
     "h1_tabla2_recoger_paquetes" : "Elegir Camioneta",
-    "adv_recoger_paquetes" : "Selecciona el camión asignado para ver los paquetes a recoger",
+    "adv_recoger_paquetes" : "Selecciona la camioneta asignada para ver los paquetes a recoger",
 
     "--------- CAMIONERO RECOGER PAQUETES 2 ---------" : "",
 
@@ -566,6 +597,11 @@
     "th1_entregar_lotes_2" : "ID",
     "th2_entregar_lotes_2" : "Destino",
     "th3_entregar_lotes_2" : "Estado",
+
+    "--------- CAMIONERO ENTREGAR LOTES 3 ---------" : "",
+
+    "h1_tabla_entregar_lotes_3" : "Plataformas a entregar",
+    "adv_entrega_lotes_3" : "Las siguientes plataformas son por las que tendra que pasar el camión para entregar los lotes",
 
     "--------- CAMIONERO VER HORARIOS ---------" : "",
 

@@ -28,7 +28,7 @@ if (isset($_POST['todo'])) {
 
 $datos = json_encode($array);
 
-curl_setopt($ch, CURLOPT_URL, 'localhost/QDS/controladores/paqueteControlador.php');
+curl_setopt($ch, CURLOPT_URL, 'localhost/datavision/controladores/paqueteControlador.php');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
 curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -42,7 +42,6 @@ if (curl_errno($ch)) {
 }
 
 curl_close($ch);
-echo $respuesta;
 
 if ($_SESSION["tipo_usu"] !== "empresa"){
 if (isset($_GET["id_paquete"])) {

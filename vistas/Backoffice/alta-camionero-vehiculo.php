@@ -15,7 +15,7 @@ if ($_POST) {
     $fecha_inicio_manejo = $_POST["fecha_inicio_manejo"];
     $fecha_fin_manejo = $_POST["fecha_fin_manejo"];
     
-    $numArrays = count($id_camionero);
+    $numArrays = count($id_vehiculo);
     for ($i = 0; $i < $numArrays; $i++) {
         $respuesta = existencia('camionero', 'id_camionero', $id_camionero[$i]);
         if ($respuesta['error'] !== "Error") {
@@ -44,7 +44,7 @@ if ($_POST) {
                 'error' => "Éxito",
                 'respuesta' => "Asignación completa"
             ];
-            $instruccion = "insert into maneja (id_vehiculo,id_camionero,fecha_inicio_manejo,fecha_fin_manejo) values ('$id_camionero[$i]','$id_vehiculo[$i]','$fecha_inicio_manejo[$i]','$fecha_fin_manejo[$i]')";
+            $instruccion = "insert into maneja (id_vehiculo,id_camionero,fecha_inicio_manejo,fecha_fin_manejo) values ('$id_vehiculo[$i]','$id_camionero[$i]','$fecha_inicio_manejo[$i]','$fecha_fin_manejo[$i]')";
             $conexion->query($instruccion);
         } else {
             $respuesta = [
@@ -68,7 +68,7 @@ require '../plantillas/menu-cuenta.php';
 <div class="form-crud">
     <form action="alta-camionero-vehiculo.php" method="post">
         <legend class="legend">Asignar vehículo a camionero</legend>
-        <select name="id_camionero[]" id="" class="estilo-input">
+        <select name="id_camionero[]" id="" class="txt-crud">
             <?php
             $instruccion = "select * from camionero where estado != 'De baja'";
             $camioneros = [];
@@ -83,10 +83,10 @@ require '../plantillas/menu-cuenta.php';
             }
             ?>
         </select>
-        <select name="id_vehiculo[]" id="" class="estilo-input">
+        <select name="id_vehiculo[]" id="" class="txt-crud">
         <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from vehiculo";
+            $instruccion = "select * from vehiculo where estado != 'De baja'";
             $vehiculos = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -99,8 +99,8 @@ require '../plantillas/menu-cuenta.php';
             }
             ?>
         </select>
-        <input type="date" name="fecha_inicio_manejo[]" class="estilo-input">
-        <input type="date" name="fecha_fin_manejo[]" class="estilo-input">
+        <input type="date" name="fecha_inicio_manejo[]" class="txt-crud">
+        <input type="date" name="fecha_fin_manejo[]" class="txt-crud">
 
         <a href=""><input type="submit" value="Agregar" class="estilo-boton boton-siguiente boton-agregar"></a>
     </form>

@@ -39,6 +39,9 @@
     "msg" : "Message",
     "msg_submit" : "Send",
 
+    "--------- APLICACION DE SEGUIMIENTO ---------" : "",
+    "legend_seguimiento" : "Package data",
+
     "--------- CAMBIAR CONTRASENIA ---------" : "",
     "h1_cambiar_contrasenia" : "Change password",
     "adv_cambiar_contrasenia" : "The password must contain at least 8 digits, one uppercase letter, one lowercase letter, and one number.",
@@ -136,6 +139,10 @@
 
     "legend_c_camionero" : "Consult Trucker",
 
+    "--------- BACKOFFICE CAMIONEROS BAJA ---------" : "",
+
+    "h1_tabla_camioneros_baja" : "Deleted Truckers",
+
     "--------- BACKOFFICE VEHICULOS ---------" : "",
 
     "h1_vehiculos" : "Trucks and Vans",
@@ -149,7 +156,7 @@
     "--------- BACKOFFICE AGREGAR CAMION ---------" : "",
 
     "legend_camion" : "Add Truck",
-    "matrîcula" : "Plate",
+    "matrîcula" : "Plate (Ex: STP-6969)",
     "peso_max" : "Max. Weight (Kg)",
     "vol_max" : "Max. Volume (Mts3)",
 
@@ -171,6 +178,10 @@
 
     "legend_c_camion" : "Consult Truck",
 
+    "--------- BACKOFFICE CAMIONES BAJA ---------" : "",
+
+    "h1_tabla_camiones_baja" : "Deleted Trucks",
+
     "--------- BACKOFFICE CAMIONETAS ---------" : "",
 
     "h1_camionetas" : "Vans",
@@ -182,7 +193,7 @@
     "--------- BACKOFFICE AGREGAR CAMIONETA ---------" : "",
 
     "legend_camioneta" : "Add Van",
-    "matricula" : "Plate",
+    "matricula" : "Plate (Ex: STM-3333)",
 
     "--------- BACKOFFICE ELIMINAR CAMIONETA ---------" : "",
 
@@ -202,6 +213,10 @@
     "--------- BACKOFFICE CONSULTAR CAMIONETA ---------" : "",
 
     "legend_c_camioneta" : "Consult Van",
+
+    "--------- BACKOFFICE CAMIONETAS BAJA ---------" : "",
+
+    "h1_camionetas_baja" : "Deleted Vans",
 
     "--------- BACKOFFICE ALMACENES ---------" : "",
 
@@ -236,6 +251,10 @@
 
     "legend_c_almacen_central" : "Consult Central Warehouse",
 
+    "--------- BACKOFFICE ALMACENES CENTRALES BAJA ---------" : "",
+
+    "h2_almacen_central_baja" : "Deleted Central Warehouses",
+
     "--------- BACKOFFICE ALMACENES CLIENTES ---------" : "",
 
     "th1_almacen_cliente" : "Address",
@@ -254,6 +273,10 @@
     "--------- BACKOFFICE CONSULTAR ALMACEN CLIENTE ---------" : "",
 
     "legend_c_almacen_cliente" : "Consult Customer Warehouse",
+
+    "--------- BACKOFFICE ALMACENES CLIENTES BAJA ---------" : "",
+
+    "h2_almacen_cliente_baja" : "Deleted Customer Warehouses",
 
     "--------- BACKOFFICE PLATAFORMAS ---------" : "",
 
@@ -280,6 +303,10 @@
     "legend_c_plataforma" : "Consult Platform",
     "p_trayecto" : "Journey: ",
 
+    "--------- BACKOFFICE PLATAFORMAS BAJA ---------" : "",
+
+    "h2_plataformas_baja" : "Deleted Platforms",
+
     "--------- BACKOFFICE EMPRESA CLIENTE ---------" : "",
 
     "h2_empresas_cliente" : "Client Companies",
@@ -304,6 +331,11 @@
     "--------- BACKOFFICE CONSULTAR EMPRESA ---------" : "",
 
     "legend_c_empresa_cliente" : "Consult Client Company",
+
+    "--------- BACKOFFICE EMPRESA CLIENTE BAJA ---------" : "",
+
+    "h2_empresas_cliente_baja" : "Deleted Client Companies",
+
 
     "--------- BACKOFFICE TRAYECTOS ---------" : "",
 
@@ -523,7 +555,7 @@
     "--------- CAMIONERO RECOGER PAQUETES ---------" : "",
 
     "h1_tabla2_recoger_paquetes" : "Van Selection",
-    "adv_recoger_paquetes" : "Select the assigned truck to see the packages to pick up",
+    "adv_recoger_paquetes" : "Select the assigned van to see the packages to pick up",
 
     "--------- CAMIONERO RECOGER PAQUETES 2 ---------" : "",
 
@@ -563,6 +595,11 @@
     "th1_entregar_lotes_2" : "Key",
     "th2_entregar_lotes_2" : "Destination",
     "th3_entregar_lotes_2" : "Status",
+
+    "--------- CAMIONERO ENTREGAR LOTES 3 ---------" : "",
+
+    "h1_tabla_entregar_lotes_3" : "Platforms to deliver",
+    "adv_entrega_lotes_3" : "The following platforms are the ones that the truck will have to pass through to deliver the lots",
 
     "--------- CAMIONERO VER HORARIOS ---------" : "",
 

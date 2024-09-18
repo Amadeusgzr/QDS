@@ -40,6 +40,8 @@ require '../plantillas/menu-cuenta.php';
             <option value="En almacén central (lote)">En almacén central (lote)</option>
             <option value="En almacén central">En almacén central</option>
             <option value="En camioneta (central)">En camioneta (central)</option>
+            <option value="En camión (plataforma)">En camión (plataforma)</option>
+            <option value="Entregado">Entregado</option>
         </select>
         <button class="estilo-input">Enviar</button>
     </form>
@@ -66,31 +68,55 @@ require '../plantillas/menu-cuenta.php';
             if (isset($decode)){
                 foreach ($decode as $paquete) {
                     $id_paquete = $paquete["id_paquete"];
+                    if ($paquete["estado"] == "En almacén central" || $paquete["estado"] == "En almacén cliente" || $paquete["estado"] == "En camioneta (central)"){
                     echo '<tr class="fila-ingreso-lote fila-opcion">';
                     echo '<td>' . $paquete["id_paquete"] . '</td>';
-                    echo '<td>' . $paquete["direccion"] . '</td>';
+                    echo '<td>' . $paquete["direccion"] . ", " . $paquete["departamento_destino"] . '</td>';
                     echo '<td>' . $paquete['estado'] . '</td>';
                     echo "<td>
                     <a href='baja-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
                     <a href='modificar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
                     <a href='consultar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
                     </td>";
-                    echo '</tr>';
+                    echo '</tr>'; 
+                    } else{
+                        echo '<tr class="fila-ingreso-lote fila-opcion">';
+                        echo '<td>' . $paquete["id_paquete"] . '</td>';
+                        echo '<td>' . $paquete["direccion"] . ", " . $paquete["departamento_destino"] . '</td>';
+                        echo '<td>' . $paquete['estado'] . '</td>';
+                        echo "<td>
+                        <a href='consultar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
+                        </td>";
+                        echo '</tr>';
+                    }
+
                 }
             } else {
             require("../../controladores/api/paquete/obtenerDato.php");
             foreach ($decode as $paquete) {
+
                 $id_paquete = $paquete["id_paquete"];
-                echo '<tr class="fila-ingreso-lote fila-opcion">';
-                echo '<td>' . $paquete["id_paquete"] . '</td>';
-                echo '<td>' . $paquete["direccion"] . '</td>';
-                echo '<td>' . $paquete['estado'] . '</td>';
-                echo "<td>
-                <a href='baja-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
-                <a href='modificar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
-                <a href='consultar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
-                </td>";
-                echo '</tr>';
+                    if ($paquete["estado"] == "En almacén central" || $paquete["estado"] == "En almacén cliente" || $paquete["estado"] == "En camioneta (central)"){
+                    echo '<tr class="fila-ingreso-lote fila-opcion">';
+                    echo '<td>' . $paquete["id_paquete"] . '</td>';
+                    echo '<td>' . $paquete["direccion"] . ", " . $paquete["departamento_destino"] . '</td>';
+                    echo '<td>' . $paquete['estado'] . '</td>';
+                    echo "<td>
+                    <a href='baja-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                    <a href='modificar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                    <a href='consultar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
+                    </td>";
+                    echo '</tr>'; 
+                    } else{
+                        echo '<tr class="fila-ingreso-lote fila-opcion">';
+                        echo '<td>' . $paquete["id_paquete"] . '</td>';
+                        echo '<td>' . $paquete["direccion"] . ", " . $paquete["departamento_destino"] . '</td>';
+                        echo '<td>' . $paquete['estado'] . '</td>';
+                        echo "<td>
+                        <a href='consultar-paquete.php?id_paquete=$id_paquete'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
+                        </td>";
+                        echo '</tr>';
+                    }
             }
         }
             ?>

@@ -1,3 +1,4 @@
+url = window.location.href;
 const chkIdioma = document.querySelector("#btn-idioma");
 
 let idioma = "español";
@@ -37,20 +38,41 @@ function cargarTextos(lang) {
 }
 
 function actualizarTextos(data) {
-  document.querySelector(".aop1-index").textContent = data.aop1_index;
-  document.querySelector(".aop3-index").textContent = data.aop3_index;
-  document.querySelector(".aop4-index").textContent = data.aop4_index;
+  if(url.includes("index")){
+    document.querySelector(".aop1-index").textContent = data.aop1_index;
+    document.querySelector(".aop3-index").textContent = data.aop3_index;
+    document.querySelector(".aop4-index").textContent = data.aop4_index;
+  
+    document.querySelector("#sub-rastreo").textContent = data.sub_rastreo;
+    document.querySelector("#p-rastreo").textContent = data.p_rastreo;
+    document.querySelector("#submit-rastreo").value = data.submit_rastreo;
+  
+    document.querySelector("#h2-contacto").textContent = data.h2_contacto;
+    document.querySelector("#h2-msg").textContent = data.h2_msg;
+    document.querySelector("#msg-nombre").placeholder = data.msg_nombre;
+    document.querySelector("#msg-mail").placeholder = data.msg_mail;
+    document.querySelector("#txt-mensaje-footer").placeholder = data.msg;
+    document.querySelector("#msg-submit").value = data.msg_submit;
 
-  document.querySelector("#sub-rastreo").textContent = data.sub_rastreo;
-  document.querySelector("#p-rastreo").textContent = data.p_rastreo;
-  document.querySelector("#submit-rastreo").value = data.submit_rastreo;
+  }
+  else if(url.includes("aplicacion-seguimiento")){
 
-  document.querySelector("#h2-contacto").textContent = data.h2_contacto;
-  document.querySelector("#h2-msg").textContent = data.h2_msg;
-  document.querySelector("#msg-nombre").placeholder = data.msg_nombre;
-  document.querySelector("#msg-mail").placeholder = data.msg_mail;
-  document.querySelector("#txt-mensaje-footer").placeholder = data.msg;
-  document.querySelector("#msg-submit").value = data.msg_submit;
+    document.querySelector(".legend-seguimiento").textContent = data.legend_seguimiento;
+    document.querySelector(".p-mail-d").textContent = data.p_mail_d;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+  
+    document.querySelector(".p-peso").textContent = data.p_peso;
+    document.querySelector(".p-volumen").textContent = data.p_volumen;
+    document.querySelector(".p-fragil").textContent = data.p_fragil;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+    if(document.querySelector(".p-tipo")){
+      document.querySelector(".p-tipo").textContent = data.p_tipo;
+    }
+    if(document.querySelector(".p-detalles")){
+      document.querySelector(".p-detalles").textContent = data.p_detalles;
+    }
+    
+  }
 }
 
 window.addEventListener("DOMContentLoaded", () => {

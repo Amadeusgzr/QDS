@@ -87,7 +87,7 @@ require '../plantillas/menu-cuenta.php';
     var input = document.getElementById('direccion');
     var options = {
       types: ['address'],
-      componentRestrictions: { country: 'uy' }, // Código de país para Uruguay (UY)
+      componentRestrictions: { country: 'uy' },
     };
     var autocomplete = new google.maps.places.Autocomplete(input, options);
 

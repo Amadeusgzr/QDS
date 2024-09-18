@@ -62,11 +62,11 @@ if ($_POST) {
                     if (preg_match('/^(STM)-[0-9]{4}$/', $matricula[$i])) {
                         $respuesta = [
                             'error' => "Éxito",
-                            'respuesta' => "Camión guardado"
+                            'respuesta' => "Camioneta guardada"
                         ];
                         $instruccion = "insert into vehiculo(matricula, volumen_maximo, peso_soportado, estado) value ('$matricula[$i]', '$volumen_disponible[$i]', '$peso_soportado[$i]', 'Disponible')";
                         $conexion->query($instruccion);
-                        $id_camion = mysqli_insert_id($conexion);
+                        $id_camioneta = mysqli_insert_id($conexion);
                         $instruccion = "insert into camioneta(id_camioneta) value ('$id_camioneta')";
                         $conexion->query($instruccion);
                     } else {

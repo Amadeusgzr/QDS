@@ -108,7 +108,7 @@ if (isset($_GET['id_camionero'])) {
     $id_camion = $_GET['id_camion1'];
 
 
-    $instruccion = "select * from camion inner join vehiculo on camion.id_camion = vehiculo.id_vehiculo where id_camion=$id_camion";
+    $instruccion = "select * from mostrar_camiones where id_camion=$id_camion";
     $filas = $conexion->query($instruccion);
 
     foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
@@ -116,8 +116,7 @@ if (isset($_GET['id_camionero'])) {
         $matricula = $fila["matricula"];
         $peso_soportado = $fila["peso_soportado"];
         $volumen_disponible = $fila["volumen_maximo"];
-        $peso_total_actual_camion = $fila["peso_total_actual_camion"];
-        $volumen_total_actual_camion = $fila["volumen_total_actual_camion"];
+
         $estado = $fila["estado"];
 
         echo "<div class='form-crud'>
@@ -126,9 +125,7 @@ if (isset($_GET['id_camionero'])) {
         <p><b class='p-id'>ID: </b>$id_camion</p>
         <p><b class='p-matricula'>Matrícula: </b>$matricula</p>
         <p><b class='p-peso-sop'>Peso soportado: </b>$peso_soportado Kg</p>
-        <p><b>Peso actual: </b>$peso_total_actual_camion Kg</p>
         <p><b class='p-volumen-disp'>Volumen disponible: </b>$volumen_disponible Cm3</p>
-        <p><b>Volumen actual: </b>$volumen_total_actual_camion Cm3</p>
         <p><b class='p-estado'>Estado: </b>$estado</p>
         <a href='op-camiones.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
@@ -308,5 +305,171 @@ if (isset($_GET['id_camionero'])) {
         <a href='op-usuarios.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
         </div>";
     } 
+} else if (isset($_GET['id_camionero-baja'])) {
+    $id_camionero = $_GET['id_camionero-baja'];
+
+    $instruccion = "select * from camionero where id_camionero=$id_camionero";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $cedula = $fila["cedula"];
+        $nombre_completo = $fila["nombre_completo"];
+        $telefono = $fila["telefono"];
+        $mail = $fila["mail"];
+
+        echo "<div class='form-crud'>
+        <legend class='legend-c-camionero'>Consultar Camionero</legend>
+        <p class='subtitulo-crud'>Datos del camionero</p>
+        <p><b class='p-id'>ID: </b>$id_camionero</p>
+        <p><b class='p-cedula'>Cédula: </b>$cedula</p>
+        <p><b class='p-nombre'>Nombre: </b>$nombre_completo</p>
+        <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
+        <p><b>Mail: </b>$mail</p>
+        <a href='op-camioneros-baja.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
+} else if (isset($_GET['id_camion2'])) {
+    $id_camion = $_GET['id_camion2'];
+
+
+    $instruccion = "select * from mostrar_camiones where id_camion=$id_camion";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_camion = $fila["id_camion"];
+        $matricula = $fila["matricula"];
+        $peso_soportado = $fila["peso_soportado"];
+        $volumen_disponible = $fila["volumen_maximo"];
+
+        $estado = $fila["estado"];
+
+        echo "<div class='form-crud'>
+        <legend class='legend-c-camion'>Consultar Camión</legend>
+        <p class='subtitulo-crud'>Datos del camión</p>
+        <p><b class='p-id'>ID: </b>$id_camion</p>
+        <p><b class='p-matricula'>Matrícula: </b>$matricula</p>
+        <p><b class='p-peso-sop'>Peso soportado: </b>$peso_soportado Kg</p>
+        <p><b class='p-volumen-disp'>Volumen disponible: </b>$volumen_disponible Cm3</p>
+        <p><b class='p-estado'>Estado: </b>$estado</p>
+        <a href='op-camiones-baja.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
+} else if (isset($_GET['id_camioneta1'])) {
+    $id_camioneta = $_GET['id_camioneta1'];
+
+
+    $instruccion = "select * from camioneta inner join vehiculo on vehiculo.id_vehiculo = camioneta.id_camioneta where id_camioneta=$id_camioneta";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_camioneta = $fila["id_camioneta"];
+        $matricula = $fila["matricula"];
+        $peso_soportado = $fila["peso_soportado"];
+        $volumen_disponible = $fila["volumen_maximo"];
+        $estado = $fila["estado"];
+
+        echo "<div class='form-crud'>
+            <legend class='legend-c-camioneta'>Consultar Camioneta</legend>
+            <p class='subtitulo-crud'>Datos de la camioneta</p>
+            <p><b class='p-id'>ID: </b>$id_camioneta</p>
+            <p><b class='p-matricula'>Matrícula: </b>$matricula</p>
+            <p><b class='p-peso-sop'>Peso soportado: </b>$peso_soportado Kg</p>
+            <p><b class='p-volumen-disp'>Volumen disponible: </b>$volumen_disponible Cm3</p>
+            <p><b class='p-estado'>Estado: </b>$estado</p>
+            <a href='op-camionetas-baja.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+            </div>";
+    }
+}  else if (isset($_GET['id_almacen_central1'])) {
+    $id_almacen_central = $_GET['id_almacen_central1'];
+
+
+    $instruccion = "select * from almacen_central where id_almacen_central=$id_almacen_central";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_almacen_central = $fila["id_almacen_central"];
+        $telefono = $fila["telefono"];
+        $numero_almacen = $fila["numero_almacen"];
+
+        echo "<div class='form-crud'>
+        <legend class='legend-c-almacen-central'>Consultar Almacen Central</legend>
+        <p class='subtitulo-crud'>Datos del almacén</p>
+        <p><b class='p-id'>ID: </b>$id_almacen_central</p>
+        <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
+        <p><b class='p-numero-almacen'>Número de almacén: </b>$numero_almacen</p>
+        <a href='op-almacen-central-baja.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
+}  else if (isset($_GET['id_almacen_cliente1'])) {
+    $id_almacen_cliente = $_GET['id_almacen_cliente1'];
+
+
+    $instruccion = "select * from almacen_cliente where id_almacen_cliente=$id_almacen_cliente";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_almacen_cliente = $fila["id_almacen_cliente"];
+        $telefono = $fila["telefono"];
+        $direccion = $fila["direccion"];
+
+        echo "<div class='form-crud'>
+        <legend class='legend-c-almacen-cliente'>Consultar Almacen Cliente</legend>
+        <p class='subtitulo-crud'>Datos del almacén</p>
+        <p><b class='p-id'>ID: </b>$id_almacen_cliente</p>
+        <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
+        <p><b class='p-direccion'>Dirección: </b>$direccion</p>
+        <a href='op-almacen-cliente-baja.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
+}  else if (isset($_GET['id_plataforma1'])) {
+    $id_plataforma = $_GET['id_plataforma1'];
+
+
+    $instruccion = "select * from plataforma inner join destino on plataforma.ubicacion = destino.id_destino where id_plataforma=$id_plataforma";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_plataforma = $fila["id_plataforma"];
+        $telefono = $fila["telefono"];
+        $direccion = $fila["direccion"];
+        $departamento = $fila["departamento_destino"];
+        $volumen = $fila["volumen_maximo"];
+
+        // Construir la URL para la solicitud a la API
+        echo "<div class='form-crud'>
+        <legend class='legend-c-plataforma'>Consultar Plataforma</legend>
+        <p class='subtitulo-crud'>Datos de la plataforma</p>
+        <p><b class='p-id'>ID: </b>$id_plataforma</p>
+        <p><b class='p-telefono'>Teléfono: </b>$telefono</p>
+        <p><b class='p-direccion'>Dirección: </b>$direccion</p>
+        <p><b class='p-departamento'>Departamento: </b>$departamento</p>
+        <p><b class='p-volumen-maximo'>Volumen máx.: </b>$volumen</p>";
+
+        echo "<a href='op-plataforma-baja.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
+}  else if (isset($_GET['id_empresa_cliente1'])) {
+    $id_empresa_cliente = $_GET['id_empresa_cliente1'];
+
+
+    $instruccion = "select * from empresa_cliente where id_empresa_cliente=$id_empresa_cliente";
+    $filas = $conexion->query($instruccion);
+
+    foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
+        $id_empresa = $fila["id_empresa_cliente"];
+        $rut = $fila["rut"];
+        $nombre_de_empresa = $fila["nombre_de_empresa"];
+        $mail = $fila["mail"];
+
+        echo "<div class='form-crud'>
+        <legend class='legend-c-empresa-cliente'>Consultar Empresa Cliente</legend>
+        <p class='subtitulo-crud'>Datos de la empresa</p>
+        <p><b class='p-id'>ID: </b>$id_empresa</p>
+        <p><b class='p-cedula'>RUT: </b>$rut</p>
+        <p><b class='p-nombre'>Nombre: </b>$nombre_de_empresa</p>
+        <p><b>Mail: </b>$mail</p>
+        <a href='op-empresas-cliente-baja.php'><input type='submit' value='Volver' class='estilo-boton boton-volver'></a>
+        </div>";
+    }
 }
 ?>

@@ -49,11 +49,6 @@ require '../plantillas/menu-cuenta.php';
 
         </table>
     </div>
-    <div class="div-btn-doble">
-        <button class="btn-limpiar estilo-boton btn-limpiar">Limpiar</button>
-        <a href="hola.php?id_lote=<?= $id_lote ?>"><button class="boton-agregar estilo-boton btns-as-lote">Agregar Selección</button></a>
-    </div>
-
     
 </div>
 
@@ -88,10 +83,6 @@ require '../plantillas/menu-cuenta.php';
                 ?>
         </table>
     </div>
-    <div class="div-btn-doble">
-        <button class="btn-limpiar btn-limpiar2 estilo-boton btn-limpiar">Limpiar</button>
-        <a href="hola.php?id_lote=<?= $id_lote ?>"><button class="boton-volver boton-eliminar estilo-boton btns-as-lote">Remover Selección</button></a>
-    </div>
 </div>
 
 
@@ -106,7 +97,8 @@ require '../plantillas/menu-cuenta.php';
     ?>
 </div>
 
-
+<script src="../js/seleccionar-filas-lotes.js"></script>
+<script src="../js/seleccionar-filas-lotes-2.js"></script>
 <script src="../js/asignar-paquetes-lote-2.js"></script>
 <script src="../js/mostrar-respuesta.js"></script>
 <script>

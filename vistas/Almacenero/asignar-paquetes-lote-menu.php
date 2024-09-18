@@ -22,8 +22,11 @@ require '../plantillas/menu-cuenta.php';
             <?php
             require("../../controladores/api/lote/obtenerDato.php");
             foreach ($decode as $lote) {
-                $id_lote = $lote["id_lote"];
-                echo "<option value='$id_lote'>Lote $id_lote</option>";
+                if ($lote["estado"] == 'En almacén central'){
+                    $id_lote = $lote["id_lote"];
+                    echo "<option value='$id_lote'>Lote $id_lote</option>";
+                }
+
             }
 
             ?>

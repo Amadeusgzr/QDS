@@ -26,7 +26,7 @@ require '../plantillas/menu-cuenta.php';
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select distinct lleva.id_camion, vehiculo.matricula, fecha_salida, almacen_central_salida from lleva inner join camion on lleva.id_camion = camion.id_camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion";
+            $instruccion = "select distinct lleva.id_camion, vehiculo.matricula, fecha_salida, almacen_central_salida from lleva inner join camion on lleva.id_camion = camion.id_camion inner join vehiculo on vehiculo.id_vehiculo = camion.id_camion where fecha_llegada IS NULL";
             $horarios_entrega = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -58,11 +58,7 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-uno">
-        <button class="estilo-boton boton-largo btn-limpiar">Limpiar</button>
-    </div>
-    <div class="div-btn-doble">
-        <a href="alta-horario-entrega.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
-        <button class="boton-siguiente estilo-boton boton-eliminar" id="submit-as-lote-2">Eliminar</button>
+        <a style="width: 100%;" href="alta-horario-entrega.php" id="a-agregar"><button style="width: 100%;" class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
     </div>
 </div>
 
@@ -76,7 +72,6 @@ require '../plantillas/menu-cuenta.php';
     ?>
 </div>
 
-<script src="../js/seleccionar-filas.js"></script>
 <script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ocultar-get-alta.js"></script>
 </body>

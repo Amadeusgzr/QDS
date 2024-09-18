@@ -79,15 +79,13 @@ if (isset($_GET['id_camionero'])) {
     $instruccion = "update vehiculo set estado='De baja' where id_vehiculo=$id_camioneta";
     $conexion->query($instruccion);
 
-    header("Location: op-camionetas.php");
-} else if (isset($_GET['id_ruta'])) {
-    $id_ruta = $_GET['id_ruta'];
-
-
-    $instruccion = "delete from ruta where id_ruta=$id_ruta";
-    $conexion->query($instruccion);
-    header("Location: op-ruta.php");
-
+    $respuesta = [
+        'error' => "Éxito",
+        'respuesta' => "Camioneta eliminada"
+    ];
+    $conexion->close();
+    $respuesta = json_encode($respuesta);
+    header("Location: op-camionetas.php?datos=" . urlencode($respuesta));
 } else if (isset($_GET['id_empresa_cliente'])) {
 
     $id_empresa = $_GET['id_empresa_cliente'];
@@ -189,6 +187,249 @@ if (isset($_GET['id_camionero'])) {
         $respuesta = [
             'error' => "Éxito",
             'respuesta' => "Camioneros eliminados"
+        ];  
+    } else {
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "No se ha seleccionado ninguna fila"
+        ]; 
+    }
+
+    $respuesta = json_encode($respuesta);
+
+    $respuesta = urlencode($respuesta);
+    echo $respuesta;
+} else if (isset($_POST["id_usuarios"])){
+    
+    $jsonString = $_POST['id_usuarios'];
+    $usuarios = json_decode($jsonString, true);
+
+    foreach ($usuarios as $usuario){
+        $id_usuario = $usuario[0];
+
+        $instruccion = "delete from login where id_usuario = '$id_usuario';";
+        $conexion->query($instruccion);
+    }
+
+    if (count($usuarios) == 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Usuario eliminado"
+            ];  
+    } else if (count($usuarios) > 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Usuarios eliminados"
+        ];  
+    } else {
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "No se ha seleccionado ninguna fila"
+        ]; 
+    }
+
+    $respuesta = json_encode($respuesta);
+
+    $respuesta = urlencode($respuesta);
+    echo $respuesta;
+}  else if (isset($_POST["id_camiones"])){
+    
+    $jsonString = $_POST['id_camiones'];
+    $camiones = json_decode($jsonString, true);
+
+    foreach ($camiones as $camion){
+        $id_camion = $camion[0];
+
+        $instruccion = "update vehiculo set estado='De baja' where id_vehiculo='$id_camion'";
+        $conexion->query($instruccion);
+    }
+
+    if (count($camiones) == 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Camión eliminado"
+            ];  
+    } else if (count($camiones) > 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Camiones eliminados"
+        ];  
+    } else {
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "No se ha seleccionado ninguna fila"
+        ]; 
+    }
+
+    $respuesta = json_encode($respuesta);
+
+    $respuesta = urlencode($respuesta);
+    echo $respuesta;
+}   else if (isset($_POST["id_camionetas"])){
+    
+    $jsonString = $_POST['id_camionetas'];
+    $camionetas = json_decode($jsonString, true);
+
+    foreach ($camionetas as $camioneta){
+        $id_camioneta = $camioneta[0];
+
+        $instruccion = "update vehiculo set estado='De baja' where id_vehiculo='$id_camioneta'";
+        $conexion->query($instruccion);
+    }
+
+    if (count($camionetas) == 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Camioneta eliminada"
+            ];  
+    } else if (count($camionetas) > 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Camionetas eliminadas"
+        ];  
+    } else {
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "No se ha seleccionado ninguna fila"
+        ]; 
+    }
+
+    $respuesta = json_encode($respuesta);
+
+    $respuesta = urlencode($respuesta);
+    echo $respuesta;
+} else if (isset($_POST["id_almacenes_centrales"])){
+    
+    $jsonString = $_POST['id_almacenes_centrales'];
+    $almacenes_centrales = json_decode($jsonString, true);
+
+    foreach ($almacenes_centrales as $almacen_central){
+        $id_almacen_central = $almacen_central[0];
+
+        $instruccion = "update almacen_central set estado='De baja' where id_almacen_central='$id_almacen_central'";
+        $conexion->query($instruccion);
+    }
+
+    if (count($almacenes_centrales) == 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Almacén eliminado"
+            ];  
+    } else if (count($almacenes_centrales) > 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Almacenes eliminados"
+        ];  
+    } else {
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "No se ha seleccionado ninguna fila"
+        ]; 
+    }
+
+    $respuesta = json_encode($respuesta);
+
+    $respuesta = urlencode($respuesta);
+    echo $respuesta;
+} else if (isset($_POST["id_almacenes_clientes"])){
+    
+    $jsonString = $_POST['id_almacenes_clientes'];
+    $almacenes_clientes = json_decode($jsonString, true);
+
+    foreach ($almacenes_clientes as $almacen_cliente){
+        $id_almacen_cliente = $almacen_cliente[0];
+
+        $instruccion = "update almacen_cliente set estado='De baja' where id_almacen_cliente='$id_almacen_cliente'";
+        $conexion->query($instruccion);
+    }
+
+    if (count($almacenes_clientes) == 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Almacén eliminado"
+            ];  
+    } else if (count($almacenes_clientes) > 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Almacenes eliminados"
+        ];  
+    } else {
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "No se ha seleccionado ninguna fila"
+        ]; 
+    }
+
+    $respuesta = json_encode($respuesta);
+
+    $respuesta = urlencode($respuesta);
+    echo $respuesta;
+} else if (isset($_POST["id_plataformas"])){
+    
+    $jsonString = $_POST['id_plataformas'];
+    $plataformas = json_decode($jsonString, true);
+
+    foreach ($plataformas as $plataforma){
+        $id_plataforma = $plataforma[0];
+
+        $instruccion = "update plataforma set estado='De baja' where id_plataforma='$id_plataforma'";
+        $conexion->query($instruccion);
+    }
+
+    if (count($plataformas) == 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Plataforma eliminada"
+            ];  
+    } else if (count($plataformas) > 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Plataforma eliminadas"
+        ];  
+    } else {
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "No se ha seleccionado ninguna fila"
+        ]; 
+    }
+
+    $respuesta = json_encode($respuesta);
+
+    $respuesta = urlencode($respuesta);
+    echo $respuesta;
+}  else if (isset($_POST["id_empresas_clientes"])){
+    
+    $jsonString = $_POST['id_empresas_clientes'];
+    $empresas_clientes = json_decode($jsonString, true);
+
+    foreach ($empresas_clientes as $empresa_cliente){
+        $id_empresa_cliente = $empresa_cliente[0];
+
+        $instruccion = "update empresa_cliente set estado='De baja' where id_empresa_cliente='$id_empresa_cliente'";
+        $conexion->query($instruccion);
+
+        $almacenes_cliente = [];
+        $instruccion = "select * from tiene where id_empresa_cliente='$id_empresa_cliente'";
+        $resultado = mysqli_query($conexion, $instruccion);
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            array_push($almacenes_cliente, $row);
+        }
+        foreach ($almacenes_cliente as $almacen_cliente){
+            $id_almacen_cliente = $almacen_cliente["id_almacen_cliente"];
+            $instruccion = "update almacen_cliente set estado='De baja' where id_almacen_cliente=$id_almacen_cliente";
+            $conexion->query($instruccion);
+        }
+    }
+
+    if (count($empresas_clientes) == 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Empresa eliminada"
+            ];  
+    } else if (count($empresas_clientes) > 1){
+        $respuesta = [
+            'error' => "Éxito",
+            'respuesta' => "Empresas eliminadas"
         ];  
     } else {
         $respuesta = [

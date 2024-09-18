@@ -81,8 +81,8 @@ class loteModelo
             $resultado = mysqli_query($this->db, $instruccion);
             $fila =  mysqli_fetch_assoc($resultado);
             $estado = $fila["estado"];
-            if ($estado == "En almacén central (camión)" || $estado == "Entregado"){
-                if ($estado == "En almacén central (camión)"){
+            if ($estado == "En camión (plataforma)" || $estado == "Entregado"){
+                if ($estado == "En camión (plataforma)"){
                     $instruccion = "UPDATE lote SET estado='Entregado' WHERE id_lote = '$id_lote'";
                     mysqli_query($this->db, $instruccion);     
                     $paquetes = [];
@@ -93,7 +93,13 @@ class loteModelo
                     }
                     foreach ($paquetes as $paquete){
                         $id_paquete = $paquete["id_paquete"];
-                        $instruccion = "UPDATE paquete SET estado ='Entregado' WHERE id_paquete = $id_paquete";
+                        date_default_timezone_set('America/Montevideo');
+
+                        $fechaHoraActualUruguay = time();
+
+                        $fechaHoraActualMySQL = date('Y-m-d H:i:s', $fechaHoraActualUruguay);
+
+                        $instruccion = "UPDATE paquete SET estado ='Entregado', fecha_recibido = '$fechaHoraActualMySQL' WHERE id_paquete = $id_paquete";
                         mysqli_query($this->db, $instruccion);
                     }
                     $resultado = [
@@ -101,7 +107,7 @@ class loteModelo
                         'respuesta' => "Paquete entregado"
                     ];
                 } else {
-                    $instruccion = "UPDATE lote SET estado='En almacén central (camión)' WHERE id_lote = '$id_lote'";
+                    $instruccion = "UPDATE lote SET estado='En camión (plataforma)' WHERE id_lote = '$id_lote'";
                     mysqli_query($this->db, $instruccion);
                     $instruccion = "SELECT * FROM forma WHERE id_lote = $id_lote";
                     $resultado = mysqli_query($this->db, $instruccion);
@@ -111,7 +117,7 @@ class loteModelo
                     }
                     foreach ($paquetes as $paquete){
                         $id_paquete = $paquete["id_paquete"];
-                        $instruccion = "UPDATE paquete SET estado ='En almacén central (camión)' WHERE id_paquete = $id_paquete";
+                        $instruccion = "UPDATE paquete SET estado ='En camión (plataforma)',  fecha_recibido = NULL WHERE id_paquete = $id_paquete";
                         mysqli_query($this->db, $instruccion);
                     }
                     $resultado = [
@@ -137,6 +143,9 @@ class loteModelo
             'respuesta' => "No existe el paquete con la ID " . $id_lote
         ];
         if (count($validar) > 0) {
+            $instruccion = "DELETE FROM almacena1 WHERE id_lote='$id_lote'";
+            mysqli_query($this->db, $instruccion);
+
             $instruccion = "DELETE FROM lote WHERE id_lote='$id_lote'";
             mysqli_query($this->db, $instruccion);
             $resultado = [

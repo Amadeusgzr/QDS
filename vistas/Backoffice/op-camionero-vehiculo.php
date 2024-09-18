@@ -28,7 +28,7 @@ require '../plantillas/menu-cuenta.php';
             </tr>
             <?php
             include("../../modelos/db.php");
-            $instruccion = "select * from maneja inner join vehiculo on maneja.id_vehiculo = vehiculo.id_vehiculo inner join camionero on camionero.id_camionero = camionero.id_camionero";
+            $instruccion = "select * from maneja inner join vehiculo on maneja.id_vehiculo = vehiculo.id_vehiculo inner join camionero on camionero.id_camionero = maneja.id_camionero";
             $manejas = [];
             $result = mysqli_query($conexion, $instruccion);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -58,12 +58,7 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-uno">
-        <button class="estilo-boton boton-largo btn-limpiar">Limpiar</button>
-    </div>
-    <div class="div-btn-doble">
-        <a href="alta-camionero-vehiculo.php" id="a-agregar"><button class="estilo-boton boton-agregar"
-                id="op-alta">Agregar</button></a>
-        <button class="boton-siguiente estilo-boton boton-eliminar" id="submit-as-lote-2">Eliminar</button>
+        <a style="width:100%;" href="alta-camionero-vehiculo.php" id="a-agregar"><button style="width:100%;" class="estilo-boton boton-agregar"></button></a>
     </div>
 </div>
 <div class="div-error">
@@ -76,7 +71,6 @@ require '../plantillas/menu-cuenta.php';
     ?>
 </div>
 
-<script src="../js/seleccionar-filas-camionero.js"></script>
 <script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ocultar-get-alta.js"></script>
 

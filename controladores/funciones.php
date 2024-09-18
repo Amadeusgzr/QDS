@@ -78,7 +78,7 @@ function numeros($atributo)
 function letras($atributo)
 {
 
-    if (preg_match('/^[A-Za-z\sáéíóúüÁÉÍÓÚÜ]+$/', $atributo)) {
+    if (preg_match('/^[A-Za-z\sáéíóúüÁÉÍÓÚÜñÑ]+$/', $atributo)) {
         $respuesta = [
             'error' => "Éxito",
             'respuesta' => "Palabra válida"

@@ -58,17 +58,14 @@ require '../plantillas/menu-cuenta.php';
         </table>
     </div>
     <div class="div-btn-uno">
-        <button class="estilo-boton boton-largo btn-limpiar">Limpiar</button>
-    </div>
-    <div class="div-btn-doble">
-        <a href="alta-paquete.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
-        <button class="boton-siguiente estilo-boton boton-eliminar" id="submit-as-lote-2">Eliminar</button>
+        <a style="width: 100%;" href="alta-paquete.php" id="a-agregar"><button style="width: 100%;" class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
     </div>
 </div>
 
 <script src="../js/mostrar-respuesta.js"></script>
 <script src="../js/ocultar-get-alta.js"></script>
 <script src="../js/asignar-paquetes-lote-2.js"></script>
+<script src="seleccionar-filas.js"></script>
 <script>
     document.addEventListener("keydown", function(event) {
         if (event.key === "b" || event.key === "B") {

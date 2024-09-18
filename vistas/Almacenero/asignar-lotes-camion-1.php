@@ -26,7 +26,9 @@ require '../plantillas/menu-cuenta.php';
                 $estado = $camion["estado"];
                 $matricula = $camion["matricula"];
 
-                echo "<option value='$id_camion'>$matricula - $estado</option>";
+                if ($estado != "En transcurso"){
+                    echo "<option value='$id_camion'>$matricula - $estado</option>";
+                }
             }
 
             ?>

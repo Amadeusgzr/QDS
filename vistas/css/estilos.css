@@ -525,7 +525,6 @@ legend{
 #form-login{
     width: 95%;
     max-width: 400px;
-    min-height: 500px;
     background-color: #86858536;
     border: 1px solid #4040404d;
     backdrop-filter: blur(5px);
@@ -536,6 +535,17 @@ legend{
     justify-content: space-around;
     box-shadow: 0 0 5px;
     flex-wrap: wrap;
+}
+
+.btn-borrados{
+    padding: 2px;
+    position: absolute;
+    right: 3%;
+    top: 5%;
+}
+
+.btn-borrados img{
+    width: 20px;
 }
 
 #h1-login{

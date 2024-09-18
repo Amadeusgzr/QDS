@@ -36,7 +36,13 @@ foreach ($filas->fetch_all(MYSQLI_ASSOC) as $fila) {
         <input type="text" placeholder="Usuario" class="txt-crud" name="nom_usu" value="<?= $nom_usu ?>" required readonly>
         
         <p><b class='p-tipo-usuario'>Tipo de usuario: </b></p>
-        <input type="text" placeholder="Tipo de Usuario" class="txt-crud" name="tipo_usu" value="<?= $tipo_usu ?>" required>
+        <select name="tipo_usu" class="txt-crud">
+            <option type="text" value="" class="txt-crud" name="tipo_usu[]" required>Tipos de usuario</option>
+            <option type="text" value="camionero" class="txt-crud" name="tipo_usu[]" required>Camionero</option>
+            <option type="text" value="almacenero" class="txt-crud" name="tipo_usu[]" required>Almacenero</option>
+            <option type="text" value="empresa" class="txt-crud" name="tipo_usu[]" required>Empresa</option>
+            <option type="text" value="admin" class="txt-crud" name="tipo_usu[]" required>Administrador</option>
+        </select>
         
         <p><b class='p-mail'>Mail: </b></p>
         <input type="text" placeholder="Mail" class="txt-crud" name="mail" value="<?= $mail ?>" required>

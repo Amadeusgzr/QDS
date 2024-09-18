@@ -28,34 +28,24 @@ if ($_GET){
     $detalles = $paquete["detalles"];
 ?>
 <div class="form-crud">
-    <legend>Datos del paquete</legend>
-    <p><b>Mail del destinatario: </b>
-        <?= $mail_destinatario ?>
-    </p>
-    <p><b>Dirección: </b>
-        <?= $direccion ?>
-    </p>
-    <p><b>Peso: </b>
-        <?= $peso ?> Kg
-    </p>
-    <p><b>Volumen: </b>
-        <?= $volumen ?> Cm3
-    </p>
-    <p><b>Fragil: </b>
-        <?= $fragil ?>
-    </p>
+    <legend class="legend-seguimiento">Datos del paquete</legend>
+    <p><b class="p-mail-d">Mail del destinatario: </b><?= $mail_destinatario ?></p>
+    <p><b class="p-direccion">Dirección: </b><?= $direccion ?></p>
+    <p><b class="p-peso">Peso: </b><?= $peso ?> Kg</p>
+    <p><b class="p-volumen">Volumen: </b><?= $volumen ?> Cm3</p>
+    <p><b class="p-fragil">Fragil: </b><?= $fragil ?></p>
     <?php
     if ($fragil == "Si") {
-        echo "<p><b>Tipo: </b>$tipo</p>";
+        echo "<p><b class='p-tipo'>Tipo: </b>$tipo</p>";
     }
     ?>
-    <p><b>Estado: </b>
+    <p><b class='p-estado'>Estado: </b>
         <?= $estado ?>
     </p>
     <?php
     if (!isset($detalles) || is_null($detalles) || empty(trim($detalles))) {
     } else {
-        echo "<p><b>Detalles: </b>$detalles</p>";
+        echo "<p><b class='p-detalles'>Detalles: </b>$detalles</p>";
     }
 }
 if (!isset($id_paquete) || empty(trim($id_paquete)) || is_null($id_paquete)){
@@ -70,10 +60,6 @@ if (!isset($id_paquete) || empty(trim($id_paquete)) || is_null($id_paquete)){
     header ("Location: error.php");
 }
     ?>
-
-
-
-<script src="../js/aplicacion-camionero.js"></script>
 
 </body>
 

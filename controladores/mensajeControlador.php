@@ -13,7 +13,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $_POST = json_decode(file_get_contents('php://input', true));
 
         if (filter_var($_POST->mail_remitente, FILTER_VALIDATE_EMAIL)) {
-            if (preg_match('/^[a-zA-Z\s]+$/', $_POST->nombre_remitente)) {
+            if (preg_match('/^[A-Za-z\sáéíóúüÁÉÍÓÚÜñÑ]+$/', $_POST->nombre_remitente)) {
                 $respuesta = $mensajeModelo->guardarMensaje($_POST->nombre_remitente, $_POST->mail_remitente, $_POST->mensaje, $_POST->fecha_mensaje);
             } else {
                 $respuesta = [

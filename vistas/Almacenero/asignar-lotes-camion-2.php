@@ -49,11 +49,6 @@ require '../plantillas/menu-cuenta.php';
 
         </table>
     </div>
-    <div class="div-btn-doble">
-        <button class="btn-limpiar estilo-boton btn-limpiar">Limpiar</button>
-        <a href="hola.php?id_lote=<?= $id_lote ?>"><button class="boton-agregar estilo-boton btns-as-lote">Agregar Selección</button></a>
-    </div>
-
     
 </div>
 
@@ -85,10 +80,6 @@ require '../plantillas/menu-cuenta.php';
                 }
                 ?>
         </table>
-    </div>
-    <div class="div-btn-doble">
-        <button class="btn-limpiar estilo-boton btn-limpiar btn-limpiar2">Limpiar</button>
-        <a href="hola.php?id_lote=<?= $id_lote ?>"><button class="boton-volver estilo-boton boton-eliminar">Eliminar Selección</button></a>
     </div>
 </div>
 

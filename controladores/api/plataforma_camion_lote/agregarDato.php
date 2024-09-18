@@ -15,7 +15,7 @@ $array = [
 
 $datos = json_encode($array);
 
-curl_setopt($ch, CURLOPT_URL, 'localhost/QDS/controladores/plataformaCamionLoteControlador.php');
+curl_setopt($ch, CURLOPT_URL, 'localhost/datavision/controladores/plataformaCamionLoteControlador.php');
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

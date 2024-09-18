@@ -53,7 +53,8 @@ function actualizarTextos(data) {
   document.querySelector("#msg-mail").placeholder = data.msg_mail;
   document.querySelector("#txt-mensaje-footer").placeholder = data.msg;
   document.querySelector("#msg-submit").value = data.msg_submit;
-}
+    
+  }
 
 window.addEventListener("DOMContentLoaded", () => {
   if (!idiomaSeleccionado) {

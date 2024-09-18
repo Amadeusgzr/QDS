@@ -11,4 +11,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         echo json_encode($respuesta);
         break;
+    case 'PUT':
+        $_PUT = json_decode(file_get_contents('php://input', true));
+        if (isset($_PUT->id_camion)) {
+            $respuesta = $camionModelo->modificarEstado($_PUT->id_camion);
+        }
+        echo json_encode($respuesta);
+        break;
 }

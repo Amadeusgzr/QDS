@@ -42,15 +42,13 @@ require '../plantillas/menu-cuenta.php';
             foreach ($decode as $lote) {
                 $id_camion = $lote["id_camion"];
                 $id_lote= $lote["id_lote"];
-                if ($lote['estado'] == "En almacén central (camión)"){
+                if ($lote['estado'] == "En camión (plataforma)"){
                 echo '<tr class="fila-ingreso-lote fila-opcion">';
                 echo '<td>' . $lote["id_lote"] . '</td>';
                 echo '<td>' . $lote["cant_paquetes"] . ' paquete(s)</td>';
                 echo '<td>' . $lote['estado'] . '</td>';
                 echo "<td>
-                <a href='../../controladores/api/loteCamionero/modificarDato.php?id_lote=$id_lote&id_camion=$id_camion'><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a>
-                <a href='#'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
-                
+                <a href='../../controladores/api/loteCamionero/modificarDato.php?id_lote=$id_lote&id_camion=$id_camion'><button class='btn-op btn-op1'><img src='../img/iconos/suma.png' width='20px'></button></a>";                
                 }
             }
 
@@ -79,7 +77,7 @@ require '../plantillas/menu-cuenta.php';
         <table id="tabla-lote">
             <tr class="fila-ingreso-lote">
                 <th class="th1-entregar-lotes-2">ID</th>
-                <th class="th2-entregar-lotes-2">Destino</th>
+                <th class="th2-entregar-lotes">Cantidad de paquetes</th>
                 <th class="th3-entregar-lotes-2">Estado</th>
                 <th>OP</th>
             </tr>

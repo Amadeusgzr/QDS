@@ -60,17 +60,12 @@ foreach ($decode as $solicitud) {
                                     echo '<td>' . $paquete["paquete_direccion"] . '</td>';
                                     echo '<td>' . $paquete['paquete_estado'] . '</td>';
                                     echo "<td>
-                <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'><button class='btn-op btn-op1'><img src='../img/iconos/tick.png' width='20px'></button></a>
-                <a href='#'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>";
+                <a href='../../controladores/api/paqueteCamionero/modificarDato.php?id_paquete=$id_paquete&id_camioneta=$id_camioneta&fri=$fecha_recogida_ideal&id_almacen_cliente=$id_almacen_cliente'><button class='btn-op btn-op1'><img src='../img/iconos/tick.png' width='20px'></button></a>";
                                 }
                             }
 
                             ?>
                             </table>
-                        </div>
-                        <div class="div-btn-doble">
-                            <button class="btn-limpiar estilo-boton btns-as-lote">Limpiar</button>
-                            <button class="boton-agregar estilo-boton">Agregar Selección</button>
                         </div>
                     </div>
 
@@ -110,10 +105,6 @@ foreach ($decode as $solicitud) {
                             }
                             ?>
                             </table>
-                        </div>
-                        <div class="div-btn-doble">
-                            <button class="btn-limpiar btn-limpiar2 estilo-boton">Limpiar</button>
-                            <button class="boton-volver estilo-boton boton-eliminar">Remover Selección</button>
                         </div>
                     </div>
 

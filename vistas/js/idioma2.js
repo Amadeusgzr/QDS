@@ -68,6 +68,24 @@ function actualizarTextos(data) {
     document.querySelector("#op9 p").textContent = data.op9_p;
 
   }
+  else if(url.includes("aplicacion-seguimiento")){
+
+    document.querySelector(".legend-seguimiento").textContent = data.legend_seguimiento;
+    document.querySelector(".p-mail-d").textContent = data.p_mail_d;
+    document.querySelector(".p-direccion").textContent = data.p_direccion;
+  
+    document.querySelector(".p-peso").textContent = data.p_peso;
+    document.querySelector(".p-volumen").textContent = data.p_volumen;
+    document.querySelector(".p-fragil").textContent = data.p_fragil;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+    if(document.querySelector(".p-tipo")){
+      document.querySelector(".p-tipo").textContent = data.p_tipo;
+    }
+    if(document.querySelector(".p-detalles")){
+      document.querySelector(".p-detalles").textContent = data.p_detalles;
+    }
+    
+  }
   else if(url.includes("Backoffice") && url.includes("op-usuarios")){
 
     document.querySelector(".h1-tabla").textContent = data.h1_tabla_usuarios;
@@ -79,6 +97,15 @@ function actualizarTextos(data) {
     document.querySelector(".boton-volver").textContent = data.btn_volver;
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
     document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("op-camioneros-baja")){
+
+    document.querySelector(".h1-tabla").textContent = data.h1_tabla_camioneros_baja;
+    document.querySelector(".th1").textContent = data.th1_camioneros;
+    document.querySelector(".th2").textContent = data.th2_camioneros;
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
 
   }
   else if(url.includes("Backoffice") && url.includes("op-camioneros")){
@@ -180,6 +207,15 @@ function actualizarTextos(data) {
     document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
+
+  }
+  else if(url.includes("Backoffice") && url.includes("op-camiones-baja")){
+
+    document.querySelector(".h1-tabla").textContent = data.h1_tabla_camiones_baja;
+    document.querySelector("#th1-camion").textContent = data.th1_camiones;
+    document.querySelector("#th2-camion").textContent = data.th2_camiones;
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
 
   }
   else if(url.includes("Backoffice") && url.includes("op-camiones")){
@@ -338,6 +374,28 @@ function actualizarTextos(data) {
 
     document.querySelector(".boton-volver").value = data.btn_volver;
   }
+  else if(url.includes("Backoffice") && url.includes("consultar-dato") && location.search.includes("camion2")){
+
+    document.querySelector(".legend-c-camion").textContent = data.legend_c_camion;
+    document.querySelector(".subtitulo-crud").textContent = data.subtitulo_camion;
+    document.querySelector(".p-id").textContent = data.p_id;
+    document.querySelector(".p-matricula").textContent = data.p_matricula;
+    document.querySelector(".p-peso-sop").textContent = data.p_peso_sop;
+    document.querySelector(".p-volumen-disp").textContent = data.p_volumen_disp;
+    document.querySelector(".p-estado").textContent = data.p_estado;
+
+    document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("op-camionetas-baja")){
+
+    document.querySelector(".h1-tabla").textContent = data.h1_camionetas_baja;
+    document.querySelector("#th1-camionetas").textContent = data.th1_camionetas;
+    document.querySelector("#th2-camionetas").textContent = data.th2_camionetas;
+    document.querySelector("#th3-camionetas").textContent = data.th3_camionetas;
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+  }
   else if(url.includes("Backoffice") && url.includes("op-camionetas")){
 
     document.querySelector(".h1-tabla").textContent = data.h1_camionetas;
@@ -399,6 +457,14 @@ function actualizarTextos(data) {
 
     document.querySelector(".boton-volver").textContent = data.btn_volver;
   }
+  else if(url.includes("Backoffice") && url.includes("op-almacen-central-baja")){
+
+    document.querySelector(".h1-tabla").textContent = data.h2_almacen_central_baja;
+    document.querySelector("#th1-almacen-central").textContent = data.th1_almacen_central;
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+  }
   else if(url.includes("Backoffice") && url.includes("op-almacen-central")){
 
     document.querySelector(".h1-tabla").textContent = data.h2_almacen_central;
@@ -453,6 +519,14 @@ function actualizarTextos(data) {
 
     document.querySelector(".boton-volver").value = data.btn_volver;
   }
+  else if(url.includes("Backoffice") && url.includes("op-almacen-cliente-baja")){
+
+    document.querySelector(".h1-tabla").textContent = data.h2_almacen_cliente_baja;
+    document.querySelector("#th1-almacen-cliente").textContent = data.th1_almacen_cliente;
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+  }
   else if(url.includes("Backoffice") && url.includes("op-almacen-cliente")){
 
     document.querySelector(".h1-tabla").textContent = data.h2_almacen_cliente;
@@ -497,6 +571,14 @@ function actualizarTextos(data) {
     document.querySelector(".p-direccion").textContent = data.p_direccion;
 
     document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("op-plataforma-baja")){
+
+    document.querySelector(".h1-tabla").textContent = data.h2_plataformas_baja;
+    document.querySelector("#th1-plataformas").textContent = data.th1_plataformas;
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
   }
   else if(url.includes("Backoffice") && url.includes("op-plataforma")){
 
@@ -549,6 +631,16 @@ function actualizarTextos(data) {
     document.querySelector(".p-trayecto").textContent = data.p_trayecto;
 
     document.querySelector(".boton-volver").value = data.btn_volver;
+  }
+  else if(url.includes("Backoffice") && url.includes("op-empresas-cliente-baja")){
+
+    document.querySelector(".h1-tabla").textContent = data.h2_empresas_cliente_baja;
+    document.querySelector(".th1-empresa-cliente").textContent = data.th1_empresa_cliente;
+    document.querySelector(".th2-empresa-cliente").textContent = data.th2_empresa_cliente;
+    document.querySelector(".th3-empresa-cliente").textContent = data.th3_empresa_cliente;
+
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
   }
   else if(url.includes("Backoffice") && url.includes("op-empresas-cliente")){
 
@@ -635,9 +727,7 @@ function actualizarTextos(data) {
     document.querySelector(".th2-gestion-paquetes").textContent = data.th2_gestion_paquetes;
 
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
-    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
-    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
   }
   else if(url.includes("Backoffice") && url.includes("alta-horario-recogida")){
 
@@ -713,11 +803,8 @@ function actualizarTextos(data) {
     document.querySelector(".th1-gestion-lote-entrega").textContent = data.th1_gestion_lote_entrega;
     document.querySelector(".th2-gestion-lote-entrega").textContent = data.th2_gestion_lote_entrega;
 
-    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
-    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
-
   }
   else if(url.includes("Backoffice") && url.includes("alta-horario-entrega")){
 
@@ -770,10 +857,8 @@ function actualizarTextos(data) {
     document.querySelector(".th3-camionero-vehiculo").textContent = data.th3_camionero_vehiculo;
     document.querySelector(".th4-camionero-vehiculo").textContent = data.th4_camionero_vehiculo;
 
-    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
-    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
 
   }
   else if(url.includes("Backoffice") && url.includes("baja-dato") && location.search.includes("id_maneja")){
@@ -1134,6 +1219,13 @@ function actualizarTextos(data) {
     document.querySelector(".boton-eliminar").textContent = data.btn_eliminar_seleccion;
 
   }
+  else if(url.includes("Camionero") && url.includes("entregar-lotes-3")){
+
+    document.querySelector(".h1-tabla2").textContent = data.h1_tabla_entregar_lotes_3;
+    document.querySelector(".adv").textContent = data.adv_entrega_lotes_3;
+    document.querySelector(".boton-volver").textContent = data.btn_volver;
+
+  }
   if(url.includes("Empresa") && url.includes("index")){
     
     document.querySelector("#op1 h2").textContent = data.op1_h2_empresa;
@@ -1153,9 +1245,7 @@ function actualizarTextos(data) {
     document.querySelector(".th2-paq-cliente").textContent = data.th2_paq_cliente;
     document.querySelector(".th3-paq-cliente").textContent = data.th3_paq_cliente;
 
-    document.querySelector(".btn-limpiar").textContent = data.btn_limpiar;
     document.querySelector(".boton-agregar").textContent = data.btn_agregar;
-    document.querySelector(".boton-eliminar").textContent = data.btn_eliminar;
     document.querySelector(".boton-volver").textContent = data.btn_volver;
 
   }

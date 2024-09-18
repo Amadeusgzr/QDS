@@ -40,20 +40,37 @@ require '../plantillas/menu-cuenta.php';
             require("../../controladores/api/lote/obtenerDato.php");
             foreach ($decode as $lote) {
                 $id_lote = $lote["id_lote"];
-                echo '<tr>';
-                echo '<td>' . $lote["id_lote"] . '</td>';
-                if (!isset($lote["cant_paquetes"]) || is_null($lote["cant_paquetes"]) || empty(trim($lote["cant_paquetes"]))) {
-                    echo '<td>Paquetes no asignados</td>';
+                if ($lote["estado"] == "En almacén central"){
+                    echo '<tr>';
+                    echo '<td>' . $lote["id_lote"] . '</td>';
+                    if (!isset($lote["cant_paquetes"]) || is_null($lote["cant_paquetes"]) || empty(trim($lote["cant_paquetes"]))) {
+                        echo '<td>Paquetes no asignados</td>';
+                    } else {
+                        echo '<td>' . $lote["cant_paquetes"] . '</td>';
+                    }
+                    echo '<td>' . $lote['peso'] . " kg" . '</td>';
+                    echo "<td>
+                    <a href='baja-lote.php?id_lote=$id_lote'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
+                    <a href='modificar-lote.php?id_lote=$id_lote'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
+                    <a href='consultar-lote.php?id_lote=$id_lote'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
+                    </td>";
+                    echo '</tr>';
                 } else {
-                    echo '<td>' . $lote["cant_paquetes"] . '</td>';
+                    echo '<tr>';
+                    echo '<td>' . $lote["id_lote"] . '</td>';
+                    if (!isset($lote["cant_paquetes"]) || is_null($lote["cant_paquetes"]) || empty(trim($lote["cant_paquetes"]))) {
+                        echo '<td>Paquetes no asignados</td>';
+                    } else {
+                        echo '<td>' . $lote["cant_paquetes"] . '</td>';
+                    }
+                    echo '<td>' . $lote['peso'] . " kg" . '</td>';
+                    echo "<td>
+                    <a href='consultar-lote.php?id_lote=$id_lote'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
+                    </td>";
+                    echo '</tr>';
                 }
-                echo '<td>' . $lote['peso'] . " kg" . '</td>';
-                echo "<td>
-                <a href='baja-lote.php?id_lote=$id_lote'><button class='btn-op btn-op1'><img src='../img/iconos/eliminar.png' width='20px'></button></a>
-                <a href='modificar-lote.php?id_lote=$id_lote'><button class='btn-op btn-op2'><img src='../img/iconos/modificar.png' width='20px'></button></a>
-                <a href='consultar-lote.php?id_lote=$id_lote'><button class='btn-op btn-op3'><img src='../img/iconos/consultar.png' width='20px'></button></a>
-                </td>";
-                echo '</tr>';
+                
+
             }
             ?>
         </table>
@@ -63,11 +80,13 @@ require '../plantillas/menu-cuenta.php';
     </div>
     <div class="div-btn-doble">
         <a href="alta-lote.php" id="a-agregar"><button class="estilo-boton boton-agregar" id="op-alta">Agregar</button></a>
-        <button class="boton-siguiente estilo-boton boton-eliminar" id="submit-as-lote-2">Eliminar</button>
+            <button class="boton-siguiente estilo-boton boton-eliminar" id="submit-as-lote-2">Eliminar</button>
     </div>
 </div>
 <script src="../js/mostrar-respuesta.js"></script>
-<script src="../js/seleccionar-filas.js"></script>
+<script src="../js/seleccionar-filas-lotes.js"></script>
+<script src="../js/ocultar-get-alta.js"></script>
+
 
 </body>
 
